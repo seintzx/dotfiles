@@ -1,0 +1,59 @@
+"------------------------------------------------------------------------------
+" General Options
+
+" Colorscheme
+colorscheme fxdevtools-dark
+
+" Tabnumbers
+set tabnumbers
+
+" Hint chars priority
+set hintchars=hjklasdfgyuiopqwertnmzxcvb
+
+" Completition priority
+set complete=bSl
+
+" Max number of listing items
+set maxitems=10
+
+" Dont focus new opened tabs
+"set activate=
+
+" All type of pages are opened in new tab
+set newtab=all
+
+" Dont focus any input elements automatically
+"set nofocuscontent
+
+" Set gui items on top bar
+set gui=nonavigation
+"none,tabs,addons,bookmarks
+
+
+"------------------------------------------------------------------------------
+" Search Options
+
+" Find as you type
+set incsearch
+
+" Highlight searh
+set hlsearch
+
+" Search is case-insensitive, unless contains upper-case letter
+set ignorecase
+set smartcase
+
+" Default search engine: google
+set defsearch=google
+
+" Default suggest engine: google
+set suggestengines=google
+
+
+"------------------------------------------------------------------------------
+" Mapping Options 
+
+map <silent> l gt
+map <silent> h gT
+map <silent> s :tabopen google<space>
+map <A-r> :restart<CR>
