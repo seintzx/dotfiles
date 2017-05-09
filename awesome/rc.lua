@@ -21,12 +21,7 @@
     -- Widget Library
     -- Wifi Status Icon
     local net_widgets = require("net_widgets")
-    -- Battery Status Icon
-    require("battery")
-    -- Brightness Status Icon
-    require("brightness")
-    -- Volume Status Icon
-    require("volume")
+
 -- END REQUIRED LIBRARY
 
 --==========================================================================================================
