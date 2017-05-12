@@ -1,0 +1,6 @@
+PS1='\[\e[1;32m\]\u@\[\e[0m\] \W: \$ '
+export VISUAL="vim"
+alias las='ls -las --color=auto'
+alias diocane='setxkbmap gb ; xset -b ; xset s off -dpms ; xset s noblank'
+alias lump='xbacklight -inc 10'
+alias lumm='xbacklight -dec 10'
