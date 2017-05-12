@@ -1,0 +1,45 @@
+URxvt.imLocale          : en_GB.UTF-8
+URxvt.scrollBar         : false
+URxvt.cursorBlink       : false
+URvxt.borderLess        : true
+URxvt.foreground        : #ffffff
+URxvt.background        : #000000
+URxvt.borderColor       : #000000
+URxvt.internalBorder    : 0
+URxvt.externalBorder    : 0
+
+! Font
+Xft.dpi                 : 96
+Xft.antialias           : true
+Xft.rgba                : rgb
+Xft.hinting             : true
+Xft.hintstyle           : hintslight
+URxvt.font              : xft:AnonymicePowerline Nerd Font:pixelsize=13
+URxvt.letterSpace       : -1
+
+
+URxvt*iso14755       : false
+URxvt*modifier       : alt
+URxvt*perl-lib       : /home/seintz/.urxvt/ext
+URxvt*scrollstyle    : plain
+URxvt*termName       : rxvt-unicode
+URxvt.matcher.button : 1
+URxvt.underlineURLs  : True
+URxvt.urlLauncher    : /usr/bin/firefox
+URxvt.copyCommand    : xsel -ib
+
+! urxvt extensions
+URxvt.keysym.M-C-v         : perl:clipboard:paste_escaped
+URxvt.keysym.M-Escape      : perl:keyboard-select:activate
+URxvt.keysym.M-c           : perl:clipboard:copy
+URxvt.keysym.M-t           : perl:word-select:select_next
+URxvt.keysym.M-u           : perl:url-select:select_next
+URxvt.keysym.M-v           : perl:clipboard:paste
+URxvt.pasteCommand         : xsel -ob
+URxvt.perl-ext-common      : default,clipboard,matcher,keyboard-select,url-select,word-translator,font-size
+URxvt.url-select.autocopy  : false
+URxvt.url-select.button    : 1
+URxvt.url-select.launcher  : /usr/bin/firefox
+URxvt.url-select.underline : true
+URxvt.word-select.button   : 1
+URxvt.word-select.launcher : /usr/bin/firefox
