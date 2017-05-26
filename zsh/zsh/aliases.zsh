@@ -24,8 +24,7 @@ alias vpnces='cd ~/vpncesena ; sudo openvpn seintz-TO-IPFire.ovpn'
 
 # git aliases
 alias gitpush='git push -u origin master'
-alias gitadal='git add --all'
-alias gitcome='git commit --allow-empty -m'
+alias gitadd='git add'
 alias gitcomm='git commit -m'
 
 
