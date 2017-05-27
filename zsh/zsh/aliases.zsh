@@ -27,7 +27,8 @@ alias gitpush='git push -u origin master'
 alias gitadd='git add'
 alias gitcomm='git commit -m'
 
-
+# others aliases
+alias vbox='sudo VirtualBox'
 
 
 
