@@ -15,6 +15,7 @@ set mousehide                       " Hide mouse while typing
 set wildmenu                        " Better command completition with tab
 set noshowmode                      " Hide default mode text
 set ttimeoutlen=50                  " Timeout for lag
+set clipboard=unnamedplus           " Copy to clipboard instead o buffer 
 
 " Indentation and spaces
 set autoindent                      " Auto-indent
@@ -36,7 +37,13 @@ set hlsearch                        " highlight matches
 filetype plugin on 
 let g:instant_markdown_slow = 1
 let g:vim_markdown_folding_disabled = 1
-let g:instant_markdown_autostart = 0
+let g:instant_markdown_autostart = 1
+
+" TabLine
+:hi TabLineFill ctermfg=Black       ctermbg=Grey
+:hi TabLineSel  ctermfg=DarkGreen   ctermbg=Black
+:hi TabLine     ctermfg=Blue        ctermbg=Black
+:hi Title       ctermfg=Red         ctermbg=Yellow
 
 " Vim Airline 
 set laststatus=2                                        " Enable powerline with one tab
@@ -62,12 +69,13 @@ nmap <F8> :TagbarToggle<CR>
 
 " Vim-Plug, Plugin
 call plug#begin('~/.vim/bundle')
+"Plug 'valloric/youcompleteme'           " Completition engine for most language
 Plug 'vim-airline/vim-airline'          " Airline
 Plug 'vim-airline/vim-airline-themes'   " Airline themes
 Plug 'raimondi/delimitmate'             " Autocomplete parenthesis
 Plug 'tpope/vim-markdown'               " Markdown support
 Plug 'suan/vim-instant-markdown'        " Browser preview of the markdown file (not working now)
 Plug 'tpope/vim-commentary'             " Easily comment toggling
-"Plug 'valloric/youcompleteme'           " Completition engine for most language
 Plug 'majutsushi/tagbar'                " Show tab options
+Plug 'tpope/vim-fugitive'               " git wrapper
 call plug#end()
