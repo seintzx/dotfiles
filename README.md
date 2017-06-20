@@ -1,7 +1,9 @@
 # Configuration files
 
 ### awesome
-Configuration files and themes files
+Configuration files, themes, icons and lain
+Path: ~/.config/awesome
+Icons in /usr/share/awesome/icons
 
 ### bash
 Configuration files
@@ -10,16 +12,18 @@ Configuration files
 Configuration file and xprofile files
 
 ### scripts
-Some useful python scripts, plus some script that some some wargames (natas, cryptopals)
+Some useful python scripts, plus some script for wargames (natas, cryptopals)
 
 ### urxvt
 Configuration file and perl extension
 
 ### vim
-Configuration file
+Configuration file and vim plug installer
+Path: ~/.vim/autoload/plug.vim
 
 ### vimperator
 Configuration file and theme files
+Theme path: ~/.vimperator/colors/theme
 
 ### zsh
 Configuration file splitted in multiple file
