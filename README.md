@@ -16,6 +16,7 @@ Some useful python scripts, plus some script for wargames (natas, cryptopals)
 
 ### urxvt
 Configuration file and perl extension
+Path: ~/.urxvt/ext
 
 ### vim
 Configuration file and vim plug installer
