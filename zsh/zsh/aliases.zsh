@@ -23,12 +23,13 @@ alias aesdec='openssl aes-256-cbc -d -a'
 alias vpnces='cd ~/vpncesena ; sudo openvpn seintz-TO-IPFire.ovpn'
 
 # git aliases
-alias gitpush='git push -u origin master'
-alias gitadd='git add'
-alias gitcomm='git commit -m'
+alias gpush='git push -u origin master'
+alias gadd='git add'
+alias gcom='git commit -m'
 
 # others aliases
 alias vbox='sudo VirtualBox'
+
 
 
 
