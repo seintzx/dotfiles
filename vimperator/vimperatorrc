@@ -14,7 +14,7 @@ set hintchars=hjklasdfgyuiopqwertnmzxcvb
 set complete=bSl
 
 " Max number of listing items
-set maxitems=10
+set maxitems=8
 
 " Dont focus new opened tabs
 "set activate=
@@ -57,3 +57,5 @@ map <silent> l gt
 map <silent> h gT
 map <silent> s :tabopen google<space>
 map <A-r> :restart<CR>
+map <A-n> :set gui=navigation<CR>
+map <A-m> :set gui=nonavigation<CR>
