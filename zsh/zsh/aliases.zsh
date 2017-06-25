@@ -12,7 +12,9 @@ alias susp='systemctl suspend'
 alias sshot='import -window root'
 
 # Yaourt aliases
-alias sysup='yaourt -Syu'
+alias yasup='yaourt -Syu'
+alias yains='yaourt -S '
+alias yarem='yaourt -Rsn '
 
 # Compiler aliases
 alias ccomp='gcc -Wall -o'
