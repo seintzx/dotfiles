@@ -121,9 +121,6 @@ theme.widget_mail                   = "/usr/share/awesome/icons/iconjak/mail.png
 theme.widget_mail_on                = "/usr/share/awesome/icons/iconjak/mail_on.png"
 
 
-
-
-
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil

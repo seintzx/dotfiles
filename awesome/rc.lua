@@ -122,6 +122,7 @@
 
     -- Create a textclock widget
     mytextclock = wibox.widget.textclock()
+    local calendar = lain.widget.calendar({attach_to = mytextclock})
 
     -- Separator
     separators = lain.util.separators
@@ -235,6 +236,13 @@
 
         -- Each screen has its own tag table.
         awful.tag({ "1", "2", "3", "4", "5", "6", "7", "♪", "9" }, s, awful.layout.layouts[1])
+        -- 1: Firefox
+        -- 234: shell
+        -- 5: Nautilus 
+        -- 6: Text + LIbreOffice
+        -- 7: VLC + GIMP
+        -- 8: Spotify + Chat
+        -- 9: Vbox + Vuze
 
         -- Create a promptbox for each screen
         s.mypromptbox = awful.widget.prompt()
@@ -320,14 +328,16 @@
         awful.key({ modkey, "Control" }, "n",     function ()   local c = awful.client.restore()    if c then   client.focus = c    c:raise()   end end,    {description = "restore minimized", group = "client"}),
 
         -- Personal keybinds
-        awful.key({ modkey }, "p",   function()  menubar.show() end,   {description = "show the menubar", group = "launcher"}),                      -- Menubar
-        awful.key({ modkey }, "r",   function () awful.screen.focused().mypromptbox:run() end, {description = "run prompt", group = "launcher"}),    -- Prompt
-        awful.key({ fnkey, }, "l",   function()  awful.util.spawn("sync")    awful.util.spawn("i3lock -c 200020 -n -e")  end),                       -- Lockscreen
-        awful.key({ fnkey, }, "F2",  function()  awful.util.spawn("sync")    awful.util.spawn("xbacklight -dec 10")  end),                           -- Brightness down
-        awful.key({ fnkey, }, "F3",  function()  awful.util.spawn("sync")    awful.util.spawn("xbacklight -inc 10")  end),                           -- Brightness up
-        awful.key({ fnkey, }, "F9",  function()  awful.util.spawn("sync")    awful.util.spawn("amixer -D pulse sset Master 5%-") end),               -- Volume Down
-        awful.key({ fnkey, }, "F10", function()  awful.util.spawn("sync")    awful.util.spawn("amixer -D pulse sset Master 5%+") end),               -- Volume Up
-        awful.key({ fnkey, }, "F11", function()  awful.util.spawn("sync")    awful.util.spawn("amixer -D pulse sset Master toggle") end)             -- Volume Toggle
+        awful.key({ modkey  }, "p",     function()  menubar.show() end,   {description = "show the menubar", group = "launcher"}                    ),  -- Menubar
+        awful.key({ modkey  }, "r",     function()  awful.screen.focused().mypromptbox:run() end, {description = "run prompt", group = "launcher"}  ),  -- Prompt
+        awful.key({ fnkey,  }, "l",     function()  awful.util.spawn("sync")    awful.util.spawn("i3lock -c 200020 -n -e")                          end),  -- Lockscreen
+        awful.key({ fnkey,  }, "F2",    function()  awful.util.spawn("sync")    awful.util.spawn("xbacklight -dec 10")                              end),  -- Brightness down
+        awful.key({ fnkey,  }, "F3",    function()  awful.util.spawn("sync")    awful.util.spawn("xbacklight -inc 10")                              end),  -- Brightness up
+        awful.key({ fnkey,  }, "F9",    function()  awful.util.spawn("sync")    awful.util.spawn("amixer -D pulse sset Master 5%-")                 end),  -- Volume Down
+        awful.key({ fnkey,  }, "F10",   function()  awful.util.spawn("sync")    awful.util.spawn("amixer -D pulse sset Master 5%+")                 end),  -- Volume Up
+        awful.key({ fnkey,  }, "F11",   function()  awful.util.spawn("sync")    awful.util.spawn("amixer -D pulse sset Master toggle")              end),  -- Volume Toggle
+        awful.key({         }, "Print", function()  awful.util.spawn("scrot -e 'mv $f ~/Pictures/ 2>/dev/null'", false)                             end),  -- Screenshot
+        awful.key({ "Shift" }, "Print", function()  awful.util.spawn_with_shell("sleep 0.5 && scrot -se 'mv $f ~/Pictures/ 2>/dev/null'")           end)   -- Screenshot with mouse
    ) 
     
     -- Client Key Bindings
@@ -413,11 +423,13 @@ awful.rules.rules = {
 
     -- Personal Rules
     { rule = { class = "Firefox" },     properties = { screen = 1, tag = "1" } },  -- Firefox in tab 1
-    { rule = { class = "Nautilus" },    properties = { screen = 1, tag = "4" } },  -- Nautilus in tab 4
-    { rule = { class = "TeXstudio" },   properties = { screen = 1, tag = "5" } },  -- Texstudio in tab 5
-    { rule = { class = "Vlc" },         properties = { screen = 1, tag = "6" } },  -- VLC in tab 6
+    { rule = { class = "Nautilus" },    properties = { screen = 1, tag = "5" } },  -- Nautilus in tab 5
+    { rule = { class = "TeXstudio" },   properties = { screen = 1, tag = "6" } },  -- Texstudio in tab 6
+    { rule = { class = "libreoffice" }, properties = { screen = 1, tag = "6" } },  -- Libreoffice in tab 6
+    { rule = { class = "Vlc" },         properties = { screen = 1, tag = "7" } },  -- VLC in tab 7
     { rule = { class = "Gimp" },        properties = { screen = 1, tag = "7" } },  -- GIMP in tab 7
-    --{ rule = { class = "Spotify" },     properties = { screen = 1, tag = "8" } },  -- Spotify in tab 8
+    { rule = { class = "Chromium" },    properties = { screen = 1, tag = "8" } },  -- Chromium in tab 8
+--  { rule = { class = "Spotify" },     properties = { screen = 1, tag = "8" } },  -- Spotify in tab 8
     { rule = { class = "Vuze" },        properties = { screen = 1, tag = "9" } },  -- Vuze in tab 9
     { rule = { class = "VirtualBox" },  properties = { scrren = 1, tag = "9" } },  -- Virtualbox in tab 9
 }
