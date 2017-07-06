@@ -28,3 +28,6 @@ Theme path: ~/.vimperator/colors/theme
 
 ### zsh
 Configuration file splitted in multiple file
+
+
+Try config
