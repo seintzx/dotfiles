@@ -63,8 +63,9 @@
     editor_cmd = terminal .. " -e " .. editor
 
     -- Default modkey.
+    altkey = "Mod1"
     modkey = "Mod4"
-    fnkey  = "Mod5"
+    fnkey  = "Mod5" -- Mod5 è alt gr
 
     -- Table of layouts to cover with awful.layout.inc, order matters.
     awful.layout.layouts = {
@@ -194,8 +195,10 @@
             end
             widget:set_text(" " .. volume_now.level .. "% ")
         end}) 
-    
-    
+       
+    -- Keyboard Layout    
+    mykbdlayout =  awful.widget.keyboardlayout:new () 
+
 -- END WIDGET THINGS
 
 --==========================================================================================================
@@ -235,7 +238,7 @@
         set_wallpaper(s)
 
         -- Each screen has its own tag table.
-        awful.tag({ "1", "2", "3", "4", "5", "6", "7", "♪", "9" }, s, awful.layout.layouts[1])
+        awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
         -- 1: Firefox
         -- 234: shell
         -- 5: Nautilus 
@@ -255,7 +258,7 @@
                                awful.button({ }, 4, function () awful.layout.inc( 1) end),
                                awful.button({ }, 5, function () awful.layout.inc(-1) end)))
         -- Create a taglist widget
-        s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.noempty, taglist_buttons)
+        s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
 
         -- Create a tasklist widget
         s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
@@ -270,11 +273,12 @@
                 { layout = wibox.layout.fixed.horizontal,   s.mylayoutbox,  s.mytaglist,    s.mypromptbox,  },  
                 s.mytasklist,
                 { layout = wibox.layout.fixed.horizontal,
-                            arrd,   spr,    memicon,    memwidget,      spr,
+                    arrl,   arrd,   spr,    memicon,    memwidget,      spr,
                     arrl,   arrd,   spr,    cpuicon,    cpuwidget,      spr,
                     arrl,   arrd,   spr,    net_wireless,               spr,
                     arrl,   arrd,   spr,    volicon,    volumewidget,   spr,
                     arrl,   arrd,   spr,    baticon,    batwidget,      spr,
+                    arrl,   arrd,   spr,    mykbdlayout,                spr,
                     arrl,   arrd,   spr,    mytextclock,                spr,
                 },
         }
@@ -337,7 +341,7 @@
         awful.key({ fnkey,  }, "F10",   function()  awful.util.spawn("sync")    awful.util.spawn("amixer -D pulse sset Master 5%+")                 end),  -- Volume Up
         awful.key({ fnkey,  }, "F11",   function()  awful.util.spawn("sync")    awful.util.spawn("amixer -D pulse sset Master toggle")              end),  -- Volume Toggle
         awful.key({         }, "Print", function()  awful.util.spawn("scrot -e 'mv $f ~/Pictures/ 2>/dev/null'", false)                             end),  -- Screenshot
-        awful.key({ "Shift" }, "Print", function()  awful.util.spawn_with_shell("sleep 0.5 && scrot -se 'mv $f ~/Pictures/ 2>/dev/null'")           end)   -- Screenshot with mouse
+        awful.key({ "Shift" }, "Print", function()  awful.util.spawn_with_shell("sleep 0.5 && scrot -se 'mv $f ~/Pictures/ 2>/dev/null'")           end)  -- Screenshot with mouse
    ) 
     
     -- Client Key Bindings
@@ -462,3 +466,12 @@ awful.rules.rules = {
 -- END SIGNALS 
 
 --==============================================================================================
+
+
+-- Some try
+awful.util.spawn("firefox")
+
+
+
+
+
