@@ -467,11 +467,10 @@ awful.rules.rules = {
 
 --==============================================================================================
 
+-- STARTUP
+    -- List of startup applications (remember that they will respawn at every reload (Super+Ctrl+r))
+    awful.util.spawn("firefox")
 
--- Some try
-awful.util.spawn("firefox")
+-- END STARTUP
 
-
-
-
-
+--==============================================================================================
