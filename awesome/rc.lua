@@ -157,7 +157,6 @@
                 baticon:set_image(beautiful.widget_battery_empty)
               elseif tonumber(bat_now.perc) <= 15 then
                 baticon:set_image(beautiful.widget_battery_low)
-                show_battery_warning()
               else
                 baticon:set_image(beautiful.widget_battery)
               end
@@ -430,6 +429,7 @@ awful.rules.rules = {
     { rule = { class = "Nautilus" },    properties = { screen = 1, tag = "5" } },  -- Nautilus in tab 5
     { rule = { class = "TeXstudio" },   properties = { screen = 1, tag = "6" } },  -- Texstudio in tab 6
     { rule = { class = "libreoffice" }, properties = { screen = 1, tag = "6" } },  -- Libreoffice in tab 6
+    { rule = { class = "subl" },        properties = { screen = 1, tag = "6" } },  -- sublime in tab 6
     { rule = { class = "Vlc" },         properties = { screen = 1, tag = "7" } },  -- VLC in tab 7
     { rule = { class = "Gimp" },        properties = { screen = 1, tag = "7" } },  -- GIMP in tab 7
     { rule = { class = "Chromium" },    properties = { screen = 1, tag = "8" } },  -- Chromium in tab 8
@@ -469,7 +469,7 @@ awful.rules.rules = {
 
 -- STARTUP
     -- List of startup applications (remember that they will respawn at every reload (Super+Ctrl+r))
-    awful.util.spawn("firefox")
+--    awful.util.spawn("firefox")
 
 -- END STARTUP
 
