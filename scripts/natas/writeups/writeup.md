@@ -80,25 +80,71 @@ Done!
 
 ### Level 6
 
-TODO
+For this level we will have to find some secret input to validate and get the password for next level.
+As we see the source code we can find a PHP script, an we read an interesting 
+```php
+include "includes/secret.inc";
+```
+So let's go to that path and see what we can find.
+We obviously find a blank page, but our best friend, Mr. Inspector, will help us as always.
 
+Here's your secret, now feed it to the textbox and you will have your password.
+
+> Access granted. The password for natas7 is 7z3hEENjQtflzgnT29q7wAvMNfZdh0i9 
 
 
 ### Level 7
 
+In this level we see that they use php pages, always remember where password are stored (/etc/natas_webpass/natasXX).
+If you inspect the page (and you always should), they also give you the hint of where they store password.
+So if they tell us where they store password, it should mean that we will need that path.
+We could try to put it as value of the variable `page` in the URL.
+
+> Here's your password:  DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe 
 
 
+### Level 8
+
+Now things starts to get interesting.
+We need some cryptography knowledge.
+
+We see the function that encrypt our input and we know what we need as output, so we must do a bit of reverse of that function.
+
+Here's the simple script that i've used:
+```php
+base64_decode(strrev(hex2bin('3d3d516343746d4d6d6c315669563362')));
+```
+This should give you `oubWYf2kBq` as output, so feed it to the textbox and you're good.
+
+> Access granted. The password for natas9 is W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl
 
 
+### Level 9
+
+In this level we need to play with a little script that works as a serch engine for a txt file.
+We also need to know some basic unix basic command and how to concatenate them together in one line.
+Try some words and see what it gives back.
+
+Now, we know where password are stored so we will try some command injection
+```shell
+;cat /etc/natas_webpass/natas10
+```
+This should do the trick.
+
+> Here's your password: nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu
 
 
+### Level 10
 
+I'll give you an hint, this level is like the previous one.
 
+We need to do a command injection and make it print our password, but this time some character are forbidden, as you can see in the sourcecode page.
+If you don't know how to concatenate unix command, open google and search for it.
 
+```shell
+...cat /etc/natas_webpass/natas11
+```
+Here's your solution.
 
-
-
-
-
-
+> Here's your password: U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK
 
