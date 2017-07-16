@@ -60,8 +60,8 @@ let g:airline#extensions#ymc#error_symbol   = 'E:'      " Error prefix
 let g:airline#extensions#ymc#warning_symbol = 'W:'      " Warning prefix
 
 " Vim Airline Statusbar
-let g:airline_section_b = '%{getcwd()}'     " Working Dir
-let g:aitline_section_c = '%t'              " File name
+" let g:airline_section_b = '%{getcwd()}'     " Working Dir
+" let g:aitline_section_c = '%t'              " File name
 let g:airline_section_y = 'L %l : C %c'     " Number of line and column
 let g:airline_section_z = '%m %r %h %w'     " Gutter Flag (modified, read-only, help, preview)
 

