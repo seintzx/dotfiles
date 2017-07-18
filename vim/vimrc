@@ -16,6 +16,7 @@ set wildmenu                        " Better command completition with tab
 set noshowmode                      " Hide default mode text
 set ttimeoutlen=50                  " Timeout for lag
 set clipboard=unnamedplus           " Copy to clipboard instead o buffer 
+set clipboard=unnamed               " Copy to clipboard instead o buffer 
 set mouse=a
 
 " Indentation and spaces
@@ -52,7 +53,7 @@ set showtabline=2                                       " Enable tabline eith on
 let g:airline_theme                         = 'simple'  " Theme selection
 let g:airline_powerline_fonts               = 1         " Set the fonts
 let g:airine#extensions#tabline#enable      = 1         " Something 
-let g:airline_skip_empty_sections           = 1         " Do not draw separators for empty sections
+let g:airline_skip_empty_sections           = 0         " Do not draw separators for empty sections
 let g:airline#extensions#hunks#enabled      = 0         " Disable hunks(??)
 let g:airline#extensions#whitespace#enabled = 0         " Disable whitespace
 let g:airline#extensions#ycm#enabled        = 1         " YMC integration

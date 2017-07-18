@@ -1,7 +1,9 @@
--- REQUIRED LIBRARY
+-- REQUIRED LIBRARY ==========================================================================================================================================================================
+
     -- Standard awesome library
     local gears = require("gears")
     local awful = require("awful")
+    awful.rules = require("awful.rules")
     require("awful.autofocus")
 
     -- Widget and layout library
@@ -19,41 +21,31 @@
     local lain = require("lain")
 
     -- Widget Library
-    -- Wifi Status Icon
     local net_widgets = require("net_widgets")
 
--- END REQUIRED LIBRARY
+-- ERROR HANDLING ============================================================================================================================================================================
 
---==========================================================================================================
-
--- ERROR HANDLING
     -- Check if awesome encountered an error during startup and fell back to
-    -- another config (This code will only ever execute for the fallback config)
     if awesome.startup_errors then
-        naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, there were errors during startup!",
-                         text = awesome.startup_errors })
+        naughty.notify({ preset = naughty.config.presets.critical,  title = "Oops, there were errors during startup!",  text = awesome.startup_errors })
     end
-
     -- Handle runtime errors after startup
     do
         local in_error = false
         awesome.connect_signal("debug::error", function (err)
             -- Make sure we don't go into an endless error loop
-            if in_error then return end
+            if in_error then return end 
             in_error = true
-
-            naughty.notify({ preset = naughty.config.presets.critical,
-                             title = "Oops, an error happened!",
-                             text = tostring(err) })
-            in_error = false
-        end)
+            naughty.notify({ preset = naughty.config.presets.critical,  title = "Oops, an error happened!", text = tostring(err) }) in_error = false    end)
     end
--- END ERROR HANDLING
 
---==========================================================================================================
+-- HELPER FUNCTIONS ==========================================================================================================================================================================
+    local function client_menu_toggle_fn()
+        local instance = nil
+        return function ()  if instance and instance.wibox.visible then instance:hide() instance = nil  else    instance = awful.menu.clients({ theme = { width = 250 } })  end end end
 
--- VARIABLE DEFINITIONS
+-- VARIABLE DEFINITIONS ======================================================================================================================================================================
+
     -- Themes define colours, icons, font and wallpapers.
     beautiful.init("/home/seintz/.config/awesome/theme.lua")
 
@@ -73,32 +65,10 @@
         awful.layout.suit.floating,
         awful.layout.suit.spiral.dwindle,
         awful.layout.suit.max.fullscreen,
-        --awful.layout.suit.tile,
-        --awful.layout.suit.tile.left,
-        --awful.layout.suit.tile.bottom,
-        --awful.layout.suit.tile.top,
-        --awful.layout.suit.fair.horizontal,
-        --awful.layout.suit.spiral,
-        --awful.layout.suit.max,
-        --awful.layout.suit.magnifier,
-        --awful.layout.suit.corner.nw,
-        --awful.layout.suit.corner.ne,
-        --awful.layout.suit.corner.sw,
-        --awful.layout.suit.corner.se,
     }
--- END VARIABLES DEFINITIONS
 
---==========================================================================================================
+-- MENU ======================================================================================================================================================================================
 
--- HELPER FUNCTIONS
-    local function client_menu_toggle_fn()
-        local instance = nil
-        return function ()  if instance and instance.wibox.visible then instance:hide() instance = nil  else    instance = awful.menu.clients({ theme = { width = 250 } })  end end end
--- END HELPER FUNCTION 
-
---==========================================================================================================
-
--- MENU
     -- Create a launcher widget and a main menu
     myawesomemenu = {
        { "hotkeys", function() return false, hotkeys_popup.show_help end},
@@ -113,11 +83,9 @@
 
     -- Menubar configuration
     menubar.utils.terminal = urxvt -- Set the terminal for applications that require it
--- END MENU
 
---==========================================================================================================
+-- WIDGET THINGS =============================================================================================================================================================================
 
--- WIDGET THINGS
     -- Keyboard map indicator and switcher
     -- mykeyboardlayout = awful.widget.keyboardlayout()
 
@@ -198,11 +166,8 @@
     -- Keyboard Layout    
     mykbdlayout =  awful.widget.keyboardlayout:new () 
 
--- END WIDGET THINGS
+-- WIBOX CREATION ============================================================================================================================================================================
 
---==========================================================================================================
-
--- WIBOX CREATION
     -- Create a wibox for each screen and add it
     -- Taglist
     local taglist_buttons = awful.util.table.join(
@@ -227,11 +192,9 @@
 
     -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
     screen.connect_signal("property::geometry", set_wallpaper)
--- END WIBOX CREATION
 
---==========================================================================================================
+-- EACH SCREEN ===============================================================================================================================================================================
 
--- EACH SCREEN 
     awful.screen.connect_for_each_screen(function(s)
         -- Wallpaper
         set_wallpaper(s)
@@ -282,22 +245,18 @@
                 },
         }
     end)
--- END EACH SCREEN
 
---==========================================================================================================
+-- MOUSE BINDINGS ============================================================================================================================================================================
 
--- MOUSE BINDINGS
     -- {{{ Mouse bindings
     root.buttons(awful.util.table.join(
         awful.button({ }, 3, function () mymainmenu:toggle() end),
         awful.button({ }, 4, awful.tag.viewnext),
         awful.button({ }, 5, awful.tag.viewprev)
     ))
--- END MOUSE BINDING 
 
---==========================================================================================================
+-- KEY BINDINGS ==============================================================================================================================================================================
 
--- KEY BINDINGS
     -- Key bindings
     globalkeys = awful.util.table.join(
         awful.key({ modkey,           }, "s",       hotkeys_popup.show_help,                            {description="show help", group="awesome"}),    
@@ -354,11 +313,9 @@
         awful.key({ modkey,           }, "n",      function (c) c.minimized = true               end ,              {description = "minimize", group = "client"}),
         awful.key({ modkey,           }, "m",      function (c) c.maximized = not c.maximized   c:raise()   end ,   {description = "maximize", group = "client"})
     )
--- END KEY BINDINGS
 
---==============================================================================================
+-- TAG BINDINGS ==============================================================================================================================================================================
 
--- TAG BINDINGS
     -- Bind all key numbers to tags.
     -- Be careful: we use keycodes to make it works on any keyboard layout.
     -- This should map on the top row of your keyboard, usually 1 to 9.
@@ -379,11 +336,9 @@
         awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
             function () if client.focus then    local tag = client.focus.screen.tags[i] if tag then client.focus:toggle_tag(tag)    end end end, {description = "toggle focused client on tag #" .. i, group = "tag"})
     )end
--- END TAG BINDINGS
+    
+-- CLIENT BINDINGS ===========================================================================================================================================================================
 
---==============================================================================================
-
--- CLIENT BINDINGS
     clientbuttons = awful.util.table.join(
         awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
         awful.button({ modkey }, 1, awful.mouse.client.move),
@@ -391,11 +346,9 @@
 
     -- Set keys
     root.keys(globalkeys)
--- END CLIENT BINDINGS
 
---==============================================================================================
+-- RULES =====================================================================================================================================================================================
 
--- RULES
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
@@ -437,11 +390,9 @@ awful.rules.rules = {
     { rule = { class = "Vuze" },        properties = { screen = 1, tag = "9" } },  -- Vuze in tab 9
     { rule = { class = "VirtualBox" },  properties = { scrren = 1, tag = "9" } },  -- Virtualbox in tab 9
 }
--- END RULES
 
---==============================================================================================
+-- SIGNALS ===================================================================================================================================================================================
 
--- SIGNALS
     -- Signal function to execute when a new client appears.
     -- Set the windows at the slave, i.e. put it at the end of others instead of setting it master. if not awesome.startup then awful.client.setslave(c) end
     client.connect_signal("manage", function (c)    if awesome.startup and  not c.size_hints.user_position  and not c.size_hints.program_position then  awful.placement.no_offscreen(c) end end)
@@ -463,14 +414,8 @@ awful.rules.rules = {
     client.connect_signal("mouse::enter", function(c)   if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier    and awful.client.focus.filter(c) then   client.focus = c    end end)
     client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
     client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- END SIGNALS 
 
---==============================================================================================
+-- STARTUP ===================================================================================================================================================================================
 
--- STARTUP
     -- List of startup applications (remember that they will respawn at every reload (Super+Ctrl+r))
 --    awful.util.spawn("firefox")
-
--- END STARTUP
-
---==============================================================================================
