@@ -1,0 +1,19 @@
+Config { font = "xtf:AnonymicePowerline Nerd Font:pixelsize=9"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = TopW L 100
+       , commands = [ Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run DynNetwork ["-L","0","-H","70","--normal","green","--high","red"] 10
+                    , Run BatteryP ["BAT0"]
+                        [ "-t", "<acstatus> <left>"
+                        , "-L", "10", "-H", "80"
+                        , "-l", "red", "-h", "green"
+                        , "--", "-O", "<fc=red>⚡</fc>", "-o", "(<timeleft>)"] 10
+                    , Run Date "%y-%m-%d %a, %I:%M %p" "date" 10
+                    , Run StdinReader
+                    ]
+        , sepChar = "%"
+        , alignSep = "}{"
+        , template = "%StdinReader% }{ | <fc=grey>%cpu% | %memory% | %dynnetwork%</fc> | %battery% | <fc=#ee9a00>%date%</fc>" 
+    }

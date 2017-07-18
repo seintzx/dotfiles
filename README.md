@@ -8,6 +8,11 @@ Icons in /usr/share/awesome/icons
 ### bash
 Configuration files
 
+### i3
+Config files for i3 and i3status
+Path: ~/.config/i3
+Path: ~/.config/i3status
+
 ### lightdm
 Configuration file and xprofile files
 
@@ -25,6 +30,11 @@ Path: ~/.vim/autoload/plug.vim
 ### vimperator
 Configuration file and theme files
 Theme path: ~/.vimperator/colors/theme
+
+### xmonad
+Configuration file for xmonad and xmobar
+Path: ~/.xmonad/xmonad.hs
+Path: ~/.xmonad/xmobarrc
 
 ### zsh
 Configuration file splitted in multiple file
