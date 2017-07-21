@@ -1,19 +1,40 @@
 Config { font = "xtf:AnonymicePowerline Nerd Font:pixelsize=9"
        , bgColor = "black"
        , fgColor = "grey"
-       , position = TopW L 100
-       , commands = [ Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
-                    , Run Memory ["-t","Mem: <usedratio>%"] 10
-                    , Run DynNetwork ["-L","0","-H","70","--normal","green","--high","red"] 10
+       , position = TopW C 100
+       , commands = [ Run StdinReader
+                    , Run Cpu 
+                        [ "-a", "l", "-w", "2"
+                        , "-L","25","-H","50"
+                        , "-l", "green", "-n", "yellow", "-h", "red"
+                        ] 10
+                    , Run Memory 
+                        [ "-a", "l", "-w", "2"
+                        , "-t","mem: <usedratio>%"
+                        , "-L","25","-H","50"
+                        , "-l", "green", "-n", "yellow", "-h", "red"
+                        ] 10
+                    , Run Wireless "wlo1" 
+                        [ "-a", "l"  , "-w","4" 
+                        , "-t", "w: <essid> <quality>"
+                        , "-L", "50" , "-H", "75"
+                        , "-l", "red", "-n", "yellow", "-h", "green"
+                        ] 10
                     , Run BatteryP ["BAT0"]
-                        [ "-t", "<acstatus> <left>"
+                        [ "-t", "⚡: <left>"
                         , "-L", "10", "-H", "80"
                         , "-l", "red", "-h", "green"
                         , "--", "-O", "<fc=red>⚡</fc>", "-o", "(<timeleft>)"] 10
-                    , Run Date "%y-%m-%d %a, %I:%M %p" "date" 10
-                    , Run StdinReader
+                    , Run Kbd 
+                        [ ("gb", "gb")
+                        , ("it", "it")
+                        ]
+                    , Run Com "sh"
+                        [ "/home/seintz/.xmonad/vol.sh"
+                        ] "vol" 60
+                    , Run Date "%y-%m-%d %a, %I:%M %P" "date" 10
                     ]
         , sepChar = "%"
         , alignSep = "}{"
-        , template = "%StdinReader% }{ | <fc=grey>%cpu% | %memory% | %dynnetwork%</fc> | %battery% | <fc=#ee9a00>%date%</fc>" 
+        , template = "%StdinReader% }{ | <fc=grey>%cpu% | %memory% | %wlo1wi% | %vol% | %battery% | %kbd% | %date%</fc>" 
     }
