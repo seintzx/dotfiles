@@ -32,7 +32,7 @@ Configuration file and theme files
 Theme path: ~/.vimperator/colors/theme
 
 ### xmonad
-Configuration file for xmonad and xmobar
+Configuration file for xmonad and xmobar  
 There are two scripts, one for volume level and one for a customized dmenu launch  
 Path: ~/.xmonad/xmonad.hs  
 Path: ~/.xmonad/xmobarrc  
