@@ -14,7 +14,7 @@ import System.Exit
 
 import XMonad.Util.Run
 import XMonad.Util.EZConfig(additionalKeys)
-import XMonad.Actions.CycleWS
+import XMonad.Actions.CycleWS as CycleWS
 import XMonad.Operations
 
 import XMonad.Hooks.ManageDocks
@@ -56,14 +56,14 @@ myBorderWidth :: Dimension
 myBorderWidth = 1
 
 myWorkspaces :: [String]
-myWorkspaces = ["1:www", "2:2", "3:3", "4:4", "5:explo", "6:text", "7:multi", "8:mail", "9:temp"]
+myWorkspaces = ["1:www", "2:2", "3:3", "4:4", "5:exp", "6:text", "7:multi", "8:mail", "9:temp"]
 
 myNormalBorderColor, myFocusedBorderColor :: String
 myNormalBorderColor  = "#222222"
 myFocusedBorderColor = "#000000"
 
 myDefaultGaps :: [(Integer, Integer, Integer, Integer)]
-myDefaultGaps = [(20,0,0,0)]
+myDefaultGaps = [(0,0,0,0)]
 
 -- XMOBAR ======================================================================================================================================
 myLogHook :: Handle -> X ()
@@ -101,7 +101,7 @@ mymanageHook = (composeAll . concat $
         myTwo       = [""]
         myThr       = [""]
         myFou       = [""]
-        myFiv       = ["nautilus"]
+        myFiv       = ["Nautilus"]
         mySix       = ["subl","libreoffice","TeXstudio","Zathura"]
         mySev       = ["Vlc","Gimp","Spotify"]
         myEig       = ["VirtualBox","vuze","Thunderbird"]
@@ -143,55 +143,71 @@ myLayoutPrompt = inputPromptWithCompl myXPConfig "Layout"
 -- KEYBINDS ==================================================================================================================================
 
 mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
-    -- launch terminal, default with screen
-    [ ((modm ,              xK_Return), spawn $ XMonad.terminal conf)
+
+    -- Launch terminal
+    [ ((modm ,              xK_Return   ),     spawn $ XMonad.terminal conf                     )       -- launch terminal 
     -- close focused window
-    , ((modm,               xK_q     ), kill)
+    , ((modm .|. shiftMask, xK_c        ),     kill                                             )       -- close focused window
     -- Rotate through the available layout algorithms
-    , ((modm,               xK_space ), sendMessage NextLayout)
+    , ((modm,               xK_space    ),     sendMessage NextLayout                           )       -- switch layout
     --  Reset the layouts on the current workspace to default
-    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
-    -- Resize viewed windows to the correct size
-    , ((modm,               xK_n     ), refresh)
+    , ((modm .|. shiftMask, xK_space    ),     setLayout $ XMonad.layoutHook conf               )       -- reset to default layout
     -- Move focus to the next window
-    , ((modm,               xK_j     ), windows W.focusDown)
+    , ((modm,               xK_j        ),     windows W.focusDown                              )       -- move focus to next window
     -- Move focus to the previous window
-    , ((modm,               xK_k     ), windows W.focusUp  )
-    -- Move focus to the master window
-    , ((modm,               xK_m     ), windows W.focusMaster)
-    -- Swap the focused window and the master window
-    , ((modm,               xK_Return), windows W.swapMaster)
+    , ((modm,               xK_k        ),     windows W.focusUp                                )       -- move focus to previous window
     -- Swap the focused window with the next window
-    , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
+    , ((modm .|. shiftMask, xK_j        ),     windows W.swapDown                               )       -- swap focused window wi the next
     -- Swap the focused window with the previous window
-    , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
+    , ((modm .|. shiftMask, xK_k        ),     windows W.swapUp                                 )       -- swap focused window with the previous
+    -- Swap to urgent workspace
+    , ((modm,               xK_u        ),     focusUrgent                                      )       -- swap to urgen workspace
+    -- Swap to previous workspace
+    , ((modm,               xK_h        ),     CycleWS.prevWS                                   )       -- swap to previous workspace
+    -- Swap to next workspace
+    , ((modm,               xK_l        ),     CycleWS.nextWS                                   )       -- swap to next workspace
     -- Shrink the master area
-    , ((modm,               xK_h     ), sendMessage Shrink)
+    , ((modm,               xK_comma    ),     sendMessage Shrink                               )       -- shrink master area
     -- Expand the master area
-    , ((modm,               xK_l     ), sendMessage Expand)
-    -- Push window back into tiling
-    , ((modm,               xK_t     ), withFocused $ windows . W.sink)
+    , ((modm,               xK_period   ),     sendMessage Expand                               )       -- expand master area
     -- Increment the number of windows in the master area
-    , ((modm,               xK_comma ), sendMessage (IncMasterN 1))
+    , ((modm .|. shiftMask, xK_comma    ),     sendMessage (IncMasterN 1)                       )       -- increment number of window
     -- Deincrement the number of windows in the master area
-    , ((modm,               xK_period), sendMessage (IncMasterN (-1)))
+    , ((modm .|. shiftMask, xK_period   ),     sendMessage (IncMasterN (-1))                    )       -- deincrement number of window
     -- Quit xmonad
-    , ((modm .|. shiftMask, xK_e     ),   io (exitWith ExitSuccess))
+    , ((modm .|. shiftMask, xK_q        ),     io (exitWith ExitSuccess)                        )       -- quit xmonad
     -- Restart xmonad
-    , ((modm .|. shiftMask, xK_q     ),   spawn "xmonad --recompile && xmonad --restart")
+    , ((modm .|. shiftMask, xK_r        ),     spawn "xmonad --recompile && xmonad --restart"   )       -- restart xmonad
+    -- Launch dmenu
+    , ((modm,               xK_p        ),     spawn "$HOME/.xmonad/dmenu.sh"                   )       -- launch dmenu
+
+
     -- Personal Keybinds
-    , ((modm .|. shiftMask, xK_z     ),   spawn "i3lock -n --image=/home/seintz/Pictures/lockscreen.png -t -e")
-    , ((shiftMask,          xK_Print),    spawn "sleep 0.2; scrot -s /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")
-    , ((0,                  xK_Print),    spawn "scrot /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")       
+    , ((modm .|. shiftMask, xK_z        ),     spawn "i3lock -n --image=/home/seintz/Pictures/lockscreen.png -t -e")
+    , ((shiftMask,          xK_Print    ),     spawn "sleep 0.2; scrot -s /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")
+    , ((0,                  xK_Print    ),     spawn "scrot /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")       
+    , ((modm,               xK_F2       ),     spawn "xbacklight -dec 10")
+    , ((modm,               xK_F3       ),     spawn "xbacklight -inc 10")
+    , ((modm,               xK_F9       ),     spawn "amixer -D pulse sset Master 5%-")
+    , ((modm,               xK_F10      ),     spawn "amixer -D pulse sset Master 5%+")
     ]
     ++
-    --
+    -- Change workspaces and move window to workspaces
     -- mod-[1..9], Switch to workspace N
     -- mod-shift-[1..9], Move client to workspace N
-    --
     [((m .|. modm, k), windows $ f i)
     | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
     , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+
+
+    -- Resize viewed windows to the correct size
+    -- , ((modm,               xK_n     ), refresh)
+    -- Push window back into tiling
+    -- , ((modm,               xK_t     ), withFocused $ windows . W.sink)
+    -- Move focus to the master window
+    -- , ((modm,               xK_m     ), windows W.focusMaster)
+
+
 
 -- MAIN ======================================================================================================================================
 
@@ -205,7 +221,7 @@ main = do
         ,   normalBorderColor   = myNormalBorderColor
         ,   focusedBorderColor  = myFocusedBorderColor
         
-        -- ,   keys                = mykeys <+> keys defaultConfig
+        ,   keys                = mykeys -- <+> keys defaultConfig
 
         ,   manageHook          = mymanageHook <+> manageDocks <+> manageHook defaultConfig
         ,   layoutHook          = avoidStruts $ myLayout 
