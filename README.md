@@ -14,7 +14,8 @@ Path: ~/.config/i3
 Path: ~/.config/i3status  
 
 ### lightdm
-Configuration file and xprofile files
+Configuration file, xprofile and xorg keyboard for layout switch files  
+Path: /etc/X11/xorg.conf.d/00-keyboard.conf
 
 ### scripts
 Some useful python scripts, plus some script for wargames (natas, cryptopals)
