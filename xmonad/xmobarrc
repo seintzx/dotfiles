@@ -1,7 +1,9 @@
-Config { font = "xtf:AnonymicePowerline Nerd Font:size=9:antialias=true"
+Config { font = "xtf:Anonymice Powerline:size=9:regular:antialias=true"
        , bgColor = "black"
        , fgColor = "grey"
        , position = TopW C 100
+       , lowerOnStart = False
+       , overrideRedirect = False
        , commands = [ Run StdinReader
                     , Run Cpu 
                         [ "-a", "l", "-w", "2"

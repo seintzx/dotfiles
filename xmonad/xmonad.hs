@@ -122,10 +122,9 @@ basic = Tall nmaster delta ratio
 
 myLayout = smartBorders $ onWorkspace "8" simpleFloat standardLayouts
   where
-    standardLayouts = tall ||| wide ||| full ||| circle
+    standardLayouts = tall ||| wide ||| full 
     tall   = named "tall"   $ avoidStruts basic
     wide   = named "wide"   $ avoidStruts $ Mirror basic
-    circle = named "circle" $ avoidStruts circleSimpleDefaultResizable
     full   = named "full"   $ noBorders Full
 
 -- Set up the Layout prompt
@@ -133,7 +132,7 @@ myLayoutPrompt :: X ()
 myLayoutPrompt = inputPromptWithCompl myXPConfig "Layout"
                  (mkComplFunFromList' allLayouts) ?+ (sendMessage . JumpToLayout)
   where
-    allLayouts = ["tall", "wide", "circle", "full"]
+    allLayouts = ["tall", "wide", "full"]
 
     myXPConfig :: XPConfig
     myXPConfig = defaultXPConfig {
@@ -212,7 +211,7 @@ mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 -- MAIN ======================================================================================================================================
 
 main = do
-    xmproc <- spawnPipe "/usr/bin/xmobar /home/seintz/.xmonad/xmobarrc"
+    xmproc <- spawnPipe "/usr/bin/xmobar $HOME/.xmonad/xmobarrc"
     xmonad $ defaultConfig
         {   terminal            = myTerminal
         ,   modMask             = mymodMask
