@@ -56,25 +56,33 @@ myBorderWidth :: Dimension
 myBorderWidth = 1
 
 myWorkspaces :: [String]
-myWorkspaces = ["1:www", "2:2", "3:3", "4:4", "5:exp", "6:text", "7:multi", "8:mail", "9:temp"]
+myWorkspaces = ["1:www", "2:2", "3:3", "4:4", "5:exp", "6:txt", "7:mvp", "8:mai", "9:tmp"]
 
 myNormalBorderColor, myFocusedBorderColor :: String
-myNormalBorderColor  = "#222222"
-myFocusedBorderColor = "#000000"
+myNormalBorderColor  = "#000000"
+myFocusedBorderColor = "#222222"
 
 myDefaultGaps :: [(Integer, Integer, Integer, Integer)]
 myDefaultGaps = [(0,0,0,0)]
 
--- XMOBAR ======================================================================================================================================
-myLogHook :: Handle -> X ()
-myLogHook h = dynamicLogWithPP $ defaultPP
-    {     ppOutput            = hPutStrLn h
-        , ppVisible           = xmobarColor "white"   "#000000" . shorten 50
-        , ppCurrent           = xmobarColor "#00ff00" "#000000" . shorten 50
-        , ppHidden            = xmobarColor "white"   "#000000" . shorten 50
-        , ppUrgent            = xmobarColor "red"     "#000000" . shorten 50
-        , ppHiddenNoWindows   = xmobarColor "#7b7b7b" "#000000" . shorten 50
-    }
+-- MAIN ======================================================================================================================================
+
+main = do
+    xmproc <- spawnPipe "$HOME/.cabal/bin/xmobar $HOME/.xmonad/xmobarrc"
+    xmonad $ docks defaultConfig
+        {   terminal            = myTerminal
+        ,   borderWidth         = myBorderWidth
+        ,   modMask             = mymodMask
+        ,   workspaces          = myWorkspaces
+        ,   normalBorderColor   = myNormalBorderColor
+        ,   focusedBorderColor  = myFocusedBorderColor
+        
+        ,   keys                = mykeys 
+
+        ,   layoutHook          = avoidStruts $ myLayout 
+        ,   manageHook          = mymanageHook <+> manageDocks 
+        ,   logHook             = myLogHook xmproc
+        }
 
 -- RULES =======================================================================================================================================
 
@@ -86,26 +94,43 @@ mymanageHook = (composeAll . concat $
     , [className    =? c            --> doShift  "3:3"          |   c   <- myThr    ]
     , [className    =? c            --> doShift  "4:4"          |   c   <- myFou    ]
     , [className    =? c            --> doShift  "5:exp"        |   c   <- myFiv    ]
-    , [className    =? c            --> doShift  "6:text"       |   c   <- mySix    ]
-    , [className    =? c            --> doShift  "7:multi"      |   c   <- mySev    ]
-    , [className    =? c            --> doShift  "8:mail"       |   c   <- myEig    ]
-    , [className    =? c            --> doShift  "9:temp"       |   c   <- myNin    ]
+    , [className    =? c            --> doShift  "6:txt"        |   c   <- mySix    ]
+    , [className    =? c            --> doShift  "7:mvp"        |   c   <- mySev    ]
+    , [className    =? c            --> doShift  "8:mai"        |   c   <- myEig    ]
+    , [className    =? c            --> doShift  "9:tmp"        |   c   <- myNin    ]
     ])
 
     where
         role      = stringProperty "WM_WINDOW_ROLE"
         name      = stringProperty "WM_NAME"
 
-        myIgnores   = ["desktop","desktop_window","notify-osd","stalonetray","trayer"]
+        myIgnores   = [""] -- "desktop","desktop_window","notify-osd","stalonetray","trayer"]
         myOne       = ["Firefox","Google-chrome","Google-chrome-stable","Chromium", "Chromium-browser"]
         myTwo       = [""]
         myThr       = [""]
         myFou       = [""]
         myFiv       = ["Nautilus"]
-        mySix       = ["subl","libreoffice","TeXstudio","Zathura"]
+        mySix       = ["subl","libreoffice","TeXstudio","Zathura", "Sublime"]
         mySev       = ["Vlc","Gimp","Spotify"]
         myEig       = ["VirtualBox","vuze","Thunderbird"]
         myNin       = [""]
+
+-- XMOBAR ======================================================================================================================================
+
+myLogHook :: Handle -> X ()
+myLogHook h = dynamicLogWithPP $ defaultPP
+    {     ppOutput            = hPutStrLn h
+        , ppVisible           = xmobarColor "white"   "#000000" . shorten 50
+        , ppCurrent           = xmobarColor "#00ff00" "#000000" . shorten 50
+        , ppHidden            = xmobarColor "white"   "#000000" . shorten 50
+        , ppUrgent            = xmobarColor "red"     "#000000" . shorten 50
+        , ppHiddenNoWindows   = xmobarColor "#7b7b7b" "#000000" . shorten 50
+    }
+
+-- STARTUP =====================================================================================================================================
+
+myStartupHook :: X()
+myStartupHook = return()
 
 -- LAYOUT ======================================================================================================================================
 
@@ -143,86 +168,44 @@ myLayoutPrompt = inputPromptWithCompl myXPConfig "Layout"
 
 mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
-    -- Launch terminal
-    [ ((modm ,              xK_Return   ),     spawn $ XMonad.terminal conf                     )       -- launch terminal 
-    -- close focused window
-    , ((modm .|. shiftMask, xK_c        ),     kill                                             )       -- close focused window
-    -- Rotate through the available layout algorithms
-    , ((modm,               xK_space    ),     sendMessage NextLayout                           )       -- switch layout
-    --  Reset the layouts on the current workspace to default
-    , ((modm .|. shiftMask, xK_space    ),     setLayout $ XMonad.layoutHook conf               )       -- reset to default layout
-    -- Move focus to the next window
-    , ((modm,               xK_j        ),     windows W.focusDown                              )       -- move focus to next window
-    -- Move focus to the previous window
-    , ((modm,               xK_k        ),     windows W.focusUp                                )       -- move focus to previous window
-    -- Swap the focused window with the next window
-    , ((modm .|. shiftMask, xK_j        ),     windows W.swapDown                               )       -- swap focused window wi the next
-    -- Swap the focused window with the previous window
-    , ((modm .|. shiftMask, xK_k        ),     windows W.swapUp                                 )       -- swap focused window with the previous
-    -- Swap to urgent workspace
-    , ((modm,               xK_u        ),     focusUrgent                                      )       -- swap to urgen workspace
-    -- Swap to previous workspace
-    , ((modm,               xK_h        ),     CycleWS.prevWS                                   )       -- swap to previous workspace
-    -- Swap to next workspace
-    , ((modm,               xK_l        ),     CycleWS.nextWS                                   )       -- swap to next workspace
-    -- Shrink the master area
-    , ((modm,               xK_comma    ),     sendMessage Shrink                               )       -- shrink master area
-    -- Expand the master area
-    , ((modm,               xK_period   ),     sendMessage Expand                               )       -- expand master area
-    -- Increment the number of windows in the master area
-    , ((modm .|. shiftMask, xK_comma    ),     sendMessage (IncMasterN 1)                       )       -- increment number of window
-    -- Deincrement the number of windows in the master area
-    , ((modm .|. shiftMask, xK_period   ),     sendMessage (IncMasterN (-1))                    )       -- deincrement number of window
-    -- Quit xmonad
-    , ((modm .|. shiftMask, xK_q        ),     io (exitWith ExitSuccess)                        )       -- quit xmonad
-    -- Restart xmonad
-    , ((modm .|. shiftMask, xK_r        ),     spawn "xmonad --recompile && xmonad --restart"   )       -- restart xmonad
-    -- Launch dmenu
-    , ((modm,               xK_p        ),     spawn "$HOME/.xmonad/dmenu.sh"                   )       -- launch dmenu
+    [ ((modm ,              xK_Return   ),      spawn $ XMonad.terminal conf                    )       -- launch terminal 
+    , ((modm,               xK_p        ),      spawn "$HOME/.xmonad/dmenu.sh"                  )       -- launch dmenu
+    , ((modm .|. shiftMask, xK_c        ),      kill                                            )       -- close focused window
+    , ((modm .|. shiftMask, xK_q        ),      io (exitWith ExitSuccess)                       )       -- quit xmonad
+    , ((modm .|. shiftMask, xK_r        ),      spawn "xmonad --recompile && xmonad --restart"  )       -- restart xmonad
 
+    , ((modm,               xK_space    ),      sendMessage NextLayout                          )       -- switch layout
+    , ((modm .|. shiftMask, xK_space    ),      setLayout $ XMonad.layoutHook conf              )       -- reset to default layout
+
+    , ((modm,               xK_j        ),      windows W.focusDown                             )       -- move focus to next window
+    , ((modm,               xK_k        ),      windows W.focusUp                               )       -- move focus to previous window
+    , ((modm .|. shiftMask, xK_j        ),      windows W.swapDown                              )       -- swap focused window with the next
+    , ((modm .|. shiftMask, xK_k        ),      windows W.swapUp                                )       -- swap focused window with the previous
+
+    , ((modm,               xK_h        ),      CycleWS.prevWS                                  )       -- swap to previous workspace
+    , ((modm,               xK_l        ),      CycleWS.nextWS                                  )       -- swap to next workspace
+    , ((modm,               xK_u        ),      focusUrgent                                     )       -- swap to urgen workspace
+    , ((modm,               xK_m        ),      windows W.focusMaster                           )       -- swap to master
+
+    , ((modm,               xK_comma    ),      sendMessage Shrink                              )       -- shrink master area
+    , ((modm,               xK_period   ),      sendMessage Expand                              )       -- expand master area
+    , ((modm .|. shiftMask, xK_comma    ),      sendMessage (IncMasterN 1)                      )       -- increment number of window
+    , ((modm .|. shiftMask, xK_period   ),      sendMessage (IncMasterN (-1))                   )       -- deincrement number of window
 
     -- Personal Keybinds
-    , ((modm .|. shiftMask, xK_z        ),     spawn "i3lock -n --image=/home/seintz/Pictures/lockscreen.png -t -e")
-    , ((shiftMask,          xK_Print    ),     spawn "sleep 0.2; scrot -s /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")
-    , ((0,                  xK_Print    ),     spawn "scrot /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")       
-    , ((modm,               xK_F2       ),     spawn "xbacklight -dec 10")
-    , ((modm,               xK_F3       ),     spawn "xbacklight -inc 10")
-    , ((modm,               xK_F9       ),     spawn "amixer -D pulse sset Master 5%-")
-    , ((modm,               xK_F10      ),     spawn "amixer -D pulse sset Master 5%+")
+    , ((modm .|. shiftMask, xK_z        ),      spawn "i3lock -n --image=/home/seintz/Pictures/lockscreen.png -t -e")
+    , ((shiftMask,          xK_Print    ),      spawn "sleep 0.2; scrot -s /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")
+    , ((0,                  xK_Print    ),      spawn "scrot /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")       
+    , ((modm,               xK_F2       ),      spawn "xbacklight -dec 10")
+    , ((modm,               xK_F3       ),      spawn "xbacklight -inc 10")
+    , ((modm,               xK_F9       ),      spawn "amixer -D pulse sset Master 5%-")
+    , ((modm,               xK_F10      ),      spawn "amixer -D pulse sset Master 5%+")
     ]
     ++
+
     -- Change workspaces and move window to workspaces
     -- mod-[1..9], Switch to workspace N
     -- mod-shift-[1..9], Move client to workspace N
     [((m .|. modm, k), windows $ f i)
     | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
     , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-
-
-    -- Resize viewed windows to the correct size
-    -- , ((modm,               xK_n     ), refresh)
-    -- Push window back into tiling
-    -- , ((modm,               xK_t     ), withFocused $ windows . W.sink)
-    -- Move focus to the master window
-    -- , ((modm,               xK_m     ), windows W.focusMaster)
-
-
-
--- MAIN ======================================================================================================================================
-
-main = do
-    xmproc <- spawnPipe "/usr/bin/xmobar $HOME/.xmonad/xmobarrc"
-    xmonad $ defaultConfig
-        {   terminal            = myTerminal
-        ,   modMask             = mymodMask
-        ,   borderWidth         = myBorderWidth
-        ,   workspaces          = myWorkspaces
-        ,   normalBorderColor   = myNormalBorderColor
-        ,   focusedBorderColor  = myFocusedBorderColor
-        
-        ,   keys                = mykeys -- <+> keys defaultConfig
-
-        ,   manageHook          = mymanageHook <+> manageDocks <+> manageHook defaultConfig
-        ,   layoutHook          = avoidStruts $ myLayout 
-        ,   logHook             = myLogHook xmproc
-        }
