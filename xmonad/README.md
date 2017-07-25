@@ -1,12 +1,11 @@
 # Installation
 
 - Remove all haskell package you have  
-- Add 
-    ``` 
-    [haskell-core]  
-    Server = http://xsounds.org/~haskell/core/$arch
-    ```  
-    into `/etc/pacman.conf` before the voice `[comunity]`
+- Add into `/etc/pacman.conf` before the voice `[comunity]`
+``` 
+[haskell-core]  
+Server = http://xsounds.org/~haskell/core/$arch
+```  
 - pacman-key -r 4209170B
 - pacman-key --lsign-key 4209170B
 - pacman -Syu
