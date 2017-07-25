@@ -82,6 +82,7 @@ main = do
         ,   layoutHook          = avoidStruts $ myLayout 
         ,   manageHook          = mymanageHook <+> manageDocks 
         ,   logHook             = myLogHook xmproc
+        ,   startupHook         = myStartupHook
         }
 
 -- RULES =======================================================================================================================================
@@ -130,7 +131,8 @@ myLogHook h = dynamicLogWithPP $ defaultPP
 -- STARTUP =====================================================================================================================================
 
 myStartupHook :: X()
-myStartupHook = return()
+myStartupHook = do
+        spawn "$HOME/.xmonad/startup.sh"
 
 -- LAYOUT ======================================================================================================================================
 
