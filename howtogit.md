@@ -45,8 +45,8 @@ Follow this [link](https://help.github.com/articles/connecting-to-github-with-ss
 
 - Go to the folder you wish to change in your local PC.  
 - `git remote -v` to get the remote name of what you want to change  
-`origin  https://github.com/USERNAME/REPOSITORY.git (fetch)  
-origin  https://github.com/USERNAME/REPOSITORY.git (push)`
+`origin  https://github.com/USERNAME/REPOSITORY.git (fetch)`  
+`origin  https://github.com/USERNAME/REPOSITORY.git (push)`  
 - `git remote set-url origin git@github.com:USERNAME/REPOSITORY.git`
 - `git remote -v` again to see if it worked
 
