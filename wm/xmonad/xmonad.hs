@@ -112,7 +112,7 @@ mymanageHook = (composeAll . concat $
         myFou       = [""]
         myFiv       = ["Nautilus"]
         mySix       = ["subl","LibreOffice","TeXstudio","Zathura", "Sublime"]
-        mySev       = ["Vlc","Gimp","Spotify"]
+        mySev       = ["Vlc","Gimp"]
         myEig       = ["VirtualBox","vuze","Thunderbird"]
         myNin       = [""]
 
