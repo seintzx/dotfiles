@@ -1,5 +1,7 @@
 # How to create a git repo
 
+#### Create repo
+
 The first things you have to do is create an account on [gitHub](www.github.com)  
 
 Now follow this sequence:
