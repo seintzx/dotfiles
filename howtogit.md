@@ -38,3 +38,16 @@ Commit a file means adding a very short description to the changes you have made
 
 Nothing will be displayed on your repo untile you push them.  
 For doing it you have to run `git push -u origin master` inside the folder in your computer. 
+
+#### Using SSH instead of HTTPS
+
+Follow this [link](https://help.github.com/articles/connecting-to-github-with-ssh/) to create an SSH key to use with github.  
+
+- Go to the folder you wish to change in your local PC.  
+- `git remote -v` to get the remote name of what you want to change  
+`origin  https://github.com/USERNAME/REPOSITORY.git (fetch)  
+origin  https://github.com/USERNAME/REPOSITORY.git (push)`
+- `git remote set-url origin git@github.com:USERNAME/REPOSITORY.git`
+- `git remote -v` again to see if it worked
+
+If you protect you key with a password, you will only be asked for that, otherwise you don't need to input nothing to push something.  
