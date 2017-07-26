@@ -4,7 +4,7 @@ The first things you have to do is create an account on [gitHub](www.github.com)
 
 Now follow this sequence:
 
-- Create a repo on your new account 
+- Create a repo online on your new account 
 - Create a folder in your pc that will contains all the materials of the repo.  
 I suggest you to name it as your repo `mkdir <reponame>`.  
 - `echo "# <reponame>" >> README.md`
