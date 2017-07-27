@@ -23,7 +23,7 @@ Config { font = "xft:AnonymicePowerline Nerd Font:size=9:bold:antialias=true"
                     , Run BatteryP ["BAT0"]
                         [ "-t", "⚡:<left>"
                         , "-L", "10", "-H", "80"
-                        , "-l", "red", "-h", "green"
+                        , "-l", "red", "-n", "yellow", "-h", "green"
                         , "--", "-O", "<fc=red>⚡</fc>", "-o", "(<timeleft>)"] 10 
                     , Run Kbd 
                         [ ("gb", "gb")
@@ -31,7 +31,7 @@ Config { font = "xft:AnonymicePowerline Nerd Font:size=9:bold:antialias=true"
                         ]
                     , Run Com "sh"
                         [ "/home/seintz/.xmonad/vol.sh"
-                        ] "vol" 60
+                        ] "vol" 10
                     , Run Date "%y-%m-%d %a, %I:%M %P" "date" 10
                     ]
         , sepChar = "%"
