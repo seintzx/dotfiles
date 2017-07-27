@@ -1,15 +1,15 @@
-# terminal configuration's files
+# Terminal Configuration's Files
 
-## bash
+### bash
 Configuration files
 
-## urxvt
+### urxvt
 Configuration file and perl extension  
 Path: ~/.urxvt/ext
 
-## vim
+### vim
 Configuration file and vim plug installer  
 Path: ~/.vim/autoload/plug.vim
 
-## zsh
+### zsh
 Configuration file splitted in multiple file
