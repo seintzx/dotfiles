@@ -174,7 +174,7 @@ mode "resize" {
 
 # i3bar config
 bar {
-        status_command i3status
+        status_command i3status -c ${HOME}/.config/i3/i3status.conf
 #       status_command i3blocks -c ${HOME}/.config/i3/i3blocks.conf
 
         position top
