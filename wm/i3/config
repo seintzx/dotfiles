@@ -18,12 +18,12 @@ set $ws1     "1:www"
 set $ws2     "2:2"
 set $ws3     "3:3"
 set $ws4     "4:4"
-set $ws5     "5:exp"
-set $ws6     "6:text"
-set $ws7     "7:video"
-set $ws8     "8:music"
-set $ws9     "9:mail"
-set $ws10    "10:temp"
+set $ws5     "5:5"
+set $ws6     "6:exp"
+set $ws7     "7:txt"
+set $ws8     "8:mvp"
+set $ws9     "9:mai"
+set $ws10    "10:tmp"
 
 # border in new window
 new_window pixel 1
@@ -53,7 +53,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+c kill
 
 # RUN
-bindsym $mod+p exec "$HOME/.config/i3/dmenu.sh"
+bindsym $mod+p exec "${HOME}/.config/i3/dmenu.sh"
 bindsym $mod+Shift+p exec --no-startup-id i3-dmenu-desktop
 
 # CHANGE FOCUS
@@ -127,11 +127,11 @@ bindsym $mod+Shift+e reload
 bindsym $mod+Shift+r restart
 
 # EXIT
-bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec "i3-msg exit"
 
 # SCREENSHOT
-bindsym --release Print exec "scrot $HOME/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
-bindsym --release SHift+Print exec "scrot -s $HOME/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
+bindsym --release Print exec "scrot ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
+bindsym --release SHift+Print exec "scrot -s ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
 
 # PROGRAM KEYBIND
 bindsym $mod+n exec --no-startup-id nautilus 
@@ -143,12 +143,12 @@ bindsym $mod+Shift+z exec "${HOME}/.config/i3/lockscr.sh"
 
 # RULES
 assign [class="(?i)firefox"]        $ws1
-assign [class="(?i)Nautilus"]       $ws5
-assign [class="(?i)TeXstudio"]      $ws6
-assign [class="(?i)libreoffice"]    $ws6
-assign [class="(?i)subl"]           $ws6
-assign [class="(?i)Vlc"]            $ws7
-assign [class="(?i)Gimp"]           $ws7
+assign [class="(?i)Nautilus"]       $ws6
+assign [class="(?i)TeXstudio"]      $ws7
+assign [class="(?i)libreoffice"]    $ws7
+assign [class="(?i)subl"]           $ws7
+assign [class="(?i)Vlc"]            $ws8
+assign [class="(?i)Gimp"]           $ws8
 assign [class="(?i)Spotify"]        $ws8
 assign [class="(?i)Vuze"]           $ws9
 assign [class="(?i)VirtualBox"]     $ws9
@@ -157,13 +157,27 @@ assign [class="(?i)thunderbird"]    $ws9
 # STARTUP
 exec_always --no-startup-id "${HOME}/.config/i3/startup.sh"
 
+# EXIT MODE
+set $mode_power power
+bindsym $mod+Control+q mode "$mode_power"
+mode "$mode_power" {
+    bindsym z mode "default", exec --no-startup-id ${HOME}/.config/i3/i3exit.sh lock
+    bindsym e mode "default", exec --no-startup-id ${HOME}/.config/i3/i3exit.sh logout
+    bindsym w mode "default", exec --no-startup-id ${HOME}/.config/i3/i3exit.sh switch
+    bindsym s mode "default", exec --no-startup-id ${HOME}/.config/i3/i3exit.sh suspend
+    bindsym r mode "default", exec --no-startup-id ${HOME}/.config/i3/i3exit.sh reboot
+    bindsym p mode "default", exec --no-startup-id ${HOME}/.config/i3/i3exit.sh shutdown
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 # RESIZE MODE
 bindsym $mod+r mode "resize"
 mode "resize" {
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink     width   4 px or 2 ppt
+        bindsym j resize grow       height  4 px or 2 ppt
+        bindsym k resize shrink     height  4 px or 2 ppt
+        bindsym l resize grow       width   4 px or 2 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"

@@ -1,11 +1,11 @@
-source ~/.zsh/somestuff.zsh     #Added by compinstall (Need to investigate)
-source ~/.zsh/colors.zsh
-source ~/.zsh/setopt.zsh
-#source ~/.zsh/exports.zsh      #Need to investigate what it does
-source ~/.zsh/prompt.zsh
-source ~/.zsh/completion.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/bindkeys.zsh
+source ~/.zsh/colors.zsh
+source ~/.zsh/completion.zsh
+#source ~/.zsh/exports.zsh      #Need to investigate what it does
 #source ~/.zsh/functions.zsh    #Need to investigate what it does
 source ~/.zsh/history.zsh
+source ~/.zsh/prompt.zsh
+source ~/.zsh/setopt.zsh
+# source ~/.zsh/somestuff.zsh     #Added by compinstall (Need to investigate)
 source ~/.zsh/zsh_hooks.zsh    #Need to investigate what it does
