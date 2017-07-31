@@ -1,5 +1,3 @@
 #!/bin/bash 
 
-echo "⌚ $(date +%I\:%M\ %p)"
-
-
+echo '<span background="#444444">'"⌚ $(date +%I\:%M\ %p)"'</span>'

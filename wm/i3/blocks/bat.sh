@@ -31,4 +31,4 @@ elif [ "$Bat" -lt "30" ];then
     bat="$icon0 $Bat%"
 fi 
 
-echo -e "$bat"
+echo '<span background="#000000">'"$bat"'</span>'

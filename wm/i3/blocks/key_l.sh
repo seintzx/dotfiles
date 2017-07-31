@@ -3,9 +3,11 @@
 key=$(xset -q | grep LED | awk '{print $10}')
 
 if [ $key = 00000002 ];then
-    echo " gb"
+    ans=$(echo " gb")
 elif [ $key = 00001002 ];then
-        echo " it"
+    ans=$(echo " it")
 else
-        echo " none"
+    ans=$(echo " none")
 fi
+
+echo '<span background="#444444">'${ans}'</span>'
