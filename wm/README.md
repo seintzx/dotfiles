@@ -8,6 +8,7 @@ Icons in /usr/share/awesome/icons
 ### i3
 Config files for i3, i3status and i3blocks.  
 The blocks folder contains the script for i3blocks.  
+`status_command i3xxxxxx -c ${HOME}/.config/i3/i3xxxxxx.conf`  
 Path: ~/.config/i3/conf  
 Path: ~/.config/i3/i3status.conf  
 Path: ~/.config/i3/i3blocks.conf  

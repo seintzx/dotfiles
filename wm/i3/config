@@ -1,20 +1,20 @@
 # i3-gaps-git config file
 # i3blocks for bar with some custom scripts
 
-# Variables for colours
+# COLORS
 set $lime       #9fbc00
 set $darklime   #505e00
 set $green      #00ff00
 set $yellow     #ffff00
-set $blue       #131d24
 set $lightblue  #232d34
+set $blue       #131d24
 set $lightgray  #ddeedd
 set $darkgray   #444444
 set $white      #ffffff
 set $black      #000000
 set $urgentred  #b33a3a
 
-#Variables for workspaces
+# WORKSPACES
 set $ws1     "1:www"
 set $ws2     "2:2"
 set $ws3     "3:3"
@@ -25,9 +25,6 @@ set $ws7     "7:txt"
 set $ws8     "8:mvp"
 set $ws9     "9:mai"
 set $ws10    "10:tmp"
-
-# border near edge
-hide_edge_borders both
 
 # FONT
 font xft:AnonymicePowerline Nerd Font 9
@@ -43,16 +40,6 @@ client.urgent               $urgentred  $urgentred  $white  $urgentred
 set $mod Mod4
 set $mod5 Mod5
 floating_modifier $mod
-
-# TERMINAL 
-bindsym $mod+Return exec urxvt
-
-# KILL
-bindsym $mod+Shift+c kill
-
-# RUN
-bindsym $mod+p exec "${HOME}/.config/i3/dmenu.sh"
-bindsym $mod+Shift+p exec --no-startup-id i3-dmenu-desktop
 
 # CHANGE FOCUS
 bindsym $mod+h focus left
@@ -118,6 +105,16 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # SWITCH TO URGENT
 bindsym $mod+u [urgent=latest] focus 
 
+# TERMINAL 
+bindsym $mod+Return exec urxvt
+
+# KILL
+bindsym $mod+Shift+c kill
+
+# RUN
+bindsym $mod+p exec "${HOME}/.config/i3/dmenu.sh"
+bindsym $mod+Shift+p exec --no-startup-id i3-dmenu-desktop
+
 # RELOAD
 bindsym $mod+Shift+e reload
 
@@ -127,17 +124,15 @@ bindsym $mod+Shift+r restart
 # EXIT
 bindsym $mod+Shift+q exec "i3-msg exit"
 
-# SCREENSHOT
-bindsym --release Print exec "scrot ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
-bindsym --release SHift+Print exec "scrot -s ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
-
-# PROGRAM KEYBIND
+# KEYBIND
 bindsym $mod+n exec --no-startup-id nautilus 
 bindsym $mod+F2 exec  "xbacklight -dec 10"
 bindsym $mod+F3 exec  "xbacklight -inc 10"
 bindsym $mod+F9 exec  "amixer -D pulse sset Master 5%-"
 bindsym $mod+F10 exec "amixer -D pulse sset Master 5%+"
 bindsym $mod+Shift+z exec "${HOME}/.config/i3/lockscr.sh"
+bindsym --release Print exec "scrot ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
+bindsym --release SHift+Print exec "scrot -s ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
 
 # RULES
 assign [class="(?i)firefox"]        $ws1
@@ -183,6 +178,7 @@ mode "resize" {
 }
 
 # GAPS
+hide_edge_borders both
 for_window [class="^.*"] border pixel 1
 gaps inner 0
 gaps outer 0
@@ -191,38 +187,24 @@ smart_borders on
 
 ###############################################################################################################################################################################################
 
-# i3bar config
+# BAR CONFIG
 bar {
-        # status_command i3status -c ${HOME}/.config/i3/i3status.conf
         status_command i3blocks -c ${HOME}/.config/i3/i3blocks.conf
 
         font pango:AnonymicePowerline Nerd Font 9
         tray_padding 0
         position top
         height 15
-
         # strip_workspace_numbers yes
         
         colors {
-        background  #021215
-        statusline  #93a1a1 
-        separator   #2aa198
+        background  $black
+        statusline  $green
+        separator   $yellow
 
-        # Type             border  background font
-        focused_workspace  #2aa198 #073642 #eee895
-        active_workspace   #073642 #002b36 #839496
-        inactive_workspace #002b36 #021215 #586e75
-        urgent_workspace   #cb4b16 #dc322f #fdf6e3
+        # classname         border      background  font
+        focused_workspace   $darkgray   $darkgray   $green
+        inactive_workspace  $black      $black      $white
+        urgent_workspace    $urgentred  $urgentred  $white
         }
-
-        # colors {
-        #     statusline  $lightgray
-        #     background  $black
-        #     separator   $yellow
-            
-        #     #classname          border      background  text
-        #     focused_workspace   $darkgray   $darkgray   $green
-        #     inactive_workspace  $black      $black      $white
-        #     urgent_workspace    $urgentred  $urgentred  $white
-        # }
 }
