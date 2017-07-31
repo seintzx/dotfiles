@@ -188,23 +188,31 @@ mode "resize" {
 
 # i3bar config
 bar {
-        status_command i3status -c ${HOME}/.config/i3/i3status.conf
-      # status_command i3blocks -c ${HOME}/.config/i3/i3blocks.conf
-
+        # status_command i3status -c ${HOME}/.config/i3/i3status.conf
+        status_command i3blocks -c ${HOME}/.config/i3/i3blocks.conf
         position top
-        tray_padding 0
-        strip_workspace_numbers yes
-
-        font xft:AnonymicePowerline Nerd Font 9
+        font pango:AnonymicePowerline Nerd Font 9
 
         colors {
-            statusline  $lightgray
-            background  $black
-            separator   $yellow
+        background  #021215
+        statusline  #93a1a1 
+        separator   #2aa198
+
+        # Type             border  background font
+        focused_workspace  #2aa198 #073642 #eee895
+        active_workspace   #073642 #002b36 #839496
+        inactive_workspace #002b36 #021215 #586e75
+        urgent_workspace   #cb4b16 #dc322f #fdf6e3
+}
+
+        # colors {
+        #     statusline  $lightgray
+        #     background  $black
+        #     separator   $yellow
             
-            #classname          border      background  text
-            focused_workspace   $darkgray   $darkgray   $green
-            inactive_workspace  $black      $black      $white
-            urgent_workspace    $urgentred  $urgentred  $white
-        }
+        #     #classname          border      background  text
+        #     focused_workspace   $darkgray   $darkgray   $green
+        #     inactive_workspace  $black      $black      $white
+        #     urgent_workspace    $urgentred  $urgentred  $white
+        # }
 }
