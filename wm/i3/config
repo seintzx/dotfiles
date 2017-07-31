@@ -113,7 +113,7 @@ bindsym $mod+Shift+c kill
 
 # RUN
 bindsym $mod+p exec "${HOME}/.config/i3/dmenu.sh"
-bindsym $mod+Shift+p exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Shift+p exec rofi -show
 
 # RELOAD
 bindsym $mod+Shift+e reload
