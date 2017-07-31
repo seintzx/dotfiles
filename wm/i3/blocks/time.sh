@@ -1,3 +1,5 @@
 #!/bin/bash 
 
-echo "  $(date +%I\:%M\ %p) "
+echo "⌚ $(date +%I\:%M\ %p) "
+
+

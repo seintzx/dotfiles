@@ -1,4 +1,5 @@
-# i3 config file (v4) Please see http://i3wm.org/docs/userguide.html for a complete reference!  
+# i3-gaps-git config file
+# i3blocks for bar with some custom scripts
 
 # Variables for colours
 set $lime       #9fbc00
@@ -24,9 +25,6 @@ set $ws7     "7:txt"
 set $ws8     "8:mvp"
 set $ws9     "9:mai"
 set $ws10    "10:tmp"
-
-# border in new window
-new_window pixel 1
 
 # border near edge
 hide_edge_borders both
@@ -184,15 +182,27 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# GAPS
+for_window [class="^.*"] border pixel 1
+gaps inner 0
+gaps outer 0
+smart_gaps on
+smart_borders on
+
 ###############################################################################################################################################################################################
 
 # i3bar config
 bar {
         # status_command i3status -c ${HOME}/.config/i3/i3status.conf
         status_command i3blocks -c ${HOME}/.config/i3/i3blocks.conf
-        position top
-        font pango:AnonymicePowerline Nerd Font 9
 
+        font pango:AnonymicePowerline Nerd Font 9
+        tray_padding 0
+        position top
+        height 15
+
+        # strip_workspace_numbers yes
+        
         colors {
         background  #021215
         statusline  #93a1a1 
@@ -203,7 +213,7 @@ bar {
         active_workspace   #073642 #002b36 #839496
         inactive_workspace #002b36 #021215 #586e75
         urgent_workspace   #cb4b16 #dc322f #fdf6e3
-}
+        }
 
         # colors {
         #     statusline  $lightgray
