@@ -9,8 +9,8 @@ set $yellow     #ffff00
 set $lightblue  #232d34
 set $blue       #131d24
 set $lightgray  #ddeedd
-set $darkgray   #444444
-set $white      #ffffff
+set $darkgray   #333333
+set $white      #bbbbbb
 set $black      #000000
 set $urgentred  #b33a3a
 
@@ -27,7 +27,7 @@ set $ws9     "9:mai"
 set $ws10    "10:tmp"
 
 # FONT
-font xft:AnonymicePowerline Nerd Font 9
+font xft:AnonymicePowerline Nerd Font 10
 
 # CLIENT COLOR
 # classname                 border      background  text    indicator
@@ -192,7 +192,7 @@ smart_borders on
 bar {
         status_command i3blocks -c ${HOME}/.config/i3/i3blocks.conf
 
-        font pango:AnonymicePowerline Nerd Font 9
+        font pango:AnonymicePowerline Nerd Font 10
         tray_padding 0
         position top
         height 15

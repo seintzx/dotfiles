@@ -18,4 +18,4 @@ elif [ "$v2" -eq "0" ];then
     ans=$(echo -e " $v1")
 fi 
 
-echo '<span background="#444444">'${ans}'</span>'
+echo '<span background="#333333">'${ans}'</span>'
