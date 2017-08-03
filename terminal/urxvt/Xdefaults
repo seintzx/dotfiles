@@ -52,11 +52,12 @@ rofi.color-normal: #444444, #00ff00, #444444, #777777, #ffff00
 rofi.color-active: #444444, #00ff00, #444444, #880088, #ffff00
 rofi.color-urgent: #fdf6e3, #dc322f, #eee8d5, #dc322f, #fdf6e3
 rofi.font: mono 10
-rofi.lines: 20
+rofi.location: 1
+rofi.columns: 4
+rofi.lines: 5
 rofi.threads: 2
 rofi.sidebar-mode: true
 rofi.hide-scrollbar: true
-rofi.modi: window,run,ssh,calc:qalc +u8 -nocurrencies
-!,clipboard:greenclip print
+rofi.modi: window,run,ssh,calc:qalc +u8 -nocurrencies,clipboard:greenclip print
 rofi.kb-mode-next: Shift+Right
 rofi.kb-mode-previous: Shift+Left

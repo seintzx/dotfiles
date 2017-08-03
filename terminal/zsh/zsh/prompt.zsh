@@ -44,7 +44,7 @@ function parse_git_state() {
 }
 function git_prompt_string() {
   local git_where="$(parse_git_branch)"
-  [ -n "$git_where" ] && echo "%{$fg[blue]%}${git_where#(refs/heads/|tags/)}$(parse_git_state)"
+  [ -n "$git_where" ] && echo "%{$fg[cyan]%}${git_where#(refs/heads/|tags/)}$(parse_git_state)"
 }
 
 # FINAL PROMPT -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

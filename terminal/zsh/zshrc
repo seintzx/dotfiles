@@ -1,11 +1,162 @@
-source ~/.zsh/aliases.zsh
-source ~/.zsh/bindkeys.zsh
-source ~/.zsh/colors.zsh
-source ~/.zsh/completion.zsh
-#source ~/.zsh/exports.zsh      #Need to investigate what it does
-#source ~/.zsh/functions.zsh    #Need to investigate what it does
-source ~/.zsh/history.zsh
-source ~/.zsh/prompt.zsh
-source ~/.zsh/setopt.zsh
-# source ~/.zsh/somestuff.zsh     #Added by compinstall (Need to investigate)
-source ~/.zsh/zsh_hooks.zsh    #Need to investigate what it does
+# GENERAL =====================================================================================================================================================================================
+
+autoload -U colors zsh-mime-setup select-word-style
+colors          
+zsh-mime-setup  
+select-word-style bash 
+autoload -U compinit
+compinit
+zmodload -i zsh/complist        
+
+# EXPORT ======================================================================================================================================================================================
+
+export PATH=${PATH}:/usr/bin/greenclip
+export VISUAL="vim"
+
+# ALIASES =====================================================================================================================================================================================
+
+# terminal aliases
+alias las='ls -la --color=auto'
+alias ls='ls -l --color=auto'
+alias rm='rm -rf'
+alias fckbeep='xset -b'
+alias scrblk='xset s off & xset s blank & xset -dpms' #-dpms
+alias lump='xbacklight -inc 10'
+alias lumm='xbacklight -dec 10'
+alias volp='amixer -D pulse sset Master 5%+'
+alias volm='amixer -D pulse sset Master 5%-'
+
+# yaourt aliases
+alias yasup='yaourt -Syu'
+alias yains='yaourt -S '
+alias yarem='yaourt -Rsn '
+alias yaorp='yaourt -Qtd'
+
+# compiler aliases
+alias ccomp='gcc -Wall -o'
+
+# openssl, vpn aliases
+alias aesenc='openssl aes-256-cbc -a -salt'
+alias aesdec='openssl aes-256-cbc -d -a'
+alias cesvpn='cd ~/vpn/cesvpn ; sudo openvpn seintz-TO-IPFire.ovpn'
+alias yovpn='cd ~/vpn/yovpn/kabutovm-udp-1194-Andrea_Casadei ; sudo openvpn kabutovm-udp-1194-Andrea_Casadei.ovpn'
+
+# git aliases
+alias gpush='git push -u origin master'
+alias gadd='git add'
+alias gcom='git commit -m'
+alias gacp='git add -A && git commit --allow-empty-message && git push -u origin master'
+
+# others aliases
+alias vbox='sudo VirtualBox'
+
+# VCS INFO ====================================================================================================================================================================================
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn hg
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' formats "%{$fg[cyan]%}%b%{$reset_color%} %{$fg[yellow]%}%c%{$fg[green]%}%u%{$reset_color%}" 
+precmd() {  
+    vcs_info
+}
+
+# PROMPT ======================================================================================================================================================================================
+
+setopt PROMPT_SUBST     
+color="green"
+if [ "$USER" = "root" ]; then
+    color="red"         
+fi;
+
+function prompt_char {
+    git branch >/dev/null 2>/dev/null && echo '±' && return
+    echo '○'
+}
+
+function current_pwd {  echo $(pwd | sed -e "s,^$HOME,~,")  }
+
+PROMPT='%{$fg[cyan]%}$(prompt_char)%{$reset_color%} %{$fg[$color]%}%n@%{$reset_color%} %{$fg[yellow]%}$(current_pwd)%{$reset_color%} ${vcs_info_msg_0_}%{$reset_color%} $ '
+
+# KEYBINDINGS =================================================================================================================================================================================
+
+typeset -g -A key
+bindkey '^?' backward-delete-char
+bindkey '^[[7~' beginning-of-line
+bindkey '^[[5~' up-line-or-history
+bindkey '^[[3~' delete-char
+bindkey '^[[8~' end-of-line
+bindkey '^[[6~' down-line-or-history
+#bindkey '^[[A~' up-line-or-search
+#bindkey '^[[D~' backward-char
+#bindkey '^[[B~' down-line-or-search
+#bindkey '^[[C~' forward-char
+#bindkey '^[[2~' overwrite-mode
+
+# SETOPT ======================================================================================================================================================================================
+
+setopt hash_list_all            
+setopt completealiases          
+setopt always_to_end            
+setopt complete_in_word         
+setopt correct                  
+setopt list_ambiguous           
+setopt auto_cd                  
+setopt auto_remove_slash        
+setopt chase_links              
+setopt correct                  
+setopt extended_glob            
+setopt glob_dots                
+setopt print_exit_value         
+unsetopt beep                   
+unsetopt bg_nice                
+unsetopt clobber                
+unsetopt hist_beep              
+unsetopt hup                    
+unsetopt ignore_eof             
+unsetopt list_beep              
+unsetopt rm_star_silent         
+
+# PUSHD =======================================================================================================================================================================================
+
+setopt auto_pushd               
+setopt pushd_ignore_dups        
+setopt pushd_silent             
+setopt pushd_to_home            
+
+# HISTORY =====================================================================================================================================================================================
+
+HISTFILE=~/.zsh_history         
+HISTSIZE=1024                   
+SAVEHIST=1024                   
+setopt append_history           
+setopt hist_ignore_all_dups     
+unsetopt hist_ignore_space      
+setopt hist_reduce_blanks       
+setopt hist_verify              
+setopt inc_append_history       
+setopt share_history            
+setopt bang_hist                
+
+# COMPLETION ==================================================================================================================================================================================
+
+zstyle ':completion::complete:*' use-cache on               
+zstyle ':completion:*' cache-path ~/.zsh/cache/$HOST
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'   
+zstyle ':completion:*' menu select=2                        
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}       
+zstyle ':completion:*::::' completer _expand _complete _ignored _approximate 
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format '%B%d%b'
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:manuals' separate-sections true
+zstyle ':completion:*:processes' command 'ps -au$USER'
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*' force-list always
+zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=29=34"
+zstyle ':completion:*:*:killall:*' menu yes select
+zstyle ':completion:*:killall:*' force-list always
+users=(seintz root)           
+zstyle ':completion:*' users $users
