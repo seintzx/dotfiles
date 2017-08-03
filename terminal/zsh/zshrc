@@ -7,6 +7,9 @@ select-word-style bash
 autoload -U compinit
 compinit
 zmodload -i zsh/complist        
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
 
 # EXPORT ======================================================================================================================================================================================
 
@@ -78,14 +81,16 @@ PROMPT='%{$fg[$color]%}%n@%{$reset_color%} %{$fg[yellow]%}$(current_pwd)%{$reset
 
 typeset -g -A key
 bindkey '^?' backward-delete-char
-bindkey '^[[7~' beginning-of-line
-bindkey '^[[5~' up-line-or-history
 bindkey '^[[3~' delete-char
+bindkey "^[[5~" history-beginning-search-backward-end
+bindkey "^[[6~" history-beginning-search-forward-end
+bindkey '^[[7~' beginning-of-line
 bindkey '^[[8~' end-of-line
-bindkey '^[[6~' down-line-or-history
-#bindkey '^[[A~' up-line-or-search
+#bindkey '^[[5~' up-line-or-history
+#bindkey '^[[6~' down-line-or-history
+#bindkey '^[[A' history-beginning-search-backward-end
+#bindkey '^[[B' history-beginning-search-forward-end
 #bindkey '^[[D~' backward-char
-#bindkey '^[[B~' down-line-or-search
 #bindkey '^[[C~' forward-char
 #bindkey '^[[2~' overwrite-mode
 
