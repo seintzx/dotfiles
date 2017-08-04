@@ -16,55 +16,6 @@ zle -N history-beginning-search-forward-end history-search-end
 export PATH=${PATH}:/usr/bin/greenclip
 export VISUAL="vim"
 
-# ALIASES =====================================================================================================================================================================================
-
-# terminal aliases
-alias las='ls -la --color=auto'
-alias ls='ls -l --color=auto'
-alias rm='rm -rf'
-alias fckbeep='xset -b'
-alias scrblk='xset s off & xset s blank & xset -dpms' #-dpms
-alias lump='xbacklight -inc 10'
-alias lumm='xbacklight -dec 10'
-alias volp='amixer -D pulse sset Master 5%+'
-alias volm='amixer -D pulse sset Master 5%-'
-
-# yaourt aliases
-alias yasup='yaourt -Syu'
-alias yains='yaourt -S '
-alias yarem='yaourt -Rsn '
-alias yaorp='yaourt -Qtd'
-
-# compiler aliases
-alias ccomp='gcc -Wall -o'
-
-# openssl, vpn aliases
-alias aesenc='openssl aes-256-cbc -a -salt'
-alias aesdec='openssl aes-256-cbc -d -a'
-alias cesvpn='cd ~/vpn/cesvpn ; sudo openvpn seintz-TO-IPFire.ovpn'
-alias yovpn='cd ~/vpn/yovpn/kabutovm-udp-1194-Andrea_Casadei ; sudo openvpn kabutovm-udp-1194-Andrea_Casadei.ovpn'
-
-# git aliases
-alias gpush='git push -u origin master'
-alias gadd='git add'
-alias ga='git add .'
-alias gcom='git commit -m'
-alias gec='git commit --allow-empty-message'
-alias gacp='git add -A && git commit --allow-empty-message && git push -u origin master'
-
-# others aliases
-alias vbox='sudo VirtualBox'
-
-# VCS INFO ====================================================================================================================================================================================
-
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn hg
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' formats "%{$fg[cyan]%}%b%{$reset_color%} %{$fg[yellow]%}%c%{$fg[green]%}%u%{$reset_color%}" 
-precmd() {  
-    vcs_info
-}
-
 # PROMPT ======================================================================================================================================================================================
 
 setopt PROMPT_SUBST     
@@ -86,10 +37,10 @@ bindkey "^[[5~" history-beginning-search-backward-end
 bindkey "^[[6~" history-beginning-search-forward-end
 bindkey '^[[7~' beginning-of-line
 bindkey '^[[8~' end-of-line
+bindkey '^[[A' history-beginning-search-backward-end
+bindkey '^[[B' history-beginning-search-forward-end
 #bindkey '^[[5~' up-line-or-history
 #bindkey '^[[6~' down-line-or-history
-#bindkey '^[[A' history-beginning-search-backward-end
-#bindkey '^[[B' history-beginning-search-forward-end
 #bindkey '^[[D~' backward-char
 #bindkey '^[[C~' forward-char
 #bindkey '^[[2~' overwrite-mode
@@ -139,6 +90,16 @@ setopt inc_append_history
 setopt share_history            
 setopt bang_hist                
 
+# VCS INFO ====================================================================================================================================================================================
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn hg
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' formats "%{$fg[cyan]%}%b%{$reset_color%} %{$fg[yellow]%}%c%{$fg[green]%}%u%{$reset_color%}" 
+precmd() {  
+    vcs_info
+}
+
 # COMPLETION ==================================================================================================================================================================================
 
 zstyle ':completion::complete:*' use-cache on               
@@ -154,7 +115,7 @@ zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches for: %d'
 zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
 zstyle ':completion:*' group-name ''
-# zstyle ':completion:*:manuals' separate-sections true
+zstyle ':completion:*:manuals' separate-sections true
 zstyle ':completion:*:processes' command 'ps -au$USER'
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*' force-list always
@@ -163,3 +124,44 @@ zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*' force-list always
 users=(seintz root)           
 zstyle ':completion:*' users $users
+
+# ALIASES =====================================================================================================================================================================================
+
+# terminal aliases
+alias las='ls -la --color=auto'
+alias ls='ls -l --color=auto'
+alias rm='rm -rf'
+alias fckbeep='xset -b'
+alias scrblk='xset s off & xset s blank & xset -dpms'
+alias lump='xbacklight -inc 10'
+alias lumm='xbacklight -dec 10'
+alias volp='amixer -D pulse sset Master 5%+'
+alias volm='amixer -D pulse sset Master 5%-'
+
+# yaourt aliases
+alias yasup='yaourt -Syu'
+alias yains='yaourt -S '
+alias yarem='yaourt -Rsn '
+alias yaorp='yaourt -Qtd'
+
+# compiler aliases
+alias ccomp='gcc -Wall -o'
+
+# openssl, vpn aliases
+alias aesenc='openssl aes-256-cbc -a -salt'
+alias aesdec='openssl aes-256-cbc -d -a'
+alias cesvpn='cd ~/vpn/cesvpn ; sudo openvpn seintz-TO-IPFire.ovpn'
+alias yovpn='cd ~/vpn/yovpn/kabutovm-udp-1194-Andrea_Casadei ; sudo openvpn kabutovm-udp-1194-Andrea_Casadei.ovpn'
+
+# git aliases
+alias gacp='git add -A && git commit --allow-empty-message && git push -u origin master'
+alias ga='git add .'
+alias gad='git add'
+alias gcm='git commit -m'
+alias gce='git commit --allow-empty-message'
+alias gpu='git push -u origin master'
+alias gp='git pull'
+alias gpb='git pull --rebase'
+
+# others aliases
+alias vbox='sudo VirtualBox'
