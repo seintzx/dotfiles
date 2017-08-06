@@ -132,6 +132,9 @@ zstyle ':completion:*' users $users
 alias las='ls -la --color=auto'
 alias ls='ls -l --color=auto'
 alias rf='rm -rf'
+alias G='grep --color=auto'
+
+# fn key alias (almost deprecated)
 alias fckbeep='xset -b'
 alias scrblk='xset s off & xset s blank & xset -dpms'
 alias lump='xbacklight -inc 10'
