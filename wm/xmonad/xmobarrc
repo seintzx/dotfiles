@@ -5,12 +5,12 @@ Config { font = "xft:AnonymicePowerline Nerd Font:size=9:bold:antialias=true"
        , commands = [ Run StdinReader
                    , Run Wireless "wlo1" 
                         [ "-a", "l"  , "-w","6" 
-                        , "-t", "w: <essid>"
+                        , "-t", " <essid>"
                         , "-L", "50" , "-H", "75"
                         , "-l", "red", "-n", "yellow", "-h", "green"
                         ] 10
                     , Run BatteryP ["BAT0"]
-                        [ "-t", "⚡:<left>"
+                        [ "-t", "⚡ <left>"
                         , "-L", "15", "-H", "75"
                         , "-l", "red", "-n", "yellow", "-h", "green"
                         , "--", "-O", "<fc=red>⚡</fc>", "-o", "(<timeleft>)"
