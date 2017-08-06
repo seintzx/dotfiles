@@ -130,7 +130,7 @@ zstyle ':completion:*' users $users
 
 # terminal aliases
 alias la='ls -la --color=auto'
-alias ls='ls -l --color=auto'
+alias ll='ls -l --color=auto'
 alias rf='rm -rf'
 alias -g g='| grep -i --color=auto'
 
