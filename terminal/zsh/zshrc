@@ -7,9 +7,6 @@ select-word-style bash
 autoload -U compinit
 compinit
 zmodload -i zsh/complist        
-autoload -U history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
 
 # EXPORT ======================================================================================================================================================================================
 
@@ -29,6 +26,10 @@ function current_pwd {  echo $(pwd | sed -e "s,^$HOME,~,")  }
 PROMPT='%{$fg[$color]%}%n@%{$reset_color%} %{$fg[yellow]%}$(current_pwd)%{$reset_color%} ${vcs_info_msg_0_}%{$reset_color%} $ '
 
 # KEYBINDINGS =================================================================================================================================================================================
+
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
 
 typeset -g -A key
 bindkey '^?' backward-delete-char
@@ -107,7 +108,7 @@ zstyle ':completion:*' cache-path ~/.zsh/cache/$HOST
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'   
 zstyle ':completion:*' menu select=2                        
 zstyle ':completion:*' list-colors ''
-# ${(s.:.)LS_COLORS}       
+# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}       
 zstyle ':completion:*::::' completer _expand _complete _ignored _approximate 
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*:descriptions' format '%B%d%b'
@@ -130,7 +131,7 @@ zstyle ':completion:*' users $users
 # terminal aliases
 alias las='ls -la --color=auto'
 alias ls='ls -l --color=auto'
-alias rm='rm -rf'
+alias rf='rm -rf'
 alias fckbeep='xset -b'
 alias scrblk='xset s off & xset s blank & xset -dpms'
 alias lump='xbacklight -inc 10'
