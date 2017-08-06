@@ -126,10 +126,10 @@ myDoFullFloat = doF W.focusDown <+> doFullFloat
 myLogHook :: Handle -> X ()
 myLogHook h = dynamicLogWithPP $ defaultPP
     {     ppOutput            = hPutStrLn h
-        , ppVisible           = xmobarColor "white"   "#000000" . shorten 50
+        , ppVisible           = xmobarColor "#ffffff" "#000000" . shorten 50
         , ppCurrent           = xmobarColor "#00ff00" "#000000" . shorten 50
-        , ppHidden            = xmobarColor "white"   "#000000" . shorten 50
-        , ppUrgent            = xmobarColor "red"     "#000000" . shorten 50
+        , ppHidden            = xmobarColor "#dddddd" "#000000" . shorten 50
+        , ppUrgent            = xmobarColor "#ff0000" "#000000" . shorten 50
         , ppHiddenNoWindows   = xmobarColor "#7b7b7b" "#000000" . shorten 50
     }
 

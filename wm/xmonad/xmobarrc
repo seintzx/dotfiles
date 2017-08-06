@@ -26,5 +26,5 @@ Config { font = "xft:AnonymicePowerline Nerd Font:size=9:bold:antialias=true"
                     ]
         , sepChar = "%"
         , alignSep = "}{"
-        , template = "%StdinReader% }{ <fc=#ffff00>[</fc><fc=grey>%wlo1wi%</fc><fc=#ffff00>][</fc><fc=grey>%vol%</fc><fc=#ffff00>][</fc><fc=grey>%battery%</fc><fc=#ffff00>][</fc><fc=grey>%kbd%</fc><fc=#ffff00>][</fc><fc=grey>%date%</fc><fc=#ffff00>]</fc>" 
+        , template = "%StdinReader% }{ <fc=#ffff00>[</fc><fc=#aaaaaa>%wlo1wi%</fc><fc=#ffff00>][</fc><fc=#aaaaaa>%vol%</fc><fc=#ffff00>][</fc><fc=#aaaaaa>%battery%</fc><fc=#ffff00>][</fc><fc=#aaaaaa>%kbd%</fc><fc=#ffff00>][</fc><fc=#aaaaaa>%date%</fc><fc=#ffff00>]</fc>" 
     }
