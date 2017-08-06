@@ -129,33 +129,33 @@ zstyle ':completion:*' users $users
 # ALIASES =====================================================================================================================================================================================
 
 # terminal aliases
-alias las='ls -la --color=auto'
+alias la='ls -la --color=auto'
 alias ls='ls -l --color=auto'
 alias rf='rm -rf'
-alias G='grep --color=auto'
+alias -g g='| grep -i --color=auto'
 
 # fn key alias (almost deprecated)
 alias fckbeep='xset -b'
 alias scrblk='xset s off & xset s blank & xset -dpms'
-alias lump='xbacklight -inc 10'
-alias lumm='xbacklight -dec 10'
-alias volp='amixer -D pulse sset Master 5%+'
-alias volm='amixer -D pulse sset Master 5%-'
+alias lp='xbacklight -inc 10'
+alias lm='xbacklight -dec 10'
+alias vp='amixer -D pulse sset Master 5%+'
+alias vm='amixer -D pulse sset Master 5%-'
 
 # yaourt aliases
-alias yasup='yaourt -Syu'
-alias yains='yaourt -S '
-alias yarem='yaourt -Rsn '
-alias yaorp='yaourt -Qtd'
+alias ys='yaourt -Syua --no-confirm'
+alias yi='yaourt -S '
+alias yr='yaourt -Rsn '
+alias yo='yaourt -Qtd'
 
 # compiler aliases
-alias ccomp='gcc -Wall -o'
+alias cc='gcc -Wall -o'
 
 # openssl, vpn aliases
-alias aesenc='openssl aes-256-cbc -a -salt'
-alias aesdec='openssl aes-256-cbc -d -a'
-alias cesvpn='cd ~/vpn/cesvpn ; sudo openvpn seintz-TO-IPFire.ovpn'
-alias yovpn='cd ~/vpn/yovpn/kabutovm-udp-1194-Andrea_Casadei ; sudo openvpn kabutovm-udp-1194-Andrea_Casadei.ovpn'
+alias aese='openssl aes-256-cbc -a -salt'
+alias aesd='openssl aes-256-cbc -d -a'
+alias cvpn='cd ~/vpn/cesvpn ; sudo openvpn seintz-TO-IPFire.ovpn'
+alias yvpn='cd ~/vpn/yovpn/kabutovm-udp-1194-Andrea_Casadei ; sudo openvpn kabutovm-udp-1194-Andrea_Casadei.ovpn'
 
 # git aliases
 alias gacp='git add -A && git commit --allow-empty-message && git push -u origin master'
@@ -169,3 +169,23 @@ alias gpb='git pull --rebase'
 
 # others aliases
 alias vbox='sudo VirtualBox'
+
+# PLUGINS =====================================================================================================================================================================================
+
+globalias() {
+   zle _expand_alias
+   zle expand-word
+   zle self-insert
+}
+zle -N globalias
+
+# space expands all aliases, including global
+bindkey -M emacs " " globalias
+bindkey -M viins " " globalias
+
+# control-space to make a normal space
+bindkey -M emacs "^ " magic-space
+bindkey -M viins "^ " magic-space
+
+# normal space during searches
+bindkey -M isearch " " magic-space
