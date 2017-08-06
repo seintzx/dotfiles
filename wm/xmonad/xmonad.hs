@@ -172,6 +172,7 @@ mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     [ ((modm ,              xK_Return   ),      spawn $ XMonad.terminal conf                    )       -- launch terminal 
     , ((modm,               xK_p        ),      spawn "$HOME/.xmonad/dmenu.sh"                  )       -- launch dmenu
+    , ((modm .|. shiftMask, xK_p        ),      spawn "rofi -show"                              )       -- launch dmenu
     , ((modm .|. shiftMask, xK_c        ),      kill                                            )       -- close focused window
     , ((modm .|. shiftMask, xK_q        ),      io (exitWith ExitSuccess)                       )       -- quit xmonad
     , ((modm .|. shiftMask, xK_r        ),      spawn "xmonad --recompile && xmonad --restart"  )       -- restart xmonad
@@ -195,7 +196,7 @@ mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_period   ),      sendMessage (IncMasterN (-1))                   )       -- deincrement number of window
 
     -- Personal Keybinds
-    , ((modm .|. shiftMask, xK_z        ),      spawn "i3lock -n --image=/home/seintz/Pictures/lockscreen.png -t -e")
+    , ((modm .|. shiftMask, xK_z        ),      spawn "${HOME}/.xmonad.lockscr.sh")
     , ((shiftMask,          xK_Print    ),      spawn "sleep 0.2; scrot -s /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")
     , ((0,                  xK_Print    ),      spawn "scrot /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")       
     , ((modm,               xK_F2       ),      spawn "xbacklight -dec 10")
@@ -211,3 +212,19 @@ mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, k), windows $ f i)
     | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
     , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+
+
+-- XMOBAR STUFF (because you cannot comment line on xmobarrc) ==================================================================================
+
+-- <fc=#ffff00>[</fc><fc=grey>%cpu%</fc><fc=#ffff00>] [</fc><fc=grey>%memory%</fc>
+-- , Run Cpu
+-- [ "-a", "l", "-w", "2"
+-- , "-L","25","-H","50"
+-- , "-l", "green", "-n", "yellow", "-h", "red"
+-- ] 10
+-- , Run Memory
+-- [ "-a", "l", "-w", "2"
+-- , "-t","mem: <usedratio>%"
+-- , "-L","25","-H","50"
+-- , "-l", "green", "-n", "yellow", "-h", "red"
+-- ] 10

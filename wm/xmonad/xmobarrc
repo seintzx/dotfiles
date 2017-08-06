@@ -3,38 +3,28 @@ Config { font = "xft:AnonymicePowerline Nerd Font:size=9:bold:antialias=true"
        , fgColor = "grey"
        , position = TopW C 100
        , commands = [ Run StdinReader
-                    , Run Cpu 
-                        [ "-a", "l", "-w", "2"
-                        , "-L","25","-H","50"
-                        , "-l", "green", "-n", "yellow", "-h", "red"
-                        ] 10
-                    , Run Memory 
-                        [ "-a", "l", "-w", "2"
-                        , "-t","mem: <usedratio>%"
-                        , "-L","25","-H","50"
-                        , "-l", "green", "-n", "yellow", "-h", "red"
-                        ] 10
-                    , Run Wireless "wlo1" 
-                        [ "-a", "l"  , "-w","4" 
-                        , "-t", "w: <essid> <quality>"
+                   , Run Wireless "wlo1" 
+                        [ "-a", "l"  , "-w","6" 
+                        , "-t", "w: <essid>"
                         , "-L", "50" , "-H", "75"
                         , "-l", "red", "-n", "yellow", "-h", "green"
                         ] 10
                     , Run BatteryP ["BAT0"]
                         [ "-t", "⚡:<left>"
-                        , "-L", "10", "-H", "80"
+                        , "-L", "15", "-H", "75"
                         , "-l", "red", "-n", "yellow", "-h", "green"
-                        , "--", "-O", "<fc=red>⚡</fc>", "-o", "(<timeleft>)"] 10 
+                        , "--", "-O", "<fc=red>⚡</fc>", "-o", "(<timeleft>)"
+                        ] 10 
+                    , Run Com "sh"
+                        [ "/home/seintz/.xmonad/vol.sh"
+                        ] "vol" 10
                     , Run Kbd 
                         [ ("gb", "gb")
                         , ("it", "it")
                         ]
-                    , Run Com "sh"
-                        [ "/home/seintz/.xmonad/vol.sh"
-                        ] "vol" 10
                     , Run Date "%y-%m-%d %a, %I:%M %P" "date" 10
                     ]
         , sepChar = "%"
         , alignSep = "}{"
-        , template = "%StdinReader% }{ <fc=#ffff00>|</fc> <fc=grey>%cpu%</fc> <fc=#ffff00>|</fc> <fc=grey>%memory%</fc> <fc=#ffff00>|</fc> <fc=grey>%wlo1wi%</fc> <fc=#ffff00>|</fc> <fc=grey>%vol%</fc> <fc=#ffff00>|</fc> <fc=grey>%battery%</fc> <fc=#ffff00>|</fc> <fc=grey>%kbd%</fc> <fc=#ffff00>|</fc> <fc=grey>%date%</fc>" 
+        , template = "%StdinReader% }{ <fc=#ffff00>[</fc><fc=grey>%wlo1wi%</fc><fc=#ffff00>] [</fc><fc=grey>%vol%</fc><fc=#ffff00>] [</fc><fc=grey>%battery%</fc><fc=#ffff00>] [</fc><fc=grey>%kbd%</fc><fc=#ffff00>] [</fc><fc=grey>%date%</fc><fc=#ffff00>]</fc>" 
     }
