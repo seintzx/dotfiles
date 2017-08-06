@@ -99,22 +99,27 @@ mymanageHook = (composeAll . concat $
     , [className    =? c            --> doShift  "7:mvp"        |   c   <- mySev    ]
     , [className    =? c            --> doShift  "8:mai"        |   c   <- myEig    ]
     , [className    =? c            --> doShift  "9:tmp"        |   c   <- myNin    ]
+    , [isFullscreen                 --> myDoFullFloat                               ]
     ])
 
     where
         role      = stringProperty "WM_WINDOW_ROLE"
         name      = stringProperty "WM_NAME"
 
-        myIgnores   = [""] -- "desktop","desktop_window","notify-osd","stalonetray","trayer"]
+        myIgnores   = ["desktop","desktop_window","notify-osd","stalonetray","trayer"]
         myOne       = ["Firefox","Google-chrome","Google-chrome-stable","Chromium", "Chromium-browser"]
         myTwo       = [""]
         myThr       = [""]
         myFou       = [""]
         myFiv       = ["Nautilus"]
         mySix       = ["subl","LibreOffice","TeXstudio","Zathura", "Sublime"]
-        mySev       = ["Vlc","Gimp"]
-        myEig       = ["VirtualBox","vuze","Thunderbird"]
+        mySev       = ["Vlc","Gimp", "Spotify"]
+        myEig       = ["VirtualBox","vuze"]
         myNin       = [""]
+
+-- Trick for real fullscreen
+myDoFullFloat :: ManageHook
+myDoFullFloat = doF W.focusDown <+> doFullFloat
 
 -- XMOBAR ======================================================================================================================================
 
@@ -196,7 +201,7 @@ mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_period   ),      sendMessage (IncMasterN (-1))                   )       -- deincrement number of window
 
     -- Personal Keybinds
-    , ((modm .|. shiftMask, xK_z        ),      spawn "${HOME}/.xmonad.lockscr.sh")
+    , ((modm .|. shiftMask, xK_z        ),      spawn "${HOME}/.xmonad/lockscr.sh")
     , ((shiftMask,          xK_Print    ),      spawn "sleep 0.2; scrot -s /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")
     , ((0,                  xK_Print    ),      spawn "scrot /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")       
     , ((modm,               xK_F2       ),      spawn "xbacklight -dec 10")
