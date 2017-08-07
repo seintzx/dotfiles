@@ -192,8 +192,9 @@ mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     , ((modm,               xK_h        ),      CycleWS.prevWS                                  )       -- swap to previous workspace
     , ((modm,               xK_l        ),      CycleWS.nextWS                                  )       -- swap to next workspace
+    , ((modm,               xK_Tab      ),      CycleWS.toggleWS                                )       -- jump to last workspace
     , ((modm,               xK_u        ),      focusUrgent                                     )       -- swap to urgen workspace
-    , ((modm,               xK_m        ),      windows W.focusMaster                           )       -- swap to master
+    , ((modm,               xK_m        ),      windows W.focusMaster                           )       -- focus master
 
     , ((modm,               xK_comma    ),      sendMessage Shrink                              )       -- shrink master area
     , ((modm,               xK_period   ),      sendMessage Expand                              )       -- expand master area
