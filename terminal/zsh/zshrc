@@ -154,7 +154,7 @@ alias cc='gcc -Wall -o'
 # openssl, vpn aliases
 alias aese='openssl aes-256-cbc -a -salt'
 alias aesd='openssl aes-256-cbc -d -a'
-alias cvpn='cd ~/vpn/cesvpn ; sudo openvpn seintz-TO-IPFire.ovpn'
+alias cvpn='cd ~/vpn/cesvpn ; sudo openvpn ep-udp-1195-santa.ovpn'
 alias yvpn='cd ~/vpn/yovpn/kabutovm-udp-1194-Andrea_Casadei ; sudo openvpn kabutovm-udp-1194-Andrea_Casadei.ovpn'
 
 # git aliases
@@ -169,6 +169,8 @@ alias gpb='git pull --rebase'
 
 # others aliases
 alias vbox='sudo VirtualBox'
+alias xc='xsel --clipboard'
+alias xv='xsel --clipboard'
 
 # PLUGINS =====================================================================================================================================================================================
 
