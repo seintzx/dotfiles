@@ -14,7 +14,7 @@ Xft.antialias           : true
 Xft.rgba                : rgb
 Xft.hinting             : true
 Xft.hintstyle           : hintslight
-URxvt.font              : xft:AnonymicePowerline Nerd Font:pixelsize=13
+URxvt.font              : xft:Anonymice Nerd Font:pixelsize=13
 URxvt.letterSpace       : -1
 
 

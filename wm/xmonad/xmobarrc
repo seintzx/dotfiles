@@ -1,4 +1,4 @@
-Config { font = "xft:AnonymicePowerline Nerd Font:size=9:bold:antialias=true"
+Config { font = "xft:Anonymice Nerd Font:size=9:bold:antialias=true"
        , bgColor = "black"
        , fgColor = "grey"
        , position = TopW C 100
