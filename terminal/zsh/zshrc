@@ -169,8 +169,8 @@ alias gpb='git pull --rebase'
 
 # others aliases
 alias vbox='sudo VirtualBox'
-alias xc='xsel --clipboard'
-alias xv='xsel --clipboard'
+alias -g xc='| xsel --clipboard'
+alias -g xv='| xsel --clipboard'
 
 # PLUGINS =====================================================================================================================================================================================
 
