@@ -1,3 +1,4 @@
+#!/bin/sh
 case "$1" in
     lock)
         $HOME/.config/i3/lockscr.sh
