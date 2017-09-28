@@ -2,4 +2,7 @@ xset -b &
 xset s off & 
 xset -dpms & 
 xset s blank &
+amixer sset Master 0 &
+feh  --bg-fill "${HOME}/Pictures/wallpaper.png" &
+numlockx &
 exec i3
