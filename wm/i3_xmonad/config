@@ -9,8 +9,9 @@ set $yellow     #ffff00
 set $lightblue  #232d34
 set $blue       #131d24
 set $lightgray  #ddeedd
+set $gray       #aaaaaa
 set $darkgray   #333333
-set $white      #bbbbbb
+set $white      #ffffff
 set $black      #000000
 set $urgentred  #b33a3a
 
@@ -27,7 +28,7 @@ set $ws9     "9:mai"
 set $ws10    "10:tmp"
 
 # FONT
-font xft:AnonymicePowerline Nerd Font 10
+font xft:Anonymice Nerd Font 10
 
 # CLIENT COLOR
 # classname                 border      background  text    indicator
@@ -113,7 +114,7 @@ bindsym $mod+Shift+c kill
 
 # RUN
 bindsym $mod+p exec "${HOME}/.config/i3/dmenu.sh"
-bindsym $mod+Shift+p exec rofi -show
+# bindsym $mod+Shift+p exec rofi -show
 
 # RELOAD
 bindsym $mod+Shift+e reload
@@ -128,15 +129,15 @@ bindsym $mod+Shift+q exec "i3-msg exit"
 bindsym $mod+n exec --no-startup-id nautilus 
 bindsym $mod+F2 exec  "xbacklight -dec 10"
 bindsym $mod+F3 exec  "xbacklight -inc 10"
-bindsym $mod+F9 exec  "amixer -D pulse sset Master 5%-"
-bindsym $mod+F10 exec "amixer -D pulse sset Master 5%+"
+bindsym $mod+F9 exec  "amixer sset Master 5%-"
+bindsym $mod+F10 exec "amixer sset Master 5%+"
 bindsym $mod+Shift+z exec "${HOME}/.config/i3/lockscr.sh"
 bindsym --release Print exec "scrot ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
 bindsym --release SHift+Print exec "scrot -s ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
 
 # RULES
 assign [class="(?i)firefox"]        $ws1
-assign [class="(?i)Nautilus"]       $ws6
+assign [class="(?i)Nemo"]           $ws6
 assign [class="(?i)TeXstudio"]      $ws7
 assign [class="(?i)libreoffice"]    $ws7
 assign [class="(?i)subl"]           $ws7
@@ -148,8 +149,8 @@ assign [class="(?i)VirtualBox"]     $ws9
 assign [class="(?i)thunderbird"]    $ws9
 
 # STARTUP
-exec_always --no-startup-id "${HOME}/.config/i3/startup.sh"
-exec_always --no-startup-id greenclip daemon
+# exec_always --no-startup-id "${HOME}/.config/i3/startup.sh"
+# exec_always --no-startup-id greenclip daemon
 
 # EXIT MODE
 set $mode_power power
@@ -192,7 +193,7 @@ smart_borders on
 bar {
         status_command i3blocks -c ${HOME}/.config/i3/i3blocks.conf
 
-        font pango:AnonymicePowerline Nerd Font 10
+        font pango:Anonymice Nerd Font 10
         tray_padding 0
         position top
         height 15
@@ -200,12 +201,12 @@ bar {
         
         colors {
         background  $black
-        statusline  $green
+        statusline  $gray
         separator   $yellow
 
         # classname         border      background  font
-        focused_workspace   $darkgray   $darkgray   $green
-        inactive_workspace  $black      $black      $white
+        focused_workspace   $black      $black      $green
+        inactive_workspace  $black      $black      $gray
         urgent_workspace    $urgentred  $urgentred  $white
         }
 }
