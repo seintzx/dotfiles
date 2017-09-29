@@ -17,7 +17,6 @@ set wildmenu                        " Better command completition with tab
 set noshowmode                      " Hide default mode text
 set ttimeoutlen=50                  " Timeout for lag
 set clipboard=unnamedplus           " Copy to clipboard instead o buffer 
-set clipboard=unnamed               " Copy to clipboard instead o buffer 
 set mouse=a
 
 " Indentation and spaces
