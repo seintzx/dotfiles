@@ -17,14 +17,14 @@ set $urgentred  #b33a3a
 
 # WORKSPACES
 set $ws1     "1:www"
-set $ws2     "2:2"
-set $ws3     "3:3"
-set $ws4     "4:4"
-set $ws5     "5:5"
+set $ws2     "2:sh"
+set $ws3     "3:sh"
+set $ws4     "4:sh"
+set $ws5     "5:sh"
 set $ws6     "6:exp"
 set $ws7     "7:txt"
 set $ws8     "8:mvp"
-set $ws9     "9:mai"
+set $ws9     "9:tor"
 set $ws10    "10:tmp"
 
 # FONT
@@ -114,7 +114,7 @@ bindsym $mod+Shift+c kill
 
 # RUN
 bindsym $mod+p exec "${HOME}/.config/i3/dmenu.sh"
-# bindsym $mod+Shift+p exec rofi -show
+bindsym $mod+Shift+p exec rofi -show
 
 # RELOAD
 bindsym $mod+Shift+e reload
@@ -145,6 +145,7 @@ assign [class="(?i)Vlc"]            $ws8
 assign [class="(?i)Gimp"]           $ws8
 assign [class="(?i)Spotify"]        $ws8
 assign [class="(?i)Vuze"]           $ws9
+assign [class="(?i)qbittorrent"]    $ws9
 assign [class="(?i)VirtualBox"]     $ws9
 assign [class="(?i)thunderbird"]    $ws9
 

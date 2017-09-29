@@ -10,8 +10,9 @@ zmodload -i zsh/complist
 
 # EXPORT ======================================================================================================================================================================================
 
-export PATH=${PATH}:/usr/bin/greenclip
-export VISUAL="vim"
+#export PATH=${PATH}:/usr/bin/greenclip
+export VISUAL="nvim"
+export EDITOR="nvim"
 
 # PROMPT ======================================================================================================================================================================================
 
@@ -129,10 +130,14 @@ zstyle ':completion:*' users $users
 # ALIASES =====================================================================================================================================================================================
 
 # terminal aliases
+alias -g g='| grep -i --color=auto'
 alias la='ls -la --color=auto'
 alias ll='ls -l --color=auto'
 alias rf='rm -rf'
-alias -g g='| grep -i --color=auto'
+alias md='mkdir -p'
+alias v='nvim'
+alias vim='nvim'
+alias s='startx'
 
 # fn key alias (almost deprecated)
 alias fckbeep='xset -b'
@@ -163,9 +168,9 @@ alias ga='git add .'
 alias gad='git add'
 alias gcm='git commit -m'
 alias gce='git commit --allow-empty-message'
-alias gpu='git push -u origin master'
-alias gp='git pull'
-alias gpb='git pull --rebase'
+alias gp='git push -u origin master'
+alias gpp='git pull'
+alias gpr='git pull --rebase'
 
 # others aliases
 alias vbox='sudo VirtualBox'
