@@ -5,4 +5,5 @@ xset s blank &
 amixer sset Master 0 &
 feh  --bg-fill "${HOME}/Pictures/wallpaper.png" &
 numlockx &
+greenclip daemon &
 exec i3
