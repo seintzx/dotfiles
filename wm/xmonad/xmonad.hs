@@ -111,10 +111,10 @@ mymanageHook = (composeAll . concat $
         myTwo       = [""]
         myThr       = [""]
         myFou       = [""]
-        myFiv       = ["Nautilus"]
+        myFiv       = ["Nautilus","Nemo","nemo"]
         mySix       = ["subl","LibreOffice","TeXstudio","Zathura", "Sublime"]
         mySev       = ["Vlc","Gimp", "Spotify"]
-        myEig       = ["VirtualBox","Vuze Bittorrent Client", "vuze"]
+        myEig       = ["VirtualBox","Vuze Bittorrent Client", "vuze","qbittorrent"]
         myNin       = [""]
 
 -- Trick for real fullscreen
