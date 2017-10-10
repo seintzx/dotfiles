@@ -61,7 +61,7 @@ setopt chase_links
 setopt correct                  
 setopt extended_glob            
 setopt glob_dots                
-setopt print_exit_value         
+# setopt print_exit_value         
 unsetopt beep                   
 unsetopt bg_nice                
 unsetopt clobber                
@@ -196,3 +196,10 @@ bindkey -M viins " " magic-space
 
 # normal space during searches
 bindkey -M isearch " " magic-space
+# VIRTUALENV ==================================================================================================================================================================================
+
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
+export WORKON_HOME=${HOME}/.pyvenv
+# export PROJECT_HOME=${HOME}/project
+source /usr/bin/virtualenvwrapper.sh
