@@ -137,7 +137,7 @@ myLogHook h = dynamicLogWithPP $ defaultPP
 
 myStartupHook :: X()
 myStartupHook = do
-        spawn "$HOME/.xmonad/startup.sh"
+        spawn -- "$HOME/.xmonad/startup.sh"
 
 -- LAYOUT ======================================================================================================================================
 
@@ -207,8 +207,8 @@ mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0,                  xK_Print    ),      spawn "scrot /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")       
     , ((modm,               xK_F2       ),      spawn "xbacklight -dec 10")
     , ((modm,               xK_F3       ),      spawn "xbacklight -inc 10")
-    , ((modm,               xK_F9       ),      spawn "amixer -D pulse sset Master 5%-")
-    , ((modm,               xK_F10      ),      spawn "amixer -D pulse sset Master 5%+")
+    , ((modm,               xK_F9       ),      spawn "amixer sset Master 5%-")
+    , ((modm,               xK_F10      ),      spawn "amixer sset Master 5%+")
     ]
     ++
 

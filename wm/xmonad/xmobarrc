@@ -19,7 +19,7 @@ Config { font = "xft:Anonymice Nerd Font:size=9:bold:antialias=true"
                         [ "/home/seintz/.xmonad/vol.sh"
                         ] "vol" 10
                     , Run Kbd 
-                        [ ("gb", "gb")
+                        [ ("us", "us")
                         , ("it", "it")
                         ]
                     , Run Date "%y-%m-%d %a, %I:%M %P" "date" 10
