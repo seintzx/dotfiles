@@ -82,7 +82,7 @@ main = do
         ,   layoutHook          = avoidStruts $ myLayout 
         ,   manageHook          = mymanageHook <+> manageDocks 
         ,   logHook             = myLogHook xmproc
-        ,   startupHook         = myStartupHook
+        -- ,   startupHook         = myStartupHook
         }
 
 -- RULES =======================================================================================================================================
@@ -114,7 +114,7 @@ mymanageHook = (composeAll . concat $
         myFiv       = ["Nautilus","Nemo","nemo"]
         mySix       = ["subl","LibreOffice","TeXstudio","Zathura", "Sublime"]
         mySev       = ["Vlc","Gimp", "Spotify"]
-        myEig       = ["VirtualBox","Vuze Bittorrent Client", "vuze","qbittorrent"]
+        myEig       = ["VirtualBox","Vuze Bittorrent Client", "vuze","qBittorrent"]
         myNin       = [""]
 
 -- Trick for real fullscreen
@@ -135,9 +135,9 @@ myLogHook h = dynamicLogWithPP $ defaultPP
 
 -- STARTUP =====================================================================================================================================
 
-myStartupHook :: X()
-myStartupHook = do
-        spawn -- "$HOME/.xmonad/startup.sh"
+-- myStartupHook :: X()
+-- myStartupHook = do
+        -- spawn -- "$HOME/.xmonad/startup.sh"
 
 -- LAYOUT ======================================================================================================================================
 

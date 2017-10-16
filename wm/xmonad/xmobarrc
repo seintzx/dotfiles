@@ -1,4 +1,4 @@
-Config { font = "xft:Anonymice Nerd Font:size=9:bold:antialias=true"
+Config { font = "xft:Knack Nerd Font:size=9:bold:antialias=true"
        , bgColor = "black"
        , fgColor = "grey"
        , position = TopW C 100
@@ -10,7 +10,7 @@ Config { font = "xft:Anonymice Nerd Font:size=9:bold:antialias=true"
                         , "-l", "red", "-n", "yellow", "-h", "green"
                         ] 10
                     , Run BatteryP ["BAT0"]
-                        [ "-t", "⚡ <left>"
+                        [ "-t", "⚡<left>"
                         , "-L", "15", "-H", "75"
                         , "-l", "red", "-n", "yellow", "-h", "green"
                         , "--", "-O", "<fc=red>⚡</fc>", "-o", "(<timeleft>)"
