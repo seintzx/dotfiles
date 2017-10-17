@@ -51,13 +51,13 @@
 
     -- This is used later as the default terminal and editor to run.
     terminal = "urxvt"
-    editor = "vim"
+    editor = "nvim"
     editor_cmd = terminal .. " -e " .. editor
 
     -- Default modkey.
     altkey = "Mod1"
     modkey = "Mod4"
-    fnkey  = "Mod5" -- Mod5 è alt gr
+    fnkey  = "Mod5" -- Mod5 is alt_gr
 
     -- Table of layouts to cover with awful.layout.inc, order matters.
     awful.layout.layouts = {
@@ -379,15 +379,17 @@ awful.rules.rules = {
 
     -- Personal Rules
     { rule = { class = "Firefox" },     properties = { screen = 1, tag = "1" } },  -- Firefox in tab 1
+    { rule = { class = "Chromium" },    properties = { screen = 1, tag = "1" } },  -- Chromium in tab 1
     { rule = { class = "Nautilus" },    properties = { screen = 1, tag = "5" } },  -- Nautilus in tab 5
+    { rule = { class = "Nemo" },        properties = { screen = 1, tag = "5" } },  -- Nemo in tab 5
     { rule = { class = "TeXstudio" },   properties = { screen = 1, tag = "6" } },  -- Texstudio in tab 6
     { rule = { class = "libreoffice" }, properties = { screen = 1, tag = "6" } },  -- Libreoffice in tab 6
     { rule = { class = "subl" },        properties = { screen = 1, tag = "6" } },  -- sublime in tab 6
     { rule = { class = "Vlc" },         properties = { screen = 1, tag = "7" } },  -- VLC in tab 7
     { rule = { class = "Gimp" },        properties = { screen = 1, tag = "7" } },  -- GIMP in tab 7
-    { rule = { class = "Chromium" },    properties = { screen = 1, tag = "8" } },  -- Chromium in tab 8
 --  { rule = { class = "Spotify" },     properties = { screen = 1, tag = "8" } },  -- Spotify in tab 8
     { rule = { class = "Vuze" },        properties = { screen = 1, tag = "9" } },  -- Vuze in tab 9
+    { rule = { class = "qBittorrent" }, properties = { screen = 1, tag = "9" } },  -- qBittorrent in tab 9
     { rule = { class = "VirtualBox" },  properties = { scrren = 1, tag = "9" } },  -- Virtualbox in tab 9
 }
 
