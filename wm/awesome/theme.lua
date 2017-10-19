@@ -4,7 +4,7 @@
 
 local theme = {}
 
-theme.font          = "AnonymicePowerline Nerd Font 10"
+theme.font          = "Knack Nerd Font 9"
 
 -- Bar Color
 theme.bg_normal     = "#000000"     --black, normal bar

@@ -177,7 +177,7 @@ mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     [ ((modm ,              xK_Return   ),      spawn $ XMonad.terminal conf                    )       -- launch terminal 
     , ((modm,               xK_p        ),      spawn "$HOME/.xmonad/dmenu.sh"                  )       -- launch dmenu
-    , ((modm .|. shiftMask, xK_p        ),      spawn "rofi -show"                              )       -- launch dmenu
+    , ((modm .|. shiftMask, xK_p        ),      spawn "rofi -show"                              )       -- launch rofi
     , ((modm .|. shiftMask, xK_c        ),      kill                                            )       -- close focused window
     , ((modm .|. shiftMask, xK_q        ),      io (exitWith ExitSuccess)                       )       -- quit xmonad
     , ((modm .|. shiftMask, xK_r        ),      spawn "xmonad --recompile && xmonad --restart"  )       -- restart xmonad
