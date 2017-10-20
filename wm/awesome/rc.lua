@@ -241,12 +241,10 @@
         
         awful.key({ modkey, "Shift" }, "r",         awesome.restart),
         awful.key({ modkey, "Shift" }, "q",         awesome.quit),
-
         awful.key({ modkey          }, "r",         function()  awful.screen.focused().mypromptbox:run()            end),
-        awful.key({ modkey,         }, "Return",    function () awful.spawn(terminal)                               end),
-        
         awful.key({ modkey,         }, "space",     function () awful.layout.inc( 1)                                end),
         awful.key({ modkey, "Shift" }, "space",     function () awful.layout.inc(-1)                                end),
+        awful.key({ modkey,         }, "Return",    function () awful.spawn(terminal)                               end),
         
         -- Layout manipulation
         awful.key({ modkey,         }, "j",         function () awful.client.focus.byidx(-1)                        end),
@@ -265,7 +263,9 @@
         awful.key({ modkey, "Shift" }, "n",         function ()   local c = awful.client.restore()    if c then   client.focus = c    c:raise()   end       end),
 
         -- Personal keybinds
-        awful.key({ modkey, "Shift" }, "z",         function()  awful.util.spawn("sync")    awful.util.spawn("i3lock -n --image=${HOME}/Pictures/lockscreen.png -t -e")                     end),  -- Lockscreen
+        awful.key({ modkey,         }, "p",         function()  awful.util.spawn_with_shell("${HOME}/.config/awesome/dmenu.sh")                                                             end),  -- dmenu
+        awful.key({ modkey, "Shift" }, "p",         function()  awful.util.spawn_with_shell("rofi -show")                                                                                   end),  -- rofi
+        awful.key({ modkey, "Shift" }, "z",         function()  awful.util.spawn_with_shell("${HOME}/.config/awesome/lockscr.sh")                                                           end),  -- Lockscreen
         awful.key({ modkey,         }, "F2",        function()  awful.util.spawn("sync")    awful.util.spawn("xbacklight -dec 10")                                                          end),  -- Brightness down
         awful.key({ modkey,         }, "F3",        function()  awful.util.spawn("sync")    awful.util.spawn("xbacklight -inc 10")                                                          end),  -- Brightness up
         awful.key({ modkey,         }, "F9",        function()  awful.util.spawn("sync")    awful.util.spawn("amixer sset Master 5%-")                                                      end),  -- Volume Down

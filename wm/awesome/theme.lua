@@ -1,59 +1,54 @@
----------------------------
--- Default awesome theme --
----------------------------
+-- My awesome theme, based on my xmonad layout
 
 local theme = {}
 
+-- WALLPAPER ==================================================================================================================================================================================================================
+
+-- theme.wallpaper = "/usr/share/awesome/themes/default/background.png"
+theme.wallpaper = "~/Pictures/wallpaper.png"
+
+-- FONT =======================================================================================================================================================================================================================
+
 theme.font          = "Knack Nerd Font 9"
 
--- Bar Color
-theme.bg_normal     = "#000000"     --black, normal bar
-theme.bg_focus      = "#202020"     --dark grey, focused windows bar
-theme.bg_urgent     = "#ff0000"     --red, urgent background (ex.: you are in tab one and open firefox on tab two)
-theme.bg_minimize   = "#303030"     --grey, minimized bar
-theme.bg_systray    = theme.bg_normal
+-- COLOR ======================================================================================================================================================================================================================
 
--- Text Color
-theme.fg_normal     = "#ffffff"     --pink, non-focused text (ex.: clock, tag text, ect..)
-theme.fg_focus      = "#00ff00"     --green, focused window and tag text
-theme.fg_urgent     = "#ffffff"     --white, urgent text
-theme.fg_minimize   = "#ffff00"     --yellow, minimized text
-
--- Border Color
+-- border
 theme.useless_gap   = 0
 theme.border_width  = 1
 theme.border_normal = "#000000"     --black, non-focused border
 theme.border_focus  = "#202020"     --dark grey, focused window border
 theme.border_marked = "#00ffff"     --cyan, unknown 
 
--- There are other variable sets
--- overriding the default one when
--- defined, the sets are:
--- taglist_[bg|fg]_[focus|urgent|occupied|empty]
--- tasklist_[bg|fg]_[focus|urgent]
--- titlebar_[bg|fg]_[normal|focus]
--- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
--- mouse_finder_[color|timeout|animate_timeout|radius|factor]
--- Example:
--- theme.taglist_bg_focus = "#ff0000"
+-- taglist
+theme.taglist_fg_focus      =   "#00ff00"
+theme.taglist_bg_focus      =   "#000000"
+theme.taglist_fg_urgent     =   "#ffffff"
+theme.taglist_bg_urgent     =   "#ff0000"
+theme.taglist_fg_occupied   =   "#ffffff"
+theme.taglist_bg_occupied   =   "#000000"
+theme.taglist_fg_empty      =   "#7b7b7b"
+theme.taglist_bg_empty      =   "#000000"
 
--- Display the taglist squares
---theme.taglist_squares_sel   = "/usr/share/awesome/themes/default/taglist/squarefw.png"
-theme.taglist_squares_unsel = "/usr/share/awesome/themes/default/taglist/squarew.png"
+-- tasklist
+theme.tasklist_fg_focus      =   "#00ff00"
+theme.tasklist_bg_focus      =   "#000000"
+theme.tasklist_fg_urgent     =   "#ffffff"
+theme.tasklist_bg_urgent     =   "#ff0000"
 
--- Variables set for theming the menu:
--- menu_[bg|fg]_[normal|focus]
--- menu_[border_color|border_width]
-theme.menu_submenu_icon = "/usr/share/awesome/themes/default/submenu.png"
-theme.menu_height = 15
-theme.menu_width  = 100
+-- titlebar
+theme.titlebar_fg_focus      =   "#0000ff"
+theme.titlebar_bg_focus      =   "#0000ff"
+theme.titlebar_fg_normal     =   "#0000ff"
+theme.titlebar_bg_normal     =   "#0000ff"
 
--- You can add as many variables as
--- you wish and access them by using
--- beautiful.variable in your rc.lua
--- theme.bg_widget = "#cc0000"
+-- TAGLIST SQUARE =============================================================================================================================================================================================================
 
--- Define the image to load
+-- theme.taglist_squares_sel   = "/usr/share/awesome/themes/default/taglist/squarefw.png"
+-- theme.taglist_squares_unsel = "/usr/share/awesome/themes/default/taglist/squarew.png"
+
+-- TITLEBAR BUTTON ============================================================================================================================================================================================================
+
 theme.titlebar_close_button_normal = "/usr/share/awesome/themes/default/titlebar/close_normal.png"
 theme.titlebar_close_button_focus  = "/usr/share/awesome/themes/default/titlebar/close_focus.png"
 
@@ -80,10 +75,8 @@ theme.titlebar_maximized_button_focus_inactive  = "/usr/share/awesome/themes/def
 theme.titlebar_maximized_button_normal_active = "/usr/share/awesome/themes/default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/default/titlebar/maximized_focus_active.png"
 
---theme.wallpaper = "/usr/share/awesome/themes/default/background.png"
-theme.wallpaper = "~/Pictures/wallpaper.png"
+-- LAYOUT IMAGE ===============================================================================================================================================================================================================
 
--- You can use your own layout icons like this:
 theme.layout_fairh = "/usr/share/awesome/themes/default/layouts/fairhw.png"
 theme.layout_fairv = "/usr/share/awesome/themes/default/layouts/fairvw.png"
 theme.layout_floating  = "/usr/share/awesome/themes/default/layouts/floatingw.png"
@@ -103,6 +96,8 @@ theme.layout_cornerse = "/usr/share/awesome/themes/default/layouts/cornersew.png
 
 theme.awesome_icon = "/usr/share/awesome/icons/awesome16.png"
 
+-- WIDGET IMAGE ===============================================================================================================================================================================================================
+
 theme.widget_ac                     = "/usr/share/awesome/icons/iconjak/ac.png"
 theme.widget_battery                = "/usr/share/awesome/icons/iconjak/battery.png"
 theme.widget_battery_low            = "/usr/share/awesome/icons/iconjak/battery_low.png"
@@ -121,11 +116,9 @@ theme.widget_vol_mute               = "/usr/share/awesome/icons/iconjak/vol_mute
 theme.widget_mail                   = "/usr/share/awesome/icons/iconjak/mail.png"
 theme.widget_mail_on                = "/usr/share/awesome/icons/iconjak/mail_on.png"
 
-
+-- ICON THEME ================================================================================================================================================================================================================= 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
 
 return theme
-
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
