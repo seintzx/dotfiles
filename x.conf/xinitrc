@@ -1,4 +1,4 @@
-#feh  --bg-fill "${HOME}/Pictures/wallpaper.png" &
+feh  --bg-fill "${HOME}/Pictures/wallpaper.png" &
 xset -b & 
 xset s off & 
 xset -dpms & 
@@ -7,4 +7,4 @@ amixer sset Master 0 &
 amixer sset Headphone 100 &
 numlockx &
 greenclip daemon &
-exec awesome
+exec xmonad
