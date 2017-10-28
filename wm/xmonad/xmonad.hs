@@ -97,7 +97,7 @@ mymanageHook = (composeAll . concat $
     , [className    =? c            --> doShift  "5:exp"        |   c   <- myFiv    ]
     , [className    =? c            --> doShift  "6:txt"        |   c   <- mySix    ]
     , [className    =? c            --> doShift  "7:mvp"        |   c   <- mySev    ]
-    , [className    =? c            --> doShift  "8:mai"        |   c   <- myEig    ]
+    , [className    =? c            --> doShift  "8:tor"        |   c   <- myEig    ]
     , [className    =? c            --> doShift  "9:tmp"        |   c   <- myNin    ]
     , [isFullscreen                 --> myDoFullFloat                               ]
     ])
