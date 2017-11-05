@@ -139,6 +139,7 @@ alias md='mkdir -p'
 alias v='nvim'
 alias vim='nvim'
 alias s='startx'
+alias ctl='sudo systemctl'
 
 # fn key alias (almost deprecated)
 alias fckbeep='xset -b'
