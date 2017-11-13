@@ -56,7 +56,7 @@ myBorderWidth :: Dimension
 myBorderWidth = 1
 
 myWorkspaces :: [String]
-myWorkspaces = ["1:www", "2:2", "3:3", "4:4", "5:exp", "6:txt", "7:mvp", "8:tor", "9:tmp"]
+myWorkspaces = ["1:www", "2:sh", "3:sh", "4:sh", "5:exp", "6:txt", "7:mvp", "8:tor", "9:tmp"]
 
 myNormalBorderColor, myFocusedBorderColor :: String
 myNormalBorderColor  = "#000000"

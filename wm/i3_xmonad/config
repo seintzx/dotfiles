@@ -10,10 +10,11 @@ set $lightblue  #232d34
 set $blue       #131d24
 set $lightgray  #ddeedd
 set $gray       #aaaaaa
-set $darkgray   #333333
+set $darkgray   #222222
 set $white      #ffffff
 set $black      #000000
 set $urgentred  #b33a3a
+set $pink       #ff00ff
 
 # WORKSPACES
 set $ws1     "1:www"
@@ -32,9 +33,9 @@ font xft:Knack Nerd Font 9
 
 # CLIENT COLOR
 # classname                 border      background  text    indicator
-client.focused              $green      $green      $white  $green
-client.unfocused            $darkgray   $darklime   $white  $darklime
-client.focused_inactive     $darkgray   $darklime   $white  $darklime
+client.focused              $darkgray   $darkgray   $white  $black 
+client.unfocused            $black      $black      $white  $black   
+client.focused_inactive     $black      $pink       $white  $pink    
 client.urgent               $urgentred  $urgentred  $white  $urgentred
 
 # MOD BUTTON
@@ -175,7 +176,7 @@ mode "resize" {
 }
 
 # GAPS
-hide_edge_borders both
+#hide_edge_borders both
 for_window [class="^.*"] border pixel 1
 gaps inner 0
 gaps outer 0
@@ -188,7 +189,7 @@ smart_borders on
 bar {
         status_command i3blocks -c ${HOME}/.config/i3/i3blocks.conf
 
-        font pango:Anonymice Nerd Font 10
+        font pango:Knack Nerd Font 9
         tray_padding 0
         position top
         height 15
