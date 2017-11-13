@@ -20,15 +20,15 @@ set $ws1     "1:www"
 set $ws2     "2:sh"
 set $ws3     "3:sh"
 set $ws4     "4:sh"
-set $ws5     "5:sh"
-set $ws6     "6:exp"
-set $ws7     "7:txt"
-set $ws8     "8:mvp"
-set $ws9     "9:tor"
+set $ws5     "5:exp"
+set $ws6     "6:txt"
+set $ws7     "7:mvp"
+set $ws8     "8:tor"
+set $ws9     "9:tmp"
 set $ws10    "10:tmp"
 
 # FONT
-font xft:Anonymice Nerd Font 10
+font xft:Knack Nerd Font 9
 
 # CLIENT COLOR
 # classname                 border      background  text    indicator
@@ -126,28 +126,25 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec "i3-msg exit"
 
 # KEYBIND
-bindsym $mod+n exec --no-startup-id nautilus 
 bindsym $mod+F2 exec  "xbacklight -dec 10"
 bindsym $mod+F3 exec  "xbacklight -inc 10"
 bindsym $mod+F9 exec  "amixer sset Master 5%-"
 bindsym $mod+F10 exec "amixer sset Master 5%+"
 bindsym $mod+Shift+z exec "${HOME}/.config/i3/lockscr.sh"
 bindsym --release Print exec "scrot ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
-bindsym --release SHift+Print exec "scrot -s ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
+bindsym --release Shift+Print exec "scrot -s ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
 
 # RULES
 assign [class="(?i)firefox"]        $ws1
-assign [class="(?i)Nemo"]           $ws6
-assign [class="(?i)TeXstudio"]      $ws7
-assign [class="(?i)libreoffice"]    $ws7
-assign [class="(?i)subl"]           $ws7
-assign [class="(?i)Vlc"]            $ws8
-assign [class="(?i)Gimp"]           $ws8
-assign [class="(?i)Spotify"]        $ws8
-assign [class="(?i)Vuze"]           $ws9
-assign [class="(?i)qbittorrent"]    $ws9
-assign [class="(?i)VirtualBox"]     $ws9
-assign [class="(?i)thunderbird"]    $ws9
+assign [class="(?i)Nemo"]           $ws5
+assign [class="(?i)TeXstudio"]      $ws6
+assign [class="(?i)libreoffice"]    $ws6
+assign [class="(?i)subl"]           $ws6
+assign [class="(?i)Vlc"]            $ws7
+assign [class="(?i)Gimp"]           $ws7
+assign [class="(?i)Spotify"]        $ws7
+assign [class="(?i)qbittorrent"]    $ws8
+assign [class="(?i)VirtualBox"]     $ws8
 
 # STARTUP
 # exec_always --no-startup-id "${HOME}/.config/i3/startup.sh"
@@ -157,10 +154,7 @@ assign [class="(?i)thunderbird"]    $ws9
 set $mode_power power
 bindsym $mod+Control+q mode "$mode_power"
 mode "$mode_power" {
-    bindsym z mode "default", exec --no-startup-id ${HOME}/.config/i3/i3exit.sh lock
-    bindsym e mode "default", exec --no-startup-id ${HOME}/.config/i3/i3exit.sh logout
-    bindsym w mode "default", exec --no-startup-id ${HOME}/.config/i3/i3exit.sh switch
-    bindsym s mode "default", exec --no-startup-id ${HOME}/.config/i3/i3exit.sh suspend
+    bindsym s mode "default", exec --no-startup-id ${HOME}/.config/i3/i3exit.sh switch
     bindsym r mode "default", exec --no-startup-id ${HOME}/.config/i3/i3exit.sh reboot
     bindsym p mode "default", exec --no-startup-id ${HOME}/.config/i3/i3exit.sh shutdown
 
