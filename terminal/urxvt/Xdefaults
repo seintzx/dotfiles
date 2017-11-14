@@ -14,12 +14,8 @@ Xft.antialias           : true
 Xft.rgba                : rgb
 Xft.hinting             : true
 Xft.hintstyle           : hintslight
-URxvt.font              : xft:Menlo for Powerline:pixelsize=11
-!xft:Knack Nerd Font:pixelsize=11
-!xft:Hack:pixelsize=11
-!xft:Anonymice Nerd Font:pixelsize=13
+URxvt.font              : xft:Menlo for Powerline:size=9
 URxvt.letterSpace       : -1
-
 
 URxvt*iso14755       : false
 URxvt*modifier       : alt
