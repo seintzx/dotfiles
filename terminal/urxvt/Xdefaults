@@ -1,4 +1,4 @@
-URxvt.imLocale          : en_GB.UTF-8
+URxvt.imLocale          : en_US.UTF-8
 URxvt.scrollBar         : false
 URxvt.cursorBlink       : false
 URvxt.borderLess        : true
@@ -14,7 +14,10 @@ Xft.antialias           : true
 Xft.rgba                : rgb
 Xft.hinting             : true
 Xft.hintstyle           : hintslight
-URxvt.font              : xft:Anonymice Nerd Font:pixelsize=13
+URxvt.font              : xft:Menlo for Powerline:pixelsize=11
+!xft:Knack Nerd Font:pixelsize=11
+!xft:Hack:pixelsize=11
+!xft:Anonymice Nerd Font:pixelsize=13
 URxvt.letterSpace       : -1
 
 
@@ -58,6 +61,6 @@ rofi.lines: 5
 rofi.threads: 2
 rofi.sidebar-mode: true
 rofi.hide-scrollbar: true
-rofi.modi: window,run,ssh,calc:qalc +u8 -nocurrencies,clipboard:greenclip print
+rofi.modi: window,run,calc:qalc +u8 -nocurrencies,clipboard:greenclip print
 rofi.kb-mode-next: Shift+Right
 rofi.kb-mode-previous: Shift+Left
