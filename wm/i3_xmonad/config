@@ -29,7 +29,7 @@ set $ws9     "9:tmp"
 set $ws10    "10:tmp"
 
 # FONT
-font xft:Menlo for Powerline 9
+font xft:Knack Nerd Font 9
 
 # CLIENT COLOR
 # classname                 border      background  text    indicator
@@ -188,8 +188,7 @@ smart_borders on
 # BAR CONFIG
 bar {
         status_command i3blocks -c ${HOME}/.config/i3/i3blocks.conf
-
-        font xft:Menlo for Powerline 9
+        font xft:Knack Nerd Font 9
         tray_padding 0
         position top
         height 15
