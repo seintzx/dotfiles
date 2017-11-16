@@ -57,6 +57,6 @@ rofi.lines: 5
 rofi.threads: 2
 rofi.sidebar-mode: true
 rofi.hide-scrollbar: true
-rofi.modi: window,run,calc:qalc +u8 -nocurrencies,clipboard:greenclip print
+rofi.modi: calc:qalc +u8 -nocurrencies,clipboard:greenclip print
 rofi.kb-mode-next: Shift+Right
 rofi.kb-mode-previous: Shift+Left
