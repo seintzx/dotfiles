@@ -165,8 +165,8 @@ source /usr/bin/virtualenvwrapper.sh
 
 # terminal aliases
 alias -g g='| grep -i --color=auto'
-alias la='ls -la --color=auto'
-alias ll='ls -l --color=auto'
+alias la='ls -lha --color=auto'
+alias ll='ls -lh --color=auto'
 alias rf='rm -rfi'
 alias rm='rm -i'
 alias md='mkdir -p'
