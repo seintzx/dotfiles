@@ -1,10 +1,9 @@
 # GENERAL =====================================================================================================================================================================================
 
-autoload -U colors zsh-mime-setup select-word-style
+autoload -U colors zsh-mime-setup select-word-style compinit 
 colors          
 zsh-mime-setup  
 select-word-style bash 
-autoload -U compinit
 compinit
 zmodload -i zsh/complist        
 
@@ -13,6 +12,9 @@ zmodload -i zsh/complist
 #export PATH=${PATH}:/usr/bin/greenclip
 export VISUAL="nvim"
 export EDITOR="nvim"
+export LANG=en_US.UTF-8
+export DEFAULT_USER="seintz"
+export TERM="xterm-256color"
 
 # PROMPT ======================================================================================================================================================================================
 
@@ -25,6 +27,22 @@ fi;
 function current_pwd {  echo $(pwd | sed -e "s,^$HOME,~,")  }
 
 PROMPT='%{$fg[$color]%}%n@%{$reset_color%} %{$fg[yellow]%}$(current_pwd)%{$reset_color%} ${vcs_info_msg_0_}%{$reset_color%} $ '
+
+# VCS INFO ====================================================================================================================================================================================
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn hg
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' formats "%{$fg[cyan]%}%b%{$reset_color%} %{$fg[yellow]%}%c%{$fg[green]%}%u%{$reset_color%}" 
+precmd() {  
+    vcs_info
+}
+
+# THEME =======================================================================================================================================================================================
+
+source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator status virtualenv context dir vcs)
+POWERLEVEL9K_DISABLE_RPROMPT=true
 
 # KEYBINDINGS =================================================================================================================================================================================
 
@@ -41,11 +59,6 @@ bindkey '^[[7~' beginning-of-line
 bindkey '^[[8~' end-of-line
 bindkey '^[[A' history-beginning-search-backward-end
 bindkey '^[[B' history-beginning-search-forward-end
-#bindkey '^[[5~' up-line-or-history
-#bindkey '^[[6~' down-line-or-history
-#bindkey '^[[D~' backward-char
-#bindkey '^[[C~' forward-char
-#bindkey '^[[2~' overwrite-mode
 
 # SETOPT ======================================================================================================================================================================================
 
@@ -61,7 +74,8 @@ setopt chase_links
 setopt correct                  
 setopt extended_glob            
 setopt glob_dots                
-# setopt print_exit_value         
+
+unsetopt print_exit_value         
 unsetopt beep                   
 unsetopt bg_nice                
 unsetopt clobber                
@@ -83,24 +97,16 @@ setopt pushd_to_home
 HISTFILE=~/.zsh_history         
 HISTSIZE=1024                   
 SAVEHIST=1024                   
+
 setopt append_history           
 setopt hist_ignore_all_dups     
-unsetopt hist_ignore_space      
 setopt hist_reduce_blanks       
 setopt hist_verify              
 setopt inc_append_history       
 setopt share_history            
 setopt bang_hist                
 
-# VCS INFO ====================================================================================================================================================================================
-
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn hg
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' formats "%{$fg[cyan]%}%b%{$reset_color%} %{$fg[yellow]%}%c%{$fg[green]%}%u%{$reset_color%}" 
-precmd() {  
-    vcs_info
-}
+unsetopt hist_ignore_space      
 
 # COMPLETION ==================================================================================================================================================================================
 
@@ -124,8 +130,36 @@ zstyle ':completion:*:kill:*' force-list always
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01"
 zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*' force-list always
-users=(seintz root)           
+users=(seintz root)
 zstyle ':completion:*' users $users
+
+# PLUGINS =====================================================================================================================================================================================
+
+globalias() {
+   zle _expand_alias
+   zle expand-word
+   zle self-insert
+}
+zle -N globalias
+
+# space expands all aliases, including global
+bindkey -M emacs "^ " globalias
+bindkey -M viins "^ " globalias
+
+# control-space to make a normal space
+bindkey -M emacs " " magic-space
+bindkey -M viins " " magic-space
+
+# normal space during searches
+bindkey -M isearch " " magic-space
+
+# VIRTUALENV ==================================================================================================================================================================================
+
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
+export WORKON_HOME=${HOME}/.pyvenv
+# export PROJECT_HOME=${HOME}/project
+source /usr/bin/virtualenvwrapper.sh
 
 # ALIASES =====================================================================================================================================================================================
 
@@ -156,13 +190,12 @@ alias yr='yaourt -Rsn '
 alias yo='yaourt -Qtd'
 
 # compiler aliases
-alias cc='gcc -Wall -o'
+alias cc='gcc -Wall -o' 
 
 # openssl, vpn aliases
 alias aese='openssl aes-256-cbc -a -salt'
 alias aesd='openssl aes-256-cbc -d -a'
-alias cvpn='cd ~/vpn/cesvpn ; sudo openvpn ep-udp-1195-santa.ovpn'
-alias yvpn='cd ~/vpn/yovpn/kabutovm-udp-1194-Andrea_Casadei ; sudo openvpn kabutovm-udp-1194-Andrea_Casadei.ovpn'
+alias cvpn='cd ${HOME}/vpn/cesvpn ; sudo openvpn ep-udp-1195-santa.ovpn'
 
 # git aliases
 alias gacp='git add -A && git commit --allow-empty-message && git push -u origin master'
@@ -173,35 +206,9 @@ alias gce='git commit --allow-empty-message'
 alias gp='git push -u origin master'
 alias gpp='git pull'
 alias gpr='git pull --rebase'
+alias gt='git status'
 
 # others aliases
 alias vbox='sudo VirtualBox'
 alias -g xc='| xsel --clipboard'
 alias -g xv='| xsel --clipboard'
-
-# PLUGINS =====================================================================================================================================================================================
-
-globalias() {
-   zle _expand_alias
-   zle expand-word
-   zle self-insert
-}
-zle -N globalias
-
-# space expands all aliases, including global
-bindkey -M emacs "^ " globalias
-bindkey -M viins "^ " globalias
-
-# control-space to make a normal space
-bindkey -M emacs " " magic-space
-bindkey -M viins " " magic-space
-
-# normal space during searches
-bindkey -M isearch " " magic-space
-# VIRTUALENV ==================================================================================================================================================================================
-
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
-export WORKON_HOME=${HOME}/.pyvenv
-# export PROJECT_HOME=${HOME}/project
-source /usr/bin/virtualenvwrapper.sh
