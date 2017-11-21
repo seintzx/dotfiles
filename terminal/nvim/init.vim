@@ -27,6 +27,7 @@ set shiftwidth=4                    " tab = 4 spaces
 set softtabstop=4                   " dunno
 set tabstop=4                       " dunno
 set expandtab                       " dunno
+set textwidth=80
 
 " Make search more sane
 set ignorecase                      " case insensitive search
