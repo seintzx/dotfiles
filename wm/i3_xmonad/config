@@ -191,7 +191,7 @@ bar {
         font xft:Knack Nerd Font 9
         tray_padding 0
         position top
-        height 15
+        height 16
         # strip_workspace_numbers yes
         
         colors {
