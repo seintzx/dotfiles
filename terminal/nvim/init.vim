@@ -28,8 +28,8 @@ set softtabstop=4                   " dunno
 set tabstop=4                       " dunno
 set expandtab                       " dunno
 set linebreak
-set textwidth=80
-set formatoptions+=a
+" set textwidth=80
+" set formatoptions+=a
 
 " Make search more sane
 set ignorecase                      " case insensitive search
