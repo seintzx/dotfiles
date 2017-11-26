@@ -5,7 +5,7 @@ focus_Number=$(xdotool getactivewindow getwindowname | wc -c)
 Focus_N=$(xdotool getactivewindow getwindowname | head -c 40 )
 
 if [ "$focus" = "" ];then 
-    echo -e " : Gatter Linux "    
+    echo -e " : nop"    
 else 
     if [ "$focus_Number" -gt "40" ];then 
         echo -e " : $Focus_N ..." 
