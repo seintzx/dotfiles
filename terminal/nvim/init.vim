@@ -6,7 +6,7 @@ set t_Co=256                        " Colors
 "set relativenumber                  " Relative Lines Number
 set number                          " Lines number
 set gcr=a:blinkon0                  " No blink cursor
-set encoding=utf-8                  " Encode
+set encoding=UTF-8                  " Encode
 set backspace=indent,eol,start      " Enable backspace
 set shell=zsh                       " Set default shell
 set hidden                          " Buffer with unsaved changes allowed

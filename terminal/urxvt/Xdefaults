@@ -1,4 +1,5 @@
 URxvt.imLocale          : en_US.UTF-8
+URxvt*termName          : rxvt-unicode
 URxvt.scrollBar         : false
 URxvt.cursorBlink       : false
 URvxt.borderLess        : true

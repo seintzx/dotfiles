@@ -1,8 +1,8 @@
 #!/bin/bash
 
 focus=$(xdotool getactivewindow getwindowname)
-focus_Number=$(xdotoolgetactivewindow getwindowname | wc -c)
-Focus_N=$(xdotool getactivewindowgetwindowname | head -c 40 )
+focus_Number=$(xdotool getactivewindow getwindowname | wc -c)
+Focus_N=$(xdotool getactivewindow getwindowname | head -c 40 )
 
 if [ "$focus" = "" ];then 
     echo -e " : Gatter Linux "    
