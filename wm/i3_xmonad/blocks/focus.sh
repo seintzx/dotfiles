@@ -5,11 +5,11 @@ focus_Number=$(xdotool getactivewindow getwindowname | wc -c)
 Focus_N=$(xdotool getactivewindow getwindowname | head -c 40 )
 
 if [ "$focus" = "" ];then 
-    echo -e " : nop"    
+    echo -e ": nop"    
 else 
     if [ "$focus_Number" -gt "40" ];then 
-        echo -e " : $Focus_N ..." 
+        echo -e ": $Focus_N ..." 
     else 
-        echo -e " : $focus"
+        echo -e ": $focus"
     fi
 fi
