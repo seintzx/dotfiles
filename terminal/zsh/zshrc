@@ -216,3 +216,6 @@ alias gt='git status'
 alias vbox='sudo VirtualBox'
 alias -g xc='| xsel --clipboard'
 alias -g xv='| xsel --clipboard'
+
+# fasd alias
+alias c='fasd_cd -d -i'
