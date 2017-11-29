@@ -114,7 +114,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+c kill
 
 # RUN
-bindsym $mod+p exec "${HOME}/.config/i3/dmenu.sh"
+bindsym $mod+p exec "${HOME}/.config/i3/i3dmenu.sh"
 bindsym $mod+Shift+p exec rofi -show
 
 # RELOAD
