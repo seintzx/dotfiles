@@ -131,7 +131,7 @@ bindsym $mod+F2 exec  "xbacklight -dec 10"
 bindsym $mod+F3 exec  "xbacklight -inc 10"
 bindsym $mod+F9 exec  "amixer sset Master 5%-"
 bindsym $mod+F10 exec "amixer sset Master 5%+"
-bindsym $mod+Shift+z exec "${HOME}/.config/i3/lockscr.sh"
+bindsym $mod+Shift+z exec "${HOME}/.config/i3/i3lock.sh"
 bindsym --release Print exec "scrot ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
 bindsym --release Shift+Print exec "scrot -s ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
 
