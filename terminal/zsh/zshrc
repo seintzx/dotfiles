@@ -43,6 +43,9 @@ precmd() {
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator status virtualenv context dir vcs)
 POWERLEVEL9K_DISABLE_RPROMPT=true
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 
 # KEYBINDINGS =================================================================================================================================================================================
 
@@ -153,9 +156,13 @@ bindkey -M viins " " magic-space
 # normal space during searches
 bindkey -M isearch " " magic-space
 
-# FASD ========================================================================================================================================================================================
+# PLUGIN ======================================================================================================================================================================================
 
+# fasf
 eval "$(fasd --init auto)"
+
+#zsh-autosuggestions
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # VIRTUALENV ==================================================================================================================================================================================
 
