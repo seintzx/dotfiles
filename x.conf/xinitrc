@@ -1,4 +1,4 @@
-feh  --bg-fill "${HOME}/Pictures/wallpaper.png" &
+feh --bg-fill "${HOME}/Pictures/wall/wallpaper.png" &
 xset -b & 
 xset s off & 
 xset -dpms & 
