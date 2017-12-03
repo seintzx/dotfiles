@@ -141,6 +141,7 @@ assign [class="(?i)Nemo"]           $ws5
 assign [class="(?i)TeXstudio"]      $ws6
 assign [class="(?i)libreoffice"]    $ws6
 assign [class="(?i)subl"]           $ws6
+assign [class="(?i)eclipse"]        $ws6
 assign [class="(?i)Vlc"]            $ws7
 assign [class="(?i)Gimp"]           $ws7
 assign [class="(?i)Spotify"]        $ws7
