@@ -263,15 +263,17 @@
         awful.key({ modkey, "Shift" }, "n",         function ()   local c = awful.client.restore()    if c then   client.focus = c    c:raise()   end       end),
 
         -- Personal keybinds
-        awful.key({ modkey,         }, "p",         function()  awful.util.spawn_with_shell("${HOME}/.config/awesome/dmenu.sh")                                                             end),  -- dmenu
-        awful.key({ modkey, "Shift" }, "p",         function()  awful.util.spawn_with_shell("rofi -show")                                                                                   end),  -- rofi
-        awful.key({ modkey, "Shift" }, "z",         function()  awful.util.spawn_with_shell("${HOME}/.config/awesome/lockscr.sh")                                                           end),  -- Lockscreen
-        awful.key({ modkey,         }, "F2",        function()  awful.util.spawn("sync")    awful.util.spawn("xbacklight -dec 10")                                                          end),  -- Brightness down
-        awful.key({ modkey,         }, "F3",        function()  awful.util.spawn("sync")    awful.util.spawn("xbacklight -inc 10")                                                          end),  -- Brightness up
-        awful.key({ modkey,         }, "F9",        function()  awful.util.spawn("sync")    awful.util.spawn("amixer sset Master 5%-")                                                      end),  -- Volume Down
-        awful.key({ modkey,         }, "F10",       function()  awful.util.spawn("sync")    awful.util.spawn("amixer sset Master 5%+")                                                      end),  -- Volume Up
-        awful.key({                 }, "Print",     function()  awful.util.spawn("scrot 'scr-%Y-%m-%d_%s.png' -e 'mv $f ~/Pictures/screenshot 2>/dev/null'", false)                         end),  -- Screenshot
-        awful.key({         "Shift" }, "Print",     function()  awful.util.spawn_with_shell("sleep 0.2 ; scrot -s 'scr-%Y-%m-%d_%s.png' -e 'mv $f ~/Pictures/screenshot 2>/dev/null'")      end)   -- Screenshot with mouse
+        awful.key({ modkey,         }, "p",         function()  awful.util.spawn_with_shell("${HOME}/.config/awesome/dmenu.sh")             end),  -- dmenu
+        awful.key({ modkey, "Shift" }, "p",         function()  awful.util.spawn_with_shell("rofi -show")                                   end),  -- rofi
+        awful.key({ modkey, "Shift" }, "z",         function()  awful.util.spawn_with_shell("${HOME}/.config/awesome/lockscr.sh")           end),  -- Lockscreen
+        awful.key({ modkey,         }, "F2",        function()  awful.util.spawn("sync")    awful.util.spawn("xbacklight -dec 10")          end),  -- Brightness down
+        awful.key({ modkey,         }, "F3",        function()  awful.util.spawn("sync")    awful.util.spawn("xbacklight -inc 10")          end),  -- Brightness up
+        awful.key({ modkey,         }, "F9",        function()  awful.util.spawn("sync")    awful.util.spawn("amixer sset Master 5%-")      end),  -- Volume Down
+        awful.key({ modkey,         }, "F10",       function()  awful.util.spawn("sync")    awful.util.spawn("amixer sset Master 5%+")      end),  -- Volume Up
+        awful.key({                 }, "Print",     function()  
+                awful.util.spawn("scrot 'scr-%Y-%m-%d_%s.png' -e 'mv $f ~/Pictures/screenshot 2>/dev/null'", false)                         end),  -- Screenshot
+        awful.key({         "Shift" }, "Print",     function()  
+                awful.util.spawn_with_shell("sleep 0.2 ; scrot -s 'scr-%Y-%m-%d_%s.png' -e 'mv $f ~/Pictures/screenshot 2>/dev/null'")      end)   -- Screenshot with mouse
     ) 
     
     -- Client Key Bindings
@@ -338,6 +340,7 @@ awful.rules.rules = {
     { rule = { class = "TeXstudio" },   properties = { screen = 1, tag = "6" } },  -- Texstudio in tab 6
     { rule = { class = "libreoffice" }, properties = { screen = 1, tag = "6" } },  -- Libreoffice in tab 6
     { rule = { class = "subl" },        properties = { screen = 1, tag = "6" } },  -- sublime in tab 6
+    { rule = { class = "Eclipse" },        properties = { screen = 1, tag = "6" } },  -- sublime in tab 6
     { rule = { class = "Vlc" },         properties = { screen = 1, tag = "7" } },  -- VLC in tab 7
     { rule = { class = "Gimp" },        properties = { screen = 1, tag = "7" } },  -- GIMP in tab 7
 --  { rule = { class = "Spotify" },     properties = { screen = 1, tag = "8" } },  -- Spotify in tab 8
