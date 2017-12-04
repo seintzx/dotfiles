@@ -8,7 +8,7 @@ This folder contains all configuration's files for terminal stuff (bash, zsh, ur
 ### Windows Manager
 
 This folder contains all configuration's files for the windows manager i have used.  
-Currently i am using xmonad.  
+Currently I'm on i3_xmonad.  
 
 ### Other stuff
 
