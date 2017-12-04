@@ -1,3 +1,3 @@
 #!/bin/bash 
 
-echo $(date +%y\-%m\-%d\ %a)
+echo -e "\uf073 $(date +%y\-%m\-%d\ %a)"

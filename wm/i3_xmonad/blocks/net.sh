@@ -13,7 +13,7 @@ E_name=$(nmcli d | grep "$E_inter" | awk '{print $4}')
 #E_ip=$(ifconfig $E_inter | grep 'netmask' | awk '{print $6}')
 
 if [ "$W_con" = "connected" ];then 
-    echo -e " $W_name"
+    echo -e "\uf1eb $W_name"
 elif [ "$E_con" = "connected" ];then 
     echo -e "$E_name"
 else

@@ -3,11 +3,9 @@
 key=$(xset -q | grep LED | awk '{print $10}')
 
 if [ $key = 00000000 ] || [ $key = 00000001 ] || [ $key = 00000002 ];then
-    ans=$(echo "us")
+    echo -e "\uf11c us"
 elif [ $key = 00001000 ] || [ $key = 00001001 ] || [ $key = 00001002 ];then
-    ans=$(echo "it")
+    echo -e "\uf11c it"
 else
-    ans=$(echo "none")
+    echo -e "\uf11c error"
 fi
-
-echo ${ans}

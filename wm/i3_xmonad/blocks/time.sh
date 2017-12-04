@@ -1,3 +1,3 @@
 #!/bin/bash 
 
-echo $(date +%I\:%M\ %p)
+echo -e "\uf017 $(date +%I\:%M\ %p)"
