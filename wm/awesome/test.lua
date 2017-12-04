@@ -77,7 +77,18 @@
         "8:tor",
         "9:tmp"
       }
-}
+    }
+
+    if beautiful.wallpaper then
+      for s = 1, screen.count() do
+        gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+      end
+    end
+
+    tags = {}
+    for s = 1, screen.count() do
+      tags[s] = awful.tag(tags_info.names, s, tags_info.layout)
+    end
 
 -- WIDGET THINGS =============================================================================================================================================================================
 
@@ -181,12 +192,6 @@
                          awful.button({ }, 4, function ()   awful.client.focus.byidx(1)     end),
                          awful.button({ }, 5, function ()   awful.client.focus.byidx(-1)    end)
                          )
-    -- Wallpaper
-    local function set_wallpaper(s)
-        if beautiful.wallpaper then local wallpaper = beautiful.wallpaper   if type(wallpaper) == "function" then   wallpaper = wallpaper(s)    end gears.wallpaper.maximized(wallpaper, s, true)   end end
-
-    -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-    screen.connect_signal("property::geometry", set_wallpaper)
 
 -- EACH SCREEN ===============================================================================================================================================================================
 
@@ -241,21 +246,14 @@
         }
     end)
 
--- KEYBINDINGS ================================================================================================================================================================================================================
-
--- general rules
---
--- mod + p = dmenu
--- mod + shift + p = rofi
---
--- see xmonad keybind for more
+-- KEYBINDINGS ===============================================================================================================================================================================
 
     -- Key bindings
     globalkeys = awful.util.table.join(
         
         awful.key({ modkey, "Shift" }, "r",         awesome.restart),
         awful.key({ modkey, "Shift" }, "q",         awesome.quit),
-        awful.key({ modkey          }, "r",         function()  awful.screen.focused().mypromptbox:run()            end),
+        awful.key({ modkey          }, "r",         function () awful.screen.focused().mypromptbox:run()            end),
         awful.key({ modkey,         }, "space",     function () awful.layout.inc( 1)                                end),
         awful.key({ modkey, "Shift" }, "space",     function () awful.layout.inc(-1)                                end),
         awful.key({ modkey,         }, "Return",    function () awful.spawn(terminal)                               end),
@@ -306,11 +304,13 @@
         globalkeys = awful.util.table.join(globalkeys,
         -- View tag only.
             awful.key({ modkey }, "#" .. i + 9, 
-                function () local screen = awful.screen.focused()   local tag = screen.tags[i]  if tag then tag:view_only() end end,    {description = "view tag #"..i, group = "tag"}),
+                function () local screen = awful.screen.focused()   local tag = screen.tags[i]  if tag then tag:view_only() end end,    
+                {description = "view tag #"..i, group = "tag"}),
 
             -- Move client to tag.
             awful.key({ modkey, "Shift" }, "#" .. i + 9,
-                function () if client.focus then    local tag = client.focus.screen.tags[i] if tag then client.focus:move_to_tag(tag)   end end end,    {description = "move focused client to tag #"..i, group = "tag"})
+                function () if client.focus then    local tag = client.focus.screen.tags[i] if tag then client.focus:move_to_tag(tag)   end end end,    
+                {description = "move focused client to tag #"..i, group = "tag"})
     )end
     
     root.keys(globalkeys)
@@ -336,10 +336,10 @@ awful.rules.rules = {
 
     -- Floating clients.
     { rule_any = {  
-            instance =  { "DTA", "copyq", },  
-            class =     { "Arandr", "Gpick", "Kruler", "MessageWin", "Sxiv", "Wpa_gui", "pinentry", "veromix", "xtightvncviewer" },   
-            name =      { "Event Tester", },  
-            role =      { "AlarmWindow", "pop-up",   }   },  
+            instance =   { "DTA", "copyq", },  
+            class =      { "Arandr", "Gpick", "Kruler", "MessageWin", "Sxiv", "Wpa_gui", "pinentry", "veromix", "xtightvncviewer" },   
+            name =       { "Event Tester", },  
+            role =       { "AlarmWindow", "pop-up",   }   },  
             properties = { floating = true }    
     },
 
@@ -388,3 +388,8 @@ awful.rules.rules = {
     client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- STARTUP ===================================================================================================================================================================================
+
+
+
+
+
