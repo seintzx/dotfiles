@@ -189,6 +189,7 @@ smart_borders on
 # BAR CONFIG
 bar {
         status_command i3blocks -c ${HOME}/.config/i3/i3blocks.conf
+        # status_command py3status -c ${HOME}/.config/i3/i3status.conf
         font xft:Menlo for Powerline 9
         tray_padding 0
         position top
