@@ -114,7 +114,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+c kill
 
 # RUN
-bindsym $mod+p exec "${HOME}/.config/i3/i3dmenu.sh"
+bindsym $mod+p exec "${HOME}/.config/wm_script/dmenu.sh"
 bindsym $mod+Shift+p exec rofi -show
 
 # RELOAD
@@ -131,7 +131,7 @@ bindsym $mod+F2 exec  "xbacklight -dec 10"
 bindsym $mod+F3 exec  "xbacklight -inc 10"
 bindsym $mod+F9 exec  "amixer sset Master 5%-"
 bindsym $mod+F10 exec "amixer sset Master 5%+"
-bindsym $mod+Shift+z exec "${HOME}/.config/i3/i3lock.sh"
+bindsym $mod+Shift+z exec "${HOME}/.config/wm_script/lockscr.sh"
 bindsym --release Print exec "scrot ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
 bindsym --release Shift+Print exec "scrot -s ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
 
@@ -149,16 +149,16 @@ assign [class="(?i)qbittorrent"]    $ws8
 assign [class="(?i)VirtualBox"]     $ws8
 
 # STARTUP
-# exec_always --no-startup-id "${HOME}/.config/i3/startup.sh"
+# exec_always --no-startup-id "${HOME}/.config/wm_script/startup.sh"
 # exec_always --no-startup-id greenclip daemon
 
 # EXIT MODE
 set $mode_power power
 bindsym $mod+Control+q mode "$mode_power"
 mode "$mode_power" {
-    bindsym s mode "default", exec --no-startup-id ${HOME}/.config/i3/i3exit.sh switch
-    bindsym r mode "default", exec --no-startup-id ${HOME}/.config/i3/i3exit.sh reboot
-    bindsym p mode "default", exec --no-startup-id ${HOME}/.config/i3/i3exit.sh shutdown
+    bindsym s mode "default", exec --no-startup-id ${HOME}/.config/wm_script/i3exit.sh switch
+    bindsym r mode "default", exec --no-startup-id ${HOME}/.config/wm_script/i3exit.sh reboot
+    bindsym p mode "default", exec --no-startup-id ${HOME}/.config/wm_script/i3exit.sh shutdown
 
     bindsym Return mode "default"
     bindsym Escape mode "default"

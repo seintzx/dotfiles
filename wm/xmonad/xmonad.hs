@@ -176,7 +176,7 @@ myLayoutPrompt = inputPromptWithCompl myXPConfig "Layout"
 mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     [ ((modm ,              xK_Return   ),      spawn $ XMonad.terminal conf                    )       -- launch terminal 
-    , ((modm,               xK_p        ),      spawn "$HOME/.xmonad/dmenu.sh"                  )       -- launch dmenu
+    , ((modm,               xK_p        ),      spawn "$HOME/.config/wm_script/dmenu.sh"        )       -- launch dmenu
     , ((modm .|. shiftMask, xK_p        ),      spawn "rofi -show"                              )       -- launch rofi
     , ((modm .|. shiftMask, xK_c        ),      kill                                            )       -- close focused window
     , ((modm .|. shiftMask, xK_q        ),      io (exitWith ExitSuccess)                       )       -- quit xmonad
@@ -202,7 +202,7 @@ mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_period   ),      sendMessage (IncMasterN (-1))                   )       -- deincrement number of window
 
     -- Personal Keybinds
-    , ((modm .|. shiftMask, xK_z        ),      spawn "${HOME}/.xmonad/lockscr.sh")
+    , ((modm .|. shiftMask, xK_z        ),      spawn "${HOME}/.config/wm_script/lockscr.sh")
     , ((shiftMask,          xK_Print    ),      spawn "sleep 0.2; scrot -s /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")
     , ((0,                  xK_Print    ),      spawn "scrot /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")       
     , ((modm,               xK_F2       ),      spawn "xbacklight -dec 10")
