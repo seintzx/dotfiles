@@ -1,30 +1,24 @@
-Config { font = "xft:Knack Nerd Font:size=9:bold:antialias=true"
+Config { font = "xft:Menlo for Powerline:size=9:bold:antialias=true"
        , bgColor = "black"
        , fgColor = "grey"
        , position = TopW C 100
        , commands = [ Run StdinReader
-                   , Run Wireless "wlo1" 
-                        [ "-a", "l"  , "-w","6" 
-                        , "-t", " <essid>"
-                        , "-L", "50" , "-H", "75"
-                        , "-l", "red", "-n", "yellow", "-h", "green"
-                        ] 10
-                    , Run BatteryP ["BAT0"]
-                        [ "-t", "⚡<left>"
-                        , "-L", "15", "-H", "75"
-                        , "-l", "red", "-n", "yellow", "-h", "green"
-                        , "--", "-O", "<fc=red>⚡</fc>", "-o", "(<timeleft>)"
-                        ] 10 
                     , Run Com "sh"
-                        [ "/home/seintz/.xmonad/vol.sh"
+                        [ "/home/seintz/.config/wm_script/timedate.sh"
+                        ] "tida" 10
+                    , Run Com "sh"
+                        [ "/home/seintz/.config/wm_script/key_l.sh"
+                        ] "key" 10
+                    , Run Com "sh"
+                        [ "/home/seintz/.config/wm_script/bat.sh"
+                        ] "bat" 10
+                    , Run Com "sh"
+                        [ "/home/seintz/.config/wm_script/vol.sh"
                         ] "vol" 10
-                    , Run Kbd 
-                        [ ("us", "us")
-                        , ("it", "it")
-                        ]
-                    , Run Date "%y-%m-%d %a, %I:%M %P" "date" 10
-                    ]
+                    , Run Com "sh"
+                        [ "/home/seintz/.config/wm_script/net.sh"
+						] "net" 10
         , sepChar = "%"
         , alignSep = "}{"
-        , template = "%StdinReader% }{ <fc=#ffff00>[</fc><fc=#aaaaaa>%wlo1wi%</fc><fc=#ffff00>][</fc><fc=#aaaaaa>%vol%</fc><fc=#ffff00>][</fc><fc=#aaaaaa>%battery%</fc><fc=#ffff00>][</fc><fc=#aaaaaa>%kbd%</fc><fc=#ffff00>][</fc><fc=#aaaaaa>%date%</fc><fc=#ffff00>]</fc>" 
+        , template = "%StdinReader% }{ <fc=#ffff00>[</fc><fc=#aaaaaa>%net%</fc><fc=#ffff00>][</fc><fc=#aaaaaa>%vol%</fc><fc=#ffff00>][</fc><fc=#aaaaaa>%bat%</fc><fc=#ffff00>][</fc><fc=#aaaaaa>%key%</fc><fc=#ffff00>][</fc><fc=#aaaaaa>%tida%</fc><fc=#ffff00>]</fc>" 
     }

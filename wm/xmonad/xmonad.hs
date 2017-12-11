@@ -56,7 +56,17 @@ myBorderWidth :: Dimension
 myBorderWidth = 1
 
 myWorkspaces :: [String]
-myWorkspaces = ["1:www", "2:sh", "3:sh", "4:sh", "5:exp", "6:txt", "7:mvp", "8:tor", "9:tmp"]
+myWorkspaces = 
+        "1:\xf269" : 
+        "2:\xf120" : 
+        "3:\xf120" : 
+        "4:\xf120" : 
+        "5:\xf114" : 
+        "6:\xf0f6" : 
+        "7:\xf03d" : 
+        "8:\xf15a" : 
+        "9:\xf1f8" :
+        []
 
 myNormalBorderColor, myFocusedBorderColor :: String
 myNormalBorderColor  = "#000000"
@@ -68,7 +78,7 @@ myDefaultGaps = [(0,0,0,0)]
 -- MAIN ======================================================================================================================================
 
 main = do
-    xmproc <- spawnPipe "$HOME/.cabal/bin/xmobar $HOME/.xmonad/xmobarrc"
+    xmproc <- spawnPipe "${HOME}/.cabal/bin/xmobar ${HOME}/.xmonad/xmobarrc"
     xmonad $ docks defaultConfig
         {   terminal            = myTerminal
         ,   borderWidth         = myBorderWidth
@@ -176,7 +186,7 @@ myLayoutPrompt = inputPromptWithCompl myXPConfig "Layout"
 mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     [ ((modm ,              xK_Return   ),      spawn $ XMonad.terminal conf                    )       -- launch terminal 
-    , ((modm,               xK_p        ),      spawn "$HOME/.config/wm_script/dmenu.sh"        )       -- launch dmenu
+    , ((modm,               xK_p        ),      spawn "${HOME}/.config/wm_script/dmenu.sh"      )       -- launch dmenu
     , ((modm .|. shiftMask, xK_p        ),      spawn "rofi -show"                              )       -- launch rofi
     , ((modm .|. shiftMask, xK_c        ),      kill                                            )       -- close focused window
     , ((modm .|. shiftMask, xK_q        ),      io (exitWith ExitSuccess)                       )       -- quit xmonad
