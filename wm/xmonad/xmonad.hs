@@ -61,8 +61,8 @@ myWorkspaces =
         "2:\xf120" : 
         "3:\xf120" : 
         "4:\xf120" : 
-        "5:\xf114" : 
-        "6:\xf0f6" : 
+        "5:\xf07b" : 
+        "6:\xf15c" : 
         "7:\xf03d" : 
         "8:\xf15a" : 
         "9:\xf1f8" :
@@ -99,16 +99,16 @@ main = do
 
 mymanageHook :: ManageHook
 mymanageHook = (composeAll . concat $
-    [ [resource     =? r            --> doIgnore                |   r   <- myIgnores]
-    , [className    =? c            --> doShift  "1:www"        |   c   <- myOne    ]
-    , [className    =? c            --> doShift  "2:2"          |   c   <- myTwo    ]
-    , [className    =? c            --> doShift  "3:3"          |   c   <- myThr    ]
-    , [className    =? c            --> doShift  "4:4"          |   c   <- myFou    ]
-    , [className    =? c            --> doShift  "5:exp"        |   c   <- myFiv    ]
-    , [className    =? c            --> doShift  "6:txt"        |   c   <- mySix    ]
-    , [className    =? c            --> doShift  "7:mvp"        |   c   <- mySev    ]
-    , [className    =? c            --> doShift  "8:tor"        |   c   <- myEig    ]
-    , [className    =? c            --> doShift  "9:tmp"        |   c   <- myNin    ]
+    [ [resource     =? r            --> doIgnore                   |   r   <- myIgnores]
+    , [className    =? c            --> doShift  "1:\xf269"        |   c   <- myOne    ]
+    , [className    =? c            --> doShift  "2:\xf120"        |   c   <- myTwo    ]
+    , [className    =? c            --> doShift  "3:\xf120"        |   c   <- myThr    ]
+    , [className    =? c            --> doShift  "4:\xf120"        |   c   <- myFou    ]
+    , [className    =? c            --> doShift  "5:\xf07b"        |   c   <- myFiv    ]
+    , [className    =? c            --> doShift  "6:\xf15c"        |   c   <- mySix    ]
+    , [className    =? c            --> doShift  "7:\xf03d"        |   c   <- mySev    ]
+    , [className    =? c            --> doShift  "8:\xf15a"        |   c   <- myEig    ]
+    , [className    =? c            --> doShift  "9:\xf1f8"        |   c   <- myNin    ]
     , [isFullscreen                 --> myDoFullFloat                               ]
     ])
 
