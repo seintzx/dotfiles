@@ -14,7 +14,7 @@ export VISUAL="nvim"
 export EDITOR="nvim"
 export LANG=en_US.UTF-8
 export DEFAULT_USER="seintz"
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
 export XDG_CONFIG_HOME="${HOME}/.config"
 
 # PROMPT ======================================================================================================================================================================================
@@ -55,14 +55,27 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
 typeset -g -A key
-bindkey '^?' backward-delete-char
-bindkey '^[[3~' delete-char
+
+# pg up/down
 bindkey "^[[5~" history-beginning-search-backward-end
 bindkey "^[[6~" history-beginning-search-forward-end
-bindkey '^[[7~' beginning-of-line
-bindkey '^[[8~' end-of-line
+
+# arrowkey
 bindkey '^[[A' history-beginning-search-backward-end
 bindkey '^[[B' history-beginning-search-forward-end
+
+# backspace
+bindkey '^?' backward-delete-char
+
+# st
+bindkey '^[[P' delete-char
+bindkey '^[[H' beginning-of-line
+bindkey '^[[4~' end-of-line
+
+# # urxvt
+# bindkey '^[[3~' delete-char
+# bindkey '^[[7~' beginning-of-line
+# bindkey '^[[8~' end-of-line
 
 # SETOPT ======================================================================================================================================================================================
 

@@ -108,7 +108,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+u [urgent=latest] focus 
 
 # TERMINAL 
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec st
 
 # KILL
 bindsym $mod+Shift+c kill

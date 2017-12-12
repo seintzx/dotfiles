@@ -47,7 +47,7 @@ import qualified Data.Map as M
 -- CONFIG ======================================================================================================================================
 
 myTerminal :: String
-myTerminal = "urxvt"
+myTerminal = "st"
 
 mymodMask :: KeyMask
 mymodMask = mod4Mask
