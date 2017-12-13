@@ -1,7 +1,7 @@
 " General 3
-colorscheme desert
 syntax on                           " dunno
 syntax enable                       " dunno
+colorscheme inkpot
 set t_Co=256                        " Colors
 "set relativenumber                  " Relative Lines Number
 set number                          " Lines number
