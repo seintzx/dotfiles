@@ -4,9 +4,7 @@ fi
 
 feh --bg-scale "${HOME}/Pictures/wall/wallpaper.png" --no-fehbg &
 xset -b &
-xset s off &
-xset -dpms &
-xset s blank &
+xset s off -dpms &
 amixer sset Master 0 &
 numlockx &
 greenclip daemon &
