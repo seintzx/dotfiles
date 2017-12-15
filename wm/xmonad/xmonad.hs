@@ -147,7 +147,7 @@ myLogHook h = dynamicLogWithPP $ defaultPP
 
 -- myStartupHook :: X()
 -- myStartupHook = do
-        -- spawn -- "$HOME/.xmonad/startup.sh"
+--     spawn "${HOME}/.config/wm_script/startup.sh"
 
 -- LAYOUT ======================================================================================================================================
 
