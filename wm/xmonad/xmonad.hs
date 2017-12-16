@@ -92,7 +92,7 @@ main = do
         ,   layoutHook          = avoidStruts $ myLayout 
         ,   manageHook          = mymanageHook <+> manageDocks 
         ,   logHook             = myLogHook xmproc
-        -- ,   startupHook         = myStartupHook
+        ,   startupHook         = myStartupHook
         }
 
 -- RULES =======================================================================================================================================
@@ -121,8 +121,8 @@ mymanageHook = (composeAll . concat $
         myTwo       = [""]
         myThr       = [""]
         myFou       = [""]
-        myFiv       = ["Nautilus","Nemo","nemo"]
-        mySix       = ["subl","LibreOffice","TeXstudio","Zathura", "Sublime", "Eclipse"]
+        myFiv       = ["Nautilus","Nemo","nemo", "Zathura"]
+        mySix       = ["subl","LibreOffice","TeXstudio", "Sublime", "Eclipse", "eclipse"]
         mySev       = ["Vlc","Gimp", "Spotify"]
         myEig       = ["VirtualBox","Vuze Bittorrent Client", "vuze","qBittorrent"]
         myNin       = [""]
@@ -145,9 +145,9 @@ myLogHook h = dynamicLogWithPP $ defaultPP
 
 -- STARTUP =====================================================================================================================================
 
--- myStartupHook :: X()
--- myStartupHook = do
---     spawn "${HOME}/.config/wm_script/startup.sh"
+myStartupHook :: X()
+myStartupHook = do
+    spawn "${HOME}/.config/wm_script/startup.sh"
 
 -- LAYOUT ======================================================================================================================================
 

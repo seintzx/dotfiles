@@ -156,8 +156,6 @@ unsigned int defaultattr = 11;
  */
 MouseShortcut mshortcuts[] = {
 	/* button               mask            string */
-	{ Button4,              XK_ANY_MOD,     "\031" },
-	{ Button5,              XK_ANY_MOD,     "\005" },
 };
 
 /* Internal keyboard shortcuts. */
