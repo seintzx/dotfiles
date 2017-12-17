@@ -1,22 +1,27 @@
 !-- ROFI 
-rofi.color-enabled: true
-rofi.color-window: #000000, #000000, #000000
-rofi.color-normal: #444444, #00ff00, #444444, #777777, #ffff00
-rofi.color-active: #444444, #00ff00, #444444, #880088, #ffff00
-rofi.color-urgent: #fdf6e3, #dc322f, #eee8d5, #dc322f, #fdf6e3
-rofi.font: mono 10
-rofi.location: 1
-rofi.columns: 4
-rofi.lines: 5
-rofi.threads: 2
-rofi.sidebar-mode: true
-rofi.hide-scrollbar: true
-rofi.modi: clipboard:greenclip print, calc:qalc +u8 -nocurrencies
-rofi.kb-mode-next: Shift+Right
-rofi.kb-mode-previous: Shift+Left
+rofi.color-enabled:     true
+rofi.color-window:      #000000, #000000, #000000
+rofi.color-normal:      #444444, #00ff00, #444444, #777777, #ffff00
+rofi.color-active:      #444444, #00ff00, #444444, #880088, #ffff00
+rofi.color-urgent:      #fdf6e3, #dc322f, #eee8d5, #dc322f, #fdf6e3
+rofi.font:              Hack 9
+rofi.location:          2
+rofi.width:             100
+rofi.columns:           4
+rofi.lines:             8
+rofi.line-margin:       1
+rofi.fixed-num-lines:   true
+rofi.sidebar-mode:      false
+rofi.hide-scrollbar:    true
+rofi.threads:           2
+rofi.terminal:          st
+rofi.modi:              clipboard:greenclip print, calc:qalc +u8 -nocurrencies
+rofi.kb-mode-next:      Shift+Right
+rofi.kb-mode-previous:  Shift+Left
+
+
 
 !-- Urxvt Setting
-
 !-- URxvt.imLocale          : en_US.UTF-8 
 !-- URxvt*termName          : rxvt-unicode 
 !-- URxvt.scrollBar         : false 
@@ -27,7 +32,6 @@ rofi.kb-mode-previous: Shift+Left
 !-- URxvt.borderColor       : #000000 
 !-- URxvt.internalBorder    : 0 
 !-- URxvt.externalBorder    : 0 
-
 !-- ! Font 
 !-- Xft.dpi                 : 96 
 !-- Xft.antialias           : true 
@@ -36,7 +40,6 @@ rofi.kb-mode-previous: Shift+Left
 !-- Xft.hintstyle           : hintslight 
 !-- URxvt.font              : xft:Menlo for Powerline:size=9 
 !-- URxvt.letterSpace       : -1 
-
 !-- URxvt*iso14755       : false 
 !-- URxvt*modifier       : alt 
 !-- URxvt*perl-lib       : /home/seintz/.urxvt/ext 
@@ -46,7 +49,6 @@ rofi.kb-mode-previous: Shift+Left
 !-- URxvt.underlineURLs  : True 
 !-- URxvt.urlLauncher    : /usr/bin/firefox 
 !-- URxvt.copyCommand    : xsel -ib 
-
 !-- ! urxvt extensions 
 !-- URxvt.keysym.M-C-v         : perl:clipboard:paste_escaped 
 !-- URxvt.keysym.M-Escape      : perl:keyboard-select:activate 
