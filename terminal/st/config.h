@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Menlo for Powerline:size=9:antialias=true:autohint=true";
+char font[] = "Hack:size=9:antialias=true:autohint=true";
 int borderpx = 2;
 
 /*

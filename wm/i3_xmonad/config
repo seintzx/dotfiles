@@ -29,7 +29,7 @@ set $ws9     "9:"
 set $ws10    "10:"
 
 # FONT
-font xft:Menlo for Powerline 9
+font xft:Hack 9
 
 # CLIENT COLOR
 # classname                 border      background  text    indicator
@@ -138,9 +138,10 @@ bindsym --release Shift+Print exec "scrot -s ${HOME}/Pictures/screenshot/scr-$(d
 # RULES
 assign [class="(?i)firefox"]        $ws1
 assign [class="(?i)Nemo"]           $ws5
-assign [class="(?i)TeXstudio"]      $ws6
-assign [class="(?i)libreoffice"]    $ws6
+assign [class="(?i)Zathura"]        $ws5
 assign [class="(?i)subl"]           $ws6
+assign [class="(?i)libreoffice"]    $ws6
+assign [class="(?i)TeXstudio"]      $ws6
 assign [class="(?i)eclipse"]        $ws6
 assign [class="(?i)Vlc"]            $ws7
 assign [class="(?i)Gimp"]           $ws7
@@ -149,8 +150,7 @@ assign [class="(?i)qbittorrent"]    $ws8
 assign [class="(?i)VirtualBox"]     $ws8
 
 # STARTUP
-# exec_always --no-startup-id "${HOME}/.config/wm_script/startup.sh"
-# exec_always --no-startup-id greenclip daemon
+exec_always --no-startup-id "${HOME}/.config/wm_script/startup.sh"
 
 # EXIT MODE
 set $mode_power power
@@ -189,8 +189,7 @@ smart_borders on
 # BAR CONFIG
 bar {
         status_command i3blocks -c ${HOME}/.config/i3/i3blocks.conf
-        # status_command py3status -c ${HOME}/.config/i3/i3status.conf
-        font xft:Menlo for Powerline 9
+        font xft:Hack 9
         tray_padding 0
         position top
         height 16

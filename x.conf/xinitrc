@@ -7,4 +7,4 @@ xset -b &
 xset s off -dpms &
 amixer sset Master 0 &
 numlockx &
-exec xmonad
+exec i3

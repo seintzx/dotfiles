@@ -92,7 +92,7 @@ main = do
         ,   layoutHook          = avoidStruts $ myLayout 
         ,   manageHook          = mymanageHook <+> manageDocks 
         ,   logHook             = myLogHook xmproc
-        ,   startupHook         = myStartupHook
+        -- ,   startupHook         = myStartupHook
         }
 
 -- RULES =======================================================================================================================================
@@ -145,9 +145,9 @@ myLogHook h = dynamicLogWithPP $ defaultPP
 
 -- STARTUP =====================================================================================================================================
 
-myStartupHook :: X()
-myStartupHook = do
-    spawn "${HOME}/.config/wm_script/startup.sh"
+-- myStartupHook :: X()
+-- myStartupHook = do
+--     spawn "${HOME}/.config/wm_script/startup.sh"
 
 -- LAYOUT ======================================================================================================================================
 

@@ -3,7 +3,6 @@ syntax on                           " dunno
 syntax enable                       " dunno
 colorscheme inkpot
 set t_Co=256                        " Colors
-"set relativenumber                  " Relative Lines Number
 set number                          " Lines number
 set gcr=a:blinkon0                  " No blink cursor
 set encoding=utf-8                  " Encode
@@ -54,7 +53,7 @@ let g:instant_markdown_autostart = 1
 " Vim Airline 
 set laststatus=2                                        " Enable powerline with one tab
 set showtabline=2                                       " Enable tabline eith one tab
-let g:airline_theme                         = 'simple'  " Theme selection
+let g:airline_theme                         = 'dark'    " Theme selection
 let g:airline_powerline_fonts               = 1         " Set the fonts
 let g:airine#extensions#tabline#enable      = 1         " Something 
 let g:airline_skip_empty_sections           = 0         " Do not draw separators for empty sections
@@ -69,9 +68,6 @@ let g:airline#extensions#ymc#warning_symbol = 'W:'      " Warning prefix
 " let g:aitline_section_c = '%t'              " File name
 let g:airline_section_y = 'L %l : C %c'     " Number of line and column
 let g:airline_section_z = '%m %r %h %w'     " Gutter Flag (modified, read-only, help, preview)
-
-" Keymap
-nmap <F8> :TagbarToggle<CR>     
 
 " Vim-Plug, Plugin
 call plug#begin('~/.local/share/nvim/plugged')
