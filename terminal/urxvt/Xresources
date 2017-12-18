@@ -15,7 +15,8 @@ rofi.sidebar-mode:      false
 rofi.hide-scrollbar:    true
 rofi.threads:           2
 rofi.terminal:          st
-rofi.modi:              clipboard:greenclip print, calc:qalc +u8 -nocurrencies
+rofi.disable-history:   false
+rofi.modi:              run, clipboard:greenclip print, calc:qalc +u8 -nocurrencies
 rofi.kb-mode-next:      Shift+Right
 rofi.kb-mode-previous:  Shift+Left
 
