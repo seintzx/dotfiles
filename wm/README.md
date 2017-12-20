@@ -1,12 +1,12 @@
 # windows manager configuration's files
 
-### awesome
+## awesome
 
 Configuration files, themes, icons and lain  
 Path: ~/.config/awesome  
 Icons in /usr/share/awesome/icons
 
-### i3
+## i3
 
 i3_power has a statusbar similar to powerline.  
 i3_xmona has a statusbar similar to my xmonad's one.  
@@ -18,13 +18,13 @@ Path: ~/.config/i3/conf
 Path: ~/.config/i3/i3status.conf  
 Path: ~/.config/i3/i3blocks.conf  
 
-### xmonad
+## xmonad
 
 Configuration file for xmonad and xmobar  
 There are two scripts, one for volume level and one for a customized dmenu launch  
 Path: ~/.xmonad/xmonad.hs  
 Path: ~/.xmonad/xmobarrc  
 
-### wm_script
+## wm_script
 
 This folder contains all the script i use in my wm, like in status bar, startup and run programs.  
