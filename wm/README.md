@@ -24,3 +24,7 @@ Configuration file for xmonad and xmobar
 There are two scripts, one for volume level and one for a customized dmenu launch  
 Path: ~/.xmonad/xmonad.hs  
 Path: ~/.xmonad/xmobarrc  
+
+### wm_script
+
+This folder contains all the script i use in my wm, like in status bar, startup and run programs.  
