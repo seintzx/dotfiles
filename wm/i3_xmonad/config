@@ -114,8 +114,9 @@ bindsym $mod+Return exec st
 bindsym $mod+Shift+c kill
 
 # RUN
-bindsym $mod+p exec "${HOME}/.config/wm_script/dmenu.sh"
-bindsym --release $mod+Shift+p exec rofi -show
+#bindsym $mod+p exec "${HOME}/.config/wm_script/dmenu.sh"
+bindsym $mod+p exec rofi -show run
+bindsym $mod+Shift+p exec rofi -show
 
 # RELOAD
 bindsym $mod+Shift+e reload
