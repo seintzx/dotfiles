@@ -14,6 +14,8 @@ Path: ~/.local/share/nvim/site/autoload/plug.vim
 ## st
 
 each time you make changes you need to recompile it.  
+Store the file wherever you want.  
+Path: ~/.config/st  
 
 ## urxvt
 
