@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Hack:size=9:antialias=true:autohint=true";
+char font[] = "Knack Nerd Font:size=9:antialias=true:autohint=true";
 int borderpx = 2;
 
 /*
