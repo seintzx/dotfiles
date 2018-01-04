@@ -2,6 +2,8 @@
 
 bat=$(acpi | cut -d " " -f4 | tr -d "%,")
 
+#  ps aux | grep tty1 | grep xmonad | awk '{print $11}'
+
 # xmonad
 # if [ "$bat" -gt "70" ];then 
 #     echo -e "\uf240 <fc=#00ff00>${bat}</fc>"

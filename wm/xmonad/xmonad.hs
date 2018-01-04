@@ -79,8 +79,8 @@ myDefaultGaps = [(0,0,0,0)]
 
 main = do
     xmproc <- spawnPipe "${HOME}/.cabal/bin/xmobar ${HOME}/.xmonad/xmobarrc"
-    xmonad $ docks defaultConfig
-        {   terminal            = myTerminal
+    spawn "sh /home/seintz/.config/wm_script/startup.sh"
+    xmonad $ docks defaultConfig {   terminal            = myTerminal
         ,   borderWidth         = myBorderWidth
         ,   modMask             = mymodMask
         ,   workspaces          = myWorkspaces
@@ -147,7 +147,7 @@ myLogHook h = dynamicLogWithPP $ defaultPP
 
 -- myStartupHook :: X()
 -- myStartupHook = do
---     spawn "${HOME}/.config/wm_script/startup.sh"
+--     spawn "sh ${HOME}/.config/wm_script/startup.sh"
 
 -- LAYOUT ======================================================================================================================================
 
@@ -186,7 +186,8 @@ myLayoutPrompt = inputPromptWithCompl myXPConfig "Layout"
 mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     [ ((modm ,              xK_Return   ),      spawn $ XMonad.terminal conf                    )       -- launch terminal 
-    , ((modm,               xK_p        ),      spawn "${HOME}/.config/wm_script/dmenu.sh"      )       -- launch dmenu
+    -- , ((modm,               xK_p        ),      spawn "${HOME}/.config/wm_script/dmenu.sh"      )       -- launch dmenu
+    , ((modm,               xK_p        ),      spawn "rofi -show run"                          )       -- launch dmenu
     , ((modm .|. shiftMask, xK_p        ),      spawn "rofi -show"                              )       -- launch rofi
     , ((modm .|. shiftMask, xK_c        ),      kill                                            )       -- close focused window
     , ((modm .|. shiftMask, xK_q        ),      io (exitWith ExitSuccess)                       )       -- quit xmonad
@@ -228,19 +229,3 @@ mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, k), windows $ f i)
     | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
     , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-
-
--- XMOBAR STUFF (because you cannot comment line on xmobarrc) ==================================================================================
-
--- <fc=#ffff00>[</fc><fc=grey>%cpu%</fc><fc=#ffff00>] [</fc><fc=grey>%memory%</fc>
--- , Run Cpu
--- [ "-a", "l", "-w", "2"
--- , "-L","25","-H","50"
--- , "-l", "green", "-n", "yellow", "-h", "red"
--- ] 10
--- , Run Memory
--- [ "-a", "l", "-w", "2"
--- , "-t","mem: <usedratio>%"
--- , "-L","25","-H","50"
--- , "-l", "green", "-n", "yellow", "-h", "red"
--- ] 10
