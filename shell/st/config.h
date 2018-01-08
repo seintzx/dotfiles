@@ -158,6 +158,9 @@ MouseShortcut mshortcuts[] = {
 	/* button               mask            string */
 };
 
+/* MouseKey mkeys[] = { */
+/* }; */
+
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
 #define TERMMOD (ControlMask|ShiftMask)
