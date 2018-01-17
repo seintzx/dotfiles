@@ -193,6 +193,7 @@ alias -g g='| grep -i --color=auto'
 alias la='ls -lha --color=auto'
 alias ll='ls -lh --color=auto'
 alias rm='rm -i'
+alias del='shred -uvz'
 alias md='mkdir -p'
 alias v='nvim'
 alias s='startx'
@@ -210,9 +211,6 @@ alias ys='yaourt -Syua'
 alias yi='yaourt -S '
 alias yr='yaourt -Rsn '
 alias yo='yaourt -Qtd'
-
-# compiler aliases
-alias cc='gcc -Wall -o' 
 
 # openssl, vpn aliases
 alias aese='openssl aes-256-cbc -a -salt'
