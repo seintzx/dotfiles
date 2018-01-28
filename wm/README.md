@@ -9,7 +9,7 @@ Icons in /usr/share/awesome/icons
 ## i3
 
 i3_power has a statusbar similar to powerline.  
-i3_xmona has a statusbar similar to my xmonad's one.  
+i3_xmonad has a statusbar similar to my xmonad's one.  
 I made two folder because the scripts are different.  
 Config files for i3, i3status and i3blocks.  
 The blocks folder contains the script for i3blocks.  
