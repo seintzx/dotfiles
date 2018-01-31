@@ -72,6 +72,10 @@ bindkey '^[[P' delete-char
 bindkey '^[[H' beginning-of-line
 bindkey '^[[4~' end-of-line
 
+# tmux
+bindkey '^[[3~' delete-char
+bindkey '^[[1~' beginning-of-line
+
 # # urxvt
 # bindkey '^[[3~' delete-char
 # bindkey '^[[7~' beginning-of-line
