@@ -212,9 +212,9 @@ alias vp='amixer -D pulse sset Master 5%+'
 alias vm='amixer -D pulse sset Master 5%-'
 
 # trizen aliases
-alias ys='trizen -Syua'
-alias yi='trizen -S '
-alias yr='trizen -Rsn '
+alias ys='trizen -Syu'
+alias yi='trizen -S --needed --sync'
+alias yr='trizen -Rsn'
 alias yo='trizen -Qtd'
 
 # openssl, vpn aliases
