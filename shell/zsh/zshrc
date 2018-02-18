@@ -9,12 +9,12 @@ zmodload -i zsh/complist
 
 # EXPORT =====================================================================================================================================================================================
 
-#export PATH=${PATH}:/usr/bin/greenclip
-export VISUAL="nvim"
+export DEFAULT_USER="seintz"
 export EDITOR="nvim"
 export LANG=en_US.UTF-8
-export DEFAULT_USER="seintz"
+# export PATH=${PATH}:/home/seintz/.gem/ruby/2.5.0/bin:/usr/bin/greenclip
 # export TERM="st-256color"
+export VISUAL="nvim"
 export XDG_CONFIG_HOME="${HOME}/.config"
 
 # PROMPT =====================================================================================================================================================================================
@@ -83,28 +83,27 @@ bindkey '^[[1~' beginning-of-line
 
 # SETOPT =====================================================================================================================================================================================
 
-setopt hash_list_all            
-setopt completealiases          
-setopt always_to_end            
-setopt complete_in_word         
-setopt correct                  
-setopt list_ambiguous           
-setopt auto_cd                  
-setopt auto_remove_slash        
-setopt chase_links              
-setopt correct                  
-setopt extended_glob            
-setopt glob_dots                
+setopt always_to_end
+setopt auto_cd
+setopt auto_remove_slash
+setopt chase_links
+setopt completealiases
+setopt complete_in_word
+setopt correct
+setopt extended_glob
+setopt glob_dots
+setopt hash_list_all
+setopt list_ambiguous
 
-unsetopt print_exit_value         
-unsetopt beep                   
-unsetopt bg_nice                
-unsetopt clobber                
-unsetopt hist_beep              
-unsetopt hup                    
-unsetopt ignore_eof             
-unsetopt list_beep              
-unsetopt rm_star_silent         
+unsetopt beep
+unsetopt bg_nice
+unsetopt clobber
+unsetopt hist_beep
+unsetopt hup
+unsetopt ignore_eof
+unsetopt list_beep
+unsetopt print_exit_value
+unsetopt rm_star_silent
 
 # PUSHD ======================================================================================================================================================================================
 
@@ -115,19 +114,23 @@ setopt pushd_to_home
 
 # HISTORY ====================================================================================================================================================================================
 
-HISTFILE=~/.zsh_history         
-HISTSIZE=1024                   
-SAVEHIST=1024                   
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 
 setopt append_history           
-setopt hist_ignore_all_dups     
-setopt hist_reduce_blanks       
-setopt hist_verify              
-setopt inc_append_history       
-setopt share_history            
-setopt bang_hist                
+setopt extended_history
+setopt inc_append_history
 
-unsetopt hist_ignore_space      
+setopt hist_expire_dups_first
+setopt hist_ignore_space
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_reduce_blanks
+
+setopt hist_verify
+setopt share_history
+setopt bang_hist
 
 # COMPLETION =================================================================================================================================================================================
 
@@ -223,14 +226,15 @@ alias aesd='openssl aes-256-cbc -d -a'
 alias cvpn='cd ${HOME}/vpn/cesvpn ; sudo openvpn ep-udp-1195-santa.ovpn'
 
 # git aliases
-alias gacp='git add -A && git commit -a --allow-empty-message -m "" && git push -u origin master'
+alias gacp='git add -A && git commit -a --allow-empty-message -m "" && git push'
 alias ga='git add'
 alias gad='git add -A'
 alias gcm='git commit -m'
 alias gce='git commit -a --allow-empty-message -m ""'
-alias gp='git push -u origin master'
-alias gpp='git pull'
-alias gpr='git pull --rebase'
+alias gp='git push'
+alias gpm='git push -u origin master'
+alias gl='git pull'
+alias glr='git pull --rebase'
 alias gt='git status'
 
 # others aliases
