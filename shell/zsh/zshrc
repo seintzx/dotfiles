@@ -17,17 +17,14 @@ export LANG=en_US.UTF-8
 export VISUAL="nvim"
 export XDG_CONFIG_HOME="${HOME}/.config"
 
-# PROMPT =====================================================================================================================================================================================
+# THEME ======================================================================================================================================================================================
 
-setopt PROMPT_SUBST     
-color="green"
-if [ "$USER" = "root" ]; then
-    color="red"         
-fi;
-
-function current_pwd {  echo $(pwd | sed -e "s,^$HOME,~,")  }
-
-PROMPT='%{$fg[$color]%}%n@%{$reset_color%} %{$fg[yellow]%}$(current_pwd)%{$reset_color%} ${vcs_info_msg_0_}%{$reset_color%} $ '
+# source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator status virtualenv context dir vcs)
+POWERLEVEL9K_DISABLE_RPROMPT=true
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 
 # VCS INFO ===================================================================================================================================================================================
 
@@ -38,15 +35,6 @@ zstyle ':vcs_info:*' formats "%{$fg[cyan]%}%b%{$reset_color%} %{$fg[yellow]%}%c%
 precmd() {  
     vcs_info
 }
-
-# THEME ======================================================================================================================================================================================
-
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator status virtualenv context dir vcs)
-POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_SHORTEN_DELIMITER=""
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 
 # KEYBINDINGS ================================================================================================================================================================================
 
@@ -75,11 +63,6 @@ bindkey '^[[4~' end-of-line
 # tmux
 bindkey '^[[3~' delete-char
 bindkey '^[[1~' beginning-of-line
-
-# # urxvt
-# bindkey '^[[3~' delete-char
-# bindkey '^[[7~' beginning-of-line
-# bindkey '^[[8~' end-of-line
 
 # SETOPT =====================================================================================================================================================================================
 
@@ -159,37 +142,27 @@ zstyle ':completion:*' users $users
 
 # PLUGINS ====================================================================================================================================================================================
 
-globalias() {
-   zle _expand_alias
-   zle expand-word
-   zle self-insert
-}
-zle -N globalias
+source "${HOME}/.zgen/zgen.zsh"
 
-# space expands all aliases, including global
-bindkey -M emacs "^ " globalias
-bindkey -M viins "^ " globalias
+if ! zgen saved; then
 
-# control-space to make a normal space
-bindkey -M emacs " " magic-space
-bindkey -M viins " " magic-space
+    echo "Creating a zgen save"
 
-# normal space during searches
-bindkey -M isearch " " magic-space
+    # theme
+    zgen load bhilburn/powerlevel9k powerlevel9k
 
-# fasf
+    # plugin
+    zgen load chrissicool/zsh-256color
+    zgen load zsh-users/zsh-syntax-highlighting
+    zgen load zsh-users/zsh-autosuggestions
+    zgen load clvv/fasd
+
+    # save to init script
+    zgen save
+fi
+
+# fasd
 eval "$(fasd --init auto)"
-
-# zsh-autosuggestions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# VIRTUALENV =================================================================================================================================================================================
-
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
-export WORKON_HOME=${HOME}/.pyvenv
-# export PROJECT_HOME=${HOME}/project
-source /usr/bin/virtualenvwrapper.sh
 
 # ALIASES ====================================================================================================================================================================================
 
@@ -205,6 +178,7 @@ alias del='shred -uvz'
 alias md='mkdir -p'
 alias v='nvim'
 alias s='startx'
+alias tmp='cd /tmp'
 
 # fn key alias (almost deprecated)
 alias fckbeep='xset -b'
@@ -221,9 +195,11 @@ alias yr='trizen -Rsn'
 alias yo='trizen -Qtd'
 
 # openssl, vpn aliases
-alias aese='openssl aes-256-cbc -a -salt'
-alias aesd='openssl aes-256-cbc -d -a'
+# *enc -in INPUT-FILE -out OUTPUT-FILE
+alias eenc='openssl aes-256-cbc -a -salt'
+alias denc='openssl aes-256-cbc -d -a'
 alias cvpn='cd ${HOME}/vpn/cesvpn ; sudo openvpn ep-udp-1195-santa.ovpn'
+alias vpn='./vpn/express/auth.sh'
 
 # git aliases
 alias gacp='git add -A && git commit -a --allow-empty-message -m "" && git push'
