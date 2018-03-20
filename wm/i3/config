@@ -29,7 +29,7 @@ set $ws9     "9: "
 set $ws10    "10: "
 
 # FONT
-font xft:Knack Nerd Font 9
+font xft:Hack 8
 
 # CLIENT COLOR
 # classname                 border      background  text    indicator
@@ -191,7 +191,7 @@ smart_borders on
 # BAR CONFIG
 bar {
         status_command i3blocks -c ${HOME}/.config/i3/i3blocks.conf
-        font xft:Knack Nerd Font 9
+        font xft:Hack 8
         tray_padding 0
         position top
         height 16
