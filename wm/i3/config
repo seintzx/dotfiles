@@ -16,14 +16,14 @@ set $black      #000000
 set $urgentred  #b33a3a
 set $pink       #ff00ff
 
-# WORKSPACES
+# WORKSPACES 
 set $ws1     "1: "
 set $ws2     "2: "
-set $ws3     "3: "
-set $ws4     "4: "
-set $ws5     "5: "
-set $ws6     "6: "
-set $ws7     "7: "
+set $ws3     "3: "
+set $ws4     "4: "
+set $ws5     "5: "
+set $ws6     "6: "
+set $ws7     "7: "
 set $ws8     "8: "
 set $ws9     "9: "
 
@@ -134,19 +134,18 @@ bindsym --release Shift+Print exec "scrot -s ${HOME}/Pictures/screenshot/scr-$(d
 
 # RULES
 assign [class="(?i)firefox"]        $ws1
-assign [class="(?i)Nemo"]           $ws3
-assign [class="(?i)Zathura"]        $ws4
-assign [class="(?i)subl"]           $ws4
-assign [class="(?i)libreoffice"]    $ws4
-assign [class="(?i)TeXstudio"]      $ws4
-assign [class="(?i)eclipse"]        $ws4
-assign [class="(?i)Vlc"]            $ws5
-assign [class="(?i)Gimp"]           $ws5
-assign [class="(?i)Spotify"]        $ws5
-assign [class="(?i)steam"]          $ws5
-assign [class="(?i)slack"]          $ws6
-assign [class="(?i)telegram"]       $ws6
-assign [class="(?i)thunderbird"]    $ws7
+assign [class="(?i)Nemo"]           $ws4
+assign [class="(?i)Zathura"]        $ws5
+assign [class="(?i)subl"]           $ws5
+assign [class="(?i)libreoffice"]    $ws5
+assign [class="(?i)TeXstudio"]      $ws5
+assign [class="(?i)eclipse"]        $ws5
+assign [class="(?i)Vlc"]            $ws6
+assign [class="(?i)Gimp"]           $ws6
+assign [class="(?i)Spotify"]        $ws6
+assign [class="(?i)steam"]          $ws6
+assign [class="(?i)slack"]          $ws7
+assign [class="(?i)telegram"]       $ws7
 assign [class="(?i)qbittorrent"]    $ws8
 
 # STARTUP
