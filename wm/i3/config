@@ -140,6 +140,7 @@ assign [class="(?i)subl"]           $ws5
 assign [class="(?i)libreoffice"]    $ws5
 assign [class="(?i)TeXstudio"]      $ws5
 assign [class="(?i)eclipse"]        $ws5
+assign [class="(?i)db_main"]        $ws5
 assign [class="(?i)Vlc"]            $ws6
 assign [class="(?i)Gimp"]           $ws6
 assign [class="(?i)Spotify"]        $ws6
