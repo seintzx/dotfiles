@@ -1,4 +1,4 @@
-" General 3
+" General
 syntax on                           " dunno
 syntax enable                       " dunno
 colorscheme inkpot
@@ -38,11 +38,6 @@ set incsearch                       " live incremental search
 set showmatch                       " live match highlight
 set hlsearch                        " highlight matches
 
-" Markdown
-filetype plugin on 
-let g:instant_markdown_slow = 1
-let g:vim_markdown_folding_disabled = 1
-let g:instant_markdown_autostart = 1
 
 " TabLine
 :hi TabLineFill ctermfg=Black       ctermbg=Grey
@@ -64,20 +59,36 @@ let g:airline#extensions#ymc#error_symbol   = 'E:'      " Error prefix
 let g:airline#extensions#ymc#warning_symbol = 'W:'      " Warning prefix
 
 " Vim Airline Statusbar
-" let g:airline_section_b = '%{getcwd()}'     " Working Dir
-" let g:aitline_section_c = '%t'              " File name
 let g:airline_section_y = 'L %l : C %c'     " Number of line and column
 let g:airline_section_z = '%m %r %h %w'     " Gutter Flag (modified, read-only, help, preview)
 
 " Vim-Plug, Plugin
 call plug#begin('~/.local/share/nvim/plugged')
-"Plug 'valloric/youcompleteme'           " Completition engine for most language
+Plug 'tpope/vim-markdown'               " Markdown support
 Plug 'vim-airline/vim-airline'          " Airline
 Plug 'vim-airline/vim-airline-themes'   " Airline themes
 Plug 'raimondi/delimitmate'             " Autocomplete parenthesis
-Plug 'tpope/vim-markdown'               " Markdown support
-"Plug 'suan/vim-instant-markdown'        " Browser preview of the markdown file (not working now)
 Plug 'tpope/vim-commentary'             " Easily comment toggling
 Plug 'majutsushi/tagbar'                " Show tab options
 Plug 'tpope/vim-fugitive'               " git wrapper
+Plug 'neomake/neomake'                  " code-formatting tool
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "
 call plug#end()
+
+" Markdown
+filetype plugin on 
+let g:instant_markdown_slow = 1
+let g:vim_markdown_folding_disabled = 1
+let g:instant_markdown_autostart = 1
+
+" neomake
+let g:neomake_verbose = 0
+autocmd! BufWritePost,BufEnter * Neomake
+let g:neomake_python_enabled_makers = ['flake8']
+
+noremap <F3> :Autoformat<cr>
+autocmd FileType python map <buffer> <F3> :!yapf -i % --style=pep8;<cr>
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_ignore_case = 'ignorecase'
