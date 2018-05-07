@@ -131,6 +131,7 @@ bindsym $mod+F10 exec "amixer sset Master 5%+"
 bindsym $mod+Shift+z exec "${HOME}/.config/wm_script/lockscr.sh"
 bindsym --release Print exec "scrot ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
 bindsym --release Shift+Print exec "scrot -s ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
+bindsym $mod+Shift+s exec "${HOME}/.config/wm_script/chat.sh"
 
 # RULES
 # 
@@ -154,10 +155,13 @@ assign [class="(?i)Vlc"]                    $ws6
 assign [class="(?i)Gimp"]                   $ws6
 assign [class="(?i)Spotify"]                $ws6
 assign [class="(?i)steam"]                  $ws6
+assign [class="(?i)genymotion"]             $ws6
+assign [class="(?i)genymotion player"]      $ws6
 
 # 
 assign [class="(?i)slack"]                  $ws7
 assign [class="(?i)telegram"]               $ws7
+assign [class="(?i)signal"]                 $ws7
 
 # 
 assign [class="(?i)qbittorrent"]            $ws8
