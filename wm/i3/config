@@ -86,9 +86,9 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
-bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Control+h workspace prev
 bindsym $mod+Control+l workspace next
+bindsym $mod+Tab workspace back_and_forth
 
 # MOVE CONTAINER TO WORKSPACE
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -124,47 +124,49 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec "i3-msg exit"
 
 # KEYBIND
-bindsym $mod+F2 exec  "xbacklight -dec 10"
-bindsym $mod+F3 exec  "xbacklight -inc 10"
-bindsym $mod+F9 exec  "amixer sset Master 5%-"
-bindsym $mod+F10 exec "amixer sset Master 5%+"
-bindsym $mod+Shift+z exec "${HOME}/.config/wm_script/lockscr.sh"
-bindsym --release Print exec "scrot ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
 bindsym --release Shift+Print exec "scrot -s ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
+bindsym --release Print exec "scrot ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
+bindsym $mod+Shift+z exec "${HOME}/.config/wm_script/lockscr.sh"
 bindsym $mod+Shift+s exec "${HOME}/.config/wm_script/chat.sh"
+bindsym $mod+F10 exec "amixer sset Master 5%+"
+bindsym $mod+F9 exec  "amixer sset Master 5%-"
+bindsym $mod+F3 exec  "xbacklight -inc 10"
+bindsym $mod+F2 exec  "xbacklight -dec 10"
 
 # RULES
 # 
-assign [class="(?i)firefox"]                $ws1
 assign [class="(?i)tor browser"]            $ws1
+assign [class="(?i)firefox"]                $ws1
 
 # 
 assign [class="(?i)Nemo"]                   $ws4
 
 # 
-assign [class="(?i)Zathura"]                $ws5
-assign [class="(?i)subl"]                   $ws5
+assign [class="(?i)jetbrains-idea"]         $ws5
 assign [class="(?i)libreoffice"]            $ws5
 assign [class="(?i)TeXstudio"]              $ws5
+assign [class="(?i)Zathura"]                $ws5
 assign [class="(?i)eclipse"]                $ws5
-assign [class="(?i)jetbrains-idea"]         $ws5
 assign [class="(?i)db_main"]                $ws5
+assign [class="(?i)subl"]                   $ws5
 
 # 
-assign [class="(?i)Vlc"]                    $ws6
-assign [class="(?i)Gimp"]                   $ws6
+assign [class="(?i)genymotion player"]      $ws6
+assign [class="(?i)genymotion"]             $ws6
 assign [class="(?i)Spotify"]                $ws6
 assign [class="(?i)steam"]                  $ws6
-assign [class="(?i)genymotion"]             $ws6
-assign [class="(?i)genymotion player"]      $ws6
+assign [class="(?i)Gimp"]                   $ws6
+assign [class="(?i)Vlc"]                    $ws6
 
 # 
-assign [class="(?i)slack"]                  $ws7
 assign [class="(?i)telegram"]               $ws7
 assign [class="(?i)signal"]                 $ws7
+assign [class="(?i)slack"]                  $ws7
 
 # 
 assign [class="(?i)qbittorrent"]            $ws8
+assign [class="(?i)electrum"]               $ws8
+assign [class="(?i)mist"]                   $ws8
 
 # STARTUP
 exec_always --no-startup-id "${HOME}/.config/wm_script/startup.sh"
