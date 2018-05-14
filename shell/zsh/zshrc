@@ -182,7 +182,7 @@ alias del='shred -uvz'
 alias md='mkdir -p'
 alias v='nvim'
 alias s='startx'
-alias tmp='cd /tmp'
+alias ct='cd /tmp'
 
 # fn key alias (almost deprecated)
 alias fckbeep='xset -b'
@@ -203,7 +203,7 @@ alias yo='trizen -Qtd'
 alias eenc='openssl aes-256-cbc -a -salt'
 alias denc='openssl aes-256-cbc -d -a'
 alias cvpn='cd ${HOME}/vpn/cesvpn ; sudo openvpn ep-udp-1195-santa.ovpn'
-alias vpn='./vpn/express/auth.sh'
+alias vpn='${HOME}/vpn/nord/auth.sh'
 
 # git aliases
 alias gacp='git add -A && git commit -a --allow-empty-message -m "" && git push'
@@ -225,3 +225,7 @@ alias -g xv='| xsel --clipboard'
 
 # fasd alias
 alias c='fasd_cd -d -i'
+
+# pyvenv aliases
+alias von='source ${HOME}/.pyvenv/bin/activate'
+
