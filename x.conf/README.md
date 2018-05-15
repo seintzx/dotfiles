@@ -1,5 +1,10 @@
 # X config
 
+## dunst
+
+Notification.  
+Path: ~/.config/dunst
+
 ## Lightdm
 
 ## gtk

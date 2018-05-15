@@ -208,11 +208,12 @@ smart_borders on
 # BAR CONFIG
 bar {
         # status_command i3blocks -c ${HOME}/.config/i3/i3blocks.conf
-        status_command py3status -c ${HOME}/.config/i3/i3status.conf
+        status_command py3status --standalone --dbus-notify -c ${HOME}/.config/i3/i3status.conf
         font xft:Hack 8
         tray_padding 0
         position top
         height 16
+        separator_symbol " "
         # strip_workspace_numbers yes
         
         colors {
