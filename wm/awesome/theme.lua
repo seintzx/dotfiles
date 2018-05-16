@@ -2,16 +2,16 @@
 
 local theme = {}
 
--- WALLPAPER ==================================================================================================================================================================================================================
+-- WALLPAPER =================================================================================================================================================================================
 
 -- theme.wallpaper = "/usr/share/awesome/themes/default/background.png"
 theme.wallpaper = "~/Pictures/wall/wallpaper.png"
 
--- FONT =======================================================================================================================================================================================================================
+-- FONT ======================================================================================================================================================================================
 
-theme.font          = "Menlo for Powerline 9"
+theme.font          = "Hack 9"
 
--- COLOR ======================================================================================================================================================================================================================
+-- COLOR =====================================================================================================================================================================================
 
 -- border
 theme.useless_gap   = 0
@@ -42,12 +42,12 @@ theme.titlebar_bg_focus      =   "#0000ff"
 theme.titlebar_fg_normal     =   "#0000ff"
 theme.titlebar_bg_normal     =   "#0000ff"
 
--- TAGLIST SQUARE =============================================================================================================================================================================================================
+-- TAGLIST SQUARE ============================================================================================================================================================================
 
 -- theme.taglist_squares_sel   = "/usr/share/awesome/themes/default/taglist/squarefw.png"
 -- theme.taglist_squares_unsel = "/usr/share/awesome/themes/default/taglist/squarew.png"
 
--- TITLEBAR BUTTON ============================================================================================================================================================================================================
+-- TITLEBAR BUTTON ===========================================================================================================================================================================
 
 theme.titlebar_close_button_normal = "/usr/share/awesome/themes/default/titlebar/close_normal.png"
 theme.titlebar_close_button_focus  = "/usr/share/awesome/themes/default/titlebar/close_focus.png"
@@ -75,7 +75,7 @@ theme.titlebar_maximized_button_focus_inactive  = "/usr/share/awesome/themes/def
 theme.titlebar_maximized_button_normal_active = "/usr/share/awesome/themes/default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/default/titlebar/maximized_focus_active.png"
 
--- LAYOUT IMAGE ===============================================================================================================================================================================================================
+-- LAYOUT IMAGE ==============================================================================================================================================================================
 
 theme.layout_fairh = "/usr/share/awesome/themes/default/layouts/fairhw.png"
 theme.layout_fairv = "/usr/share/awesome/themes/default/layouts/fairvw.png"
@@ -96,7 +96,7 @@ theme.layout_cornerse = "/usr/share/awesome/themes/default/layouts/cornersew.png
 
 theme.awesome_icon = "/usr/share/awesome/icons/awesome16.png"
 
--- WIDGET IMAGE ===============================================================================================================================================================================================================
+-- WIDGET IMAGE ==============================================================================================================================================================================
 
 theme.widget_ac                     = "/usr/share/awesome/icons/iconjak/ac.png"
 theme.widget_battery                = "/usr/share/awesome/icons/iconjak/battery.png"
@@ -116,7 +116,7 @@ theme.widget_vol_mute               = "/usr/share/awesome/icons/iconjak/vol_mute
 theme.widget_mail                   = "/usr/share/awesome/icons/iconjak/mail.png"
 theme.widget_mail_on                = "/usr/share/awesome/icons/iconjak/mail_on.png"
 
--- ICON THEME ================================================================================================================================================================================================================= 
+-- ICON THEME =============================================================================================================================================================================== 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
