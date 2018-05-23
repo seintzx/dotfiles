@@ -223,6 +223,9 @@ alias myip='curl -s http://ipinfo.io/ip'
 alias -g xc='| xsel --clipboard'
 alias -g xv='| xsel --clipboard'
 
+# keepass aliases
+alias kp='keepassxc-cli'
+alias kpgen='keepassxc-cli generate -lunsL 12'
 # fasd alias
 alias c='fasd_cd -d -i'
 

@@ -5,6 +5,12 @@
 Notification.  
 Path: ~/.config/dunst
 
+## keepassxc
+
+Password Manager, substitute lastpass.  
+Path: ~/.config/keepassxc/keepassxc.ini
+
+
 ## Lightdm
 
 ## gtk
