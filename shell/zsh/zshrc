@@ -226,6 +226,8 @@ alias -g xv='| xsel --clipboard'
 # keepass aliases
 alias kp='keepassxc-cli'
 alias kpgen='keepassxc-cli generate -lunsL 12'
+alias kpcp='keepasscx-cli clip ${HOME}/.pass.kdbx'
+
 # fasd alias
 alias c='fasd_cd -d -i'
 
