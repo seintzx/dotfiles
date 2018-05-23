@@ -169,7 +169,7 @@ assign [class="(?i)electrum"]               $ws8
 assign [class="(?i)mist"]                   $ws8
 
 # 
-assign [class="(?i)keepassxc"]              $ws8
+assign [class="(?i)keepassxc"]              $ws9
 
 # STARTUP
 exec_always --no-startup-id "${HOME}/.config/wm_script/startup.sh"
