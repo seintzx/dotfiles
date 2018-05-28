@@ -1,19 +1,21 @@
 # i3-gaps-git config file
-# i3blocks for bar with some custom scripts
+# py3status for bar with some custom scripts
 
 # COLORS
 set $lime       #9fbc00
 set $darklime   #505e00
 set $green      #00ff00
+set $watergree  #00ff8b
 set $yellow     #ffff00
 set $lightblue  #232d34
+set $purpleble  #8b8bcd
 set $blue       #131d24
 set $lightgray  #ddeedd
 set $gray       #aaaaaa
 set $darkgray   #222222
 set $white      #ffffff
 set $black      #000000
-set $urgentred  #b33a3a
+set $urgentred  #fb4934
 set $pink       #ff00ff
 
 # WORKSPACES 
@@ -221,12 +223,12 @@ bar {
         
         colors {
         background  $black
-        statusline  $gray
+        statusline  $purpleble
         separator   $yellow
 
         # classname         border      background  font
-        focused_workspace   $black      $black      $green
-        inactive_workspace  $black      $black      $gray
+        focused_workspace   $black      $black      $watergree
+        inactive_workspace  $black      $black      $purpleble
         urgent_workspace    $urgentred  $urgentred  $white
         }
 }
