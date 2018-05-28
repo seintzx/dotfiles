@@ -1,68 +1,75 @@
-" General
-syntax on                           " dunno
-syntax enable                       " dunno
-colorscheme inkpot
-set t_Co=256                        " Colors
-set number                          " Lines number
-set gcr=a:blinkon0                  " No blink cursor
-set encoding=utf-8                  " Encode
-set fileencoding=utf-8              " File encoding
-set backspace=indent,eol,start      " Enable backspace
-set shell=zsh                       " Set default shell
-set hidden                          " Buffer with unsaved changes allowed
-set autoread                        " Load file even if it has changed disk
-set showcmd                         " Show the current command
-set mousehide                       " Hide mouse while typing
-set wildmenu                        " Better command completition with tab
-set noshowmode                      " Hide default mode text
-set ttimeoutlen=50                  " Timeout for lag
-set clipboard=unnamedplus           " Copy to clipboard instead o buffer 
+" general ---------------------------------------------------------------------
+syntax on
+syntax enable
+colorscheme nightshade
+set t_Co=256
+set background=dark
+set gcr=a:blinkon0
+set encoding=utf-8
+set fileencoding=utf-8
+set shell=zsh
+set hidden
+set autoread
+set showcmd
+set mousehide
+set wildmenu
+set noshowmode
+set ttimeoutlen=50
 set mouse=a
 
-" Indentation and spaces
-set autoindent                      " Auto-indent
-set smartindent                     " smart auto-indent
-set smarttab                        " smart tab
-set shiftwidth=4                    " tab = 4 spaces
-set softtabstop=4                   " dunno
-set tabstop=4                       " dunno
-set expandtab                       " dunno
+" search ----------------------------------------------------------------------
+set ignorecase
+set smartcase 
+set incsearch
+set hlsearch
+set showmatch
+
+" indentation -----------------------------------------------------------------
+set expandtab
+set autoindent
+set smartindent
+set smarttab
 set linebreak
-" set textwidth=80
-" set formatoptions+=a
+set nojoinspaces
+set backspace=indent,eol,start
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 
-" Make search more sane
-set ignorecase                      " case insensitive search
-set smartcase                       " If uppercase is present, become case-sensitive
-set incsearch                       " live incremental search
-set showmatch                       " live match highlight
-set hlsearch                        " highlight matches
+" appearance ------------------------------------------------------------------
+set laststatus=2
+set showtabline=2
+set number
+set textwidth=80
+set colorcolumn=80
+set modeline
+set modelines=5
+set scrolloff=6
+set clipboard=unnamedplus
+" set cursorline
 
-
-" TabLine
+" TabLine ---------------------------------------------------------------------
 :hi TabLineFill ctermfg=Black       ctermbg=Grey
 :hi TabLineSel  ctermfg=DarkGreen   ctermbg=Black
 :hi TabLine     ctermfg=Blue        ctermbg=Black
 :hi Title       ctermfg=Red         ctermbg=Yellow
 
-" Vim Airline 
-set laststatus=2                                        " Enable powerline with one tab
-set showtabline=2                                       " Enable tabline eith one tab
-let g:airline_theme                         = 'dark'    " Theme selection
-let g:airline_powerline_fonts               = 1         " Set the fonts
-let g:airine#extensions#tabline#enable      = 1         " Something 
-let g:airline_skip_empty_sections           = 0         " Do not draw separators for empty sections
-let g:airline#extensions#hunks#enabled      = 0         " Disable hunks(??)
-let g:airline#extensions#whitespace#enabled = 0         " Disable whitespace
-let g:airline#extensions#ycm#enabled        = 1         " YMC integration
-let g:airline#extensions#ymc#error_symbol   = 'E:'      " Error prefix
-let g:airline#extensions#ymc#warning_symbol = 'W:'      " Warning prefix
+" airline ---------------------------------------------------------------------
+let g:airline_theme                         = 'dark'
+let g:airline_powerline_fonts               = 1
+let g:airine#extensions#tabline#enable      = 1
+let g:airline_skip_empty_sections           = 0
+let g:airline#extensions#hunks#enabled      = 0
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#ycm#enabled        = 1
+let g:airline#extensions#ymc#error_symbol   = 'E:'
+let g:airline#extensions#ymc#warning_symbol = 'W:'
 
-" Vim Airline Statusbar
+" airline statusbar -----------------------------------------------------------
 let g:airline_section_y = 'L %l : C %c'     " Number of line and column
 let g:airline_section_z = '%m %r %h %w'     " Gutter Flag (modified, read-only, help, preview)
 
-" Vim-Plug, Plugin
+" vim-plug --------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-markdown'               " Markdown support
 Plug 'vim-airline/vim-airline'          " Airline
@@ -75,20 +82,19 @@ Plug 'neomake/neomake'                  " code-formatting tool
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "
 call plug#end()
 
-" Markdown
+" markdown --------------------------------------------------------------------
 filetype plugin on 
 let g:instant_markdown_slow = 1
 let g:vim_markdown_folding_disabled = 1
 let g:instant_markdown_autostart = 1
 
-" neomake
+" neomake ---------------------------------------------------------------------
 let g:neomake_verbose = 0
 autocmd! BufWritePost,BufEnter * Neomake
 let g:neomake_python_enabled_makers = ['flake8']
-
 noremap <F3> :Autoformat<cr>
 autocmd FileType python map <buffer> <F3> :!yapf -i % --style=pep8;<cr>
 
-" deoplete
+" deoplete --------------------------------------------------------------------
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 'ignorecase'
