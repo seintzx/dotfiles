@@ -208,7 +208,7 @@ gaps outer 0
 smart_gaps on
 smart_borders on
 
-##############################################################################################################################################################################################
+###############################################################################
 
 # BAR CONFIG
 bar {
@@ -219,15 +219,16 @@ bar {
         position top
         height 16
         separator_symbol " "
-        # strip_workspace_numbers yes
-        
+        strip_workspace_numbers yes
+        workspace_buttons yes
+
         colors {
         background  $black
         statusline  $purpleble
         separator   $yellow
 
         # classname         border      background  font
-        focused_workspace   $black      $black      $watergree
+        focused_workspace   $watergree  $black      $watergree
         inactive_workspace  $black      $black      $purpleble
         urgent_workspace    $urgentred  $urgentred  $white
         }
