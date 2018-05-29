@@ -4,25 +4,28 @@ syntax enable
 colorscheme nightshade
 set t_Co=256
 set background=dark
-set gcr=a:blinkon0
+set shell=zsh
+set ttimeoutlen=50
+
+" appearance ------------------------------------------------------------------
+set laststatus=2
+set showtabline=2
+set number
+set textwidth=80
+set colorcolumn=80
+set modeline
+set modelines=5
+set scrolloff=6
+set cursorline
+set ruler
+
+" clipboard -------------------------------------------------------------------
+set clipboard=unnamedplus
+set pastetoggle=<F12>
+
+" encoding --------------------------------------------------------------------
 set encoding=utf-8
 set fileencoding=utf-8
-set shell=zsh
-set hidden
-set autoread
-set showcmd
-set mousehide
-set wildmenu
-set noshowmode
-set ttimeoutlen=50
-set mouse=a
-
-" search ----------------------------------------------------------------------
-set ignorecase
-set smartcase 
-set incsearch
-set hlsearch
-set showmatch
 
 " indentation -----------------------------------------------------------------
 set expandtab
@@ -35,24 +38,37 @@ set backspace=indent,eol,start
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
+set list
+set listchars=tab:›\ ,trail:•
 
-" appearance ------------------------------------------------------------------
-set laststatus=2
-set showtabline=2
-set number
-set textwidth=80
-set colorcolumn=80
-set modeline
-set modelines=5
-set scrolloff=6
-set clipboard=unnamedplus
-" set cursorline
+" mouse -----------------------------------------------------------------------
+set mouse=a
+set mousehide
+set gcr=a:blinkon0
 
-" TabLine ---------------------------------------------------------------------
-:hi TabLineFill ctermfg=Black       ctermbg=Grey
+" persistence -----------------------------------------------------------------
+set hidden
+set autoread
+set showcmd
+
+" search ----------------------------------------------------------------------
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set showmatch
+set matchtime=1
+set matchpairs+=<:>
+
+" wildmenu --------------------------------------------------------------------
+set wildmenu
+" set wildmode=list:longest,full
+set noshowmode
+
+" tabline ---------------------------------------------------------------------
+:hi TabLineFill ctermfg=Grey        ctermbg=Black
 :hi TabLineSel  ctermfg=DarkGreen   ctermbg=Black
 :hi TabLine     ctermfg=Blue        ctermbg=Black
-:hi Title       ctermfg=Red         ctermbg=Yellow
 
 " airline ---------------------------------------------------------------------
 let g:airline_theme                         = 'dark'
@@ -86,7 +102,9 @@ call plug#end()
 filetype plugin on 
 let g:instant_markdown_slow = 1
 let g:vim_markdown_folding_disabled = 1
-let g:instant_markdown_autostart = 1
+let g:instant_markdown_autostart = 0
+let g:markdown_fenced_languages = ['python', 'bash=sh']
+let g:markdown_syntax_conceal = 0
 
 " neomake ---------------------------------------------------------------------
 let g:neomake_verbose = 0
