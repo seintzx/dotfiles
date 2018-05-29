@@ -66,7 +66,7 @@ set wildmenu
 set noshowmode
 
 " tabline ---------------------------------------------------------------------
-:hi TabLineFill ctermfg=Grey        ctermbg=Black
+:hi TabLineFill ctermfg=Black       ctermbg=Grey
 :hi TabLineSel  ctermfg=DarkGreen   ctermbg=Black
 :hi TabLine     ctermfg=Blue        ctermbg=Black
 
