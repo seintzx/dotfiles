@@ -1,14 +1,12 @@
-# GENERAL ====================================================================================================================================================================================
-
-autoload -U colors zsh-mime-setup select-word-style compinit 
-colors          
-zsh-mime-setup  
-select-word-style bash 
+# GENERAL =====================================================================
+autoload -U colors zsh-mime-setup select-word-style compinit
+colors
+zsh-mime-setup
+select-word-style bash
 compinit
-zmodload -i zsh/complist        
+zmodload -i zsh/complist
 
-# EXPORT =====================================================================================================================================================================================
-
+# EXPORT ======================================================================
 export DEFAULT_USER="seintz"
 export EDITOR="nvim"
 export LANG=en_US.UTF-8
@@ -17,8 +15,7 @@ export LANG=en_US.UTF-8
 export VISUAL="nvim"
 export XDG_CONFIG_HOME="${HOME}/.config"
 
-# THEME ======================================================================================================================================================================================
-
+# THEME =======================================================================
 # source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator status virtualenv context dir vcs)
 POWERLEVEL9K_DISABLE_RPROMPT=true
@@ -26,22 +23,19 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 
-# VCS INFO ===================================================================================================================================================================================
-
+# VCS INFO ====================================================================
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn hg
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' formats "%{$fg[cyan]%}%b%{$reset_color%} %{$fg[yellow]%}%c%{$fg[green]%}%u%{$reset_color%}" 
-precmd() {  
+zstyle ':vcs_info:*' formats "%{$fg[cyan]%}%b%{$reset_color%} %{$fg[yellow]%}%c%{$fg[green]%}%u%{$reset_color%}"
+precmd() {
     vcs_info
 }
 
-# KEYBINDINGS ================================================================================================================================================================================
-
+# KEYBINDINGS =================================================================
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-
 typeset -g -A key
 
 # pg up/down
@@ -67,8 +61,7 @@ bindkey '^[[1~' beginning-of-line
 # plugin
 bindkey "^ " forward-word
 
-# SETOPT =====================================================================================================================================================================================
-
+# SETOPT ======================================================================
 setopt always_to_end
 setopt auto_cd
 setopt auto_remove_slash
@@ -80,7 +73,6 @@ setopt extended_glob
 setopt glob_dots
 setopt hash_list_all
 setopt list_ambiguous
-
 unsetopt beep
 unsetopt bg_nice
 unsetopt clobber
@@ -91,42 +83,36 @@ unsetopt list_beep
 unsetopt print_exit_value
 unsetopt rm_star_silent
 
-# PUSHD ======================================================================================================================================================================================
+# PUSHD =======================================================================
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushd_silent
+setopt pushd_to_home
 
-setopt auto_pushd               
-setopt pushd_ignore_dups        
-setopt pushd_silent             
-setopt pushd_to_home            
-
-# HISTORY ====================================================================================================================================================================================
-
+# HISTORY =====================================================================
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-
-setopt append_history           
+setopt append_history
 setopt extended_history
 setopt inc_append_history
-
 setopt hist_expire_dups_first
 setopt hist_ignore_space
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
-
 setopt hist_verify
 setopt share_history
 setopt bang_hist
 
 # COMPLETION =================================================================================================================================================================================
-
-zstyle ':completion::complete:*' use-cache on               
+zstyle ':completion::complete:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache/$HOST
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'   
-zstyle ':completion:*' menu select=2                        
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' menu select=2
 zstyle ':completion:*' list-colors ''
-# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}       
-zstyle ':completion:*::::' completer _expand _complete _ignored _approximate 
+# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*::::' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*:descriptions' format '%B%d%b'
 zstyle ':completion:*:messages' format '%d'
@@ -143,33 +129,25 @@ zstyle ':completion:*:killall:*' force-list always
 users=(seintz root)
 zstyle ':completion:*' users $users
 
-# PLUGINS ====================================================================================================================================================================================
-
+# PLUGINS =====================================================================
 source "${HOME}/.zgen/zgen.zsh"
-
 if ! zgen saved; then
-
     echo "Creating a zgen save"
-
     # theme
     zgen load bhilburn/powerlevel9k powerlevel9k
-
     # plugin
     zgen load chrissicool/zsh-256color
     zgen load zsh-users/zsh-syntax-highlighting
     zgen load zsh-users/zsh-autosuggestions
     zgen load Tarrasch/zsh-autoenv
     zgen load clvv/fasd
-
     # save to init script
     zgen save
 fi
-
 # fasd
 eval "$(fasd --init auto)"
 
-# ALIASES ====================================================================================================================================================================================
-
+# ALIASES =====================================================================
 source ${HOME}/.zsecret
 
 # terminal aliases
