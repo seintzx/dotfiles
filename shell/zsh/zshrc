@@ -193,7 +193,7 @@ alias vp='amixer -D pulse sset Master 5%+'
 alias vm='amixer -D pulse sset Master 5%-'
 
 # trizen aliases
-alias ys='trizen -Syu'
+alias ys='trizen -Syyu'
 alias yi='trizen -S --needed --sync'
 alias yr='trizen -Rsn'
 alias yo='trizen -Qtd'
@@ -222,6 +222,8 @@ alias vbox='sudo VirtualBox'
 alias myip='curl -s http://ipinfo.io/ip'
 alias -g xc='| xsel --clipboard'
 alias -g xv='| xsel --clipboard'
+alias -g bd='| base64 -d'
+alias -g be='| base64'
 
 # keepass aliases
 alias kp='keepassxc-cli'

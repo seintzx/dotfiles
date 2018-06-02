@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Knack Nerd Font:size=9:antialias=true:autohint=true";
+char font[] = "Hack:size=9:antialias=true:autohint=true";
 int borderpx = 2;
 
 /*
@@ -17,11 +17,11 @@ int borderpx = 2;
  * 5: value of shell in config.h
  */
 static char shell[] = "/bin/zsh";
-static char *utmp = NULL;
-static char stty_args[] = "stty raw pass8 nl -echo -iexten -cstopb 38400";
+char *utmp = NULL;
+char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 
 /* identification sequence returned in DA and DECID */
-static char vtiden[] = "\033[?6c";
+char *vtiden = "\033[?6c";
 
 /* Kerning / character bounding-box multipliers */
 float cwscale = 1.0;
@@ -32,7 +32,7 @@ float chscale = 1.0;
  *
  * More advanced example: " `'\"()[]{}"
  */
-static char worddelimiters[] = " ";
+char *worddelimiters = " ";
 
 /* selection timeouts (in milliseconds) */
 unsigned int doubleclicktimeout = 300;
@@ -63,7 +63,7 @@ unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-char termname[] = "st-256color";
+char *termname = "st-256color";
 
 /*
  * spaces per tab
@@ -80,7 +80,7 @@ char termname[] = "st-256color";
  *
  *	stty tabs
  */
-static unsigned int tabspaces = 4;
+unsigned int tabspaces = 4;
 
 /* Terminal colors (16 first used in escape sequence) */
 const char *colorname[] = {
