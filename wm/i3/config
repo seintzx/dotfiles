@@ -34,9 +34,9 @@ font xft:Hack 8
 
 # CLIENT COLOR
 # classname                 border      background  text    indicator
-client.focused              $darkgray   $darkgray   $white  $black 
-client.unfocused            $black      $black      $white  $black   
-client.focused_inactive     $black      $pink       $white  $pink    
+client.focused              $darkgray   $darkgray   $white  $black
+client.unfocused            $black      $black      $white  $black
+client.focused_inactive     $black      $pink       $white  $pink
 client.urgent               $urgentred  $urgentred  $white  $urgentred
 
 # MOD BUTTON
@@ -104,9 +104,9 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 
 # SWITCH TO URGENT
-bindsym $mod+u [urgent=latest] focus 
+bindsym $mod+u [urgent=latest] focus
 
-# TERMINAL 
+# TERMINAL
 bindsym $mod+Return exec st -e /bin/tmux
 
 # KILL
@@ -168,6 +168,8 @@ assign [class="(?i)slack"]                  $ws7
 # 
 assign [class="(?i)qbittorrent"]            $ws8
 assign [class="(?i)electrum"]               $ws8
+assign [class="(?i)VirtualBox Machine"]     $ws8
+assign [class="(?i)VirtualBox Manager"]     $ws8
 assign [class="(?i)mist"]                   $ws8
 
 # 

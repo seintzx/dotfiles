@@ -101,8 +101,8 @@ call plug#end()
 " markdown --------------------------------------------------------------------
 filetype plugin on 
 let g:instant_markdown_slow = 1
-let g:vim_markdown_folding_disabled = 1
 let g:instant_markdown_autostart = 0
+let g:vim_markdown_folding_disabled = 1
 let g:markdown_fenced_languages = ['python', 'bash=sh']
 let g:markdown_syntax_conceal = 0
 
