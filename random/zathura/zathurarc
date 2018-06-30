@@ -61,3 +61,7 @@ set scroll-step 50
 unmap f
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
+
+unmap s
+map s toggle_statusbar
+# map [statusbar] s toggle_statusbar
