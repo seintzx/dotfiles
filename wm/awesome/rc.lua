@@ -19,9 +19,6 @@
     -- lain "plugins"
     local lain = require("lain")
 
-    -- Widget Library
-    -- local net_widgets = require("net_widgets")
-
 -- ERROR HANDLING =============================================================
 
     -- Check if awesome encountered an error during startup and fell back to
@@ -101,11 +98,11 @@
 
     -- CPU
     cpuicon = wibox.widget.imagebox(beautiful.widget_cpu)
-    cpuwidget = lain.widget.cpu {   settings = function()   widget:set_markup("" .. cpu_now.usage .. "% ")  end }
+    cpuwidget = lain.widget.cpu {   settings = function()   widget:set_markup("" .. cpu_now.usage .. "%")  end }
 
     -- MEM
     memicon = wibox.widget.imagebox(beautiful.widget_mem)
-    memwidget = lain.widget.mem {   settings = function()   widget:set_markup("" .. mem_now.perc .. "% ")  end }
+    memwidget = lain.widget.mem {   settings = function()   widget:set_markup("\u{f2db} " .. mem_now.perc .. "% ")  end }
 
     -- Battery
     baticon = wibox.widget.imagebox(beautiful.widget_battery)
@@ -123,7 +120,7 @@
               else
                 baticon:set_image(beautiful.widget_battery)
               end
-              widget:set_markup(" " .. bat_now.perc .. "% ")
+              widget:set_markup("\u{f240} " .. bat_now.perc .. "% ")
             else
               baticon:set_image(beautiful.widget_ac)
             end
@@ -155,7 +152,7 @@
             else
               volicon:set_image(beautiful.widget_vol)
             end
-            widget:set_text(" " .. volume_now.level .. "% ")
+            widget:set_text("\u{266A} " .. volume_now.level .. "% ")
         end})
 
     -- Keyboard Layout
@@ -230,9 +227,9 @@
                 { layout = wibox.layout.fixed.horizontal,   s.mylayoutbox,  s.mytaglist,    s.mypromptbox,  },
                 s.mytasklist,
                 { layout = wibox.layout.fixed.horizontal,
-                    arrl,   arrd,   spr,    memicon,    memwidget,      spr,
-                    arrl,   arrd,   spr,    cpuicon,    cpuwidget,      spr,
                     -- arrl,   arrd,   spr,    net_wireless,               spr,
+                    arrl,   arrd,   spr,    cpuicon,    cpuwidget,      spr,
+                    arrl,   arrd,   spr,    memicon,    memwidget,      spr,
                     arrl,   arrd,   spr,    volicon,    volumewidget,   spr,
                     arrl,   arrd,   spr,    baticon,    batwidget,      spr,
                     arrl,   arrd,   spr,    mykbdlayout,                spr,
