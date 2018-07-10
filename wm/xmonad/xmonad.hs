@@ -56,15 +56,15 @@ myBorderWidth :: Dimension
 myBorderWidth = 1
 
 myWorkspaces :: [String]
-myWorkspaces = 
-        "1:\xf269" : 
-        "2:\xf120" : 
-        "3:\xf120" : 
-        "4:\xf120" : 
-        "5:\xf07b" : 
-        "6:\xf15c" : 
-        "7:\xf03d" : 
-        "8:\xf15a" : 
+myWorkspaces =
+        "1:\xf269" :
+        "2:\xf120" :
+        "3:\xf120" :
+        "4:\xf120" :
+        "5:\xf07b" :
+        "6:\xf15c" :
+        "7:\xf03d" :
+        "8:\xf15a" :
         "9:\xf1f8" :
         []
 
@@ -86,11 +86,9 @@ main = do
         ,   workspaces          = myWorkspaces
         ,   normalBorderColor   = myNormalBorderColor
         ,   focusedBorderColor  = myFocusedBorderColor
-        
-        ,   keys                = mykeys 
-
-        ,   layoutHook          = avoidStruts $ myLayout 
-        ,   manageHook          = mymanageHook <+> manageDocks 
+        ,   keys                = mykeys
+        ,   layoutHook          = avoidStruts $ myLayout
+        ,   manageHook          = mymanageHook <+> manageDocks
         ,   logHook             = myLogHook xmproc
         -- ,   startupHook         = myStartupHook
         }
@@ -109,7 +107,7 @@ mymanageHook = (composeAll . concat $
     , [className    =? c            --> doShift  "7:\xf03d"        |   c   <- mySev    ]
     , [className    =? c            --> doShift  "8:\xf15a"        |   c   <- myEig    ]
     , [className    =? c            --> doShift  "9:\xf1f8"        |   c   <- myNin    ]
-    , [isFullscreen                 --> myDoFullFloat                               ]
+    , [isFullscreen                 --> myDoFullFloat                                  ]
     ])
 
     where
@@ -164,7 +162,7 @@ basic = Tall nmaster delta ratio
 
 myLayout = smartBorders $ onWorkspace "8" simpleFloat standardLayouts
   where
-    standardLayouts = tall ||| wide ||| full 
+    standardLayouts = tall ||| wide ||| full
     tall   = named "tall"   $ avoidStruts basic
     wide   = named "wide"   $ avoidStruts $ Mirror basic
     full   = named "full"   $ noBorders Full
@@ -185,7 +183,7 @@ myLayoutPrompt = inputPromptWithCompl myXPConfig "Layout"
 
 mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
-    [ ((modm ,              xK_Return   ),      spawn $ XMonad.terminal conf                    )       -- launch terminal 
+    [ ((modm ,              xK_Return   ),      spawn $ XMonad.terminal conf                    )       -- launch terminal
     -- , ((modm,               xK_p        ),      spawn "${HOME}/.config/wm_script/dmenu.sh"      )       -- launch dmenu
     , ((modm,               xK_p        ),      spawn "rofi -show run"                          )       -- launch dmenu
     , ((modm .|. shiftMask, xK_p        ),      spawn "rofi -show"                              )       -- launch rofi
@@ -215,7 +213,7 @@ mykeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Personal Keybinds
     , ((modm .|. shiftMask, xK_z        ),      spawn "${HOME}/.config/wm_script/lockscr.sh")
     , ((shiftMask,          xK_Print    ),      spawn "sleep 0.2; scrot -s /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")
-    , ((0,                  xK_Print    ),      spawn "scrot /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")       
+    , ((0,                  xK_Print    ),      spawn "scrot /home/seintz/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png")
     , ((modm,               xK_F2       ),      spawn "xbacklight -dec 10")
     , ((modm,               xK_F3       ),      spawn "xbacklight -inc 10")
     , ((modm,               xK_F9       ),      spawn "amixer sset Master 5%-")

@@ -81,6 +81,7 @@
     -- Keyboard map indicator and switcher
     -- mykeyboardlayout = awful.widget.keyboardlayout()
 
+    systray = wibox.widget.systray
     -- Create a textclock widget
     mytextclock = wibox.widget.textclock()
     local calendar = lain.widget.calendar({attach_to = mytextclock})
@@ -195,7 +196,7 @@
         awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
         -- 1: Firefox
         -- 234: shell
-        -- 5: Nautilus 
+        -- 5: Nautilus
         -- 6: Text + LIbreOffice
         -- 7: VLC + GIMP
         -- 8: Spotify + Chat
