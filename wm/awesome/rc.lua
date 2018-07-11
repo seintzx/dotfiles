@@ -46,7 +46,7 @@
     beautiful.init("/home/seintz/.config/awesome/theme.lua")
 
     -- This is used later as the default terminal and editor to run.
-    terminal = "st"
+    terminal = "st -e /bin/tmux"
     editor = "nvim"
     editor_cmd = terminal .. " -e " .. editor
 
@@ -87,7 +87,7 @@
     -- clock
     mytextclock = wibox.widget.textclock()
     mytextclock:buttons({
-    button({    }, 1, wibox.widget.calendar.month(os.date('*t')))
+    button({    }, 1, function() wibox.widget.calendar.month(os.date('*t')) end)
     })
 
     -- calendar
@@ -357,36 +357,36 @@ awful.rules.rules = {
 
     -- Personal Rules
     -- 
-    { rule = { class = "Firefox" },             properties = { screen = 1, tag = "1" } },
-    { rule = { class = "tor browser" },         properties = { screen = 1, tag = "1" } },
-    { rule = { class = "Chromium" },            properties = { screen = 1, tag = "1" } },
+    { rule = { class = "Firefox" },             properties = { screen = 1, tag =tags_info.names[1] } },
+    { rule = { class = "tor browser" },         properties = { screen = 1, tag =tags_info.names[1] } },
+    { rule = { class = "Chromium" },            properties = { screen = 1, tag =tags_info.names[1] } },
     -- 
-    { rule = { class = "Nemo" },                properties = { screen = 1, tag = "4" } },
+    { rule = { class = "Nemo" },                properties = { screen = 1, tag =tags_info.names[4] } },
     -- 
-    { rule = { class = "jetbrains-idea" },      properties = { screen = 1, tag = "5" } },
-    { rule = { class = "zathura" },             properties = { screen = 1, tag = "5" } },
-    { rule = { class = "db_main" },             properties = { screen = 1, tag = "5" } },
-    { rule = { class = "TeXstudio" },           properties = { screen = 1, tag = "5" } },
-    { rule = { class = "libreoffice" },         properties = { screen = 1, tag = "5" } },
-    { rule = { class = "subl" },                properties = { screen = 1, tag = "5" } },
-    { rule = { class = "Eclipse" },             properties = { screen = 1, tag = "5" } },
+    { rule = { class = "jetbrains-idea" },      properties = { screen = 1, tag =tags_info.names[5] } },
+    { rule = { class = "zathura" },             properties = { screen = 1, tag =tags_info.names[5] } },
+    { rule = { class = "db_main" },             properties = { screen = 1, tag =tags_info.names[5] } },
+    { rule = { class = "TeXstudio" },           properties = { screen = 1, tag =tags_info.names[5] } },
+    { rule = { class = "libreoffice" },         properties = { screen = 1, tag =tags_info.names[5] } },
+    { rule = { class = "subl" },                properties = { screen = 1, tag =tags_info.names[5] } },
+    { rule = { class = "Eclipse" },             properties = { screen = 1, tag =tags_info.names[5] } },
     -- 
-    { rule = { class = "player" },              properties = { screen = 1, tag = "6" } },
-    { rule = { class = "genymotion" },          properties = { screen = 1, tag = "6" } },
-    { rule = { class = "spotify" },             properties = { screen = 1, tag = "6" } },
-    { rule = { class = "steam" },               properties = { screen = 1, tag = "6" } },
-    { rule = { class = "Vlc" },                 properties = { screen = 1, tag = "6" } },
-    { rule = { class = "Gimp" },                properties = { screen = 1, tag = "6" } },
+    { rule = { class = "player" },              properties = { screen = 1, tag =tags_info.names[6] } },
+    { rule = { class = "genymotion" },          properties = { screen = 1, tag =tags_info.names[6] } },
+    { rule = { class = "spotify" },             properties = { screen = 1, tag =tags_info.names[6] } },
+    { rule = { class = "steam" },               properties = { screen = 1, tag =tags_info.names[6] } },
+    { rule = { class = "Vlc" },                 properties = { screen = 1, tag =tags_info.names[6] } },
+    { rule = { class = "Gimp" },                properties = { screen = 1, tag =tags_info.names[6] } },
     -- 
-    { rule = { class = "telegram" },            properties = { screen = 1, tag = "7" } },
-    { rule = { class = "slack" },               properties = { screen = 1, tag = "7" } },
-    { rule = { class = "signal" },              properties = { screen = 1, tag = "7" } },
+    { rule = { class = "telegram" },            properties = { screen = 1, tag =tags_info.names[7] } },
+    { rule = { class = "slack" },               properties = { screen = 1, tag =tags_info.names[7] } },
+    { rule = { class = "signal" },              properties = { screen = 1, tag =tags_info.names[7] } },
     -- 
-    { rule = { class = "qBittorrent" },         properties = { screen = 1, tag = "8" } },
-    { rule = { class = "VirtualBox Manager" },  properties = { scrren = 1, tag = "8" } },
-    { rule = { class = "VirtualBox Machine" },  properties = { scrren = 1, tag = "8" } },
+    { rule = { class = "qBittorrent" },         properties = { screen = 1, tag =tags_info.names[8] } },
+    { rule = { class = "VirtualBox Manager" },  properties = { scrren = 1, tag =tags_info.names[8] } },
+    { rule = { class = "VirtualBox Machine" },  properties = { scrren = 1, tag =tags_info.names[8] } },
     -- 
-    { rule = { class = "keepassxc" },           properties = { scrren = 1, tag = "9" } },
+    { rule = { class = "keepassxc" },           properties = { scrren = 1, tag = tags_info.names[9] } },
 }
 
 -- SIGNALS ====================================================================
