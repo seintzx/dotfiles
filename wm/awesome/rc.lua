@@ -64,29 +64,42 @@
 
     local tags_info = {
       names = {
-        "1: ",
-        "2: ",
-        "3: ",
-        "4: ",
-        "5: ",
-        "6: ",
-        "7: ",
-        "8: ",
-        "9: "
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
       }
 }
 
 -- WIDGET THINGS ==============================================================
 
-    -- Keyboard map indicator and switcher
-    -- mykeyboardlayout = awful.widget.keyboardlayout()
+    -- keyboard
+    mykbdlayout =  awful.widget.keyboardlayout:new ()
 
-    systray = wibox.widget.systray
-    -- Create a textclock widget
+    -- systray
+    -- systray = wibox.widget.systray
+
+    -- clock
     mytextclock = wibox.widget.textclock()
-    local calendar = lain.widget.calendar({attach_to = mytextclock})
+    mytextclock:buttons({
+    button({    }, 1, wibox.widget.calendar.month(os.date('*t')))
+    })
+
+    -- calendar
+    local cal = wibox.widget.calendar.month(os.date('*t'))
 
     -- Separator
+    spr_right = wibox.widget.textbox('] ')
+    spr_left  = wibox.widget.textbox(' [')
+
+    -- volvo = awful.widget.watch("bash -c 'echo -e \"\uf3b5 culo\"'")
+    -- 'echo -e \"\uf3b5 $(amixer sget Master | grep \"Front Right:\" | sed \"s/[a-zA-Z: ]//g\" | sed \"s/0//\" | sed \"s/\[//g\" | sed \"s/\]//g\")\"'")
+
     separators = lain.util.separators
     spr  = wibox.widget.textbox('')
     separ  = wibox.widget.textbox(' ')
@@ -97,7 +110,7 @@
     -- net_wireless = net_widgets.wireless({   interface="wlo1"    })
     -- net_wired    = net_widgets.indicator({  interface="eno1"    })
 
-    -- CPU
+    -- CPUlocal cal = wibox.widget.calendar.month(os.date('*t'))
     cpuicon = wibox.widget.imagebox(beautiful.widget_cpu)
     cpuwidget = lain.widget.cpu {   settings = function()   widget:set_markup("" .. cpu_now.usage .. "%")  end }
 
@@ -156,8 +169,6 @@
             widget:set_text("\u{266A} " .. volume_now.level .. "% ")
         end})
 
-    -- Keyboard Layout
-    mykbdlayout =  awful.widget.keyboardlayout:new ()
 
 -- WIBOX CREATION =============================================================
 
@@ -193,7 +204,7 @@
         set_wallpaper(s)
 
         -- Each screen has its own tag table.
-        awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+        awful.tag(tags_info.names, s, awful.layout.layouts[1])
         -- 1: Firefox
         -- 234: shell
         -- 5: Nautilus
@@ -229,12 +240,12 @@
                 s.mytasklist,
                 { layout = wibox.layout.fixed.horizontal,
                     -- arrl,   arrd,   spr,    net_wireless,               spr,
-                    arrl,   arrd,   spr,    cpuicon,    cpuwidget,      spr,
-                    arrl,   arrd,   spr,    memicon,    memwidget,      spr,
-                    arrl,   arrd,   spr,    volicon,    volumewidget,   spr,
-                    arrl,   arrd,   spr,    baticon,    batwidget,      spr,
-                    arrl,   arrd,   spr,    mykbdlayout,                spr,
-                    arrl,   arrd,   spr,    mytextclock,                spr,
+                    spr_left,    cpuicon,    cpuwidget,      spr_right,
+                    spr_left,    memicon,    memwidget,      spr_right,
+                    spr_left,    volicon,    volvo       ,   spr_right,
+                    spr_left,    baticon,    batwidget,      spr_right,
+                    spr_left,    mykbdlayout,                spr_right,
+                    spr_left,    mytextclock,                spr_right,
                 },
         }
     end)
@@ -371,9 +382,9 @@ awful.rules.rules = {
     { rule = { class = "slack" },               properties = { screen = 1, tag = "7" } },
     { rule = { class = "signal" },              properties = { screen = 1, tag = "7" } },
     -- 
-    { rule = { class = "qBittorrent" },         properties = { screen = 1, tag = "9" } },
-    { rule = { class = "VirtualBox Manager" },  properties = { scrren = 1, tag = "9" } },
-    { rule = { class = "VirtualBox Machine" },  properties = { scrren = 1, tag = "9" } },
+    { rule = { class = "qBittorrent" },         properties = { screen = 1, tag = "8" } },
+    { rule = { class = "VirtualBox Manager" },  properties = { scrren = 1, tag = "8" } },
+    { rule = { class = "VirtualBox Machine" },  properties = { scrren = 1, tag = "8" } },
     -- 
     { rule = { class = "keepassxc" },           properties = { scrren = 1, tag = "9" } },
 }
