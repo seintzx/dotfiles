@@ -161,30 +161,36 @@ globalkeys = my_table.join(
     awful.key({ modkey,         }, "space",     function () awful.layout.inc( 1)                                end),
     awful.key({ modkey, "Shift" }, "space",     function () awful.layout.inc(-1)                                end),
     awful.key({ modkey,         }, "Return",    function () awful.spawn(terminal)                               end),
+
     -- layout manipulation
     awful.key({ modkey,         }, "j",         function () awful.client.focus.byidx(-1)                        end),
     awful.key({ modkey,         }, "k",         function () awful.client.focus.byidx( 1)                        end),
     awful.key({ modkey, "Shift" }, "j",         function () awful.client.swap.byidx( -1)                        end),
     awful.key({ modkey, "Shift" }, "k",         function () awful.client.swap.byidx(  1)                        end),
-    -- to be tested and understand
     awful.key({ modkey,         }, "h",         function () awful.tag.viewprev(awful.screen.focused())          end),
     awful.key({ modkey,         }, "l",         function () awful.tag.viewnext(awful.screen.focused())          end),
-    -- awful.key({ modkey, "Shift" }, "h",         function () awful.screen.focus_relative(-1)                     end),
-    -- awful.key({ modkey, "Shift" }, "l",         function () awful.screen.focus_relative( 1)                     end),
+
     -- back&forth and urgent
     awful.key({ modkey,         }, "u",         awful.client.urgent.jumpto),
     awful.key({ modkey,         }, "Tab",       awful.tag.history.restore),
+
     -- reduce to icon
     awful.key({ modkey, "Shift" }, "n",         function ()   local c = awful.client.restore()    if c then   client.focus = c    c:raise()   end       end),
+
+    -- change keyboard layout
+    awful.key({ altkey,         }, "Caps_Lock", function () mykbdlayout.next()                                                           end),
+
     -- Personal keybinds
     awful.key({ modkey,         }, "p",         function()  awful.util.spawn_with_shell("rofi -show run")                                end),
     awful.key({ modkey, "Shift" }, "p",         function()  awful.util.spawn_with_shell("rofi -show")                                    end),
     awful.key({ modkey, "Shift" }, "z",         function()  awful.util.spawn_with_shell( script_path .. "lockscr.sh")                    end),
-    -- awful.key({ modkey, "Shift" }, "s",         function()  awful.util.spawn_with_shell( script_path .. "chat.sh")                       end),
+    awful.key({ modkey, "Shift" }, "s",         function()  awful.util.spawn_with_shell( script_path .. "chat.sh")                       end),
     awful.key({ modkey,         }, "F2",        function()  awful.util.spawn("sync")     awful.util.spawn("xbacklight -dec 10")          end),
     awful.key({ modkey,         }, "F3",        function()  awful.util.spawn("sync")     awful.util.spawn("xbacklight -inc 10")          end),
     awful.key({ modkey,         }, "F9",        function()  awful.util.spawn("sync")     awful.util.spawn("amixer sset Master 5%-")      end),
     awful.key({ modkey,         }, "F10",       function()  awful.util.spawn("sync")     awful.util.spawn("amixer sset Master 5%+")      end),
+
+    -- screenshot
     awful.key({                 }, "Print",     function()
             awful.util.spawn("scrot 'scr-%Y-%m-%d_%s.png' -e 'mv $f ~/Pictures/screenshot 2>/dev/null'", false)                         end),
     awful.key({         "Shift" }, "Print",     function()

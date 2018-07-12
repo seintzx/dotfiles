@@ -206,7 +206,7 @@ mykbdlayout = lain.widget.contrib.kbdlayout({
         if kbdlayout_now.variant then
             widget:set_text(string.format(" %s", kbdlayout_now.layout))
         else
-            widget:set_text(kbdlayout_now.layout)
+            widget:set_text(string.format(" %s", kbdlayout_now.layout))
         end
     end
 })
