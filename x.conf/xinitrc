@@ -2,4 +2,5 @@ if [ -f "${HOME}/.Xresources" ] ; then
     xrdb -merge "${HOME}/.Xresources"
 fi
 
-exec i3
+sleep 1 & ${HOME}/.config/wm_script/startup.sh
+exec awesome
