@@ -274,28 +274,28 @@ awful.rules.rules = {
     -- Personal Rules
     -- 
     { rule = { class = "Firefox" },             properties = { screen = 1, tag = tag_name[1] } },
-    { rule = { class = "tor browser" },         properties = { screen = 1, tag = tag_name[1] } },
+    { rule = { class = "Tor Browser" },         properties = { screen = 1, tag = tag_name[1] } },
     { rule = { class = "Chromium" },            properties = { screen = 1, tag = tag_name[1] } },
     -- 
     { rule = { class = "Nemo" },                properties = { screen = 1, tag = tag_name[4] } },
     -- 
     { rule = { class = "jetbrains-idea" },      properties = { screen = 1, tag = tag_name[5] } },
-    { rule = { class = "zathura" },             properties = { screen = 1, tag = tag_name[5] } },
-    { rule = { class = "db_main" },             properties = { screen = 1, tag = tag_name[5] } },
+    { rule = { class = "Zathura" },             properties = { screen = 1, tag = tag_name[5] } },
+    { rule = { class = "Db_main" },             properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "TeXstudio" },           properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "libreoffice" },         properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "subl" },                properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "Eclipse" },             properties = { screen = 1, tag = tag_name[5] } },
     -- 
     { rule = { class = "player" },              properties = { screen = 1, tag = tag_name[6] } },
-    { rule = { class = "genymotion" },          properties = { screen = 1, tag = tag_name[6] } },
+    { rule = { class = "Genymotion" },          properties = { screen = 1, tag = tag_name[6] } },
     { rule = { class = "spotify" },             properties = { screen = 1, tag = tag_name[6] } },
     { rule = { class = "steam" },               properties = { screen = 1, tag = tag_name[6] } },
-    { rule = { class = "Vlc" },                 properties = { screen = 1, tag = tag_name[6] } },
+    { rule = { class = "vlc" },                 properties = { screen = 1, tag = tag_name[6] } },
     { rule = { class = "Gimp" },                properties = { screen = 1, tag = tag_name[6] } },
     -- 
-    { rule = { class = "telegram" },            properties = { screen = 1, tag = tag_name[7] } },
-    { rule = { class = "slack" },               properties = { screen = 1, tag = tag_name[7] } },
+    { rule = { class = "TelegramDesktop" },     properties = { screen = 1, tag = tag_name[7] } },
+    { rule = { class = "Slack" },               properties = { screen = 1, tag = tag_name[7] } },
     { rule = { class = "signal" },              properties = { screen = 1, tag = tag_name[7] } },
     -- 
     { rule = { class = "qBittorrent" },         properties = { screen = 1, tag = tag_name[8] } },
