@@ -4,9 +4,8 @@
 
 Configuration files, themes, icons and lain  
 Path: ~/.config/awesome  
-Icons in /usr/share/awesome/icons
 
-NOTE: Not used since a lot of time.  
+To install it on Arch: `trizen -S awesome lain-git`
 
 
 ## i3
