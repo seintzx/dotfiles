@@ -12,7 +12,7 @@ local os = { getenv = os.getenv }
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
-theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow"
+theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-dark"
 theme.wallpaper                                 = os.getenv("HOME") .. "/Pictures/wall/wallpaper.png"
 -- theme.wallpaper                                 = theme.dir .. "/wall.png"
 -- theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/background.png"

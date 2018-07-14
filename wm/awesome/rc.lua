@@ -40,7 +40,7 @@ end
 -- VARIABLE DEFINITIONS =======================================================
 local themes = {
     "my_theme",
-    "powerarrow",
+    "powerarrow-dark",
 }
 local chosen_theme  = themes[2]
 local modkey        = "Mod4"
