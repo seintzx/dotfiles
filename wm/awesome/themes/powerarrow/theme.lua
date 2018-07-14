@@ -68,6 +68,8 @@ theme.widget_cpu                                = theme.dir .. "/icons/cpu.png"
 theme.widget_temp                               = theme.dir .. "/icons/temp.png"
 theme.widget_net                                = theme.dir .. "/icons/net.png"
 theme.widget_net_wired                          = theme.dir .. "/icons/net_wired.png"
+theme.widget_con_on                             = theme.dir .. "/icons/internet.png"
+theme.widget_con_of                             = theme.dir .. "/icons/internet_na.png"
 theme.widget_hdd                                = theme.dir .. "/icons/hdd.png"
 theme.widget_music                              = theme.dir .. "/icons/note.png"
 theme.widget_music_on                           = theme.dir .. "/icons/note_on.png"
@@ -186,15 +188,50 @@ theme.volume = lain.widget.alsa({
 })
 
 -- Net
-local neticon = wibox.widget.imagebox(theme.widget_net)
-local net = lain.widget.net({
-    settings = function()
-        widget:set_markup(markup.font(theme.font,
-                          markup("#7AC82E", " " .. net_now.received)
-                          .. " " ..
-                          markup("#46A8C3", " " .. net_now.sent .. " ")))
-    end
-})
+local timeout = 5
+local wif_icon = wibox.widget.imagebox(theme.widget_net)
+local eth_icon = wibox.widget.imagebox(theme.widget_net_wired)
+local wif_text = wibox.widget.textbox()
+local eth_text = wibox.widget.textbox()
+local con_text = wibox.widget.textbox()
+wif_text.font = theme.font
+eth_text.font = theme.font
+con_text.font = theme.font
+
+local function net_update()
+    local signal_level = 0
+    local interface = "eno1"
+
+    awful.spawn.easy_async("awk 'NR==3 {printf \"%3.0f\" ,($3/70)*100}' /proc/net/wireless",
+        function(stdout, stderr, reason, exit_code)
+            signal_level = tonumber( stdout )
+            if signal_level == nil then
+                wif_text:set_text(" N/A ")
+            else
+                wif_text:set_text(string.format("%d%% ", signal_level))
+            end
+        end)
+    awful.spawn.easy_async("bash -c \"ip link show "..interface.." | awk 'NR==1 {printf \\\"%s\\\", $9}'\"",
+        function(stdout, stderr, reason, exit_code)
+            state = stdout:sub(1, stdout:len() - 1)
+            if (state == "UP") then
+                eth_text:set_text(string.format(" %s", string.lower(state)))
+            else
+                eth_text:set_text(string.format(" %s", string.lower(state)))
+            end
+        end)
+    awful.spawn.easy_async("bash -c \"nc -z 8.8.8.8 53 >/dev/null 2>&1\"",
+        function(_, _, _, exit_code)
+            if (exit_code == 0) then
+                con_text:set_text(" ● ")
+            else
+                con_text:set_text(" ■ ")
+            end
+        end)
+    return true
+end
+net_update()
+gears.timer.start_new(timeout, net_update)
 
 -- keyboard
 mykbdlayout = lain.widget.contrib.kbdlayout({
@@ -203,12 +240,8 @@ mykbdlayout = lain.widget.contrib.kbdlayout({
 	            { layout = "it" }
               },
     settings = function()
-        if kbdlayout_now.variant then
-            widget:set_text(string.format(" %s", kbdlayout_now.layout))
-        else
-            widget:set_text(string.format(" %s", kbdlayout_now.layout))
-        end
-    end
+                    widget:set_text(string.format(" %s", kbdlayout_now.layout))
+                end
 })
 
 -- Separators
@@ -263,16 +296,18 @@ function theme.at_screen_connect(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-
             spr, arrl_ld,
+            wibox.container.background(eth_text, theme.bg_focus),
+            wibox.container.background(eth_icon, theme.bg_focus),
+            wibox.container.background(con_text, theme.bg_focus),
+            wibox.container.background(wif_icon, theme.bg_focus),
+            wibox.container.background(wif_text, theme.bg_focus),
+            arrl_dl, mykbdlayout, arrl_ld,
             wibox.container.background(cpuicon, theme.bg_focus),
             wibox.container.background(cpu.widget, theme.bg_focus),
             arrl_dl, tempicon, temp.widget, arrl_ld,
             wibox.container.background(memicon, theme.bg_focus),
             wibox.container.background(mem.widget, theme.bg_focus),
-            arrl_dl, mykbdlayout, arrl_ld,
-            wibox.container.background(neticon, theme.bg_focus),
-            wibox.container.background(net.widget, theme.bg_focus),
             arrl_dl, volicon, theme.volume.widget, arrl_ld,
             wibox.container.background(baticon, theme.bg_focus),
             wibox.container.background(bat.widget, theme.bg_focus),
