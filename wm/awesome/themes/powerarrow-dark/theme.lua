@@ -12,10 +12,8 @@ local os = { getenv = os.getenv }
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
-theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-dark"
+theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/"
 theme.wallpaper                                 = os.getenv("HOME") .. "/Pictures/wall/wallpaper.png"
--- theme.wallpaper                                 = theme.dir .. "/wall.png"
--- theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/background.png"
 theme.font                                      = "Hack 9"
 
 theme.fg_normal                                 = "#DDDDFF"
@@ -296,6 +294,7 @@ function theme.at_screen_connect(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+            -- wibox.widget.systray(),
             spr, arrl_ld,
             wibox.container.background(eth_text, theme.bg_focus),
             wibox.container.background(eth_icon, theme.bg_focus),

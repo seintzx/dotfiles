@@ -39,10 +39,11 @@ end
 
 -- VARIABLE DEFINITIONS =======================================================
 local themes = {
-    "my_theme",
+    "my-theme",
+    "powerarrow",
     "powerarrow-dark",
 }
-local chosen_theme  = themes[2]
+local chosen_theme  = themes[3]
 local modkey        = "Mod4"
 local altkey        = "Mod1"
 local terminal      = "st -e /bin/tmux"
