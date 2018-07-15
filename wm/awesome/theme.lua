@@ -146,6 +146,10 @@ local temp = lain.widget.temp({
 -- Battery
 local baticon = wibox.widget.imagebox(theme.widget_battery)
 local bat = lain.widget.bat({
+    -- /sys/class/power_supply
+    battery = "BAT0",
+    ac = "ACAD",
+    n_perc = {20, 50},
     settings = function()
         if bat_now.status ~= "N/A" then
             if bat_now.ac_status == 1 then
@@ -238,7 +242,7 @@ mykbdlayout = lain.widget.contrib.kbdlayout({
 	            { layout = "it" }
               },
     settings = function()
-                    widget:set_text(string.format(" %s", kbdlayout_now.layout))
+                    widget:set_text(string.format("  %s ", kbdlayout_now.layout))
                 end
 })
 
@@ -294,7 +298,7 @@ function theme.at_screen_connect(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            -- wibox.widget.systray(),
+            wibox.widget.systray(),
             spr, arrl_ld,
             wibox.container.background(eth_text, theme.bg_focus),
             wibox.container.background(eth_icon, theme.bg_focus),
