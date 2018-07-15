@@ -296,9 +296,7 @@ awful.rules.rules = {
     { rule = { class = "subl" },                properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "Eclipse" },             properties = { screen = 1, tag = tag_name[5] } },
     -- 
-    { rule = { class = "player" },              properties = { screen = 1, tag = tag_name[6] } },
-    { rule = { class = "Genymotion" },          properties = { screen = 1, tag = tag_name[6] } },
-    { rule = { class = "spotify" },             properties = { screen = 1, tag = tag_name[6] } },
+    { rule = { class = "Spotify" },             properties = { screen = 1, tag = tag_name[8] } },
     { rule = { class = "steam" },               properties = { screen = 1, tag = tag_name[6] } },
     { rule = { class = "vlc" },                 properties = { screen = 1, tag = tag_name[6] } },
     { rule = { class = "Gimp" },                properties = { screen = 1, tag = tag_name[6] } },
@@ -308,6 +306,8 @@ awful.rules.rules = {
     { rule = { class = "signal" },              properties = { screen = 1, tag = tag_name[7] } },
     -- 
     { rule = { class = "qBittorrent" },         properties = { screen = 1, tag = tag_name[8] } },
+    { rule = { class = "player" },              properties = { screen = 1, tag = tag_name[6] } },
+    { rule = { class = "Genymotion" },          properties = { screen = 1, tag = tag_name[6] } },
     { rule = { class = "VirtualBox Manager" },  properties = { scrren = 1, tag = tag_name[8] } },
     { rule = { class = "VirtualBox Machine" },  properties = { scrren = 1, tag = tag_name[8] } },
     -- 
