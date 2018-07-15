@@ -38,12 +38,15 @@ do
 end
 
 -- VARIABLE DEFINITIONS =======================================================
+--[[
 local themes = {
     "my-theme",
     "powerarrow",
     "powerarrow-dark",
 }
 local chosen_theme  = themes[3]
+--]]
+local theme_path    = string.format("%s/.config/awesome/theme.lua", os.getenv("HOME"))
 local modkey        = "Mod4"
 local altkey        = "Mod1"
 local terminal      = "st -e /bin/tmux"
@@ -138,7 +141,6 @@ lain.layout.cascade.tile.extra_padding = 5
 lain.layout.cascade.tile.nmaster       = 5
 lain.layout.cascade.tile.ncol = 2
 
-local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
 
 -- wallpaper
