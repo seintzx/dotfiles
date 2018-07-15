@@ -11,25 +11,37 @@ local beautiful     = require("beautiful")
 local os = { getenv = os.getenv }
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
+local color_scheme = 1
+local color_fg_normal                           = { "#DDDDFF", "#FEFEFE"}
+local color_fg_focus                            = { "#EA6F81", "#32D6FF"}
+local color_fg_urgent                           = { "#CC9393", "#C83F11"}
+local color_bg_normal                           = { "#1A1A1A", "#222222"}
+local color_bg_focus                            = { "#313131", "#1E2320"}
+local color_bg_urgent                           = { "#1A1A1A", "#3F3F3F"}
+local color_border_normal                       = { "#3F3F3F", "#3F3F3F"}
+local color_border_focus                        = { "#7F7F7F", "#6F6F6F"}
+local color_border_marked                       = { "#CC9393", "#CC9393"}
+local color_tasklist_bg_focus                   = { "#1A1A1A", "#222222"}
+
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome"
 theme.wallpaper                                 = os.getenv("HOME") .. "/Pictures/wall/wallpaper.png"
 theme.font                                      = "Hack 9"
 
-theme.fg_normal                                 = "#DDDDFF"
-theme.fg_focus                                  = "#EA6F81"
-theme.fg_urgent                                 = "#CC9393"
-theme.bg_normal                                 = "#1A1A1A"
-theme.bg_focus                                  = "#313131"
-theme.bg_urgent                                 = "#1A1A1A"
+theme.fg_normal                                 = color_fg_normal[color_scheme]
+theme.fg_focus                                  = color_fg_focus[color_scheme]
+theme.fg_urgent                                 = color_fg_urgent[color_scheme]
+theme.bg_normal                                 = color_bg_normal[color_scheme]
+theme.bg_focus                                  = color_bg_focus[color_scheme]
+theme.bg_urgent                                 = color_bg_urgent[color_scheme]
 
 theme.useless_gap                               = 0
 theme.border_width                              = 1
-theme.border_normal                             = "#3F3F3F"
-theme.border_focus                              = "#7F7F7F"
-theme.border_marked                             = "#CC9393"
+theme.border_normal                             = color_border_normal[color_scheme]
+theme.border_focus                              = color_border_focus[color_scheme]
+theme.border_marked                             = color_border_marked[color_scheme]
 
-theme.tasklist_bg_focus                         = "#1A1A1A"
+theme.tasklist_bg_focus                         = color_tasklist_bg_focus[color_scheme]
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
 
@@ -242,7 +254,7 @@ mykbdlayout = lain.widget.contrib.kbdlayout({
 	            { layout = "it" }
               },
     settings = function()
-                    widget:set_text(string.format("  %s ", kbdlayout_now.layout))
+                    widget:set_text(string.format("   %s ", kbdlayout_now.layout))
                 end
 })
 
