@@ -297,7 +297,7 @@ function theme.at_screen_connect(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
+            -- wibox.widget.systray(),
             spr, arrl_ld,
             wibox.container.background(eth_text, theme.bg_focus),
             wibox.container.background(eth_icon, theme.bg_focus),
