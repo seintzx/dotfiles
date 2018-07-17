@@ -8,10 +8,10 @@ path to file:
 - ~/.config/awesome/rc.lua
 - ~/.config/awesome/theme.lua
 
-> NOTE: I did not own the powerarrow theme!  
+> NOTE: I do not own the powerarrow theme! I just edited it to my own like.
+>
 > It is a copy of the original Powerarrow Dark Awesome WM theme powered by
-> [lcpz](www.github.com/lcpz).  
-> I just edited it to my own like.
+> [lcpz](www.github.com/lcpz).
 
 ## dunst
 This folder contains my `dunst` config file and a script to reload and test it.
@@ -144,9 +144,9 @@ This folder contains all the config file for:
 - my `.xinitrc`
 
 path to file:
-- ~/.xinitrc
 - /etc/X11/xorg.conf.d/00-keyboard.conf
 - /etc/X11/xorg.conf.d/30-touchpad.conf
+- ~/.xinitrc
 
 ## zathura
 This folder contains the config file for `zathura`, an awesome PDF reader.
