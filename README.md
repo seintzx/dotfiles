@@ -107,7 +107,7 @@ path to file:
 
 ## xmonad
 I tried the installation method described below a couple of weeks ago (about
-2018-06-28) and seems to be deprecated so i switched to [awesome](## awesome)
+2018-06-28) and seems to be deprecated so i switched to [awesome](##awesome)
 but you can always try to do it that way.
 
 This folder contains the config file for `xmonad` and `xmobar`, remember to
@@ -155,7 +155,7 @@ path to file:
 
 ## zsh
 This folder contains the config file for `zsh`, i also have some plugins and
-theme, see my [wiki](../wiki) page for instruction.
+theme, see my [wiki](../wiki/home.md) page for instruction.
 
 path to file:
 - ~/.zshrc
