@@ -82,8 +82,7 @@ path to file:
 
 ## urxvt
 This folder contains the config file for `urxvt` terminal, and the script for
-copy/paste. The configurations are done in the `.Xresources` file. See [rofi](##
-rofi) for where this file is allocated.
+copy/paste. The configurations are done in the `.Xresources` file. See [rofi](#rofi) for where this file is allocated.
 
 path to file:
 - ~/.urxvt/ext/
@@ -99,15 +98,14 @@ path to file:
 - ~/.config/weechat/
 
 ## wm_script
-This folder contains all the script that i use in some of wm ([xmonad](##
-xmonad), [i3 with i3blocks](## i3))
+This folder contains all the script that i use in some of wm ([xmonad](#xmonad), [i3 with i3blocks](#i3))
 
 path to file:
 - ~/.config/wm_script/
 
 ## xmonad
 I tried the installation method described below a couple of weeks ago (about
-2018-06-28) and seems to be deprecated so i switched to [awesome](##awesome)
+2018-06-28) and seems to be deprecated so i switched to [awesome](#awesome)
 but you can always try to do it that way.
 
 This folder contains the config file for `xmonad` and `xmobar`, remember to
@@ -155,7 +153,7 @@ path to file:
 
 ## zsh
 This folder contains the config file for `zsh`, i also have some plugins and
-theme, see my [wiki](../wiki/home.md) page for instruction.
+theme, see my [wiki](https://gitlab.com/seintz/config/wikis/home) page for instruction.
 
 path to file:
 - ~/.zshrc
