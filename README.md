@@ -1,9 +1,5 @@
 # Configuration files
 
-
-
-# Configuration files
-
 ## awesome
 This folder contains the config file for `awesomewm`, the theme.lua file, the icons
 folder for the theme and some test i am doing.
@@ -12,8 +8,9 @@ path to file:
 - ~/.config/awesome/rc.lua
 - ~/.config/awesome/theme.lua
 
-> NOTE: I did not own the powerarrow theme! It is a copy of the original
-> Powerarrow Dark Awesome WM theme powered by [lcpz](www.github.com/lcpz).
+> NOTE: I did not own the powerarrow theme!  
+> It is a copy of the original Powerarrow Dark Awesome WM theme powered by
+> [lcpz](www.github.com/lcpz).  
 > I just edited it to my own like.
 
 ## dunst
@@ -62,8 +59,9 @@ path to file:
 - ~/.Xresources
 
 ## st
-This folder contains the config file for `st` terminal, remember that each time
-you make changes you need to recompile it. Keep it wherever you want.
+This folder contains the config file for `st` terminal.  
+Remember that each time you make changes you need to recompile it.  
+Keep it wherever you want.
 
 path to file:
 - ~/.config/st
@@ -82,7 +80,9 @@ path to file:
 
 ## urxvt
 This folder contains the config file for `urxvt` terminal, and the script for
-copy/paste. The configurations are done in the `.Xresources` file. See [rofi](#rofi) for where this file is allocated.
+copy/paste.  
+The configurations are done in the `.Xresources` file.  
+See [rofi](#rofi) for where this file is allocated.
 
 path to file:
 - ~/.urxvt/ext/
