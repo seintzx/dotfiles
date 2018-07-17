@@ -1,8 +1,8 @@
 # Configuration files
 
 ## awesome
-This folder contains the config file for `awesomewm`, the theme.lua file, the icons
-folder for the theme and some test i am doing.
+This folder contains the config file for `awesomewm`, the theme.lua file, the
+icons folder for the theme and some test i am doing.
 
 path to file:
 - ~/.config/awesome/rc.lua
@@ -28,8 +28,8 @@ path to file:
 - ~/.gtkrc-2.0
 
 ## i3
-This folder contains the config file for `i3wm`, i3blocks statusbar and the config
-file for py3status.
+This folder contains the config file for `i3wm`, i3blocks statusbar and the
+config file for py3status.
 
 path to file:
 - ~/.config/i3/config
@@ -37,8 +37,8 @@ path to file:
 - ~/.config/i3/i3status.conf
 
 ## nvim
-This folder contains the config file for `nvim`, my two favourite color scheme and
-the file for `vim-plug` plugin manager.
+This folder contains the config file for `nvim`, my two favourite color scheme
+and the file for `vim-plug` plugin manager.
 
 path to file:
 - ~/.config/nvim/init.vim
@@ -92,21 +92,22 @@ path to file:
 
 ## weechat
 This folder contains all the config file for `weechat`, and irc terminal-base
-client. At the moment i haven't configured it, please be patient.
+client.  
+At the moment i haven't configured it, please be patient.
 
 path to file:
 - ~/.config/weechat/
 
 ## wm_script
-This folder contains all the script that i use in some of wm ([xmonad](#xmonad), [i3 with i3blocks](#i3))
+This folder contains all the script that i use in some of wm ([xmonad](#xmonad),
+[i3 with i3blocks](#i3))
 
 path to file:
 - ~/.config/wm_script/
 
 ## xmonad
 I tried the installation method described below a couple of weeks ago (about
-2018-06-28) and seems to be deprecated so i switched to [awesome](#awesome)
-but you can always try to do it that way.
+2018-06-28) and seems to be deprecated.
 
 This folder contains the config file for `xmonad` and `xmobar`, remember to
 compile xmobar with all the flag or something could not work.
@@ -136,9 +137,11 @@ Reference to
 [haskell-core](https://wiki.archlinux.org/index.php/ArchHaskell#haskell-core)
 
 ## xorg
-This folder contains all the config file for my keyboard (included the alt-caps
-layout switch) and touchpad (valid only with `libinput`, i don't think they work
-with `synaptics`), along with my `.xinitrc`.
+This folder contains all the config file for:
+- my keyboard (included the alt-caps layout switch)
+- touchpad (valid only with `libinput`, i don't think they work with
+  `synaptics`)
+- my `.xinitrc`
 
 path to file:
 - ~/.xinitrc
@@ -153,7 +156,8 @@ path to file:
 
 ## zsh
 This folder contains the config file for `zsh`, i also have some plugins and
-theme, see my [wiki](https://gitlab.com/seintz/config/wikis/home) page for instruction.
+theme, see my [wiki](https://gitlab.com/seintz/config/wikis/home) page for
+instruction.
 
 path to file:
 - ~/.zshrc
