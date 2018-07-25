@@ -199,11 +199,16 @@ wif_text.font = theme.font
 eth_text.font = theme.font
 con_text.font = theme.font
 
-local function net_update()
-    local signal_level = 0
-    local interface = "eno1"
+local signal_level = 0
+local state = nil
+local wire_state = nil
+local interface = "eno1"
+local net_icon = wibox.widget.imagebox()
+local net_text = wibox.widget.textbox()
 
-    awful.spawn.easy_async("awk 'NR==3 {printf \"%3.0f\" ,($3/70)*100}' /proc/net/wireless",
+local function net_update()
+
+    awful.spawn.easy_async("awk 'NR==3 {printf \"%3.0f\" ,($3/70)*100}' /proc/net/wireless ", -- ; echo -n \" \" ; iwgetid -r",
         function(stdout, stderr, reason, exit_code)
             signal_level = tonumber( stdout )
             if signal_level == nil then
@@ -298,6 +303,8 @@ function theme.at_screen_connect(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             -- wibox.widget.systray(),
+            wibox.container.background(net_text, theme.bg_focus),
+            wibox.container.background(net_icon, theme.bg_focus),
             spr, arrl_ld,
             wibox.container.background(eth_text, theme.bg_focus),
             wibox.container.background(eth_icon, theme.bg_focus),
