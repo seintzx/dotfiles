@@ -58,6 +58,13 @@ This folder contains the config file for `rofi`, given that he uses the
 path to file:
 - ~/.Xresources
 
+## ssh
+This folder contains the config file for `ssh`.  
+This is done so i can use multiple "git" account with different rsa key.
+
+path to file:
+- ~/.ssh/config
+
 ## st
 This folder contains the config file for `st` terminal.  
 Remember that each time you make changes you need to recompile it.  
