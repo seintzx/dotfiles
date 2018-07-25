@@ -20,6 +20,12 @@ path to file:
 - ~/.config/dunst/dunstrc
 - ~/.config/dunst/reload.sh
 
+## git
+This folder contains the config gile for `git`.
+
+path to file:
+- ~/.gitconfig
+
 ## gtk
 This folder contains the `gtk` config file.
 
