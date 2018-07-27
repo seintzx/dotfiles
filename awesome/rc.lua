@@ -296,10 +296,11 @@ awful.rules.rules = {
     { rule = { class = "subl" },                properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "Eclipse" },             properties = { screen = 1, tag = tag_name[5] } },
     -- 
-    { rule = { class = "Spotify" },             properties = { screen = 1, tag = tag_name[8] } },
+    { rule = { class = "Spotify" },             properties = { screen = 1, tag = tag_name[6] } },
     { rule = { class = "steam" },               properties = { screen = 1, tag = tag_name[6] } },
     { rule = { class = "vlc" },                 properties = { screen = 1, tag = tag_name[6] } },
     { rule = { class = "Gimp" },                properties = { screen = 1, tag = tag_name[6] } },
+    { rule = { class = "zoom" },                properties = { screen = 1, tag = tag_name[6] } },
     -- 
     { rule = { class = "TelegramDesktop" },     properties = { screen = 1, tag = tag_name[7] } },
     { rule = { class = "Slack" },               properties = { screen = 1, tag = tag_name[7] } },
