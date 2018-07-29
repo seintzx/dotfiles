@@ -306,13 +306,13 @@ awful.rules.rules = {
     { rule = { class = "Slack" },               properties = { screen = 1, tag = tag_name[7] } },
     { rule = { class = "signal" },              properties = { screen = 1, tag = tag_name[7] } },
     -- 
-    { rule = { class = "qBittorrent" },         properties = { screen = 1, tag = tag_name[8] } },
     { rule = { class = "player" },              properties = { screen = 1, tag = tag_name[8] } },
     { rule = { class = "Genymotion" },          properties = { screen = 1, tag = tag_name[8] } },
     { rule = { class = "VirtualBox Manager" },  properties = { scrren = 1, tag = tag_name[8] } },
     { rule = { class = "VirtualBox Machine" },  properties = { scrren = 1, tag = tag_name[8] } },
     -- 
     { rule = { class = "keepassxc" },           properties = { scrren = 1, tag = tag_name[9] } },
+    { rule = { class = "qBittorrent" },         properties = { screen = 1, tag = tag_name[9] } },
 }
 
 -- SIGNALS ====================================================================
