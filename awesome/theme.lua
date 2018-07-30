@@ -293,7 +293,6 @@ function theme.at_screen_connect(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            --spr,
             -- wibox.container.background(s.mylayoutbox, theme.bg_focus),
             s.mytaglist,
             s.mypromptbox,
@@ -302,7 +301,7 @@ function theme.at_screen_connect(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            -- wibox.widget.systray(),
+            wibox.widget.systray(),
             wibox.container.background(net_text, theme.bg_focus),
             wibox.container.background(net_icon, theme.bg_focus),
             spr, arrl_ld,
@@ -321,11 +320,7 @@ function theme.at_screen_connect(s)
             wibox.container.background(baticon, theme.bg_focus),
             wibox.container.background(bat.widget, theme.bg_focus),
             arrl_dl, clock, spr,
-
-            -- need to do some test
-            -- arrl_ld, wibox.container.background(s.mylayoutbox, theme.bg_focus),
-            -- arrl_dl,
-            -- wibox.widget.systray(), spr,
+            arrl_ld, wibox.container.background(s.mylayoutbox, theme.bg_focus),
         },
     }
 end
