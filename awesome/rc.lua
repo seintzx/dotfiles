@@ -180,8 +180,8 @@ globalkeys = my_table.join(
     -- reduce to icon
     awful.key({ modkey, "Shift" }, "n",         function ()   local c = awful.client.restore()    if c then   client.focus = c    c:raise()   end       end),
 
-    -- change keyboard layout
-    awful.key({ altkey,         }, "Caps_Lock", function () mykbdlayout.next()                                                           end),
+    -- change keyboard layout [DEPRECATED]
+    -- awful.key({ altkey,         }, "Caps_Lock", function () mykbdlayout.next()                                                           end),
 
     -- Personal keybinds
     awful.key({ modkey,         }, "p",         function()  awful.util.spawn_with_shell("rofi -show run")                                end),

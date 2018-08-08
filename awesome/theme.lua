@@ -240,15 +240,8 @@ net_update()
 gears.timer.start_new(timeout, net_update)
 
 -- keyboard
-mykbdlayout = lain.widget.contrib.kbdlayout({
-    layouts = {
-                { layout = "us" },
-	            { layout = "it" }
-              },
-    settings = function()
-                    widget:set_text(string.format("   %s ", kbdlayout_now.layout))
-                end
-})
+mykdblayout_icon = wibox.widget.textbox("   ")
+mykbdlayout = awful.widget.keyboardlayout()
 
 -- Separators
 local spr     = wibox.widget.textbox(' ')
@@ -308,7 +301,7 @@ function theme.at_screen_connect(s)
             wibox.container.background(con_text, theme.bg_focus),
             wibox.container.background(wif_icon, theme.bg_focus),
             wibox.container.background(wif_text, theme.bg_focus),
-            arrl_dl, mykbdlayout, arrl_ld,
+            arrl_dl, mykdblayout_icon, mykbdlayout, arrl_ld,
             wibox.container.background(cpuicon, theme.bg_focus),
             wibox.container.background(cpu.widget, theme.bg_focus),
             arrl_dl, tempicon, temp.widget, arrl_ld,
