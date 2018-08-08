@@ -62,7 +62,6 @@ set matchpairs+=<:>
 
 " wildmenu --------------------------------------------------------------------
 set wildmenu
-" set wildmode=list:longest,full
 set noshowmode
 
 " tabline ---------------------------------------------------------------------
@@ -99,7 +98,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "
 call plug#end()
 
 " markdown --------------------------------------------------------------------
-filetype plugin on 
+filetype plugin on
 let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
 let g:vim_markdown_folding_disabled = 1
