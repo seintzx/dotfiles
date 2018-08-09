@@ -70,7 +70,7 @@ set noshowmode
 :hi TabLine     ctermfg=Blue        ctermbg=Black
 
 " airline ---------------------------------------------------------------------
-let g:airline_theme                         = 'dark'
+let g:airline_theme                         = 'murmur'
 let g:airline_powerline_fonts               = 1
 let g:airine#extensions#tabline#enable      = 1
 let g:airline_skip_empty_sections           = 0
@@ -81,8 +81,7 @@ let g:airline#extensions#ymc#error_symbol   = 'E:'
 let g:airline#extensions#ymc#warning_symbol = 'W:'
 
 " airline statusbar -----------------------------------------------------------
-let g:airline_section_y = 'L %l : C %c'     " Number of line and column
-let g:airline_section_z = '%m %r %h %w'     " Gutter Flag (modified, read-only, help, preview)
+let g:airline_section_z = 'L %l : C %c'       " Number of line and column
 
 " vim-plug --------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
@@ -113,5 +112,6 @@ noremap <F3> :Autoformat<cr>
 autocmd FileType python map <buffer> <F3> :!yapf -i % --style=pep8;<cr>
 
 " deoplete --------------------------------------------------------------------
+let g:python3_host_prog = '/usr/bin/python3'
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 'ignorecase'
