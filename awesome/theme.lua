@@ -6,6 +6,7 @@ local gears     = require("gears")
 local lain      = require("lain")
 local awful     = require("awful")
 local wibox     = require("wibox")
+local watch     = require("awful.widget.watch")
 local beautiful = require("beautiful")
 local os        = { getenv = os.getenv }
 local my_table  = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -112,7 +113,7 @@ local clock = awful.widget.watch(
 theme.cal = lain.widget.calendar({
     attach_to = { clock },
     notification_preset = {
-        font = "Hack 9",
+        font = theme.font,
         fg   = theme.fg_normal,
         bg   = theme.bg_normal
     }
@@ -134,7 +135,7 @@ local cpu = lain.widget.cpu({
     end
 })
 
--- Coretemp
+-- coretemp
 local tempicon = wibox.widget.imagebox(theme.widget_temp)
 local temp = lain.widget.temp({
     settings = function()
@@ -142,7 +143,7 @@ local temp = lain.widget.temp({
     end
 })
 
--- Battery
+-- battery
 local baticon = wibox.widget.imagebox(theme.widget_battery)
 local bat = lain.widget.bat({
     -- /sys/class/power_supply
@@ -170,7 +171,7 @@ local bat = lain.widget.bat({
     end
 })
 
--- ALSA volume
+-- volume
 local volicon = wibox.widget.imagebox(theme.widget_vol)
 theme.volume = lain.widget.alsa({
     settings = function()
@@ -183,13 +184,11 @@ theme.volume = lain.widget.alsa({
         else
             volicon:set_image(theme.widget_vol)
         end
-
         widget:set_markup(markup.font(theme.font, " " .. volume_now.level .. "% "))
     end
 })
 
--- Net
-local timeout = 5
+-- net
 local wif_icon = wibox.widget.imagebox(theme.widget_net)
 local eth_icon = wibox.widget.imagebox(theme.widget_net_wired)
 local wif_text = wibox.widget.textbox()
@@ -198,16 +197,13 @@ local con_text = wibox.widget.textbox()
 wif_text.font = theme.font
 eth_text.font = theme.font
 con_text.font = theme.font
-
+local timeout = 5
 local signal_level = 0
 local state = nil
 local wire_state = nil
 local interface = "eno1"
-local net_icon = wibox.widget.imagebox()
-local net_text = wibox.widget.textbox()
 
 local function net_update()
-
     awful.spawn.easy_async("awk 'NR==3 {printf \"%3.0f\" ,($3/70)*100}' /proc/net/wireless ", -- ; echo -n \" \" ; iwgetid -r",
         function(stdout, stderr, reason, exit_code)
             signal_level = tonumber( stdout )
@@ -242,6 +238,51 @@ gears.timer.start_new(timeout, net_update)
 -- keyboard
 mykdblayout_icon = wibox.widget.textbox("   ")
 mykbdlayout = awful.widget.keyboardlayout()
+
+-- spotify
+local GET_SPOTIFY_STATUS_CMD = 'sp status'
+local GET_CURRENT_SONG_CMD = 'sp current-oneline'
+local spotify_widget = wibox.widget {
+    {
+        id = "icon",
+        widget = wibox.widget.imagebox,
+    },
+    {
+        id = 'current_song',
+        widget = wibox.widget.textbox,
+        font = theme.font
+    },
+    layout = wibox.layout.align.horizontal,
+    set_status = function(self, is_playing)
+        if (is_playing) then
+            self.icon.image = theme.widget_music_on
+        else
+            self.icon.image = theme.widget_music
+        end
+    end,
+    set_text = function(self, path)
+        self.current_song.markup = path
+    end,
+}
+
+local update_widget_icon = function(widget, stdout, _, _, _)
+    stdout = string.gsub(stdout, "\n", "")
+    if (stdout == 'Playing') then
+        widget:set_status(true)
+    else
+        widget:set_status(false)
+    end
+end
+
+local update_widget_text = function(widget, stdout, _, _, _)
+    if string.find(stdout, 'Error: Spotify is not running.') ~= nil then
+        widget:set_text('offline')
+    else
+        widget:set_text(stdout)
+    end
+end
+watch(GET_SPOTIFY_STATUS_CMD,   1, update_widget_icon, spotify_widget)
+watch(GET_CURRENT_SONG_CMD,     1, update_widget_text, spotify_widget)
 
 -- Separators
 local spr     = wibox.widget.textbox(' ')
@@ -293,21 +334,23 @@ function theme.at_screen_connect(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             -- wibox.widget.systray(),
-            wibox.container.background(net_text, theme.bg_focus),
-            wibox.container.background(net_icon, theme.bg_focus),
             spr, arrl_ld,
             wibox.container.background(eth_text, theme.bg_focus),
             wibox.container.background(eth_icon, theme.bg_focus),
             wibox.container.background(con_text, theme.bg_focus),
             wibox.container.background(wif_icon, theme.bg_focus),
             wibox.container.background(wif_text, theme.bg_focus),
-            arrl_dl, mykdblayout_icon, mykbdlayout, arrl_ld,
+
+            arrl_dl, memicon, mem.widget, arrl_ld,
             wibox.container.background(cpuicon, theme.bg_focus),
             wibox.container.background(cpu.widget, theme.bg_focus),
-            arrl_dl, tempicon, temp.widget, arrl_ld,
-            wibox.container.background(memicon, theme.bg_focus),
-            wibox.container.background(mem.widget, theme.bg_focus),
-            arrl_dl, volicon, theme.volume.widget, arrl_ld,
+            wibox.container.background(tempicon, theme.bg_focus),
+            wibox.container.background(temp.widget, theme.bg_focus),
+
+            arrl_dl, spotify_widget, spr, arrl_ld,
+            wibox.container.background(volicon, theme.bg_focus),
+            wibox.container.background(theme.volume.widget, theme.bg_focus),
+            arrl_dl, mykdblayout_icon, mykbdlayout, arrl_ld,
             wibox.container.background(baticon, theme.bg_focus),
             wibox.container.background(bat.widget, theme.bg_focus),
             arrl_dl, clock, spr, arrl_ld,
