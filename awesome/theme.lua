@@ -10,6 +10,8 @@ local watch     = require("awful.widget.watch")
 local beautiful = require("beautiful")
 local os        = { getenv = os.getenv }
 local my_table  = awful.util.table or gears.table -- 4.{0,1} compatibility
+local markup    = lain.util.markup
+local separator = lain.util.separators
 
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome"
@@ -97,10 +99,7 @@ theme.titlebar_maximized_button_normal_active   = theme.dir .. "/icons/titlebar/
 theme.titlebar_maximized_button_focus_inactive  = theme.dir .. "/icons/titlebar/maximized_focus_inactive.png"
 theme.titlebar_maximized_button_normal_inactive = theme.dir .. "/icons/titlebar/maximized_normal_inactive.png"
 
-local markup = lain.util.markup
-local separators = lain.util.separators
-
--- Textclock
+-- clock
 local clockicon = wibox.widget.imagebox(theme.widget_clock)
 local clock = awful.widget.watch(
     "date +'%y-%m-%d %a, %I:%M %p'", 60,
@@ -109,7 +108,7 @@ local clock = awful.widget.watch(
     end
 )
 
--- Calendar
+-- calendar
 theme.cal = lain.widget.calendar({
     attach_to = { clock },
     notification_preset = {
@@ -119,7 +118,7 @@ theme.cal = lain.widget.calendar({
     }
 })
 
--- MEM
+-- mem
 local memicon = wibox.widget.imagebox(theme.widget_mem)
 local mem = lain.widget.mem({
     settings = function()
@@ -127,7 +126,7 @@ local mem = lain.widget.mem({
     end
 })
 
--- CPU
+-- cpu
 local cpuicon = wibox.widget.imagebox(theme.widget_cpu)
 local cpu = lain.widget.cpu({
     settings = function()
@@ -188,60 +187,86 @@ theme.volume = lain.widget.alsa({
     end
 })
 
--- net
-local wif_icon = wibox.widget.imagebox(theme.widget_net)
-local eth_icon = wibox.widget.imagebox(theme.widget_net_wired)
-local wif_text = wibox.widget.textbox()
-local eth_text = wibox.widget.textbox()
-local con_text = wibox.widget.textbox()
-wif_text.font = theme.font
-eth_text.font = theme.font
-con_text.font = theme.font
-local timeout = 5
-local signal_level = 0
-local state = nil
-local wire_state = nil
-local interface = "eno1"
-
-local function net_update()
-    awful.spawn.easy_async("awk 'NR==3 {printf \"%3.0f\" ,($3/70)*100}' /proc/net/wireless ", -- ; echo -n \" \" ; iwgetid -r",
-        function(stdout, stderr, reason, exit_code)
-            signal_level = tonumber( stdout )
-            if signal_level == nil then
-                wif_text:set_text(" N/A ")
-            else
-                wif_text:set_text(string.format("%d%% ", signal_level))
-            end
-        end)
-    awful.spawn.easy_async("bash -c \"ip link show "..interface.." | awk 'NR==1 {printf \\\"%s\\\", $9}'\"",
-        function(stdout, stderr, reason, exit_code)
-            state = stdout:sub(1, stdout:len() - 1)
-            if (state == "UP") then
-                eth_text:set_text(string.format(" %s", string.lower(state)))
-            else
-                eth_text:set_text(string.format(" %s", string.lower(state)))
-            end
-        end)
-    awful.spawn.easy_async("bash -c \"nc -z 8.8.8.8 53 >/dev/null 2>&1\"",
-        function(_, _, _, exit_code)
-            if (exit_code == 0) then
-                con_text:set_text(" ● ")
-            else
-                con_text:set_text(" ■ ")
-            end
-        end)
-    return true
-end
-net_update()
-gears.timer.start_new(timeout, net_update)
-
 -- keyboard
 mykdblayout_icon = wibox.widget.textbox("   ")
 mykbdlayout = awful.widget.keyboardlayout()
 
+-- wifi
+local timer = 1
+local WIFI_COMMAND = "awk 'NR==3 {printf \"%3.0f\" ,($3/70)*100}' /proc/net/wireless " -- ; echo -n \" \" ; iwgetid -r"
+local wifi_widget = wibox.widget {
+    {
+        id = "icon",
+        widget = wibox.widget.imagebox,
+    },
+    {
+        id = 'wifi',
+        widget = wibox.widget.textbox,
+        font = theme.font
+    },
+    layout = wibox.layout.align.horizontal,
+    set_status = function(self, mod)
+        if (mod) then
+            self.icon.image = theme.widget_net
+        end
+    end,
+    set_text = function(self, path)
+        self.wifi.markup = path
+    end,
+}
+local update_wifi = function(widget, stdout, _, _, _)
+    local signal = tonumber( stdout )
+    if (stdout == nil) then
+        widget:set_text("N/A")
+        widget:set_status(false)
+        widget:set_visible(false)
+    else
+        widget:set_text(string.format("%d%% ", signal))
+        widget:set_status(true)
+        widget:set_visible(true)
+    end
+end
+watch(WIFI_COMMAND, timer, update_wifi, wifi_widget)
+
+-- wired
+local interface = "eno1"
+local WIRE_COMMAND = "bash -c \"ip link show "..interface.." | awk 'NR==1 {printf \\\"%s\\\", $9}'\""
+local wire_widget = wibox.widget {
+    {
+        id = "icon",
+        widget = wibox.widget.imagebox,
+    },
+    {
+        id = 'wire',
+        widget = wibox.widget.textbox,
+        font = theme.font
+    },
+    layout = wibox.layout.align.horizontal,
+    set_status = function(self, mod)
+        if (mod) then
+            self.icon.image = theme.widget_net_wired
+        end
+    end,
+    set_text = function(self, path)
+        self.wire.markup = path
+    end,
+}
+local update_wire = function(widget, stdout, _, _, _)
+    local status = stdout:sub(1, stdout:len() - 1)
+    if (state == "DOWN") then
+        widget:set_text(string.format(" %s", string.lower(state)))
+        widget:set_visible(false)
+        widget:set_status(false)
+    else
+        widget:set_text(string.format(" %s", string.lower(state)))
+        widget:set_visible(true)
+        widget:set_status(true)
+    end
+end
+watch(WIRE_COMMAND, timer, update_wire, wire_widget)
+
 -- spotify
-local GET_SPOTIFY_STATUS_CMD = 'sp status'
-local GET_CURRENT_SONG_CMD = 'sp current-oneline'
+local SPOTIFY_SONG = 'sp current-oneline'
 local spotify_widget = wibox.widget {
     {
         id = "icon",
@@ -264,35 +289,23 @@ local spotify_widget = wibox.widget {
         self.current_song.markup = path
     end,
 }
-
-local update_widget_icon = function(widget, stdout, _, _, _)
-    stdout = string.gsub(stdout, "\n", "")
-    if (stdout == 'Playing') then
-        widget:set_status(true)
-    else
-        widget:set_status(false)
-    end
-end
-
-local update_widget_text = function(widget, stdout, _, _, _)
+local update_spotify = function(widget, stdout, _, _, _)
     if string.find(stdout, 'Error: Spotify is not running.') ~= nil then
-        widget:set_text('offline')
+        widget:set_text('')
+        widget:set_status(false)
     else
         widget:set_text(stdout)
+        widget:set_status(true)
     end
 end
-watch(GET_SPOTIFY_STATUS_CMD,   1, update_widget_icon, spotify_widget)
-watch(GET_CURRENT_SONG_CMD,     1, update_widget_text, spotify_widget)
+watch(SPOTIFY_SONG, timer, update_spotify, spotify_widget)
 
--- Separators
+-- separator
 local spr     = wibox.widget.textbox(' ')
-local arrl_dl = separators.arrow_left(theme.bg_focus, "alpha")
-local arrl_ld = separators.arrow_left("alpha", theme.bg_focus)
+local arrl_dl = separator.arrow_left(theme.bg_focus, "alpha")
+local arrl_ld = separator.arrow_left("alpha", theme.bg_focus)
 
 function theme.at_screen_connect(s)
-    -- Quake application
-    s.quake = lain.util.quake({ app = awful.util.terminal })
-
     -- If wallpaper is a function, call it with the screen
     local wallpaper = theme.wallpaper
     if type(wallpaper) == "function" then
@@ -300,28 +313,21 @@ function theme.at_screen_connect(s)
     end
     gears.wallpaper.maximized(wallpaper, s, true)
 
+    -- Quake application
+    s.quake = lain.util.quake({ app = awful.util.terminal })
     -- Tags
     awful.tag(awful.util.tagnames, s, awful.layout.layouts[1])
-
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox(s)
-    s.mylayoutbox:buttons(my_table.join(
-                           awful.button({ }, 1, function () awful.layout.inc( 1) end),
-                           awful.button({ }, 3, function () awful.layout.inc(-1) end),
-                           awful.button({ }, 4, function () awful.layout.inc( 1) end),
-                           awful.button({ }, 5, function () awful.layout.inc(-1) end)))
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons)
-
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.minimizedcurrenttags, awful.util.tasklist_buttons)
-
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s, height = 18, bg = theme.bg_normal, fg = theme.fg_normal })
-
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
@@ -334,22 +340,16 @@ function theme.at_screen_connect(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             -- wibox.widget.systray(),
-            spr, arrl_ld,
-            wibox.container.background(eth_text, theme.bg_focus),
-            wibox.container.background(eth_icon, theme.bg_focus),
-            wibox.container.background(con_text, theme.bg_focus),
-            wibox.container.background(wif_icon, theme.bg_focus),
-            wibox.container.background(wif_text, theme.bg_focus),
-
-            arrl_dl, memicon, mem.widget, arrl_ld,
-            wibox.container.background(cpuicon, theme.bg_focus),
-            wibox.container.background(cpu.widget, theme.bg_focus),
+            arrl_ld,
+            wibox.container.background(spotify_widget, theme.bg_focus),
+            arrl_dl, volicon, theme.volume.widget, arrl_ld,
             wibox.container.background(tempicon, theme.bg_focus),
             wibox.container.background(temp.widget, theme.bg_focus),
-
-            arrl_dl, spotify_widget, spr, arrl_ld,
-            wibox.container.background(volicon, theme.bg_focus),
-            wibox.container.background(theme.volume.widget, theme.bg_focus),
+            wibox.container.background(cpuicon, theme.bg_focus),
+            wibox.container.background(cpu.widget, theme.bg_focus),
+            arrl_dl, memicon, mem.widget, arrl_ld,
+            wibox.container.background(wire_widget, theme.bg_focus),
+            wibox.container.background(wifi_widget, theme.bg_focus),
             arrl_dl, mykdblayout_icon, mykbdlayout, arrl_ld,
             wibox.container.background(baticon, theme.bg_focus),
             wibox.container.background(bat.widget, theme.bg_focus),
@@ -358,5 +358,4 @@ function theme.at_screen_connect(s)
         },
     }
 end
-
 return theme
