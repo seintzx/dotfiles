@@ -266,7 +266,10 @@ end
 watch(WIRE_COMMAND, timer, update_wire, wire_widget)
 
 -- spotify
+local time = 5
 local SPOTIFY_SONG = 'sp current-oneline'
+-- local SPOTIFY_SONG = 'sp current-song'
+local SPOTIFY_ARTI = 'sp current-artist'
 local spotify_widget = wibox.widget {
     {
         id = "icon",
@@ -298,7 +301,8 @@ local update_spotify = function(widget, stdout, _, _, _)
         widget:set_status(true)
     end
 end
-watch(SPOTIFY_SONG, timer, update_spotify, spotify_widget)
+-- watch(SPOTIFY_ARTI, time, update_spotify, spotify_widget)
+watch(SPOTIFY_SONG, time, update_spotify, spotify_widget)
 
 -- separator
 local spr     = wibox.widget.textbox(' ')
