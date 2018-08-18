@@ -12,6 +12,7 @@ local os        = { getenv = os.getenv }
 local my_table  = awful.util.table or gears.table -- 4.{0,1} compatibility
 local markup    = lain.util.markup
 local separator = lain.util.separators
+local timer = 5
 
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome"
@@ -192,7 +193,7 @@ mykdblayout_icon = wibox.widget.textbox("   ")
 mykbdlayout = awful.widget.keyboardlayout()
 
 -- wifi
-local timer = 1
+local timer = 2
 local WIFI_COMMAND = "awk 'NR==3 {printf \"%3.0f\" ,($3/70)*100}' /proc/net/wireless "
 local wifi_widget = wibox.widget {
     {
@@ -265,7 +266,6 @@ end
 watch(WIRE_COMMAND, timer, update_wire, wire_widget)
 
 -- spotify
-local time = 5
 local SPOTIFY_SONG = 'sp current-oneline'
 -- local SPOTIFY_SONG = 'sp current-song'
 -- local SPOTIFY_ARTI = 'sp current-artist'
@@ -301,7 +301,7 @@ local update_spotify = function(widget, stdout, _, _, _)
     end
 end
 -- watch(SPOTIFY_ARTI, time, update_spotify, spotify_widget)
-watch(SPOTIFY_SONG, time, update_spotify, spotify_widget)
+watch(SPOTIFY_SONG, timer, update_spotify, spotify_widget)
 
 -- separator
 local spr     = wibox.widget.textbox(' ')
