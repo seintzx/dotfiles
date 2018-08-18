@@ -193,7 +193,7 @@ mykbdlayout = awful.widget.keyboardlayout()
 
 -- wifi
 local timer = 1
-local WIFI_COMMAND = "awk 'NR==3 {printf \"%3.0f\" ,($3/70)*100}' /proc/net/wireless " -- ; echo -n \" \" ; iwgetid -r"
+local WIFI_COMMAND = "awk 'NR==3 {printf \"%3.0f\" ,($3/70)*100}' /proc/net/wireless "
 local wifi_widget = wibox.widget {
     {
         id = "icon",
@@ -216,7 +216,7 @@ local wifi_widget = wibox.widget {
 }
 local update_wifi = function(widget, stdout, _, _, _)
     local signal = tonumber( stdout )
-    if (stdout == nil) then
+    if (signal == nil) then
         widget:set_text("N/A")
         widget:set_status(false)
         widget:set_visible(false)
@@ -230,7 +230,7 @@ watch(WIFI_COMMAND, timer, update_wifi, wifi_widget)
 
 -- wired
 local interface = "eno1"
-local WIRE_COMMAND = "bash -c \"ip link show "..interface.." | awk 'NR==1 {printf \\\"%s\\\", $9}'\""
+local WIRE_COMMAND = "ip link show "..interface
 local wire_widget = wibox.widget {
     {
         id = "icon",
@@ -252,13 +252,12 @@ local wire_widget = wibox.widget {
     end,
 }
 local update_wire = function(widget, stdout, _, _, _)
-    local status = stdout:sub(1, stdout:len() - 1)
-    if (state == "DOWN") then
-        widget:set_text(string.format(" %s", string.lower(state)))
+    if string.find(stdout, 'DOWN') ~= nil then
+        widget:set_text("DOWN")
         widget:set_visible(false)
         widget:set_status(false)
     else
-        widget:set_text(string.format(" %s", string.lower(state)))
+        widget:set_text("UP")
         widget:set_visible(true)
         widget:set_status(true)
     end
