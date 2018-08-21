@@ -173,7 +173,7 @@ alias vm='amixer -D pulse sset Master 5%-'
 
 # trizen aliases
 # alias yi='trizen -S --needed --sync'
-alias ys='trizen -Syyu --no-confirm --sync --needed'
+alias ys='trizen -Syyu --noconfirm'
 alias yr='trizen -Rsnc'
 alias yo='trizen -Qs'
 
