@@ -2,4 +2,4 @@
 	name = seintz
 	email = andrea.casadei@tutanota.com
 [core]
-	editor = neovim
+	editor = nvim
