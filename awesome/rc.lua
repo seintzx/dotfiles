@@ -187,7 +187,7 @@ globalkeys = my_table.join(
     awful.key({ modkey,         }, "p",         function()  awful.util.spawn_with_shell("rofi -show run")                                end),
     awful.key({ modkey, "Shift" }, "p",         function()  awful.util.spawn_with_shell("rofi -show")                                    end),
     awful.key({ modkey, "Shift" }, "z",         function()  awful.util.spawn_with_shell( script_path .. "lockscr.sh")                    end),
-    awful.key({ modkey, "Shift" }, "s",         function()  awful.util.spawn_with_shell( script_path .. "chat.sh")                       end),
+    awful.key({ modkey, "Shift" }, "s",         function()  awful.util.spawn_with_shell( script_path .. "use.sh")                        end),
     awful.key({ modkey,         }, "F2",        function()  awful.util.spawn("sync")     awful.util.spawn("xbacklight -dec 10")          end),
     awful.key({ modkey,         }, "F3",        function()  awful.util.spawn("sync")     awful.util.spawn("xbacklight -inc 10")          end),
     awful.key({ modkey,         }, "F9",        function()  awful.util.spawn("sync")     awful.util.spawn("amixer sset Master 5%-")      end),
