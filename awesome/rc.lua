@@ -308,6 +308,7 @@ awful.rules.rules = {
     -- 
     { rule = { class = "player" },              properties = { screen = 1, tag = tag_name[8] } },
     { rule = { class = "Genymotion" },          properties = { screen = 1, tag = tag_name[8] } },
+    { rule = { class = "THunderbird" },         properties = { screen = 1, tag = tag_name[8] } },
     { rule = { class = "VirtualBox Manager" },  properties = { scrren = 1, tag = tag_name[8] } },
     { rule = { class = "VirtualBox Machine" },  properties = { scrren = 1, tag = tag_name[8] } },
     -- 
