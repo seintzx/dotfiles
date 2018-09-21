@@ -289,6 +289,7 @@ awful.rules.rules = {
     { rule = { class = "Nemo" },                properties = { screen = 1, tag = tag_name[4] } },
     -- 
     { rule = { class = "jetbrains-idea" },      properties = { screen = 1, tag = tag_name[5] } },
+    { rule = { class = "com-yworks-A-yEd"},     properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "Zathura" },             properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "Db_main" },             properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "TeXstudio" },           properties = { screen = 1, tag = tag_name[5] } },
