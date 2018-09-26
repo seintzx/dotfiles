@@ -294,7 +294,7 @@ awful.rules.rules = {
     { rule = { class = "Db_main" },             properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "TeXstudio" },           properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "libreoffice" },         properties = { screen = 1, tag = tag_name[5] } },
-    { rule = { class = "subl" },                properties = { screen = 1, tag = tag_name[5] } },
+    { rule = { class = "subl3" },                properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "Eclipse" },             properties = { screen = 1, tag = tag_name[5] } },
     -- 
     { rule = { class = "Spotify" },             properties = { screen = 1, tag = tag_name[6] } },
