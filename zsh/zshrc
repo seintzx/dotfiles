@@ -199,6 +199,7 @@ alias gt='git status'
 # others aliases
 alias vbox='sudo VirtualBox'
 alias myip='curl -s http://ipinfo.io/ip'
+alias wa='chromium --app=https://web.whatsapp.com/ &'
 alias -g xc='| xsel --clipboard'
 alias -g xv='| xsel --clipboard'
 alias -g bd='| base64 -d'
