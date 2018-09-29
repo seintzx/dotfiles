@@ -306,6 +306,7 @@ awful.rules.rules = {
     { rule = { class = "TelegramDesktop" },     properties = { screen = 1, tag = tag_name[7] } },
     { rule = { class = "Slack" },               properties = { screen = 1, tag = tag_name[7] } },
     { rule = { class = "Signal" },              properties = { screen = 1, tag = tag_name[7] } },
+    { rule = { class = "whats-app-nativefier-7bbd2c" },     properties = { screen = 1, tag = tag_name[7] } },
     -- 
     { rule = { class = "player" },              properties = { screen = 1, tag = tag_name[8] } },
     { rule = { class = "Genymotion" },          properties = { screen = 1, tag = tag_name[8] } },
