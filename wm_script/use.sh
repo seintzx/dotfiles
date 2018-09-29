@@ -4,3 +4,4 @@ firefox &
 thunderbird &
 keepassxc &
 telegram-desktop &
+signal-desktop &
