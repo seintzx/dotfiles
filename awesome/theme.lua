@@ -318,19 +318,37 @@ function theme.at_screen_connect(s)
 
     -- Quake application
     s.quake = lain.util.quake({ app = awful.util.terminal })
+
     -- Tags
-    awful.tag(awful.util.tagnames, s, awful.layout.layouts[1])
+    local my_layout = {
+    awful.layout.layouts[1], -- tag 1
+    awful.layout.layouts[1], -- tag 2
+    awful.layout.layouts[1], -- tag 3
+    awful.layout.layouts[1], -- tag 4
+    awful.layout.layouts[1], -- tag 5
+    awful.layout.layouts[1], -- tag 6
+    awful.layout.layouts[3], -- tag 7
+    awful.layout.layouts[1], -- tag 8
+    awful.layout.layouts[1], -- tag 9
+    }
+    awful.tag(awful.util.tagnames, s, my_layout)
+
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
+
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox(s)
+
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons)
+
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.minimizedcurrenttags, awful.util.tasklist_buttons)
+
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s, height = 18, bg = theme.bg_normal, fg = theme.fg_normal })
+
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
