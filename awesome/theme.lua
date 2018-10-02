@@ -320,18 +320,7 @@ function theme.at_screen_connect(s)
     s.quake = lain.util.quake({ app = awful.util.terminal })
 
     -- Tags
-    local my_layout = {
-    awful.layout.layouts[1], -- tag 1
-    awful.layout.layouts[1], -- tag 2
-    awful.layout.layouts[1], -- tag 3
-    awful.layout.layouts[1], -- tag 4
-    awful.layout.layouts[1], -- tag 5
-    awful.layout.layouts[1], -- tag 6
-    awful.layout.layouts[3], -- tag 7
-    awful.layout.layouts[1], -- tag 8
-    awful.layout.layouts[1], -- tag 9
-    }
-    awful.tag(awful.util.tagnames, s, my_layout)
+    awful.tag(awful.util.tagnames, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
