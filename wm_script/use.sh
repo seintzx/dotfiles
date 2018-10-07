@@ -5,5 +5,6 @@ thunderbird &
 keepassxc &
 telegram-desktop &
 signal-desktop &
-whatsapp-web-desktop &
 slack &
+chromium --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm &
+# whatsapp-web-desktop &

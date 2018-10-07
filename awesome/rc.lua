@@ -289,6 +289,8 @@ awful.rules.rules = {
     { rule = { class = "Slack" },                           properties = { screen = 1, tag = tag_name[7] } },
     { rule = { class = "Signal" },                          properties = { screen = 1, tag = tag_name[7] } },
     { rule = { class = "whats-app-nativefier-7bbd2c" },     properties = { screen = 1, tag = tag_name[7] } },
+    { rule = { instance = "crx_hnpfjngllnobngcgfapefoaidbinmjnm"}, 
+                properties = { screen = 1, tag = tag_name[7], maximized_vertical = true, maximized_horizontal = true} },
     -- 
     { rule = { class = "player" },                          properties = { screen = 1, tag = tag_name[8] } },
     { rule = { class = "Genymotion" },                      properties = { screen = 1, tag = tag_name[8] } },
