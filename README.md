@@ -62,6 +62,7 @@ This folder contains the config file for `rofi`, given that he uses the
 `Xresources` file, this file is also here.
 
 path to file:
+- ~/.config/rofi/config
 - ~/.Xresources
 
 ## ssh
