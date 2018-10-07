@@ -170,16 +170,7 @@ alias lm='xbacklight -dec 10'
 alias vp='amixer -D pulse sset Master 5%+'
 alias vm='amixer -D pulse sset Master 5%-'
 
-# trizen aliases
-# alias yi='trizen -S --needed --sync'
-alias ys='trizen -Syu'
-alias yr='trizen -Rsnc'
-alias yo='trizen -Qs'
-
-# openssl, vpn aliases
-# *enc -in INPUT-FILE -out OUTPUT-FILE
-alias eenc='openssl aes-256-cbc -a -salt'
-alias denc='openssl aes-256-cbc -d -a'
+# vpn aliases
 alias cvpn='cd ${HOME}/vpn/cesvpn ; sudo openvpn ep-udp-1195-santa.ovpn'
 alias vpn='${HOME}/vpn/nord/auth.sh'
 
@@ -187,7 +178,7 @@ alias vpn='${HOME}/vpn/nord/auth.sh'
 alias gacp='git add -A && git commit -a --allow-empty-message -m "" && git push'
 alias ga='git add'
 alias gad='git add -A'
-alias gcm='git commit -m'
+alias gc='git commit -m'
 alias gce='git commit -a --allow-empty-message -m ""'
 alias gp='git push'
 alias gpm='git push -u origin master'
@@ -198,7 +189,6 @@ alias gt='git status'
 # others aliases
 alias vbox='sudo VirtualBox'
 alias myip='curl -s http://ipinfo.io/ip'
-alias wa='chromium --app=https://web.whatsapp.com/ &'
 alias -g xc='| xsel --clipboard'
 alias -g xv='| xsel --clipboard'
 alias -g bd='| base64 -d'
