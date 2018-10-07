@@ -1,6 +1,6 @@
 {
 	"aururl": "https://aur.archlinux.org",
-	"buildDir": "~/sysup",
+	"buildDir": "sysup",
 	"editor": "",
 	"editorflags": "",
 	"makepkgbin": "makepkg",
