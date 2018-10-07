@@ -162,6 +162,13 @@ path to file:
 - /etc/X11/xorg.conf.d/30-touchpad.conf
 - ~/.xinitrc
 
+## yay
+This folder contains the config file for `yay`, an AUR helper.
+
+path to file:
+- ~/.config/yay/config
+
+
 ## zathura
 This folder contains the config file for `zathura`, an awesome PDF reader.
 
