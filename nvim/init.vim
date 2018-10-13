@@ -11,7 +11,7 @@ set ttimeoutlen=50
 set laststatus=2
 set showtabline=2
 set number
-set textwidth=80
+" set textwidth=80
 set colorcolumn=80
 set modeline
 set modelines=5
@@ -85,15 +85,16 @@ let g:airline_section_z = 'L %l : C %c'       " Number of line and column
 
 " vim-plug --------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'tpope/vim-markdown'               " Markdown support
-Plug 'vim-airline/vim-airline'          " Airline
-Plug 'vim-airline/vim-airline-themes'   " Airline themes
-Plug 'raimondi/delimitmate'             " Autocomplete parenthesis
-Plug 'tpope/vim-commentary'             " Easily comment toggling
-Plug 'majutsushi/tagbar'                " Show tab options
-Plug 'tpope/vim-fugitive'               " git wrapper
-Plug 'neomake/neomake'                  " code-formatting tool
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "
+Plug 'tpope/vim-markdown'                       " Markdown support
+Plug 'vim-airline/vim-airline'                  " Airline
+Plug 'vim-airline/vim-airline-themes'           " Airline themes
+Plug 'raimondi/delimitmate'                     " Autocomplete parenthesis
+Plug 'tpope/vim-commentary'                     " Easily comment toggling
+Plug 'majutsushi/tagbar'                        " Show tab options
+Plug 'tpope/vim-fugitive'                       " git wrapper
+Plug 'donraphaco/neotex', { 'for': 'tex' }      " latex
+Plug 'lervag/vimtex'                            " latex syntax
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " auto-complete
 call plug#end()
 
 " markdown --------------------------------------------------------------------
@@ -104,14 +105,13 @@ let g:vim_markdown_folding_disabled = 1
 let g:markdown_fenced_languages = ['python', 'bash=sh']
 let g:markdown_syntax_conceal = 0
 
-" neomake ---------------------------------------------------------------------
-let g:neomake_verbose = 0
-autocmd! BufWritePost,BufEnter * Neomake
-let g:neomake_python_enabled_makers = ['flake8']
-noremap <F3> :Autoformat<cr>
-autocmd FileType python map <buffer> <F3> :!yapf -i % --style=pep8;<cr>
-
 " deoplete --------------------------------------------------------------------
 let g:python3_host_prog = '/usr/bin/python3'
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 'ignorecase'
+
+" latex -----------------------------------------------------------------------
+" ''% NeoTex: mainfile=main.tex:''
+" to be added at the end of every file, except main
+let g:tex_flavor = 'latex'
+noremap <F4> :NeoTex<cr>
