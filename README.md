@@ -42,6 +42,13 @@ path to file:
 - ~/.config/i3/i3blocks.conf
 - ~/.config/i3/i3status.conf
 
+## networkmanager-dmenu
+This folder contains the config file for `networkmanager-dmenu`, an utility for
+rofi for network connection and VPN.
+
+path to file:
+- ~/.config/networkmanager-dmenu/config.ini
+
 ## nvim
 This folder contains the config file for `nvim`, my two favourite color scheme
 and the file for `vim-plug` plugin manager.
