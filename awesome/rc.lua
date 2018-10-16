@@ -168,6 +168,7 @@ globalkeys = my_table.join(
     -- Personal keybinds
     awful.key({ modkey,         }, "p",         function()  awful.util.spawn_with_shell("rofi -show run")                                end),
     awful.key({ modkey, "Shift" }, "p",         function()  awful.util.spawn_with_shell("rofi -show")                                    end),
+    awful.key({ modkey, "Shift" }, "v",         function()  awful.util.spawn_with_shell("networkmanager_dmenu")                          end),
     awful.key({ modkey, "Shift" }, "z",         function()  awful.util.spawn_with_shell( script_path .. "lockscr.sh")                    end),
     awful.key({ modkey, "Shift" }, "s",         function()  awful.util.spawn_with_shell( script_path .. "use.sh")                        end),
     awful.key({ modkey,         }, "F2",        function()  awful.util.spawn("sync")     awful.util.spawn("xbacklight -dec 10")          end),
@@ -269,6 +270,7 @@ awful.rules.rules = {
     { rule = { class = "Chromium" },                        properties = { screen = 1, tag = tag_name[1] } },
     -- 
     { rule = { class = "Nemo" },                            properties = { screen = 1, tag = tag_name[4] } },
+    { rule = { class = "calibre" },                         properties = { screen = 1, tag = tag_name[4] } },
     -- 
     { rule = { class = "jetbrains-idea" },                  properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "com-yworks-A-yEd"},                 properties = { screen = 1, tag = tag_name[5] } },
