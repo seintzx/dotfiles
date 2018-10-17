@@ -35,12 +35,9 @@ set smarttab
 set linebreak
 set nojoinspaces
 set backspace=indent,eol,start
-" set shiftwidth=4
-" set softtabstop=4
-" set tabstop=4
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 set list
 set listchars=tab:›\ ,trail:•
 
@@ -95,8 +92,6 @@ Plug 'raimondi/delimitmate'                     " Autocomplete parenthesis
 Plug 'tpope/vim-commentary'                     " Easily comment toggling
 Plug 'majutsushi/tagbar'                        " Show tab options
 Plug 'tpope/vim-fugitive'                       " git wrapper
-Plug 'donraphaco/neotex', { 'for': 'tex' }      " latex
-Plug 'lervag/vimtex'                            " latex syntax
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " auto-complete
 call plug#end()
 
@@ -112,9 +107,3 @@ let g:markdown_syntax_conceal = 0
 let g:python3_host_prog = '/usr/bin/python3'
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 'ignorecase'
-
-" neotex ----------------------------------------------------------------------
-" ''% NeoTex: mainfile=main.tex:''
-" to be added at the end of every file, except main
-let g:tex_flavor = 'latex'
-noremap <F4> :NeoTex<cr>
