@@ -4,4 +4,4 @@ fi
 
 sleep 1 & ${HOME}/.config/wm_script/startup.sh
 export QT_QPA_PLATFORMTHEME="qt5ct"
-exec i3
+exec awesome
