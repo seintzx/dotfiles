@@ -2,23 +2,16 @@
 # py3status for bar with some custom scripts
 
 # COLORS
-set $lime       #9fbc00
-set $darklime   #505e00
-set $green      #00ff00
+set $urgentred  #fb4934
 set $watergree  #00ff8b
-set $yellow     #ffff00
-set $lightblue  #232d34
 set $purpleble  #8b8bcd
-set $blue       #131d24
-set $lightgray  #ddeedd
-set $gray       #aaaaaa
 set $darkgray   #222222
+set $yellow     #ffff00
 set $white      #ffffff
 set $black      #000000
-set $urgentred  #fb4934
 set $pink       #ff00ff
 
-# WORKSPACES 
+# WORKSPACES 
 set $ws1     "1: "
 set $ws2     "2: "
 set $ws3     "3: "
@@ -26,8 +19,8 @@ set $ws4     "4: "
 set $ws5     "5: "
 set $ws6     "6: "
 set $ws7     "7: "
-set $ws8     "8: "
-set $ws9     "9: "
+set $ws8     "8: "
+set $ws9     "9: "
 
 # FONT
 font xft:Hack 8
@@ -115,7 +108,7 @@ bindsym $mod+Shift+c kill
 # RUN
 bindsym $mod+p exec rofi -show run
 bindsym $mod+Shift+p exec rofi -show
-bindsym $mod+Shift+v exec nteworkmanager_dmenu
+bindsym $mod+Shift+v exec networkmanager_dmenu
 
 # RELOAD
 bindsym $mod+Shift+e reload
@@ -193,6 +186,7 @@ mode "$mode_power" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 # RESIZE MODE
 bindsym $mod+r mode "resize"
 mode "resize" {
@@ -207,8 +201,7 @@ mode "resize" {
 }
 
 # GAPS
-#hide_edge_borders both
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 1 # This disable titlebar
 gaps inner 0
 gaps outer 0
 smart_gaps on
@@ -218,7 +211,6 @@ smart_borders on
 
 # BAR CONFIG
 bar {
-        # status_command i3blocks -c ${HOME}/.config/i3/i3blocks.conf
         status_command py3status --standalone --dbus-notify -c ${HOME}/.config/i3/i3status.conf
         font xft:Hack 8
         tray_padding 0
