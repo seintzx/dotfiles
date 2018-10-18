@@ -11,7 +11,7 @@ set ttimeoutlen=50
 set laststatus=2
 set showtabline=2
 set number
-" set textwidth=80
+set textwidth=80
 set colorcolumn=80
 set modeline
 set modelines=5
