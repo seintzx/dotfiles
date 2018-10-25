@@ -137,6 +137,13 @@ bindsym $mod+F3 exec  "xbacklight -inc 10"
 bindsym $mod+F2 exec  "xbacklight -dec 10"
 
 # RULES
+assign [instance="(?i)web.whatsapp.com"]    $ws7
+assign [instance="(?i)cesena.slack.com__messages"]    $ws7
+
+assign [instance="(?i)mail.google.com__mail"]    $ws8
+assign [instance="(?i)calendar.google.com"]    $ws8
+assign [instance="(?i)trello.com"]    $ws8
+
 # 
 assign [class="(?i)tor browser"]            $ws1
 assign [class="(?i)chromium"]               $ws1
