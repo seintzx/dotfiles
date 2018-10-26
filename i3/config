@@ -1,142 +1,78 @@
 # i3-gaps-git config file
 # py3status for bar with some custom scripts
 
-# COLORS
-set $urgentred  #fb4934
-set $watergree  #00ff8b
-set $purpleble  #8b8bcd
-set $darkgray   #222222
-set $yellow     #ffff00
-set $white      #ffffff
-set $black      #000000
-set $pink       #ff00ff
+# bar config ------------------------------------------------------------------
+bar {
+        status_command py3status --standalone --dbus-notify -c ${HOME}/.config/i3/i3status.conf
 
-# WORKSPACES 
-set $ws1     "1: "
-set $ws2     "2: "
-set $ws3     "3: "
-set $ws4     "4: "
-set $ws5     "5: "
-set $ws6     "6: "
-set $ws7     "7: "
-set $ws8     "8: "
-set $ws9     "9: "
+        workspace_buttons yes
+        strip_workspace_numbers yes
+        binding_mode_indicator yes
 
-# FONT
+        position top
+        tray_output primary
+        tray_padding 4 px
+        mode dock
+        height 16
+
+        font xft:Hack 8
+        separator_symbol "|"
+
+        # Colors
+      colors {
+        background  #202020
+        statusline  #aaaaaa
+        separator   #000000
+
+        focused_workspace  #6839a5 #462770 #ffffff
+        active_workspace   #333333 #222222 #ffffff
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+        binding_mode       #2f343a #900000 #ffffff
+      }
+}
+
+# client color ----------------------------------------------------------------
+# class                 border  bground text    indicator child_border
+client.focused          #6839a5 #462770 #ffffff #c400c4   #4b2977
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
+
+# font ------------------------------------------------------------------------
 font xft:Hack 8
 
-# CLIENT COLOR
-# classname                 border      background  text        indicator
-client.background           #ffffff
-client.focused              #4c7899     #285577     #ffffff     #2e9ef4
-client.focused_inactive     #333333     #5f676a     #ffffff     #484e50
-client.unfocused            #333333     #222222     #888888     #292d2e
-client.urgent               #2f343a     #900000     #ffffff     #900000
-client.placeholder          #000000     #0c0c0c     #ffffff     #000000
+# general ---------------------------------------------------------------------
+show_marks yes
+# workspace_layout tabbed
 
-# client.focused              $darkgray   $darkgray   $white  $black
-# client.unfocused            $black      $black      $white  $black
-# client.focused_inactive     $black      $pink       $white  $pink
-# client.urgent               $urgentred  $urgentred  $white  $urgentred
+# gaps ------------------------------------------------------------------------
+# for_window [class="^.*"] border pixel 1 # This disable titlebar
+gaps inner 0
+gaps outer 0
+smart_gaps on
+smart_borders on
 
-# MOD BUTTON
-set $mod Mod4
-set $mod5 Mod5
-floating_modifier $mod
+# startup ---------------------------------------------------------------------
+exec_always --no-startup-id "${HOME}/.config/wm_script/startup.sh"
 
-# CHANGE FOCUS
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+# custom mode -----------------------------------------------------------------
+# resize
+mode "resize" {
+        bindsym h resize shrink     width   4 px or 2 ppt
+        bindsym j resize grow       height  4 px or 2 ppt
+        bindsym k resize shrink     height  4 px or 2 ppt
+        bindsym l resize grow       width   4 px or 2 ppt
 
-# MOVE FOCUSED WINDOW
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
 
-# SPLIT HORIZONTAL
-bindsym $mod+b split h
-
-# SPLIT VERTICAL
-bindsym $mod+v split v
-
-# FULLSCREEN
-bindsym $mod+f fullscreen toggle
-
-# CHANGE CONTAINER LAYOUT
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# TOGGLE AND SWITCH TILLING / FLOATING
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
-
-# FOCUS PARENT / CHILD
-bindsym $mod+a focus parent
-bindsym $mod+Shift+a focus child
-
-# SWITCH TO WORKSPACE
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+Control+h workspace prev
-bindsym $mod+Control+l workspace next
-bindsym $mod+Tab workspace back_and_forth
-
-# MOVE CONTAINER TO WORKSPACE
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-
-# SWITCH TO URGENT
-bindsym $mod+u [urgent=latest] focus
-
-# TERMINAL
-bindsym $mod+Return exec st -e /bin/tmux
-
-# KILL
-bindsym $mod+Shift+c kill
-
-# RUN
-bindsym $mod+p exec rofi -show run
-bindsym $mod+Shift+p exec rofi -show
-bindsym $mod+Shift+v exec networkmanager_dmenu
-
-# RELOAD
-bindsym $mod+Shift+e reload
-
-# RESTART
-bindsym $mod+Shift+r restart
-
-# EXIT
-bindsym $mod+Shift+q exec "i3-msg exit"
-
-# KEYBIND
-bindsym --release Shift+Print exec "scrot -s ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
-bindsym --release Print exec "scrot ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
-bindsym $mod+Shift+z exec "${HOME}/.config/wm_script/lockscr.sh"
-bindsym $mod+Shift+s exec "${HOME}/.config/wm_script/use.sh"
-bindsym $mod+F10 exec "amixer sset Master 5%+"
-bindsym $mod+F9 exec  "amixer sset Master 5%-"
-bindsym $mod+F3 exec  "xbacklight -inc 10"
-bindsym $mod+F2 exec  "xbacklight -dec 10"
-
-# RULES
+# rules -----------------------------------------------------------------------
 assign [instance="(?i)web.whatsapp.com"]    $ws7
 assign [instance="(?i)cesena.slack.com__messages"]    $ws7
 
@@ -186,63 +122,110 @@ assign [class="(?i)player"]                 $ws8
 assign [class="(?i)qbittorrent"]            $ws9
 assign [class="(?i)keepassxc"]              $ws9
 
-# STARTUP
-exec_always --no-startup-id "${HOME}/.config/wm_script/startup.sh"
+# workspaces  ----------------------------------------------------------------
+set $ws1     "1: "
+set $ws2     "2: "
+set $ws3     "3: "
+set $ws4     "4: "
+set $ws5     "5: "
+set $ws6     "6: "
+set $ws7     "7: "
+set $ws8     "8: "
+set $ws9     "9: "
 
-# RESIZE MODE
-bindsym $mod+r mode "resize"
-mode "resize" {
-        bindsym h resize shrink     width   4 px or 2 ppt
-        bindsym j resize grow       height  4 px or 2 ppt
-        bindsym k resize shrink     height  4 px or 2 ppt
-        bindsym l resize grow       width   4 px or 2 ppt
+# keybind ---------------------------------------------------------------------
+# mod button
+set $mod Mod4
+floating_modifier $mod
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
-# GAPS
-# for_window [class="^.*"] border pixel 1 # This disable titlebar
-gaps inner 0
-gaps outer 0
-smart_gaps on
-smart_borders on
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
-# tosort ----------------------------------------------------------------------
-show_marks yes
+# split horizontal
+bindsym $mod+b split h
 
-workspace_layout tabbed
+# split vertical
+bindsym $mod+v split v
 
+# fullscreen
+bindsym $mod+f fullscreen toggle
 
-# bar config ------------------------------------------------------------------
-bar {
-        status_command py3status --standalone --dbus-notify -c ${HOME}/.config/i3/i3status.conf
+# change container layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
-        workspace_buttons yes
-        strip_workspace_numbers yes
-        binding_mode_indicator yes
+# toggle and switch tilling / floating
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
 
-        position top
-        tray_output primary
-        tray_padding 4 px
-        mode dock
-        height 16
+# focus parent / child
+bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
 
-        font xft:Hack 8
-        separator_symbol "|"
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+Control+h workspace prev
+bindsym $mod+Control+l workspace next
+bindsym $mod+Tab workspace back_and_forth
 
-        # Colors
-        colors {
-        background  #202020
-        statusline  #aaaaaa
-        separator   #000000
+# move container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
 
-        # class             #border     #background #text
-        focused_workspace   #4c7899     #285577     #ffffff
-        active_workspace    #333333     #5f676a     #ffffff
-        inactive_workspace  #333333     #222222     #888888
-        urgent_workspace    #2f343a     #900000     #ffffff
-        binding_mode        #2f343a     #900000     #ffffff
-        }
-}
+# switch to urgent
+bindsym $mod+u [urgent=latest] focus
+
+# terminal
+bindsym $mod+Return exec st -e /bin/tmux
+
+# kill
+bindsym $mod+Shift+c kill
+
+# run
+bindsym $mod+p exec rofi -show run
+bindsym $mod+Shift+p exec rofi -show
+bindsym $mod+Shift+v exec networkmanager_dmenu
+
+# reload
+bindsym $mod+Shift+e reload
+
+# restart
+bindsym $mod+Shift+r restart
+
+# exit
+bindsym $mod+Shift+q exec "i3-msg exit"
+
+# personal
+bindsym --release Shift+Print exec "scrot -s ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
+bindsym --release Print exec "scrot ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
+bindsym $mod+Shift+z exec "${HOME}/.config/wm_script/lockscr.sh"
+bindsym $mod+Shift+s exec "${HOME}/.config/wm_script/use.sh"
+bindsym $mod+F10 exec "amixer sset Master 5%+"
+bindsym $mod+F9 exec  "amixer sset Master 5%-"
+bindsym $mod+F3 exec  "xbacklight -inc 10"
+bindsym $mod+F2 exec  "xbacklight -dec 10"
