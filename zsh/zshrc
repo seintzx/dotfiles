@@ -182,9 +182,8 @@ alias gc='git commit -m'
 alias gce='git commit -a --allow-empty-message -m ""'
 alias gp='git push'
 alias gpm='git push -u origin master'
-alias gl='git pull'
-alias glr='git pull --rebase'
-alias gt='git status'
+alias gl='git pull --rebase'
+alias gt='git status -s'
 
 # others aliases
 alias vbox='sudo VirtualBox'
