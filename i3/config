@@ -1,6 +1,23 @@
 # i3-gaps-git config file
 # py3status for bar with some custom scripts
 
+# variables -------------------------------------------------------------------
+set $font xft:Hack 8
+
+# mod button
+set $mod Mod4
+
+# 
+set $ws1    "1: "
+set $ws2    "2: "
+set $ws3    "3: "
+set $ws4    "4: "
+set $ws5    "5: "
+set $ws6    "6: "
+set $ws7    "7: "
+set $ws8    "8: "
+set $ws9    "9: "
+
 # bar config ------------------------------------------------------------------
 bar {
         status_command py3status --standalone --dbus-notify -c ${HOME}/.config/i3/i3status.conf
@@ -15,21 +32,21 @@ bar {
         mode dock
         height 16
 
-        font xft:Hack 8
+        font $font
         separator_symbol "|"
 
         # Colors
-      colors {
-        background  #202020
-        statusline  #aaaaaa
-        separator   #000000
+        colors {
+            background  #202020
+            statusline  #aaaaaa
+            separator   #000000
 
-        focused_workspace  #6839a5 #462770 #ffffff
-        active_workspace   #333333 #222222 #ffffff
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   #2f343a #900000 #ffffff
-        binding_mode       #2f343a #900000 #ffffff
-      }
+            focused_workspace  #6839a5 #462770 #ffffff
+            active_workspace   #333333 #222222 #ffffff
+            inactive_workspace #333333 #222222 #888888
+            urgent_workspace   #2f343a #900000 #ffffff
+            binding_mode       #2f343a #900000 #ffffff
+        }
 }
 
 # client color ----------------------------------------------------------------
@@ -42,11 +59,10 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 # font ------------------------------------------------------------------------
-font xft:Hack 8
+font $font
 
 # general ---------------------------------------------------------------------
 show_marks yes
-# workspace_layout tabbed
 
 # gaps ------------------------------------------------------------------------
 # for_window [class="^.*"] border pixel 1 # This disable titlebar
@@ -57,6 +73,49 @@ smart_borders on
 
 # startup ---------------------------------------------------------------------
 exec_always --no-startup-id "${HOME}/.config/wm_script/startup.sh"
+
+# rules -----------------------------------------------------------------------
+assign [instance="(?i)web.whatsapp.com"]            $ws7
+assign [instance="(?i)cesena.slack.com__messages"]  $ws7
+
+assign [instance="(?i)mail.google.com__mail"]       $ws8
+assign [instance="(?i)calendar.google.com"]         $ws8
+assign [instance="(?i)trello.com"]                  $ws8
+# 
+assign [class="(?i)tor browser"]            $ws1
+assign [class="(?i)chromium"]               $ws1
+assign [class="(?i)firefox"]                $ws1
+# 
+assign [class="(?i)calibre"]                $ws4
+assign [class="(?i)Nemo"]                   $ws4
+# 
+assign [class="(?i)com-yworks-A-yEd"]       $ws5
+assign [class="(?i)jetbrains-idea"]         $ws5
+assign [class="(?i)libreoffice"]            $ws5
+assign [class="(?i)TeXstudio"]              $ws5
+assign [class="(?i)zathura"]                $ws5
+assign [class="(?i)eclipse"]                $ws5
+assign [class="(?i)db_main"]                $ws5
+assign [class="(?i)subl"]                   $ws5
+# 
+assign [class="(?i)Spotify"]                $ws6
+assign [class="(?i)steam"]                  $ws6
+assign [class="(?i)Gimp"]                   $ws6
+assign [class="(?i)zoom"]                   $ws6
+assign [class="(?i)Vlc"]                    $ws6
+# 
+assign [class="(?i)telegram"]               $ws7
+assign [class="(?i)signal"]                 $ws7
+assign [class="(?i)slack"]                  $ws7
+# 
+assign [class="(?i)VirtualBox Machine"]     $ws8
+assign [class="(?i)VirtualBox Manager"]     $ws8
+assign [class="(?i)Thunderbird"]            $ws8
+assign [class="(?i)genymotion"]             $ws8
+assign [class="(?i)player"]                 $ws8
+# 
+assign [class="(?i)qbittorrent"]            $ws9
+assign [class="(?i)keepassxc"]              $ws9
 
 # custom mode -----------------------------------------------------------------
 # resize
@@ -72,71 +131,36 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# rules -----------------------------------------------------------------------
-assign [instance="(?i)web.whatsapp.com"]    $ws7
-assign [instance="(?i)cesena.slack.com__messages"]    $ws7
-
-assign [instance="(?i)mail.google.com__mail"]    $ws8
-assign [instance="(?i)calendar.google.com"]    $ws8
-assign [instance="(?i)trello.com"]    $ws8
-
-# 
-assign [class="(?i)tor browser"]            $ws1
-assign [class="(?i)chromium"]               $ws1
-assign [class="(?i)firefox"]                $ws1
-
-# 
-assign [class="(?i)calibre"]                $ws4
-assign [class="(?i)Nemo"]                   $ws4
-
-# 
-assign [class="(?i)com-yworks-A-yEd"]       $ws5
-assign [class="(?i)jetbrains-idea"]         $ws5
-assign [class="(?i)libreoffice"]            $ws5
-assign [class="(?i)TeXstudio"]              $ws5
-assign [class="(?i)zathura"]                $ws5
-assign [class="(?i)eclipse"]                $ws5
-assign [class="(?i)db_main"]                $ws5
-assign [class="(?i)subl"]                   $ws5
-
-# 
-assign [class="(?i)Spotify"]                $ws6
-assign [class="(?i)steam"]                  $ws6
-assign [class="(?i)Gimp"]                   $ws6
-assign [class="(?i)zoom"]                   $ws6
-assign [class="(?i)Vlc"]                    $ws6
-
-# 
-assign [class="(?i)telegram"]               $ws7
-assign [class="(?i)signal"]                 $ws7
-assign [class="(?i)slack"]                  $ws7
-
-# 
-assign [class="(?i)VirtualBox Machine"]     $ws8
-assign [class="(?i)VirtualBox Manager"]     $ws8
-assign [class="(?i)Thunderbird"]            $ws8
-assign [class="(?i)genymotion"]             $ws8
-assign [class="(?i)player"]                 $ws8
-
-# 
-assign [class="(?i)qbittorrent"]            $ws9
-assign [class="(?i)keepassxc"]              $ws9
-
-# workspaces  ----------------------------------------------------------------
-set $ws1     "1: "
-set $ws2     "2: "
-set $ws3     "3: "
-set $ws4     "4: "
-set $ws5     "5: "
-set $ws6     "6: "
-set $ws7     "7: "
-set $ws8     "8: "
-set $ws9     "9: "
-
 # keybind ---------------------------------------------------------------------
-# mod button
-set $mod Mod4
+
+# fullscreen
+bindsym $mod+f fullscreen toggle
+
+# switch to urgent
+bindsym $mod+u [urgent=latest] focus
+
+# kill
+bindsym $mod+Shift+c kill
+
+# change container layout
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle and switch tilling / floating
 floating_modifier $mod
+bindsym $mod+space floating toggle
+bindsym $mod+Shift+space focus mode_toggle
+
+# run
+bindsym $mod+Shift+v exec networkmanager_dmenu
+bindsym $mod+Return exec st -e /bin/tmux
+bindsym $mod+Shift+p exec rofi -show
+bindsym $mod+p exec rofi -show run
+
+# exit restart reload
+bindsym $mod+Shift+q exec "i3-msg exit"
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e reload
 
 # change focus
 bindsym $mod+h focus left
@@ -150,28 +174,6 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# split horizontal
-bindsym $mod+b split h
-
-# split vertical
-bindsym $mod+v split v
-
-# fullscreen
-bindsym $mod+f fullscreen toggle
-
-# change container layout
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle and switch tilling / floating
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
-
-# focus parent / child
-bindsym $mod+a focus parent
-bindsym $mod+Shift+a focus child
-
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -179,8 +181,8 @@ bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
+bindsym $mod+7 workspace $ws7; layout tabbed
+bindsym $mod+8 workspace $ws8; layout tabbed
 bindsym $mod+9 workspace $ws9
 bindsym $mod+Control+h workspace prev
 bindsym $mod+Control+l workspace next
@@ -196,29 +198,6 @@ bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
-
-# switch to urgent
-bindsym $mod+u [urgent=latest] focus
-
-# terminal
-bindsym $mod+Return exec st -e /bin/tmux
-
-# kill
-bindsym $mod+Shift+c kill
-
-# run
-bindsym $mod+p exec rofi -show run
-bindsym $mod+Shift+p exec rofi -show
-bindsym $mod+Shift+v exec networkmanager_dmenu
-
-# reload
-bindsym $mod+Shift+e reload
-
-# restart
-bindsym $mod+Shift+r restart
-
-# exit
-bindsym $mod+Shift+q exec "i3-msg exit"
 
 # personal
 bindsym --release Shift+Print exec "scrot -s ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
