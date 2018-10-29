@@ -100,6 +100,7 @@ assign [class="(?i)subl"]                   $ws5
 # 
 assign [class="(?i)Spotify"]                $ws6
 assign [class="(?i)steam"]                  $ws6
+assign [class="(?i)skype"]                  $ws6
 assign [class="(?i)Gimp"]                   $ws6
 assign [class="(?i)zoom"]                   $ws6
 assign [class="(?i)Vlc"]                    $ws6
