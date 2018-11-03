@@ -301,6 +301,8 @@ awful.rules.rules = {
                 properties = { screen = 1, tag = tag_name[8], maximized_vertical = true, maximized_horizontal = true} },
     { rule = { instance = "trello.com"},
                 properties = { screen = 1, tag = tag_name[8], maximized_vertical = true, maximized_horizontal = true} },
+    { rule = { instance = "app.tutanota.com"},
+                properties = { screen = 1, tag = tag_name[8], maximized_vertical = true, maximized_horizontal = true} },
     -- 
     { rule = { class = "VirtualBox Manager" },              properties = { scrren = 1, tag = tag_name[9] } },
     { rule = { class = "VirtualBox Machine" },              properties = { scrren = 1, tag = tag_name[9] } },
