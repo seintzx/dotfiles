@@ -107,6 +107,7 @@ assign [class="(?i)zoom"]                   $ws6
 assign [class="(?i)Vlc"]                    $ws6
 # 
 assign [class="(?i)telegram"]               $ws7
+assign [class="(?i)discord"]                $ws7
 assign [class="(?i)signal"]                 $ws7
 assign [class="(?i)slack"]                  $ws7
 # 
