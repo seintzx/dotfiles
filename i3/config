@@ -205,7 +205,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym --release Shift+Print exec "scrot -s ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
 bindsym --release Print exec "scrot ${HOME}/Pictures/screenshot/scr-$(date +%Y_%m_%d)-%s.png"
 bindsym $mod+Shift+z exec "${HOME}/.config/wm_script/lockscr.sh"
-bindsym $mod+Shift+s exec "${HOME}/.config/wm_script/use.sh"
+bindsym $mod+Shift+s exec "${HOME}/.config/wm_script/common.sh"
 bindsym $mod+F10 exec "amixer sset Master 5%+"
 bindsym $mod+F9 exec  "amixer sset Master 5%-"
 bindsym $mod+F3 exec  "xbacklight -inc 10"
