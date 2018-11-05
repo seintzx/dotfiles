@@ -42,7 +42,7 @@
             "swallows": [
                {
                "class": "^Chromium$",
-               "instance": "^app\\.tutanota\\.com$"
+               "instance": "^mail\\.tutanota\\.com$"
                }
             ],
             "type": "con"
