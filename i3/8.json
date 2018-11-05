@@ -1,0 +1,92 @@
+// vim:ts=4:sw=4:et
+{
+    // tabbed split container with 4 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "percent": null,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 734,
+               "width": 1366,
+               "x": 0,
+               "y": 34
+            },
+            "name": "Trello",
+            "percent": 0.25,
+            "swallows": [
+               {
+               "class": "^Chromium$",
+               "instance": "^trello\\.com$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 734,
+               "width": 1366,
+               "x": 0,
+               "y": 34
+            },
+            "name": "Tutanota",
+            "percent": 0.25,
+            "swallows": [
+               {
+               "class": "^Chromium$",
+               "instance": "^app\\.tutanota\\.com$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 734,
+               "width": 1366,
+               "x": 0,
+               "y": 34
+            },
+            "name": "Gmail",
+            "percent": 0.25,
+            "swallows": [
+               {
+               "class": "^Chromium$",
+               "instance": "^mail\\.google\\.com__mail$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 734,
+               "width": 1366,
+               "x": 0,
+               "y": 34
+            },
+            "name": "Calendar",
+            "percent": 0.25,
+            "swallows": [
+               {
+               "class": "^Chromium$",
+               "instance": "^calendar\\.google\\.com$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
