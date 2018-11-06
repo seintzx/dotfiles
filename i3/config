@@ -61,9 +61,6 @@ client.background       #ffffff
 # font ------------------------------------------------------------------------
 font $font
 
-# general ---------------------------------------------------------------------
-show_marks yes
-
 # gaps ------------------------------------------------------------------------
 # for_window [class="^.*"] border pixel 1 # This disable titlebar
 gaps inner 0
