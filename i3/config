@@ -96,6 +96,7 @@ assign [class="(?i)eclipse"]                $ws5
 assign [class="(?i)db_main"]                $ws5
 assign [class="(?i)subl"]                   $ws5
 # 
+assign [class="(?i)discord"]                $ws6
 assign [class="(?i)Spotify"]                $ws6
 assign [class="(?i)steam"]                  $ws6
 assign [class="(?i)skype"]                  $ws6
@@ -104,7 +105,6 @@ assign [class="(?i)zoom"]                   $ws6
 assign [class="(?i)Vlc"]                    $ws6
 # 
 assign [class="(?i)telegram"]               $ws7
-assign [class="(?i)discord"]                $ws7
 assign [class="(?i)signal"]                 $ws7
 assign [class="(?i)slack"]                  $ws7
 # 
