@@ -7,31 +7,37 @@ compinit
 zmodload -i zsh/complist
 
 # EXPORT ======================================================================
-export DEFAULT_USER="seintz"
-export EDITOR="nvim"
-export LANG=en_US.UTF-8
 # export PATH=${PATH}:/home/seintz/.gem/ruby/2.5.0/bin:/usr/bin/greenclip
-# export TERM="st-256color"
-export VISUAL="nvim"
 export XDG_CONFIG_HOME="${HOME}/.config"
+export DEFAULT_USER="seintz"
+# export TERM="st-256color"
+export LANG=en_US.UTF-8
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # THEME =======================================================================
 # source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir virtualenv vcs)
-POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_DISABLE_RPROMPT=true
+
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='\uf460'
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
+
+POWERLEVEL9K_STATUS_VERBOSE=false
+
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 
 # VCS INFO ====================================================================
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn hg
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' formats "%{$fg[cyan]%}%b%{$reset_color%} %{$fg[yellow]%}%c%{$fg[green]%}%u%{$reset_color%}"
-precmd() {
-    vcs_info
-}
+# autoload -Uz vcs_info
+# zstyle ':vcs_info:*' enable git svn hg
+# zstyle ':vcs_info:*' check-for-changes true
+# zstyle ':vcs_info:*' formats "%{$fg[cyan]%}%b%{$reset_color%} %{$fg[yellow]%}%c%{$fg[green]%}%u%{$reset_color%}"
+# precmd() {
+#     vcs_info
+# }
 
 # KEYBINDINGS =================================================================
 autoload -U history-search-end
