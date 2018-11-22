@@ -72,49 +72,49 @@ smart_borders on
 exec_always --no-startup-id "${HOME}/.config/wm_script/startup.sh"
 
 # rules -----------------------------------------------------------------------
-assign [instance="(?i)web.whatsapp.com"]            $ws7
-assign [instance="(?i)cesena.slack.com__unreads"]   $ws7
 
+# 
+assign [class="(?i)VirtualBox Machine"]             $ws9
+assign [class="(?i)VirtualBox Manager"]             $ws9
+assign [class="(?i)qbittorrent"]                    $ws9
+assign [class="(?i)genymotion"]                     $ws9
+assign [class="(?i)player"]                         $ws9
+# 
 assign [instance="(?i)mail.google.com__mail"]       $ws8
 assign [instance="(?i)calendar.google.com"]         $ws8
-assign [instance="(?i)trello.com"]                  $ws8
 assign [instance="(?i)mail.tutanota.com"]           $ws8
-# 
-assign [class="(?i)tor browser"]            $ws1
-assign [class="(?i)chromium"]               $ws1
-assign [class="(?i)firefox"]                $ws1
-# 
-assign [class="(?i)calibre"]                $ws4
-assign [class="(?i)Nemo"]                   $ws4
-# 
-assign [class="(?i)com-yworks-A-yEd"]       $ws5
-assign [class="(?i)jetbrains-idea"]         $ws5
-assign [class="(?i)libreoffice"]            $ws5
-assign [class="(?i)TeXstudio"]              $ws5
-assign [class="(?i)zathura"]                $ws5
-assign [class="(?i)eclipse"]                $ws5
-assign [class="(?i)db_main"]                $ws5
-assign [class="(?i)subl"]                   $ws5
-# 
-assign [class="(?i)discord"]                $ws6
-assign [class="(?i)Spotify"]                $ws6
-assign [class="(?i)steam"]                  $ws6
-assign [class="(?i)skype"]                  $ws6
-assign [class="(?i)Gimp"]                   $ws6
-assign [class="(?i)zoom"]                   $ws6
-assign [class="(?i)Vlc"]                    $ws6
+assign [instance="(?i)trello.com"]                  $ws8
+assign [class="(?i)Thunderbird"]                    $ws8
 # 
-assign [class="(?i)telegram"]               $ws7
-assign [class="(?i)signal"]                 $ws7
-assign [class="(?i)slack"]                  $ws7
-# 
-assign [class="(?i)Thunderbird"]            $ws8
-# 
-assign [class="(?i)VirtualBox Machine"]     $ws9
-assign [class="(?i)VirtualBox Manager"]     $ws9
-assign [class="(?i)qbittorrent"]            $ws9
-assign [class="(?i)genymotion"]             $ws9
-assign [class="(?i)player"]                 $ws9
+assign [instance="(?i)cesena.slack.com__unreads"]   $ws7
+assign [instance="(?i)web.whatsapp.com"]            $ws7
+assign [class="(?i)telegram"]                       $ws7
+assign [class="(?i)signal"]                         $ws7
+assign [class="(?i)slack"]                          $ws7
+# 
+assign [class="(?i)discord"]                        $ws6
+assign [class="(?i)Spotify"]                        $ws6
+assign [class="(?i)steam"]                          $ws6
+assign [class="(?i)skype"]                          $ws6
+assign [class="(?i)Gimp"]                           $ws6
+assign [class="(?i)zoom"]                           $ws6
+assign [class="(?i)Vlc"]                            $ws6
+# 
+assign [class="(?i)com-yworks-A-yEd"]               $ws5
+assign [class="(?i)jetbrains-idea"]                 $ws5
+assign [class="(?i)libreoffice"]                    $ws5
+assign [class="(?i)TeXstudio"]                      $ws5
+assign [class="(?i)zathura"]                        $ws5
+assign [class="(?i)eclipse"]                        $ws5
+assign [class="(?i)db_main"]                        $ws5
+assign [class="(?i)subl"]                           $ws5
+# 
+assign [class="(?i)calibre"]                        $ws4
+assign [class="(?i)Nemo"]                           $ws4
+# 
+assign [class="(?i)tor browser"]                    $ws1
+assign [class="(?i)chromium"]                       $ws1
+assign [class="(?i)firefox"]                        $ws1
 
 # custom mode -----------------------------------------------------------------
 # resize

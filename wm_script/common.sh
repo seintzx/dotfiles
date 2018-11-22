@@ -7,22 +7,22 @@ TUTA="${HOME}/.config/wm_script/chips/mail/tuta.sh"
 GMAIL="${HOME}/.config/wm_script/chips/mail/gmail.sh"
 GCAL="${HOME}/.config/wm_script/chips/mail/gcal.sh"
 
-W2="2:"
-W7="7:"
-W8="8:"
+# W2="2:"
+# W7="7:"
+# W8="8:"
 
-i3-msg "workspace ${W7}; append_layout ${HOME}/.config/i3/7.json"
-i3-msg "workspace ${W8}; append_layout ${HOME}/.config/i3/8.json"
-i3-msg "workspace ${W2};"
+# i3-msg "workspace ${W7}; append_layout ${HOME}/.config/i3/7.json"
+# i3-msg "workspace ${W8}; append_layout ${HOME}/.config/i3/8.json"
+# i3-msg "workspace ${W2};"
 
 firefox &
 
 telegram-desktop &
 signal-desktop &
-. ${WATTA}
-. ${SLACK}
+# . ${WATTA}
+# . ${SLACK}
 
 . ${TRELLO}
 . ${TUTA}
-. ${GMAIL}
-. ${GCAL}
+# . ${GMAIL}
+# . ${GCAL}
