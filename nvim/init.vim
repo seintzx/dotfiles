@@ -1,8 +1,8 @@
 " general ---------------------------------------------------------------------
 syntax on
 syntax enable
-colorscheme nightshade
-set t_Co=256
+" colorscheme nightshade
+colorscheme gruvbox
 set background=dark
 set shell=zsh
 set ttimeoutlen=50
@@ -65,12 +65,13 @@ set wildmenu
 set noshowmode
 
 " tabline ---------------------------------------------------------------------
-:hi TabLineFill ctermfg=Black       ctermbg=Grey
-:hi TabLineSel  ctermfg=DarkGreen   ctermbg=Black
-:hi TabLine     ctermfg=Blue        ctermbg=Black
+" :hi TabLineFill ctermfg=Black       ctermbg=Grey
+" :hi TabLineSel  ctermfg=DarkGreen   ctermbg=Black
+" :hi TabLine     ctermfg=Blue        ctermbg=Black
 
 " airline ---------------------------------------------------------------------
-let g:airline_theme                         = 'murmur'
+" let g:airline_theme                         = 'murmur'
+let g:airline_theme                         = 'gruvbox'
 let g:airline_powerline_fonts               = 1
 let g:airine#extensions#tabline#enable      = 1
 let g:airline_skip_empty_sections           = 0
@@ -85,6 +86,7 @@ let g:airline_section_z = 'L %l : C %c'       " Number of line and column
 
 " vim-plug --------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'morhetz/gruvbox'                          " Colorscheme
 Plug 'tpope/vim-markdown'                       " Markdown support
 Plug 'vim-airline/vim-airline'                  " Airline
 Plug 'vim-airline/vim-airline-themes'           " Airline themes
@@ -92,7 +94,6 @@ Plug 'raimondi/delimitmate'                     " Autocomplete parenthesis
 Plug 'tpope/vim-commentary'                     " Easily comment toggling
 Plug 'majutsushi/tagbar'                        " Show tab options
 Plug 'tpope/vim-fugitive'                       " git wrapper
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " auto-complete
 call plug#end()
 
 " markdown --------------------------------------------------------------------
@@ -102,8 +103,3 @@ let g:instant_markdown_autostart = 0
 let g:vim_markdown_folding_disabled = 1
 let g:markdown_fenced_languages = ['python', 'bash=sh']
 let g:markdown_syntax_conceal = 0
-
-" deoplete --------------------------------------------------------------------
-let g:python3_host_prog = '/usr/bin/python3'
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_ignore_case = 'ignorecase'
