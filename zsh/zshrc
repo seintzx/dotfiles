@@ -159,8 +159,9 @@ source ${HOME}/.zsecret
 
 # terminal aliases
 alias -g g='| grep -i --color=auto'
-alias la='ls -lha --color=auto'
+alias grep='grep --color=auto'
 alias ll='ls -lh --color=auto'
+alias la='ls -lhA --color=auto'
 alias cp='cp -ri'
 alias del='shred -uvz'
 alias md='mkdir -p'
