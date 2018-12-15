@@ -191,7 +191,7 @@ alias gc='git commit -m'
 alias gce='git commit -a --allow-empty-message -m ""'
 alias gp='git push'
 alias gpm='git push -u origin master'
-alias gl='git pull --rebase'
+alias gl='git pull'
 alias gt='git status -s'
 
 # others aliases
