@@ -7,6 +7,11 @@ TUTA="${HOME}/.config/wm_script/chips/mail/tuta.sh"
 GMAIL="${HOME}/.config/wm_script/chips/mail/gmail.sh"
 GCAL="${HOME}/.config/wm_script/chips/mail/gcal.sh"
 
+# $(cat ${HOME}/.config/i3/config | \
+#   grep "set \$ws${NUM}" | \
+#   awk '{printf $3}' | \
+#   sed 's/"//g")
+
 # W2="2:"
 # W7="7:"
 # W8="8:"
