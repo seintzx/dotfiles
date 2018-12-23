@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # NOTE: The resize is done to speed up the process
 
 IMAGE=${HOME}/Pictures/wall/lockscreen.png

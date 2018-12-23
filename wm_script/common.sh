@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 
-WATTA="${HOME}/.config/wm_script/chips/chat/whatsapp.sh"
-SLACK="${HOME}/.config/wm_script/chips/chat/slack.sh"
-TRELLO="${HOME}/.config/wm_script/chips/prod/trello.sh"
-TUTA="${HOME}/.config/wm_script/chips/mail/tuta.sh"
-# GMAIL="${HOME}/.config/wm_script/chips/mail/gmail.sh"
-# GCAL="${HOME}/.config/wm_script/chips/mail/gcal.sh"
+WATTA="${HOME}/.config/wm_script/chips/whatsapp.sh"
+SLACK="${HOME}/.config/wm_script/chips/slack.sh"
+TRELLO="${HOME}/.config/wm_script/chips/trello.sh"
+TUTA="${HOME}/.config/wm_script/chips/tuta.sh"
 
 W2=$(cat ${HOME}/.config/i3/config | \
      grep "set \$ws2" | \
@@ -22,10 +20,6 @@ W8=$(cat ${HOME}/.config/i3/config | \
      awk '{printf $3}' | \
      sed 's/"//g')
 
-# W2="2:"
-# W7="7:"
-# W8="8:"
-
 i3-msg "workspace ${W7}; append_layout ${HOME}/.config/i3/7.json"
 i3-msg "workspace ${W8}; append_layout ${HOME}/.config/i3/8.json"
 i3-msg "workspace ${W2};"
@@ -33,11 +27,8 @@ i3-msg "workspace ${W2};"
 firefox &
 
 telegram-desktop &
-signal-desktop &
 . ${SLACK}
 . ${WATTA}
 
 . ${TRELLO}
 . ${TUTA}
-# . ${GMAIL}
-# . ${GCAL}
