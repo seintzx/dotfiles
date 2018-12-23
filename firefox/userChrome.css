@@ -1,0 +1,25 @@
+@import "global/variables.css";
+@import "global/global.css";
+@import "tabbar/tabbar.css";
+@import "navbar/navbar.css";
+@import "personalbar/personalbar.css";
+/* https://github.com/muckSponge/MaterialFox */
+
+.bookmark-item > .toolbarbutton-text {
+  margin-top: -1px !important;
+}
+.bookmark-item {
+  margin: 1px !important;
+  margin-left: 2px !important;
+  margin-right: 2px !important;
+}
+
+.bookmark-item:not([container]):not([open="true"]) > .toolbarbutton-text {
+  display: none !important;
+}
+
+#PlacesToolbarItems
+  > .bookmark-item:not([container]):not([open="true"])
+  > .toolbarbutton-icon[label]:not([label=""]) {
+  margin-inline-end: 0px !important;
+}
