@@ -18,3 +18,4 @@ rofi.disable-history:   false
 rofi.modi:              clipboard:greenclip print, calc:qalc +u8 -nocurrencies
 rofi.kb-mode-next:      Shift+Right
 rofi.kb-mode-previous:  Shift+Left
+rofi.dpi:               192

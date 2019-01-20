@@ -2,7 +2,7 @@
 # py3status for bar with some custom scripts
 
 # variables -------------------------------------------------------------------
-set $font xft:Hack 8
+set $font xft:Hack 9
 
 # mod button
 set $mod Mod4
@@ -30,7 +30,7 @@ bar {
         tray_output primary
         tray_padding 4 px
         mode dock
-        height 16
+        height 32
 
         font $font
         separator_symbol "|"
