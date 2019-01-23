@@ -111,6 +111,7 @@ assign [class="(?i)evince"]                         $ws5
 assign [class="(?i)subl"]                           $ws5
 # 
 assign [class="(?i)calibre"]                        $ws4
+assign [class="(?i)Thunar"]                         $ws4
 assign [class="(?i)Nemo"]                           $ws4
 # 
 assign [class="(?i)tor browser"]                    $ws1
