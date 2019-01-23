@@ -107,6 +107,7 @@ assign [class="(?i)TeXstudio"]                      $ws5
 assign [class="(?i)zathura"]                        $ws5
 assign [class="(?i)eclipse"]                        $ws5
 assign [class="(?i)db_main"]                        $ws5
+assign [class="(?i)evince"]                         $ws5
 assign [class="(?i)subl"]                           $ws5
 # 
 assign [class="(?i)calibre"]                        $ws4
