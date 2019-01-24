@@ -1,0 +1,9 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/nvme0n1p2
+UUID=ea509738-64a2-46c6-b8c4-e710d192f0f7	/         	ext4      	rw,relatime	0 1
+
+# /dev/nvme0n1p4
+UUID=A059-AC55      	/esp      	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
