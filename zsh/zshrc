@@ -158,7 +158,7 @@ fi
 eval "$(fasd --init auto)"
 
 # ALIASES =====================================================================
-#source ${HOME}/.zsecret
+source ${HOME}/.zsecret
 
 # terminal aliases
 alias -g g='| grep -i --color=auto'
