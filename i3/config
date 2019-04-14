@@ -93,6 +93,7 @@ assign [class="(?i)signal"]                         $ws7
 assign [class="(?i)slack"]                          $ws7
 # 
 assign [class="(?i)discord"]                        $ws6
+assign [class="(?i)wine"]                           $ws6
 assign [class="(?i)Spotify"]                        $ws6
 assign [class="(?i)steam"]                          $ws6
 assign [class="(?i)skype"]                          $ws6
