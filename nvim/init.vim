@@ -1,3 +1,27 @@
+" vim-plug --------------------------------------------------------------------
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'morhetz/gruvbox'                          " Colorscheme
+Plug 'tpope/vim-markdown'                       " Markdown support
+Plug 'vim-airline/vim-airline'                  " Airline
+Plug 'vim-airline/vim-airline-themes'           " Airline themes
+Plug 'raimondi/delimitmate'                     " Autocomplete parenthesis
+Plug 'tpope/vim-commentary'                     " Easily comment toggling
+Plug 'majutsushi/tagbar'                        " Show tab options
+Plug 'tpope/vim-fugitive'                       " git wrapper
+
+" php
+Plug 'alvan/vim-php-manual'
+Plug 'w0rp/ale'
+Plug 'embear/vim-localvimrc'
+Plug 'majutsushi/tagbar'
+" deoplete
+
+" editor
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'majutsushi/tagbar'
+call plug#end()
+
 " general ---------------------------------------------------------------------
 syntax on
 syntax enable
@@ -83,18 +107,6 @@ let g:airline#extensions#ymc#warning_symbol = 'W:'
 
 " airline statusbar -----------------------------------------------------------
 let g:airline_section_z = 'L %l : C %c'       " Number of line and column
-
-" vim-plug --------------------------------------------------------------------
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'morhetz/gruvbox'                          " Colorscheme
-Plug 'tpope/vim-markdown'                       " Markdown support
-Plug 'vim-airline/vim-airline'                  " Airline
-Plug 'vim-airline/vim-airline-themes'           " Airline themes
-Plug 'raimondi/delimitmate'                     " Autocomplete parenthesis
-Plug 'tpope/vim-commentary'                     " Easily comment toggling
-Plug 'majutsushi/tagbar'                        " Show tab options
-Plug 'tpope/vim-fugitive'                       " git wrapper
-call plug#end()
 
 " markdown --------------------------------------------------------------------
 filetype plugin on
