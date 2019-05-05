@@ -1,4 +1,5 @@
 " vim-plug --------------------------------------------------------------------
+let g:ale_completion_enabled = 1
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'morhetz/gruvbox'                          " Colorscheme
 Plug 'tpope/vim-markdown'                       " Markdown support
@@ -8,18 +9,12 @@ Plug 'raimondi/delimitmate'                     " Autocomplete parenthesis
 Plug 'tpope/vim-commentary'                     " Easily comment toggling
 Plug 'majutsushi/tagbar'                        " Show tab options
 Plug 'tpope/vim-fugitive'                       " git wrapper
+Plug 'scrooloose/nerdtree'
 
 " php
 Plug 'alvan/vim-php-manual'
 Plug 'w0rp/ale'
 Plug 'embear/vim-localvimrc'
-Plug 'majutsushi/tagbar'
-" deoplete
-
-" editor
-Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'majutsushi/tagbar'
 call plug#end()
 
 " general ---------------------------------------------------------------------
