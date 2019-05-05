@@ -163,7 +163,7 @@ source ${HOME}/.zsecret
 # terminal aliases
 alias -g g='| grep -i --color=auto'
 alias grep='grep --color=auto'
-alias ll='ls -lh --color=auto'
+alias l='ls -lh --color=auto'
 alias la='ls -lhA --color=auto'
 alias cp='cp -ri'
 alias del='shred -uvz'
@@ -196,6 +196,7 @@ alias gp='git push'
 alias gpm='git push -u origin master'
 alias gl='git pull'
 alias gt='git status -s'
+alias gd='git diff'
 
 # others aliases
 alias vbox='sudo VirtualBox'
