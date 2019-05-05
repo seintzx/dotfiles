@@ -4,6 +4,8 @@ WATTA="${HOME}/.config/wm_script/chips/whatsapp.sh"
 SLACK="${HOME}/.config/wm_script/chips/slack.sh"
 TRELLO="${HOME}/.config/wm_script/chips/trello.sh"
 TUTA="${HOME}/.config/wm_script/chips/tuta.sh"
+DISROOT="${HOME}/.config/wm_script/chips/disroot.sh"
+TASK="${HOME}/.config/wm_script/chips/task.sh"
 
 W2=$(cat ${HOME}/.config/i3/config | \
      grep "set \$ws2" | \
@@ -30,5 +32,7 @@ telegram-desktop &
 . ${SLACK}
 . ${WATTA}
 
-. ${TRELLO}
-. ${TUTA}
+# . ${TRELLO}
+# . ${TUTA}
+. ${DISROOT}
+. ${TASK}
