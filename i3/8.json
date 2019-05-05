@@ -17,12 +17,12 @@
                "x": 0,
                "y": 34
             },
-            "name": "Trello",
+            "name": "Tasks",
             "percent": 0.25,
             "swallows": [
                {
                "class": "^Chromium$",
-               "instance": "^trello\\.com$"
+               "instance": "^cloud\\.disroot\\.org__apps_tasks$"
                }
             ],
             "type": "con"
@@ -37,12 +37,12 @@
                "x": 0,
                "y": 34
             },
-            "name": "Tutanota",
+            "name": "Disroot",
             "percent": 0.25,
             "swallows": [
                {
                "class": "^Chromium$",
-               "instance": "^mail\\.tutanota\\.com$"
+               "instance": "^mail\\.disroot\\.org$"
                }
             ],
             "type": "con"
