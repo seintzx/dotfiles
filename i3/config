@@ -2,10 +2,13 @@
 # py3status for bar with some custom scripts
 
 # variables -------------------------------------------------------------------
-set $font xft:Hack 9
+set $font xft:Hack, FontAwesome 9
 
 # mod button
 set $mod Mod4
+# set $out1 DP-1
+# set $out2 DP-2
+# workspace_layout tabbed
 
 # 
 set $ws1    "1:"
@@ -18,9 +21,19 @@ set $ws7    "7:"
 set $ws8    "8:"
 set $ws9    "9:"
 
+# workspace $ws1 output $out1
+# workspace $ws2 output $out1
+# workspace $ws3 output $out1
+# workspace $ws4 output $out1
+# workspace $ws5 output $out2
+# workspace $ws6 output $out2
+# workspace $ws7 output $out2
+# workspace $ws8 output $out2
+# workspace $ws9 output $out2
+
 # bar config ------------------------------------------------------------------
 bar {
-        status_command py3status --standalone --dbus-notify -c ${HOME}/.config/i3/i3status.conf
+        status_command py3status --standalone --dbus-notify -c ${HOME}/.config/i3/py3.conf
 
         workspace_buttons yes
         strip_workspace_numbers yes

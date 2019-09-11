@@ -14,8 +14,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 # THEME =======================================================================
-# source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir virtualenv vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir rvm virtualenv vcs)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_DISABLE_RPROMPT=true
 
@@ -24,7 +23,8 @@ POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='069'
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='069'
 POWERLEVEL9K_DIR_ETC_BACKGROUND='069'
 
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='\uf460'
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='\uf054'
+# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='\uf460'
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
 
 POWERLEVEL9K_STATUS_VERBOSE=false
@@ -32,15 +32,6 @@ POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-
-# VCS INFO ====================================================================
-# autoload -Uz vcs_info
-# zstyle ':vcs_info:*' enable git svn hg
-# zstyle ':vcs_info:*' check-for-changes true
-# zstyle ':vcs_info:*' formats "%{$fg[cyan]%}%b%{$reset_color%} %{$fg[yellow]%}%c%{$fg[green]%}%u%{$reset_color%}"
-# precmd() {
-#     vcs_info
-# }
 
 # KEYBINDINGS =================================================================
 autoload -U history-search-end
@@ -67,6 +58,10 @@ bindkey '^[[4~' end-of-line
 # tmux
 bindkey '^[[3~' delete-char
 bindkey '^[[1~' beginning-of-line
+
+# movement
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
 
 # plugin
 bindkey "^ " forward-word
@@ -175,14 +170,6 @@ alias s='startx'
 alias ct='cd /tmp'
 alias za='zathura --fork'
 
-# fn key alias (almost deprecated)
-alias fckbeep='xset -b'
-alias scrblk='xset s off & xset s blank & xset -dpms'
-alias lp='xbacklight -inc 10'
-alias lm='xbacklight -dec 10'
-alias vp='amixer -D pulse sset Master 5%+'
-alias vm='amixer -D pulse sset Master 5%-'
-
 # vpn aliases
 alias cvpn='cd ${HOME}/vpn/cesvpn ; sudo openvpn ep-udp-1195-santa.ovpn'
 alias vpn='${HOME}/vpn/nord/auth.sh'
@@ -200,6 +187,7 @@ alias gt='git status -s'
 alias gd='git diff'
 
 # others aliases
+alias msfconsole="msfconsole -x \"db_connect ${USER}@msf\""
 alias vbox='sudo VirtualBox'
 alias myip='curl -s http://ipinfo.io/ip'
 alias -g xc='| xsel --clipboard'
@@ -211,4 +199,8 @@ alias -g be='| base64'
 alias c='fasd_cd -d -i'
 
 # pyvenv aliases
-alias von='source ${HOME}/.pyvenv/bin/activate'
+# alias von='source ${HOME}/.pyvenv/bin/activate'
+
+# pyvenv aliases
+# source ${HOME}/.pyenv/env/bin/activate
+# export PATH=~/.npm-global/bin:$PATH

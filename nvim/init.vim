@@ -1,6 +1,7 @@
 " vim-plug --------------------------------------------------------------------
 let g:ale_completion_enabled = 1
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'mindriot101/vim-yapf'
 Plug 'morhetz/gruvbox'                          " Colorscheme
 Plug 'tpope/vim-markdown'                       " Markdown support
 Plug 'vim-airline/vim-airline'                  " Airline
@@ -16,6 +17,32 @@ Plug 'alvan/vim-php-manual'
 Plug 'w0rp/ale'
 Plug 'embear/vim-localvimrc'
 call plug#end()
+
+" airline ---------------------------------------------------------------------
+" let g:airline_theme                         = 'murmur'
+let g:airline_theme                         = 'gruvbox'
+let g:airline_powerline_fonts               = 1
+let g:airine#extensions#tabline#enable      = 1
+let g:airline_skip_empty_sections           = 0
+let g:airline#extensions#hunks#enabled      = 0
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#ycm#enabled        = 1
+let g:airline#extensions#ymc#error_symbol   = 'E:'
+let g:airline#extensions#ymc#warning_symbol = 'W:'
+
+" airline statusbar -----------------------------------------------------------
+let g:airline_section_z = 'L %l : C %c'       " Number of line and column
+
+" markdown --------------------------------------------------------------------
+filetype plugin on
+let g:instant_markdown_slow = 1
+let g:instant_markdown_autostart = 0
+let g:vim_markdown_folding_disabled = 1
+let g:markdown_fenced_languages = ['python', 'bash=sh']
+let g:markdown_syntax_conceal = 0
+
+" gruvbox ---------------------------------------------------------------------
+let g:gruvbox_contrast_dark = 'hard'
 
 " general ---------------------------------------------------------------------
 syntax on
@@ -88,25 +115,5 @@ set noshowmode
 " :hi TabLineSel  ctermfg=DarkGreen   ctermbg=Black
 " :hi TabLine     ctermfg=Blue        ctermbg=Black
 
-" airline ---------------------------------------------------------------------
-" let g:airline_theme                         = 'murmur'
-let g:airline_theme                         = 'gruvbox'
-let g:airline_powerline_fonts               = 1
-let g:airine#extensions#tabline#enable      = 1
-let g:airline_skip_empty_sections           = 0
-let g:airline#extensions#hunks#enabled      = 0
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#ycm#enabled        = 1
-let g:airline#extensions#ymc#error_symbol   = 'E:'
-let g:airline#extensions#ymc#warning_symbol = 'W:'
-
-" airline statusbar -----------------------------------------------------------
-let g:airline_section_z = 'L %l : C %c'       " Number of line and column
-
-" markdown --------------------------------------------------------------------
-filetype plugin on
-let g:instant_markdown_slow = 1
-let g:instant_markdown_autostart = 0
-let g:vim_markdown_folding_disabled = 1
-let g:markdown_fenced_languages = ['python', 'bash=sh']
-let g:markdown_syntax_conceal = 0
+" keybind ---------------------------------------------------------------------
+" map <F11> :%!python -m json.tool <enter>
