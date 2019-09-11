@@ -26,6 +26,7 @@ filezilla
 firefox
 flake8
 flashplugin
+fwupd
 gimp
 git
 gnome-keyring
