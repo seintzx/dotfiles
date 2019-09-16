@@ -11,7 +11,6 @@ bluez
 bluez-hid2hci
 bluez-utils
 calibre
-chrome-remote-desktop
 chromium
 dialog
 dnsmasq
@@ -22,7 +21,6 @@ dunst
 evince
 fasd
 feh
-filezilla
 firefox
 flake8
 flashplugin
@@ -31,7 +29,6 @@ gimp
 git
 gnome-keyring
 gnu-netcat
-gophish
 gparted
 gvfs
 gvfs-mtp
@@ -49,7 +46,6 @@ lib32-gnutls
 lib32-libldap
 libmtp
 libreoffice-fresh
-lutris
 mesa
 metasploit
 neovim
@@ -69,7 +65,6 @@ optipng
 otf-font-awesome-4
 pandoc
 pavucontrol
-pencil
 perl-anyevent-i3
 php-apache
 postgresql
@@ -100,7 +95,6 @@ qt4
 qt5ct
 radare2
 realvnc-vnc-viewer
-refind-efi
 rng-tools
 rofi
 rofi-greenclip
@@ -109,7 +103,6 @@ shotwell
 skypeforlinux-stable-bin
 spotify
 st-git
-steam-fonts
 sysstat
 telegram-desktop
 texlive-bibtexextra
