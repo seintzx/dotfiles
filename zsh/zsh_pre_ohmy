@@ -1,0 +1,213 @@
+# GENERAL =====================================================================
+autoload -U colors zsh-mime-setup select-word-style compinit
+colors
+zsh-mime-setup
+select-word-style bash
+compinit
+zmodload -i zsh/complist
+
+# EXPORT ======================================================================
+export XDG_CONFIG_HOME="${HOME}/.config"
+export DEFAULT_USER="seintz"
+export LANG=en_US.UTF-8
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# THEME =======================================================================
+source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir rvm virtualenv vcs)
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_DISABLE_RPROMPT=true
+
+POWERLEVEL9K_DIR_HOME_BACKGROUND='069'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='069'
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='069'
+POWERLEVEL9K_DIR_ETC_BACKGROUND='069'
+
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='\uf054'
+# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='\uf460'
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
+
+POWERLEVEL9K_STATUS_VERBOSE=false
+
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+
+# KEYBINDINGS =================================================================
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+typeset -g -A key
+
+# pg up/down
+bindkey "^[[5~" history-beginning-search-backward-end
+bindkey "^[[6~" history-beginning-search-forward-end
+
+# arrowkey
+bindkey '^[[A' history-beginning-search-backward-end
+bindkey '^[[B' history-beginning-search-forward-end
+
+# backspace
+bindkey '^?' backward-delete-char
+
+# st
+bindkey '^[[P' delete-char
+bindkey '^[[H' beginning-of-line
+bindkey '^[[4~' end-of-line
+
+# tmux
+bindkey '^[[3~' delete-char
+bindkey '^[[1~' beginning-of-line
+
+# movement
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
+# plugin
+bindkey "^ " forward-word
+
+# SETOPT ======================================================================
+setopt always_to_end
+setopt auto_cd
+setopt auto_remove_slash
+setopt chase_links
+setopt completealiases
+setopt complete_in_word
+setopt correct
+setopt extended_glob
+setopt glob_dots
+setopt hash_list_all
+setopt list_ambiguous
+unsetopt beep
+unsetopt bg_nice
+unsetopt clobber
+unsetopt hist_beep
+unsetopt hup
+unsetopt ignore_eof
+unsetopt list_beep
+unsetopt print_exit_value
+unsetopt rm_star_silent
+
+# PUSHD =======================================================================
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushd_silent
+setopt pushd_to_home
+
+# HISTORY =====================================================================
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt append_history
+setopt extended_history
+setopt inc_append_history
+setopt hist_expire_dups_first
+setopt hist_ignore_space
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_reduce_blanks
+setopt hist_verify
+setopt share_history
+setopt bang_hist
+
+# COMPLETION =================================================================================================================================================================================
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache/$HOST
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' list-colors ''
+# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*::::' completer _expand _complete _ignored _approximate
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format '%B%d%b'
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:manuals' separate-sections true
+zstyle ':completion:*:processes' command 'ps -au$USER'
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*' force-list always
+zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01"
+zstyle ':completion:*:*:killall:*' menu yes select
+zstyle ':completion:*:killall:*' force-list always
+users=(seintz root)
+zstyle ':completion:*' users $users
+
+# PLUGINS =====================================================================
+# source "${HOME}/.zgen/zgen.zsh"
+# if ! zgen saved; then
+#     echo "Creating a zgen save"
+#     # theme
+#     zgen load bhilburn/powerlevel9k powerlevel9k
+#     # plugin
+#     zgen load chrissicool/zsh-256color
+#     zgen load zsh-users/zsh-syntax-highlighting
+#     zgen load zsh-users/zsh-autosuggestions
+#     zgen load Tarrasch/zsh-autoenv
+#     zgen load clvv/fasd
+#     # save to init script
+#     zgen save
+# fi
+# fasd
+eval "$(fasd --init auto)"
+
+# ALIASES =====================================================================
+
+# terminal aliases
+alias -g g='| grep -i --color=auto'
+alias grep='grep --color=auto'
+alias l='ls -lh --color=auto'
+alias la='ls -lhA --color=auto'
+alias cp='cp -ri'
+alias mv='mv -i'
+alias del='shred -uvz'
+alias rm='rm -rI'
+alias md='mkdir -p'
+alias vim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim -p'
+alias s='startx'
+alias ct='cd /tmp'
+alias za='zathura --fork'
+
+# vpn aliases
+alias cvpn='cd ${HOME}/vpn/cesvpn ; sudo openvpn ep-udp-1195-santa.ovpn'
+alias vpn='${HOME}/vpn/nord/auth.sh'
+
+# git aliases
+alias gacp='git add -A && git commit -a --allow-empty-message -m "" && git push'
+alias ga='git add'
+alias gad='git add -A'
+alias gc='git commit -m'
+alias gce='git commit -a --allow-empty-message -m ""'
+alias gp='git push'
+alias gpm='git push -u origin master'
+alias gl='git pull'
+alias gt='git status -s'
+alias gd='git diff'
+
+# others aliases
+alias msfconsole="msfconsole -x \"db_connect ${USER}@msf\""
+alias vbox='sudo VirtualBox'
+alias myip='curl -s http://ipinfo.io/ip'
+alias ze='7z a -p -r -mx=9 -mhe -t7z'
+alias zd='7za e'
+alias musb='sudo cryptsetup luksOpen /dev/sdb USBDrive ;  sudo mount /dev/mapper/USBDrive /USBDrive'
+alias uusb='sudo umount /USBDrive ;  sudo cryptsetup luksClose USBDrive'
+alias -g xc='| xsel --clipboard'
+alias -g xv='| xsel --clipboard'
+alias -g bd='| base64 -d'
+alias -g be='| base64'
+
+# fasd alias
+alias c='fasd_cd -d -i'
+
+# pyvenv aliases
+# source ${HOME}/.pyenv/env/bin/activate
+# export PATH=~/.npm-global/bin:$PATH
+
+
+# plugin source
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
