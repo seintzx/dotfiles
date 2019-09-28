@@ -14,6 +14,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 # THEME =======================================================================
+source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir rvm virtualenv vcs)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_DISABLE_RPROMPT=true
@@ -135,20 +136,20 @@ users=(seintz root)
 zstyle ':completion:*' users $users
 
 # PLUGINS =====================================================================
-source "${HOME}/.zgen/zgen.zsh"
-if ! zgen saved; then
-    echo "Creating a zgen save"
-    # theme
-    zgen load bhilburn/powerlevel9k powerlevel9k
-    # plugin
-    zgen load chrissicool/zsh-256color
-    zgen load zsh-users/zsh-syntax-highlighting
-    zgen load zsh-users/zsh-autosuggestions
-    zgen load Tarrasch/zsh-autoenv
-    zgen load clvv/fasd
-    # save to init script
-    zgen save
-fi
+# source "${HOME}/.zgen/zgen.zsh"
+# if ! zgen saved; then
+#     echo "Creating a zgen save"
+#     # theme
+#     zgen load bhilburn/powerlevel9k powerlevel9k
+#     # plugin
+#     zgen load chrissicool/zsh-256color
+#     zgen load zsh-users/zsh-syntax-highlighting
+#     zgen load zsh-users/zsh-autosuggestions
+#     zgen load Tarrasch/zsh-autoenv
+#     zgen load clvv/fasd
+#     # save to init script
+#     zgen save
+# fi
 # fasd
 eval "$(fasd --init auto)"
 
@@ -204,3 +205,9 @@ alias c='fasd_cd -d -i'
 # pyvenv aliases
 # source ${HOME}/.pyenv/env/bin/activate
 # export PATH=~/.npm-global/bin:$PATH
+
+
+# plugin source
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

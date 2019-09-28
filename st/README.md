@@ -40,3 +40,10 @@ Keep it wherever you want.
 
 path to file:
 - `~/.config/st`
+
+
+## new version
+
+- `yay -G st-git` to download latest version
+- copy the `config.h` file inside a folder along wth the `PKGBUILD` file
+- run `makepgk -si`

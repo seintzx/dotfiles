@@ -14,7 +14,10 @@ yay -S numlockx
 yay -S arandr
 yay -S xsel
 yay -S xf86-input-libinput
+yay -S terminus-font
 ```
+
+`terminus-font` and `vconsole.conf` are used for tty scaling
 
 ## configuration
 
@@ -30,3 +33,4 @@ path to file:
 - `/etc/X11/xorg.conf.d/30-touchpad.conf`
 - `/etc/X11/xorg.conf.d/20-intel.conf`
 - `~/.xinitrc`
+- `/etc/vconsole.conf`

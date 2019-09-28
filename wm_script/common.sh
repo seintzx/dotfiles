@@ -22,9 +22,9 @@ W8=$(cat ${HOME}/.config/i3/config | \
      awk '{printf $3}' | \
      sed 's/"//g')
 
-i3-msg "workspace ${W7}; append_layout ${HOME}/.config/i3/7.json"
-i3-msg "workspace ${W8}; append_layout ${HOME}/.config/i3/8.json"
-i3-msg "workspace ${W2};"
+#i3-msg "workspace ${W7}; append_layout ${HOME}/.config/i3/7.json"
+#i3-msg "workspace ${W8}; append_layout ${HOME}/.config/i3/8.json"
+#i3-msg "workspace ${W2};"
 
 firefox &
 

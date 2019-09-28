@@ -1,3 +1,4 @@
+!-- ROFI 
 rofi.color-enabled:     true
 rofi.color-window:      #000000, #000000, #000000
 rofi.color-normal:      #444444, #00ff00, #444444, #777777, #ffff00
@@ -18,4 +19,3 @@ rofi.disable-history:   false
 rofi.modi:              clipboard:greenclip print, calc:qalc +u8 -nocurrencies
 rofi.kb-mode-next:      Shift+Right
 rofi.kb-mode-previous:  Shift+Left
-rofi.dpi:               180
