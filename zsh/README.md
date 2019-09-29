@@ -65,3 +65,63 @@ Then add this line to `~/.zshrc`:
 ```bash
 eval "$(fasd --init auto)"
 ```
+
+
+## oh my zsh
+
+
+### installation
+
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+
+### theme
+
+```
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+```
+set
+```
+ZSH_THEME="powerlevel9k/powerlevel9k"
+```
+and add config to `.zshrc` as before
+
+### plugins
+
+#### zsh-256color
+
+```
+$ ( cd $ZSH_CUSTOM/plugins && git clone https://github.com/chrissicool/zsh-256color )
+```
+
+#### zsh-syntax-hughlight
+
+```
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+    ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+#### zsh-autosuggestions
+
+```
+git clone https://github.com/zsh-users/zsh-autosuggestions \
+    ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+### fasd
+
+build-in, just add it to the list
+
+
+## tracking
+
+For repo we need to add many files:
+
+- `.zshrc`
+- `/home/seintz/.oh-my-zsh/custom/alias.zsh`
+- `/home/seintz/.oh-my-zsh/custom/export.zsh`
+- `/home/seintz/.oh-my-zsh/custom/keybind.zsh`
+
+
