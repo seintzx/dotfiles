@@ -14,4 +14,4 @@ makepkg -si
 This folder contains the config file for `yay`, an AUR helper.
 
 path to file:
-- `~/.config/yay/config`
+- `~/.config/yay/config.json`

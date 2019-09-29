@@ -17,20 +17,19 @@ yay -S xf86-input-libinput
 yay -S terminus-font
 ```
 
-`terminus-font` and `vconsole.conf` are used for tty scaling
-
 ## configuration
 
 This folder contains all the config file for:
-- my keyboard (included the alt-caps layout switch)
-- touchpad (valid only with `libinput`, i don't think they work with
-  `synaptics`)
+- my keyboard (include the caps as ctrl)
+- touchpad (only with `libinput`, I don't think it works with `synaptics`)
 - backlight
-- my `.xinitrc`
+- `.Xresources` for HiDPI scaling
+- `vconsole.conf` for tty scaling
 
 path to file:
 - `/etc/X11/xorg.conf.d/00-keyboard.conf`
 - `/etc/X11/xorg.conf.d/30-touchpad.conf`
 - `/etc/X11/xorg.conf.d/20-intel.conf`
-- `~/.xinitrc`
 - `/etc/vconsole.conf`
+- `~/.xinitrc`
+- `~/.Xresources`

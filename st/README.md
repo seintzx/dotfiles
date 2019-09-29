@@ -2,7 +2,7 @@
 
 - create a folder outside this repo
 - copy the `config.h` and `PKGBUILD` file inside of it
-- run `makepgk -si`
+- run `makepkg -si`
 
 ## OLD
 
