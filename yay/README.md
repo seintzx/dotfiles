@@ -13,5 +13,13 @@ makepkg -si
 
 This folder contains the config file for `yay`, an AUR helper.
 
+uncomment those lines in `/etc/pacman.conf`
+- `Color`
+- `TotalDownload`
+- `CheckSpace`
+- `VerbosePkgLists`
+
+
+
 path to file:
 - `~/.config/yay/config.json`
