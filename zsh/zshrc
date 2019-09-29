@@ -203,7 +203,7 @@ alias -g be='| base64'
 alias c='fasd_cd -d -i'
 
 # pyvenv aliases
-# source ${HOME}/.pyenv/env/bin/activate
+# source ${HOME}/.pyenv/bin/activate
 # export PATH=~/.npm-global/bin:$PATH
 
 
