@@ -2,10 +2,11 @@
 
 BASEDIR=$(dirname `readlink -f "$0"`)
 FOL="${HOME}/.config/i3"
+YAY="yay -S --needed"
 
 echo -e "Installing i3..\n"
-yay -S i3-gaps i3lock i3status
-yay -S py3status python-tzlocal python-pytz python-pydbus python-dbus
+${YAY} i3-gaps i3lock i3status
+${YAY} py3status python-tzlocal python-pytz python-pydbus python-dbus
 
 echo -e "Copying config..\n"
 mkdir -p ${FOL}

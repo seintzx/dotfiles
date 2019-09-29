@@ -2,9 +2,10 @@
 
 BASEDIR=$(dirname `readlink -f "$0"`)
 FOL="${HOME}/.config/nvim"
+YAY="yay -S --needed"
 
 echo -e "Installing nvim..\n"
-yay -S neovim gvim vim-runtime
+${YAY} neovim gvim vim-runtime
 
 echo -e "Copying config..\n"
 mkdir -p ${FOL}

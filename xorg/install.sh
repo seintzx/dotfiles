@@ -2,9 +2,10 @@
 
 BASEDIR=$(dirname `readlink -f "$0"`)
 FOL="/etc/X11/xorg.conf.d"
+YAY="yay -S --needed"
 
 echo -e "Installing xorg..\n"
-yay -S xorg xorg-setxkbmap xorg-xclock \
+${YAY} xorg xorg-setxkbmap xorg-xclock \
     xorg-server xorg-xinit xorg-xrdb \
     xorg-twm numlockx arandr \
     xsel xf86-input-libinput terminus-font

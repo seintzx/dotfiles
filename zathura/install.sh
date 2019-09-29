@@ -2,9 +2,10 @@
 
 BASEDIR=$(dirname `readlink -f "$0"`)
 FOL="${HOME}/.config/zathura"
+YAY="yay -S --needed"
 
 echo -e "Installing rofi..\n"
-yay -S zathura zahura-pdf-mupdf
+${YAY} zathura zahura-pdf-mupdf
 
 echo -e "Copying config..\n"
 mkdir -p ${FOL}

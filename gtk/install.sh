@@ -2,9 +2,10 @@
 
 BASEDIR=$(dirname `readlink -f "$0"`)
 FOL="${HOME}/.config/gtk-3.0"
+YAY="yay -S --needed"
 
 echo -e "Installing gtk..\n"
-yay -S gtk3
+${YAY} gtk3
 
 echo -e "Copying config..\n"
 mkdir -p ${FOL}
