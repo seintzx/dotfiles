@@ -1,6 +1,12 @@
 # st
 
-## installation
+- create a folder outside this repo
+- copy the `config.h` and `PKGBUILD` file inside of it
+- run `makepgk -si`
+
+## OLD
+
+### installation
 
 ```bash
 yay -S st-git
@@ -30,7 +36,7 @@ sha1sums=('SKIP' 'SKIP')
 Now you save and exit, it will ask again if you want to edit but this time we
 say _NO_ and we continue with the installation.
 
-## configuration
+### configuration
 
 This folder contains the config file for `st` terminal.
 
@@ -40,10 +46,3 @@ Keep it wherever you want.
 
 path to file:
 - `~/.config/st`
-
-
-## new version
-
-- `yay -G st-git` to download latest version
-- copy the `config.h` file inside a folder along wth the `PKGBUILD` file
-- run `makepgk -si`
