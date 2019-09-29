@@ -1,4 +1,4 @@
-# GENERAL =====================================================================
+# GENERAL ======================================================================
 autoload -U colors zsh-mime-setup select-word-style compinit
 colors
 zsh-mime-setup
@@ -6,14 +6,14 @@ select-word-style bash
 compinit
 zmodload -i zsh/complist
 
-# EXPORT ======================================================================
+# EXPORT =======================================================================
 export XDG_CONFIG_HOME="${HOME}/.config"
 export DEFAULT_USER="seintz"
 export LANG=en_US.UTF-8
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-# THEME =======================================================================
+# THEME ========================================================================
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir rvm virtualenv vcs)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -34,7 +34,7 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 
-# KEYBINDINGS =================================================================
+# KEYBINDINGS ==================================================================
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
@@ -67,7 +67,7 @@ bindkey '^[[1;5C' forward-word
 # plugin
 bindkey "^ " forward-word
 
-# SETOPT ======================================================================
+# SETOPT =======================================================================
 setopt always_to_end
 setopt auto_cd
 setopt auto_remove_slash
@@ -89,13 +89,13 @@ unsetopt list_beep
 unsetopt print_exit_value
 unsetopt rm_star_silent
 
-# PUSHD =======================================================================
+# PUSHD ========================================================================
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushd_silent
 setopt pushd_to_home
 
-# HISTORY =====================================================================
+# HISTORY ======================================================================
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -135,7 +135,7 @@ zstyle ':completion:*:killall:*' force-list always
 users=(seintz root)
 zstyle ':completion:*' users $users
 
-# PLUGINS =====================================================================
+# PLUGINS ======================================================================
 # source "${HOME}/.zgen/zgen.zsh"
 # if ! zgen saved; then
 #     echo "Creating a zgen save"
@@ -153,7 +153,7 @@ zstyle ':completion:*' users $users
 # fasd
 eval "$(fasd --init auto)"
 
-# ALIASES =====================================================================
+# ALIASES ======================================================================
 
 # terminal aliases
 alias -g g='| grep -i --color=auto'
@@ -206,8 +206,7 @@ alias c='fasd_cd -d -i'
 # source ${HOME}/.pyenv/bin/activate
 # export PATH=~/.npm-global/bin:$PATH
 
-
+# PLUGIN =======================================================================
 # plugin source
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
