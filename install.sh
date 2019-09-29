@@ -7,13 +7,13 @@ NOINSTALL=`find . -mindepth 1 -maxdepth 1 -type d '!' \
             awk -F '/' '{print $2}' | \
             uniq | sort | grep -v ".git"`
 
-for a in $(ls):
+for INSTALLDIR in $(ls -d *):
 do
-    if [[ -d ${BASEDIR}/${A} ]]
+    if [[ -d ${BASEDIR}/${INSTALLDIR} ]]
     then
-        if [[ -e ${BASEDIR}/${a}/install.sh ]]
+        if [[ -e ${BASEDIR}/${INSTALLDIR}/install.sh ]]
         then
-            . ${BASEDIR}/${a}/install.sh
+            ${BASEDIR}/${INSTALLDIR}/install.sh
             # echo ${BASEDIR}/${a}/install.sh
         fi
     fi
