@@ -13,8 +13,8 @@ do
     then
         if [[ -e ${BASEDIR}/${a}/install.sh ]]
         then
-            # ./${BASEDIR}/${a}/install.sh
-            echo ${BASEDIR}/${a}/install.sh
+            . ${BASEDIR}/${a}/install.sh
+            # echo ${BASEDIR}/${a}/install.sh
         fi
     fi
 done
