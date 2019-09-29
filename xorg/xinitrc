@@ -7,4 +7,4 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export GTK_SCALE=2
 export GTK_DPI_SCALE=0.5
 sleep 1 & ${HOME}/.config/wm_script/startup.sh
-exec i3
+exec i3 --shmlog-size=26214400
