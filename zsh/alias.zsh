@@ -45,7 +45,7 @@ alias -g bd='| base64 -d'
 alias -g be='| base64'
 
 # config alias
-alias zcon='vim ~/.zshrc'
+alias zconf='vim ~/.zshrc'
 
 
 
