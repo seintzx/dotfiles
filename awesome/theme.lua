@@ -1,85 +1,94 @@
 --[[
-     This is the original Powerarrow Dark Awesome WM theme by github.com/lcpz
-     I have modified it to my own like.
+
+     This is my modified versione of the Powerarrow Dark Awesome WM theme by
+     lcpz: https://github.com/lcpz/awesome-copycats
+
 --]]
+
 local gears     = require("gears")
 local lain      = require("lain")
 local awful     = require("awful")
 local wibox     = require("wibox")
-local watch     = require("awful.widget.watch")
-local beautiful = require("beautiful")
+local dpi       = require("beautiful.xresources").apply_dpi
+
 local os        = { getenv = os.getenv }
 local my_table  = awful.util.table or gears.table -- 4.{0,1} compatibility
+
+local watch     = require("awful.widget.watch")
+local beautiful = require("beautiful")
 local markup    = lain.util.markup
 local separator = lain.util.separators
-local timer = 5
+local timer     = 5
+local HOME      = os.getenv("HOME")
 
-local theme                                     = {}
-theme.dir                                       = os.getenv("HOME") .. "/.config/awesome"
-theme.wallpaper                                 = os.getenv("HOME") .. "/Pictures/wall/wallpaper.png"
-theme.font                                      = "Hack 9"
+local theme                     = {}
+theme.font                      = "Hack 9"
+theme.dir                       = HOME .. "/.config/awesome"
+theme.wallpaper                 = HOME .. "/pictures/wall/wallpaper.png"
 
-theme.fg_normal                                 = "#DDDDFF"
-theme.fg_focus                                  = "#EA6F81"
-theme.fg_urgent                                 = "#CC9393"
-theme.bg_normal                                 = "#1A1A1A"
-theme.bg_focus                                  = "#313131"
-theme.bg_urgent                                 = "#1A1A1A"
+theme.bg_focus                  = "#313131"
+theme.bg_normal                 = "#1A1A1A"
+theme.bg_urgent                 = "#1A1A1A"
+theme.fg_focus                  = "#EA6F81"
+theme.fg_normal                 = "#DDDDFF"
+theme.fg_urgent                 = "#CC9393"
 
-theme.useless_gap                               = 0
-theme.border_width                              = 1
-theme.border_normal                             = "#3F3F3F"
-theme.border_focus                              = "#7F7F7F"
-theme.border_marked                             = "#CC9393"
+theme.border_focus              = "#7F7F7F"
+theme.border_marked             = "#CC9393"
+theme.border_normal             = "#3F3F3F"
+theme.border_width              = dpi(1)
+theme.useless_gap               = dpi(0)
 
-theme.tasklist_bg_focus                         = "#1A1A1A"
-theme.tasklist_plain_task_name                  = true
-theme.tasklist_disable_icon                     = true
+theme.tasklist_bg_focus         = "#1A1A1A"
+theme.tasklist_disable_icon     = true
+theme.tasklist_plain_task_name  = true
 
-theme.titlebar_bg_focus                         = theme.bg_focus
-theme.titlebar_bg_normal                        = theme.bg_normal
-theme.titlebar_fg_focus                         = theme.fg_focus
+theme.menu_height               = 16
+theme.menu_width                = 140
+theme.menu_submenu_icon         = theme.dir .. "/icons/submenu.png"
 
-theme.menu_height                               = 16
-theme.menu_width                                = 140
-theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
+theme.taglist_squares_sel       = theme.dir .. "/icons/square_sel.png"
+theme.taglist_squares_unsel     = theme.dir .. "/icons/square_unsel.png"
 
-theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
-theme.taglist_squares_unsel                     = theme.dir .. "/icons/square_unsel.png"
+theme.layout_dwindle            = theme.dir .. "/icons/dwindle.png"
+theme.layout_fairh              = theme.dir .. "/icons/fairh.png"
+theme.layout_fairv              = theme.dir .. "/icons/fairv.png"
+theme.layout_floating           = theme.dir .. "/icons/floating.png"
+theme.layout_fullscreen         = theme.dir .. "/icons/fullscreen.png"
+theme.layout_magnifier          = theme.dir .. "/icons/magnifier.png"
+theme.layout_max                = theme.dir .. "/icons/max.png"
+theme.layout_spiral             = theme.dir .. "/icons/spiral.png"
+theme.layout_tile               = theme.dir .. "/icons/tile.png"
+theme.layout_tilebottom         = theme.dir .. "/icons/tilebottom.png"
+theme.layout_tileleft           = theme.dir .. "/icons/tileleft.png"
+theme.layout_tiletop            = theme.dir .. "/icons/tiletop.png"
 
-theme.layout_tile                               = theme.dir .. "/icons/tile.png"
-theme.layout_tileleft                           = theme.dir .. "/icons/tileleft.png"
-theme.layout_tilebottom                         = theme.dir .. "/icons/tilebottom.png"
-theme.layout_tiletop                            = theme.dir .. "/icons/tiletop.png"
-theme.layout_fairv                              = theme.dir .. "/icons/fairv.png"
-theme.layout_fairh                              = theme.dir .. "/icons/fairh.png"
-theme.layout_spiral                             = theme.dir .. "/icons/spiral.png"
-theme.layout_dwindle                            = theme.dir .. "/icons/dwindle.png"
-theme.layout_max                                = theme.dir .. "/icons/max.png"
-theme.layout_fullscreen                         = theme.dir .. "/icons/fullscreen.png"
-theme.layout_magnifier                          = theme.dir .. "/icons/magnifier.png"
-theme.layout_floating                           = theme.dir .. "/icons/floating.png"
+theme.widget_ac                 = theme.dir .. "/icons/ac.png"
+theme.widget_battery            = theme.dir .. "/icons/battery.png"
+theme.widget_battery_empty      = theme.dir .. "/icons/battery_empty.png"
+theme.widget_battery_low        = theme.dir .. "/icons/battery_low.png"
+theme.widget_con_of             = theme.dir .. "/icons/internet_na.png"
+theme.widget_con_on             = theme.dir .. "/icons/internet.png"
+theme.widget_cpu                = theme.dir .. "/icons/cpu.png"
+theme.widget_hdd                = theme.dir .. "/icons/hdd.png"
+theme.widget_mail               = theme.dir .. "/icons/mail.png"
+theme.widget_mail_on            = theme.dir .. "/icons/mail_on.png"
+theme.widget_mem                = theme.dir .. "/icons/mem.png"
+theme.widget_music              = theme.dir .. "/icons/note.png"
+theme.widget_music_on           = theme.dir .. "/icons/note_on.png"
+theme.widget_net                = theme.dir .. "/icons/net.png"
+theme.widget_net_wired          = theme.dir .. "/icons/net_wired.png"
+theme.widget_temp               = theme.dir .. "/icons/temp.png"
+theme.widget_vol                = theme.dir .. "/icons/vol.png"
+theme.widget_vol_low            = theme.dir .. "/icons/vol_low.png"
+theme.widget_vol_mute           = theme.dir .. "/icons/vol_mute.png"
+theme.widget_vol_no             = theme.dir .. "/icons/vol_no.png"
 
-theme.widget_ac                                 = theme.dir .. "/icons/ac.png"
-theme.widget_battery                            = theme.dir .. "/icons/battery.png"
-theme.widget_battery_low                        = theme.dir .. "/icons/battery_low.png"
-theme.widget_battery_empty                      = theme.dir .. "/icons/battery_empty.png"
-theme.widget_mem                                = theme.dir .. "/icons/mem.png"
-theme.widget_cpu                                = theme.dir .. "/icons/cpu.png"
-theme.widget_temp                               = theme.dir .. "/icons/temp.png"
-theme.widget_net                                = theme.dir .. "/icons/net.png"
-theme.widget_net_wired                          = theme.dir .. "/icons/net_wired.png"
-theme.widget_con_on                             = theme.dir .. "/icons/internet.png"
-theme.widget_con_of                             = theme.dir .. "/icons/internet_na.png"
-theme.widget_hdd                                = theme.dir .. "/icons/hdd.png"
-theme.widget_music                              = theme.dir .. "/icons/note.png"
-theme.widget_music_on                           = theme.dir .. "/icons/note_on.png"
-theme.widget_vol                                = theme.dir .. "/icons/vol.png"
-theme.widget_vol_low                            = theme.dir .. "/icons/vol_low.png"
-theme.widget_vol_no                             = theme.dir .. "/icons/vol_no.png"
-theme.widget_vol_mute                           = theme.dir .. "/icons/vol_mute.png"
-theme.widget_mail                               = theme.dir .. "/icons/mail.png"
-theme.widget_mail_on                            = theme.dir .. "/icons/mail_on.png"
+-- useless window titlebar
+--[[
+theme.titlebar_bg_focus         = theme.bg_focus
+theme.titlebar_bg_normal        = theme.bg_normal
+theme.titlebar_fg_focus         = theme.fg_focus
 
 theme.titlebar_close_button_focus               = theme.dir .. "/icons/titlebar/close_focus.png"
 theme.titlebar_close_button_normal              = theme.dir .. "/icons/titlebar/close_normal.png"
@@ -99,8 +108,9 @@ theme.titlebar_maximized_button_focus_active    = theme.dir .. "/icons/titlebar/
 theme.titlebar_maximized_button_normal_active   = theme.dir .. "/icons/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_inactive  = theme.dir .. "/icons/titlebar/maximized_focus_inactive.png"
 theme.titlebar_maximized_button_normal_inactive = theme.dir .. "/icons/titlebar/maximized_normal_inactive.png"
+--]]
 
--- clock
+-- clock =======================================================================
 local clockicon = wibox.widget.imagebox(theme.widget_clock)
 local clock = awful.widget.watch(
     "date +'%y-%m-%d %a, %I:%M %p'", 60,
@@ -109,7 +119,7 @@ local clock = awful.widget.watch(
     end
 )
 
--- calendar
+-- calendar ====================================================================
 theme.cal = lain.widget.cal({
     attach_to = { clock },
     notification_preset = {
@@ -119,36 +129,42 @@ theme.cal = lain.widget.cal({
     }
 })
 
--- mem
+-- mem =========================================================================
 local memicon = wibox.widget.imagebox(theme.widget_mem)
 local mem = lain.widget.mem({
     settings = function()
-        widget:set_markup(markup.font(theme.font, " " .. mem_now.perc .. "% "))
+        widget:set_markup(
+            markup.font(
+                theme.font, " " .. mem_now.perc .. "% "))
     end
 })
 
--- cpu
+-- cpu =========================================================================
 local cpuicon = wibox.widget.imagebox(theme.widget_cpu)
 local cpu = lain.widget.cpu({
     settings = function()
-        widget:set_markup(markup.font(theme.font, " " .. cpu_now.usage .. "% "))
+        widget:set_markup(
+            markup.font(
+                theme.font, " " .. cpu_now.usage .. "% "))
     end
 })
 
--- coretemp
+-- coretemp ====================================================================
 local tempicon = wibox.widget.imagebox(theme.widget_temp)
 local temp = lain.widget.temp({
     settings = function()
-        widget:set_markup(markup.font(theme.font, " " .. coretemp_now .. "°C "))
+        widget:set_markup(
+            markup.font(
+                theme.font, " " .. coretemp_now .. "°C "))
     end
 })
 
--- battery
+-- battery =====================================================================
 local baticon = wibox.widget.imagebox(theme.widget_battery)
 local bat = lain.widget.bat({
     -- /sys/class/power_supply
     battery = "BAT0",
-    ac = "ACAD",
+    ac = "AC",
     n_perc = {20, 50},
     settings = function()
         if bat_now.status ~= "N/A" then
@@ -163,7 +179,8 @@ local bat = lain.widget.bat({
             else
                 baticon:set_image(theme.widget_battery)
             end
-            widget:set_markup(markup.font(theme.font, " " .. bat_now.perc .. "% "))
+            widget:set_markup(markup.font(theme.font,
+                                          " " .. bat_now.perc .. "% "))
         else
             widget:set_markup(markup.font(theme.font, " AC "))
             baticon:set_image(theme.widget_ac)
@@ -171,7 +188,7 @@ local bat = lain.widget.bat({
     end
 })
 
--- volume
+-- volume ======================================================================
 local volicon = wibox.widget.imagebox(theme.widget_vol)
 theme.volume = lain.widget.alsa({
     settings = function()
@@ -184,88 +201,45 @@ theme.volume = lain.widget.alsa({
         else
             volicon:set_image(theme.widget_vol)
         end
-        widget:set_markup(markup.font(theme.font, " " .. volume_now.level .. "% "))
+        widget:set_markup(
+            markup.font(
+                theme.font, " " .. volume_now.level .. "% "))
     end
 })
 
--- keyboard
-mykdblayout_icon = wibox.widget.textbox("   ")
-mykbdlayout = awful.widget.keyboardlayout()
-
--- wifi
-local timer = 2
-local WIFI_COMMAND = "awk 'NR==3 {printf \"%3.0f\" ,($3/70)*100}' /proc/net/wireless "
-local wifi_widget = wibox.widget {
-    {
-        id = "icon",
-        widget = wibox.widget.imagebox,
-    },
-    {
-        id = 'wifi',
-        widget = wibox.widget.textbox,
-        font = theme.font
-    },
-    layout = wibox.layout.align.horizontal,
-    set_status = function(self, mod)
-        if (mod) then
-            self.icon.image = theme.widget_net
+-- net =========================================================================
+local neticon = wibox.widget.imagebox(theme.widget_net)
+local net = lain.widget.net({
+    iface = {"wlp59s0"},
+    notify = "off",
+    wifi_state = "on",
+    eth_state = "on",
+    settings = function()
+        local eth0 = net_now.devices.eth0
+        if eth0 then
+            if eth0.ethernet then
+                widget:set_markup(
+                    markup.font(
+                        theme.font,
+                        markup("#7AC82E", " wire " .. net_now.state .. " ")))
+            end
         end
-    end,
-    set_text = function(self, path)
-        self.wifi.markup = path
-    end,
-}
-local update_wifi = function(widget, stdout, _, _, _)
-    local signal = tonumber( stdout )
-    if (signal == nil) then
-        widget:set_text("N/A")
-        widget:set_status(false)
-        widget:set_visible(false)
-    else
-        widget:set_text(string.format("%d%% ", signal))
-        widget:set_status(true)
-        widget:set_visible(true)
-    end
-end
-watch(WIFI_COMMAND, timer, update_wifi, wifi_widget)
 
--- wired
-local interface = "eno1"
-local WIRE_COMMAND = "ip link show "..interface
-local wire_widget = wibox.widget {
-    {
-        id = "icon",
-        widget = wibox.widget.imagebox,
-    },
-    {
-        id = 'wire',
-        widget = wibox.widget.textbox,
-        font = theme.font
-    },
-    layout = wibox.layout.align.horizontal,
-    set_status = function(self, mod)
-        if (mod) then
-            self.icon.image = theme.widget_net_wired
+        local wlan0 = net_now.devices["wlp59s0"]
+        if wlan0 then
+            if wlan0.wifi then
+                local signal = wlan0.signal
+                widget:set_markup(
+                    markup.font(
+                        theme.font,
+                        markup("#7AC82E", " wifi " .. net_now.state .. " ")))
+            end
         end
-    end,
-    set_text = function(self, path)
-        self.wire.markup = path
-    end,
-}
-local update_wire = function(widget, stdout, _, _, _)
-    if string.find(stdout, 'DOWN') ~= nil then
-        widget:set_text("DOWN")
-        widget:set_visible(false)
-        widget:set_status(false)
-    else
-        widget:set_text("UP")
-        widget:set_visible(true)
-        widget:set_status(true)
-    end
-end
-watch(WIRE_COMMAND, timer, update_wire, wire_widget)
 
--- spotify
+    end
+})
+
+-- spotify =====================================================================
 local SPOTIFY_SONG = 'sp current-oneline'
 -- local SPOTIFY_SONG = 'sp current-song'
 -- local SPOTIFY_ARTI = 'sp current-artist'
@@ -303,11 +277,12 @@ end
 -- watch(SPOTIFY_ARTI, time, update_spotify, spotify_widget)
 watch(SPOTIFY_SONG, timer, update_spotify, spotify_widget)
 
--- separator
+-- separator ===================================================================
 local spr     = wibox.widget.textbox(' ')
 local arrl_dl = separator.arrow_left(theme.bg_focus, "alpha")
 local arrl_ld = separator.arrow_left("alpha", theme.bg_focus)
 
+-- merge =======================================================================
 function theme.at_screen_connect(s)
     -- If wallpaper is a function, call it with the screen
     local wallpaper = theme.wallpaper
@@ -325,42 +300,61 @@ function theme.at_screen_connect(s)
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
 
-    -- Create an imagebox widget which will contains an icon indicating which layout we're using.
-    -- We need one layoutbox per screen.
+    -- Create an imagebox widget which will contains an icon indicating which
+    -- layout we're using.
     s.mylayoutbox = awful.widget.layoutbox(s)
+    s.mylayoutbox:buttons(my_table.join(
+                           awful.button({}, 1, function ()
+                                                    awful.layout.inc( 1) end),
+                           awful.button({}, 2, function ()
+                                                    awful.layout.set(
+                                                    awful.layout.layouts[1] )
+                                                end),
+                           awful.button({}, 3, function ()
+                                                    awful.layout.inc(-1) end),
+                           awful.button({}, 4, function ()
+                                                    awful.layout.inc( 1) end),
+                           awful.button({}, 5, function ()
+                                                    awful.layout.inc(-1) end)))
 
     -- Create a taglist widget
-    s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons)
+    s.mytaglist = awful.widget.taglist(s,
+                                       awful.widget.taglist.filter.all,
+                                       awful.util.taglist_buttons)
 
     -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.minimizedcurrenttags, awful.util.tasklist_buttons)
+    s.mytasklist = awful.widget.tasklist(s,
+                    awful.widget.tasklist.filter.minimizedcurrenttags,
+                    awful.util.tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 18, bg = theme.bg_normal, fg = theme.fg_normal })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 36,
+                              bg = theme.bg_normal, fg = theme.fg_normal })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
-        { -- Left widgets
+        {   -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             s.mytaglist,
             s.mypromptbox,
+            spr,
         },
-        s.mytasklist, -- Middle widget
-        { -- Right widgets
+            -- Middle widget
+            s.mytasklist,
+        {   -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             -- wibox.widget.systray(),
+            spr,
             arrl_ld,
             wibox.container.background(spotify_widget, theme.bg_focus),
             arrl_dl, volicon, theme.volume.widget, arrl_ld,
-            wibox.container.background(tempicon, theme.bg_focus),
-            wibox.container.background(temp.widget, theme.bg_focus),
+            wibox.container.background(neticon, theme.bg_focus),
+            wibox.container.background(net.widget, theme.bg_focus),
+            arrl_dl, tempicon, temp.widget, arrl_ld,
             wibox.container.background(cpuicon, theme.bg_focus),
             wibox.container.background(cpu.widget, theme.bg_focus),
             arrl_dl, memicon, mem.widget, arrl_ld,
-            wibox.container.background(wire_widget, theme.bg_focus),
-            wibox.container.background(wifi_widget, theme.bg_focus),
-            arrl_dl, mykdblayout_icon, mykbdlayout, arrl_ld,
             wibox.container.background(baticon, theme.bg_focus),
             wibox.container.background(bat.widget, theme.bg_focus),
             arrl_dl, clock, spr, arrl_ld,
@@ -368,4 +362,5 @@ function theme.at_screen_connect(s)
         },
     }
 end
+
 return theme
