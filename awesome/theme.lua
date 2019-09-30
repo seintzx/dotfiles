@@ -208,13 +208,14 @@ theme.volume = lain.widget.alsa({
 })
 
 -- net =========================================================================
-local neticon = wibox.widget.imagebox(theme.widget_net)
+local neticon = wibox.widget.imagebox()
 local net = lain.widget.net({
     iface = {"wlp59s0"},
     notify = "off",
     wifi_state = "on",
     eth_state = "on",
     settings = function()
+
         local eth0 = net_now.devices.eth0
         if eth0 then
             if eth0.ethernet then
@@ -222,17 +223,16 @@ local net = lain.widget.net({
                     markup.font(
                         theme.font,
                         markup("#7AC82E", " wire " .. net_now.state .. " ")))
+                neticon:set_image(theme.widget_net_wired)
             end
         end
 
         local wlan0 = net_now.devices["wlp59s0"]
         if wlan0 then
             if wlan0.wifi then
-                local signal = wlan0.signal
                 widget:set_markup(
-                    markup.font(
-                        theme.font,
-                        markup("#7AC82E", " wifi " .. net_now.state .. " ")))
+                    markup.font(theme.font, " " .. net_now.state .. " "))
+                neticon:set_image(theme.widget_net)
             end
         end
 
