@@ -6,6 +6,7 @@
 yay -S awesome
 yay -S lain-git
 yay -S i3lock
+yay -S sp
 ```
 
 ## configuration
