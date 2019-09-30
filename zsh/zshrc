@@ -70,6 +70,8 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 HIST_STAMPS="yyyy-mm-dd"
 
 # PLUGIN =======================================================================
-plugins=(git zsh-256color zsh-syntax-highlighting zsh-autosuggestions fasd)
+plugins=(sudo git zsh-256color zsh-syntax-highlighting zsh-autosuggestions fasd)
 
 source $ZSH/oh-my-zsh.sh
+
+# source ${HOME}/.pyenv/bin/activate
