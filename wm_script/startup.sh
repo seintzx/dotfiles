@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-feh --bg-scale "${HOME}/Pictures/wall/wallpaper.png" --no-fehbg
+# feh --bg-scale "${HOME}/Pictures/wall/wallpaper.png" --no-fehbg
 xset -b
 xset s off -dpms
 numlockx on
