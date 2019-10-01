@@ -1,7 +1,11 @@
 # slock
 
 - create a folder outside this repo
-- copy the `config.h` and `PKGBUILD` file inside of it
-- run `makepkg -si`
+- `yay -G slock`
+- `cd slock`
+- `makepkg -o`
+- `cd src/sloc-VER`
+- copy the `config.h` here
+- `sudo make clean install`
 
-> NOTE: If you want to update `slock` run `yay -G slock` and edit the `PKGBUILD`
+> NOTE: If you want to update `slock` repeat those passages
