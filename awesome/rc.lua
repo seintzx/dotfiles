@@ -212,8 +212,8 @@ globalkeys = my_table.join(
             end
         end),
 
-    awful.key({ modkey, }, "z",
-        function () awful.screen.focused().quake:toggle() end),
+    -- awful.key({ modkey, }, "z",
+    --     function () awful.screen.focused().quake:toggle() end),
 
     awful.key({ modkey,         }, "p",
         function()   os.execute("rofi -show run")           end),
