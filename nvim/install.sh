@@ -14,7 +14,7 @@ ln ${BASEDIR}/init.vim ${FOL}
 echo -e "Installing plugin..\n"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim -c "PlugInstall" -c q -c q
-vim -c "PlugUpgrade" -c q -c q
+nvim -c "PlugInstall" -c q -c q
+nvim -c "PlugUpgrade" -c q -c q
 
 echo -e "\nDone"

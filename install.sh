@@ -17,6 +17,7 @@ do
             # echo ${BASEDIR}/${a}/install.sh
         fi
     fi
+    sleep 2
 done
 
 echo -e "==== st, slock and xdg should be done manually ====\n"

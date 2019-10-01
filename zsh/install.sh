@@ -2,7 +2,7 @@
 
 BASEDIR=$(dirname `readlink -f "$0"`)
 FOL="${HOME}"
-CFOL="${HOME}.oh-my-zsh/custom"
+CFOL="${HOME}/.oh-my-zsh/custom"
 YAY="yay -S --needed"
 
 echo -e "Installing zsh..\n"
@@ -14,7 +14,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 echo -e "Installing theme and plugins\n"
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
-( cd $ZSH_CUSTOM/plugins && git clone https://github.com/chrissicool/zsh-256color )
+git clone https://github.com/chrissicool/zsh-256color.git \
+    ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-256color
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
     ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
