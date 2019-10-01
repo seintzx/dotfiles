@@ -9,7 +9,7 @@ ${YAY} neovim gvim vim-runtime
 
 echo -e "Copying config..\n"
 mkdir -p ${FOL}
-ln ${BASEDIR}/config.ini ${FOL}
+ln ${BASEDIR}/init.vim ${FOL}
 
 echo -e "Installing plugin..\n"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \

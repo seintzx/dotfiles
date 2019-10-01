@@ -2,9 +2,9 @@
 
 BASEDIR=$(dirname `readlink -f "$0"`)
 FOL="${HOME}/.config/qBittorrent"
-YAY="${YAY} --needed"
+YAY="yay -S --needed"
 
-echo -e "Installing ttorrent..\n"
+echo -e "Installing qbittorrent..\n"
 ${YAY} qbittorrent
 
 echo -e "Copying config..\n"

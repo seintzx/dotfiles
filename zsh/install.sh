@@ -5,7 +5,7 @@ FOL="${HOME}"
 CFOL="${HOME}.oh-my-zsh/custom"
 YAY="yay -S --needed"
 
-echo -e "Installing rofi..\n"
+echo -e "Installing zsh..\n"
 ${YAY} zsh
 
 echo -e "Installing oh-my-zsh\n"
