@@ -63,9 +63,8 @@ local editor        = os.getenv("EDITOR") or "nvim"
 local gui_editor    = "gvim"
 local browser       = "firefox"
 local script_path   = string.format("%s/.config/wm_script/", HOME)
--- local scrlocker     = "slock"
-local scrlocker     = script_path .. "lockscr.sh"
-local commoners     = script_path .. "common.sh"
+local scrlocker     = "slock"
+-- local commoners     = script_path .. "common.sh"
 local scr_path      = "${HOME}"
 
 awful.util.terminal = terminal
