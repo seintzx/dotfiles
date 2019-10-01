@@ -63,7 +63,10 @@ local editor        = os.getenv("EDITOR") or "nvim"
 local gui_editor    = "gvim"
 local browser       = "firefox"
 local script_path   = string.format("%s/.config/wm_script/", HOME)
-local scrlocker    = "slock"
+-- local scrlocker     = "slock"
+local scrlocker     = script_path .. "lockscr.sh"
+local commoners     = script_path .. "common.sh"
+local scr_path      = "${HOME}"
 
 awful.util.terminal = terminal
 
@@ -162,64 +165,125 @@ awful.screen.connect_for_each_screen(function(s)
 
 -- KEYBINDINGS =================================================================
 globalkeys = my_table.join(
-    awful.key({ modkey, "Shift" }, "r",         awesome.restart),
-    awful.key({ modkey, "Shift" }, "q",         awesome.quit),
-    awful.key({ modkey          }, "r",         function () awful.screen.focused().mypromptbox:run()            end),
-    awful.key({ modkey,         }, "space",     function () awful.layout.inc( 1)                                end),
-    awful.key({ modkey, "Shift" }, "space",     function () awful.layout.inc(-1)                                end),
-    awful.key({ modkey,         }, "Return",    function () awful.spawn(terminal)                               end),
+    awful.key({ modkey, "Shift"   }, "r",
+        awesome.restart),
+    awful.key({ modkey, "Shift"   }, "q",
+        awesome.quit),
+    awful.key({ modkey            }, "r",
+        function () awful.screen.focused().mypromptbox:run()            end),
+    awful.key({ modkey,           }, "space",
+        function () awful.layout.inc( 1)                                end),
+    awful.key({ modkey, "Shift"   }, "space",
+        function () awful.layout.inc(-1)                                end),
+    awful.key({ modkey,           }, "Return",
+        function () awful.spawn(terminal)                               end),
 
     -- layout manipulation
-    awful.key({ modkey,         }, "j",         function () awful.client.focus.byidx(-1)                        end),
-    awful.key({ modkey,         }, "k",         function () awful.client.focus.byidx( 1)                        end),
-    awful.key({ modkey, "Shift" }, "j",         function () awful.client.swap.byidx( -1)                        end),
-    awful.key({ modkey, "Shift" }, "k",         function () awful.client.swap.byidx(  1)                        end),
-    awful.key({ modkey,         }, "h",         function () awful.tag.viewprev(awful.screen.focused())          end),
-    awful.key({ modkey,         }, "l",         function () awful.tag.viewnext(awful.screen.focused())          end),
+    awful.key({ modkey,           }, "j",
+        function () awful.client.focus.byidx(-1)                        end),
+    awful.key({ modkey,           }, "k",
+        function () awful.client.focus.byidx( 1)                        end),
+    awful.key({ modkey, "Shift"   }, "j",
+        function () awful.client.swap.byidx( -1)                        end),
+    awful.key({ modkey, "Shift"   }, "k",
+        function () awful.client.swap.byidx(  1)                        end),
+    awful.key({ modkey, "Control" }, "j",
+        function () awful.screen.focus_relative(-1)                     end),
+    awful.key({ modkey, "Control" }, "k",
+        function () awful.screen.focus_relative( 1)                     end),
+    awful.key({ modkey,           }, "h",
+        function () awful.tag.viewprev(awful.screen.focused())          end),
+    awful.key({ modkey,           }, "l",
+        function () awful.tag.viewnext(awful.screen.focused())          end),
 
     -- back&forth and urgent
-    awful.key({ modkey,         }, "u",         awful.client.urgent.jumpto),
-    awful.key({ modkey,         }, "Tab",       awful.tag.history.restore),
+    awful.key({ modkey,           }, "u",
+        awful.client.urgent.jumpto),
+    awful.key({ modkey,           }, "Tab",
+        awful.tag.history.restore),
 
     -- reduce to icon
-    awful.key({ modkey, "Shift" }, "n",         function ()   local c = awful.client.restore()    if c then   client.focus = c    c:raise()   end       end),
+    awful.key({ modkey, "Shift"   }, "n",
+        function ()
+            local c = awful.client.restore()
+            if c then
+                client.focus = c
+                c:raise()
+            end
+        end),
 
-    -- change keyboard layout [DEPRECATED]
-    -- awful.key({ altkey,         }, "Caps_Lock", function () mykbdlayout.next()                                                           end),
+    awful.key({ modkey, }, "z",
+        function () awful.screen.focused().quake:toggle() end),
 
-    -- Personal keybinds
-    awful.key({ modkey,         }, "p",         function()  awful.util.spawn_with_shell("rofi -show run")                                end),
-    awful.key({ modkey, "Shift" }, "p",         function()  awful.util.spawn_with_shell("rofi -show")                                    end),
-    awful.key({ modkey, "Shift" }, "v",         function()  awful.util.spawn_with_shell("networkmanager_dmenu")                          end),
-    awful.key({ modkey, "Shift" }, "z",         function()  awful.util.spawn_with_shell( script_path .. "lockscr.sh")                    end),
-    awful.key({ modkey, "Shift" }, "s",         function()  awful.util.spawn_with_shell( script_path .. "use.sh")                        end),
-    awful.key({ modkey,         }, "F2",        function()  awful.util.spawn("sync")     awful.util.spawn("xbacklight -dec 10")          end),
-    awful.key({ modkey,         }, "F3",        function()  awful.util.spawn("sync")     awful.util.spawn("xbacklight -inc 10")          end),
-    awful.key({ modkey,         }, "F9",        function()  awful.util.spawn("sync")     awful.util.spawn("amixer sset Master 5%-")      end),
-    awful.key({ modkey,         }, "F10",       function()  awful.util.spawn("sync")     awful.util.spawn("amixer sset Master 5%+")      end),
-
-    -- screenshot
-    awful.key({                 }, "Print",     function()
-            awful.util.spawn("scrot 'scr-%Y-%m-%d_%s.png' -e 'mv $f ~/Pictures/screenshot 2>/dev/null'", false)                         end),
-    awful.key({         "Shift" }, "Print",     function()
-            awful.util.spawn_with_shell("sleep 0.2 ; scrot -s 'scr-%Y-%m-%d_%s.png' -e 'mv $f ~/Pictures/screenshot 2>/dev/null'")      end)
+    awful.key({ modkey,         }, "p",
+        function()   os.execute("rofi -show run")           end),
+    awful.key({ modkey, "Shift" }, "p",
+        function()   os.execute("rofi -show")               end),
+    awful.key({ modkey, "Shift" }, "v",
+        function()   os.execute("networkmanager_dmenu")     end),
+    awful.key({ modkey, "Shift" }, "z",
+        function()   os.execute(scrlocker)                  end),
+    -- awful.key({ modkey, "Shift" }, "s",
+    --     function()   os.execute(commoners)                  end),
+    awful.key({ modkey,         }, "F11",
+        function()  os.execute("xbacklight -dec 10")        end),
+    awful.key({ modkey,         }, "F12",
+        function()  os.execute("xbacklight -inc 10")        end),
+    awful.key({ modkey }, "F2",
+        function ()
+            os.execute(string.format(
+                        "amixer -q set %s 5%%-",
+                        beautiful.volume.channel))
+            beautiful.volume.update()
+        end),
+    awful.key({ modkey }, "F3",
+        function ()
+            os.execute(string.format(
+                        "amixer -q set %s 5%%+",
+                        beautiful.volume.channel))
+            beautiful.volume.update()
+        end),
+    awful.key({                 }, "Print",
+        function()
+            os.execute( "scrot "
+                        .. scr_path ..
+                        "/scr-$(date +%Y_%m_%d)-%s.png", false)
+        end),
+    awful.key({         "Shift" }, "Print",
+        function()
+            os.execute( "sleep 02 ; scrot -s "
+                        .. scr_path ..
+                        "/scr-$(date +%Y_%m_%d)-%s.png", false)
+        end)
 )
 
 -- Client Key Bindings
 clientkeys = my_table.join(
-    awful.key({ modkey, "Shift" }, "c",         function (c) c:kill()                                           end),
-    awful.key({ modkey,         }, "n",         function (c) c.minimized = true                                 end),
-    awful.key({ modkey,         }, "f",         function (c) c.fullscreen = not c.fullscreen c:raise()          end)
+    awful.key({ modkey, "Shift" }, "c",
+        function (c) c:kill()               end),
+    awful.key({ modkey,         }, "n",
+        function (c) c.minimized = true     end),
+    awful.key({ modkey,         }, "f",
+        function (c)
+            c.fullscreen = not c.fullscreen
+            c:raise()
+        end),
+    awful.key({ modkey, "Control" }, "space",
+        awful.client.floating.toggle)
 )
 
--- TAG BINDINGS ===============================================================
+-- TAG BINDINGS ================================================================
 for i = 1, 9 do
     local descr_view, descr_toggle, descr_move, descr_toggle_focus
     if i == 1 or i == 9 then
-        descr_view = {description = "view tag #", group = "tag"}
-        descr_toggle = {description = "toggle tag #", group = "tag"}
-        descr_move = {description = "move focused client to tag #", group = "tag"}
-        descr_toggle_focus = {description = "toggle focused client on tag #", group = "tag"}
+        descr_view = {  description = "view tag #",
+                        group = "tag"}
+        descr_toggle = {description = "toggle tag #",
+                        group = "tag"}
+        descr_move = {  description = "move focused client to tag #",
+                        group = "tag"}
+        descr_toggle_focus = {  description = "toggle focused client on tag #",
+                                group = "tag"}
     end
 
     globalkeys = my_table.join(globalkeys,
@@ -248,93 +312,135 @@ for i = 1, 9 do
     )
 end
 
-clientbuttons = my_table.join(
-    awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
-    awful.button({ modkey }, 1, awful.mouse.client.move),
-    awful.button({ modkey }, 3, awful.mouse.client.resize))
+clientbuttons = gears.table.join(
+    awful.button({ }, 1, function (c)
+        c:emit_signal("request::activate", "mouse_click", {raise = true})
+    end),
+    awful.button({ modkey }, 1, function (c)
+        c:emit_signal("request::activate", "mouse_click", {raise = true})
+        awful.mouse.client.move(c)
+    end),
+    awful.button({ modkey }, 3, function (c)
+        c:emit_signal("request::activate", "mouse_click", {raise = true})
+        awful.mouse.client.resize(c)
+    end)
+)
 
 root.keys(globalkeys)
 
--- RULES ======================================================================
+-- RULES =======================================================================
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
       properties = {
-                     border_width = beautiful.border_width,
-                     border_color = beautiful.border_normal,
-                     focus = awful.client.focus.filter,
-                     raise = true,
-                     keys = clientkeys,
-                     buttons = clientbuttons,
-                     screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen,
-                     size_hints_honor = false
-                    }
-    },
+         border_width = beautiful.border_width,
+         border_color = beautiful.border_normal,
+         focus = awful.client.focus.filter,
+         raise = true,
+         keys = clientkeys,
+         buttons = clientbuttons,
+         screen = awful.screen.preferred,
+         placement = awful.placement.no_overlap+awful.placement.no_offscreen,
+         size_hints_honor = false
+     } },
 
     -- Floating clients.
     { rule_any = {
             instance =  { "DTA", "copyq", },
-            class =     { "Arandr", "Gpick", "Kruler", "MessageWin", "Sxiv", "Wpa_gui", "pinentry", "veromix", "xtightvncviewer" },
+            class =     {   "Arandr", "Gpick", "Kruler",
+                            "MessageWin", "Sxiv", "Wpa_gui",
+                            "pinentry", "veromix", "xtightvncviewer" },
             name =      { "Event Tester", },
             role =      { "AlarmWindow", "pop-up",   }   },
             properties = { floating = true }
     },
 
     -- Add titlebars to normal clients and dialogs
-    { rule_any = {type = { "normal", "dialog" } }, properties = { titlebars_enabled = false }   },
+    { rule_any = { type = { "normal", "dialog" } },
+        properties = { titlebars_enabled = false } },
 
     -- Personal Rules
-    -- 
-    { rule = { class = "Tor Browser" },                     properties = { screen = 1, tag = tag_name[1] } },
-    { rule = { class = "Chromium" },                        properties = { screen = 1, tag = tag_name[1] } },
-    { rule = { class = "Firefox" },                         properties = { screen = 1, tag = tag_name[1] } },
-    -- 
-    { rule = { class = "calibre" },                         properties = { screen = 1, tag = tag_name[4] } },
-    { rule = { class = "Nemo" },                            properties = { screen = 1, tag = tag_name[4] } },
-    -- 
-    { rule = { class = "com-yworks-A-yEd"},                 properties = { screen = 1, tag = tag_name[5] } },
-    { rule = { class = "jetbrains-idea" },                  properties = { screen = 1, tag = tag_name[5] } },
-    { rule = { class = "libreoffice" },                     properties = { screen = 1, tag = tag_name[5] } },
-    { rule = { class = "TeXstudio" },                       properties = { screen = 1, tag = tag_name[5] } },
-    { rule = { class = "Zathura" },                         properties = { screen = 1, tag = tag_name[5] } },
-    { rule = { class = "Db_main" },                         properties = { screen = 1, tag = tag_name[5] } },
-    { rule = { class = "Eclipse" },                         properties = { screen = 1, tag = tag_name[5] } },
-    { rule = { class = "Subl3" },                           properties = { screen = 1, tag = tag_name[5] } },
-    -- 
-    { rule = { class = "Spotify" },                         properties = { screen = 1, tag = tag_name[6] } },
-    { rule = { class = "steam" },                           properties = { screen = 1, tag = tag_name[6] } },
-    { rule = { class = "Gimp" },                            properties = { screen = 1, tag = tag_name[6] } },
-    { rule = { class = "zoom" },                            properties = { screen = 1, tag = tag_name[6] } },
-    { rule = { class = "vlc" },                             properties = { screen = 1, tag = tag_name[6] } },
-    -- 
-    { rule = { instance = "cesena.slack.com__messages"},
-                properties = { screen = 1, tag = tag_name[7], maximized_vertical = true, maximized_horizontal = true} },
+    -- 1
+    { rule = { class = "Tor Browser" },
+        properties = { screen = 1, tag = tag_name[1] } },
+    { rule = { class = "Chromium" },
+        properties = { screen = 1, tag = tag_name[1] } },
+    { rule = { class = "firefox" },
+        properties = { screen = 1, tag = tag_name[1] } },
+    -- 4
+    { rule = { class = "calibre" },
+        properties = { screen = 1, tag = tag_name[4] } },
+    { rule = { class = "Nemo" },
+        properties = { screen = 1, tag = tag_name[4] } },
+    { rule = { class = "Thunar" },
+        properties = { screen = 1, tag = tag_name[4] } },
+    -- 5
+    { rule = { class = "libreoffice" },
+        properties = { screen = 1, tag = tag_name[5] } },
+    { rule = { class = "Zathura" },
+        properties = { screen = 1, tag = tag_name[5] } },
+    { rule = { class = "evince" },
+        properties = { screen = 1, tag = tag_name[5] } },
+    { rule = { class = "Subl3" },
+        properties = { screen = 1, tag = tag_name[5] } },
+    -- 6
+    { rule = { class = "Spotify" },
+        properties = { screen = 1, tag = tag_name[6] } },
+    { rule = { class = "steam" },
+        properties = { screen = 1, tag = tag_name[6] } },
+    { rule = { class = "discord" },
+        properties = { screen = 1, tag = tag_name[6] } },
+    { rule = { class = "skype" },
+        properties = { screen = 1, tag = tag_name[6] } },
+    { rule = { class = "Gimp" },
+        properties = { screen = 1, tag = tag_name[6] } },
+    { rule = { class = "zoom" },
+        properties = { screen = 1, tag = tag_name[6] } },
+    { rule = { class = "vlc" },
+        properties = { screen = 1, tag = tag_name[6] } },
+    -- 7
+    { rule = { instance = "cesena.slack.com__unreads"},
+        properties = {  screen = 1, tag = tag_name[7],
+                        maximized_vertical = true,
+                        maximized_horizontal = true} },
     { rule = { instance = "web.whatsapp.com"},
-                properties = { screen = 1, tag = tag_name[7], maximized_vertical = true, maximized_horizontal = true} },
-    { rule = { class = "TelegramDesktop" },                 properties = { screen = 1, tag = tag_name[7] } },
-    { rule = { class = "Slack" },                           properties = { screen = 1, tag = tag_name[7] } },
-    { rule = { class = "Signal" },                          properties = { screen = 1, tag = tag_name[7] } },
-    -- 
-    { rule = { instance = "mail.google.com__mail"},
-                properties = { screen = 1, tag = tag_name[8], maximized_vertical = true, maximized_horizontal = true} },
-    { rule = { instance = "calendar.google.com"},
-                properties = { screen = 1, tag = tag_name[8], maximized_vertical = true, maximized_horizontal = true} },
+        properties = {  screen = 1, tag = tag_name[7],
+                        maximized_vertical = true,
+                        maximized_horizontal = true} },
+    { rule = { class = "TelegramDesktop" },
+        properties = { screen = 1, tag = tag_name[7] } },
+    { rule = { class = "Slack" },
+        properties = { screen = 1, tag = tag_name[7] } },
+    { rule = { class = "Signal" },
+        properties = { screen = 1, tag = tag_name[7] } },
+    -- 8
+    { rule = { instance = "cloud.disroot.org__apps_tasks"},
+        properties = {  screen = 1, tag = tag_name[8],
+                        maximized_vertical = true,
+                        maximized_horizontal = true} },
+    { rule = { instance = "mail.disroot.org"},
+        properties = {  screen = 1, tag = tag_name[8],
+                        maximized_vertical = true,
+                        maximized_horizontal = true} },
     { rule = { instance = "trello.com"},
-                properties = { screen = 1, tag = tag_name[8], maximized_vertical = true, maximized_horizontal = true} },
-    { rule = { instance = "app.tutanota.com"},
-                properties = { screen = 1, tag = tag_name[8], maximized_vertical = true, maximized_horizontal = true} },
-    -- 
-    { rule = { class = "VirtualBox Manager" },              properties = { scrren = 1, tag = tag_name[9] } },
-    { rule = { class = "VirtualBox Machine" },              properties = { scrren = 1, tag = tag_name[9] } },
-    { rule = { class = "qBittorrent" },                     properties = { screen = 1, tag = tag_name[9] } },
-    { rule = { class = "Genymotion" },                      properties = { screen = 1, tag = tag_name[9] } },
-    { rule = { class = "keepassxc" },                       properties = { scrren = 1, tag = tag_name[9] } },
-    { rule = { class = "player" },                          properties = { screen = 1, tag = tag_name[9] } },
+        properties = {  screen = 1, tag = tag_name[8],
+                        maximized_vertical = true,
+                        maximized_horizontal = true} },
+    -- 9
+    { rule = { class = "VirtualBox Manager" },
+        properties = { scrren = 1, tag = tag_name[9] } },
+    { rule = { class = "VirtualBox Machine" },
+        properties = { scrren = 1, tag = tag_name[9] } },
+    { rule = { class = "qBittorrent" },
+        properties = { screen = 1, tag = tag_name[9] } },
+    { rule = { class = "Genymotion" },
+        properties = { screen = 1, tag = tag_name[9] } },
+    { rule = { class = "player" },
+        properties = { screen = 1, tag = tag_name[9] } },
 }
 
--- SIGNALS ====================================================================
+-- SIGNALS =====================================================================
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
         if awesome.startup and
@@ -391,18 +497,6 @@ client.connect_signal("request::titlebars", function(c)
     }
 end)
 
--- Enable sloppy focus, so that focus follows mouse.
--- client.connect_signal("mouse::enter", function(c)
---     if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
---         and awful.client.focus.filter(c) then
---         client.focus = c
---     end
--- end)
-client.connect_signal("mouse::enter", function(c)
-    c:emit_signal("request::activate", "mouse_enter", {raise = false})
-end)
-
-
 -- No border for maximized clients
 function border_adjust(c)
     if c.maximized then
@@ -413,6 +507,15 @@ function border_adjust(c)
     end
 end
 
-client.connect_signal("focus", border_adjust)
+client.connect_signal("mouse::enter",
+    function(c)
+        c:emit_signal(  "request::activate",
+                        "mouse_enter",
+                        {raise = false})
+    end)
 client.connect_signal("property::maximized", border_adjust)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.connect_signal("focus", border_adjust)
+client.connect_signal("unfocus",
+    function(c)
+        c.border_color = beautiful.border_normal
+    end)
