@@ -19,7 +19,7 @@ do
     fi
 done
 
-echo -e "==== st and xdg should be done manually ====\n"
+echo -e "==== st, slock and xdg should be done manually ====\n"
 echo -e "Those folders doesn't have an install script:"
 for FOLDER in ${NOINSTALL}
 do
