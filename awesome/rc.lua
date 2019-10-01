@@ -1,6 +1,7 @@
--- REQUIRED LIBRARY ===========================================================
+-- REQUIRED LIBRARY ============================================================
 local awesome, client, mouse, screen, tag = awesome, client, mouse, screen, tag
-local ipairs, string, os, table, tostring, tonumber, type = ipairs, string, os, table, tostring, tonumber, type
+local ipairs, string, os, table, tostring, tonumber, type = ipairs, string, os
+local table, tostring, tonumber, type
 
 local gears         = require("gears")
 local awful         = require("awful")
@@ -9,12 +10,15 @@ local wibox         = require("wibox")
 local beautiful     = require("beautiful")
 local naughty       = require("naughty")
 local lain          = require("lain")
-local hotkeys_popup = require("awful.hotkeys_popup").widget
-local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 -- local menubar       = require("menubar")
 -- local freedesktop   = require("freedesktop")
+local hotkeys_popup = require("awful.hotkeys_popup").widget
+                      require("awful.hotkeys_popup.keys")
+local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
+local dpi           = require("beautiful.xresources").apply_dpi
+local HOME          = os.getenv("HOME")
 
--- ERROR HANDLING =============================================================
+-- ERROR HANDLING ==============================================================
 if awesome.startup_errors then
     naughty.notify({
         preset = naughty.config.presets.critical,
@@ -37,28 +41,35 @@ do
     end)
 end
 
--- VARIABLE DEFINITIONS =======================================================
---[[
-local themes = {
-    "my-theme",
-    "powerarrow",
-    "powerarrow-dark",
-}
-local chosen_theme  = themes[3]
---]]
-local theme_path    = string.format("%s/.config/awesome/theme.lua", os.getenv("HOME"))
+-- AUTOSTART ===================================================================
+-- This function will run once every time Awesome is started
+local function run_once(cmd_arr)
+    for _, cmd in ipairs(cmd_arr) do
+        awful.spawn.with_shell(
+            string.format(
+                "pgrep -u $USER -fx '%s' > /dev/null || (%s)",cmd, cmd))
+    end
+end
+
+run_once({ "dunst", "greenclip daemon" })
+
+
+-- VARIABLE DEFINITIONS ========================================================
+local theme_path    = string.format("%s/.config/awesome/theme.lua", HOME)
 local modkey        = "Mod4"
 local altkey        = "Mod1"
 local terminal      = "st -e /bin/tmux"
 local editor        = os.getenv("EDITOR") or "nvim"
 local gui_editor    = "gvim"
 local browser       = "firefox"
-local script_path   = string.format("%s/.config/wm_script/", os.getenv("HOME"))
-
-local tag_name = { "", "", "", "", "", "", "", "", "" }
-awful.util.tagnames = tag_name
+local script_path   = string.format("%s/.config/wm_script/", HOME)
+local scrlocker    = "slock"
 
 awful.util.terminal = terminal
+
+-- local tag_name = { "", "", "", "", "", "", "", "", "" }
+local tag_name = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
+awful.util.tagnames = tag_name
 
 awful.layout.layouts = {
     awful.layout.suit.fair,
@@ -66,62 +77,60 @@ awful.layout.layouts = {
     awful.layout.suit.max,
 }
 
-local taglist_buttons = my_table.join(
-                    awful.button({ }, 1, function(t) t:view_only() end),
-                    awful.button({ modkey }, 1, function(t)
-                        if client.focus then
-                            client.focus:move_to_tag(t)
-                        end
-                    end),
-                    awful.button({ }, 3, awful.tag.viewtoggle),
-                    awful.button({ modkey }, 3, function(t)
-                        if client.focus then
-                            client.focus:toggle_tag(t)
-                        end
-                    end),
-                    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
-                    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
-                )
+awful.util.taglist_buttons = my_table.join(
+    awful.button({ }, 1, function(t) t:view_only() end),
+    awful.button({ modkey }, 1, function(t)
+        if client.focus then
+            client.focus:move_to_tag(t)
+        end
+    end),
+    awful.button({ }, 3, awful.tag.viewtoggle),
+    awful.button({ modkey }, 3, function(t)
+        if client.focus then
+            client.focus:toggle_tag(t)
+        end
+    end),
+    awful.button({ }, 4, function(t) awful.tag.viewprev(t.screen) end),
+    awful.button({ }, 5, function(t) awful.tag.viewnext(t.screen) end)
+)
 
-local tasklist_buttons = my_table.join(
-                     awful.button({ }, 1, function (c)
-                            if c == client.focus then
-                                c.minimized = true
-                            else
-                                c.minimized = false
-                                if not c:isvisible() and c.first_tag then
-                                    c.first_tag:view_only()
-                                end
-                                client.focus = c
-                                c:raise()
-                            end
-                        end),
-                     awful.button({ }, 3, function()
-                            local instance = nil
-                            return function ()
-                                if instance and instance.wibox.visible then
-                                    instance:hide()
-                                    instance = nil
-                                else
-                                    instance = awful.menu.clients({ theme = { width = 250 } })
-                                end
-                            end
-                        end),
-                     awful.button({ }, 4, function ()
-                                                awful.client.focus.byidx(1)
-                                            end),
-                     awful.button({ }, 5, function ()
-                                                awful.client.focus.byidx(-1)
-                                            end))
-lain.layout.termfair.nmaster           = 3
-lain.layout.termfair.ncol              = 1
-lain.layout.termfair.center.nmaster    = 3
-lain.layout.termfair.center.ncol       = 1
-lain.layout.cascade.tile.offset_x      = 2
-lain.layout.cascade.tile.offset_y      = 32
-lain.layout.cascade.tile.extra_padding = 5
-lain.layout.cascade.tile.nmaster       = 5
-lain.layout.cascade.tile.ncol = 2
+awful.util.tasklist_buttons = my_table.join(
+    awful.button({ }, 1, function (c)
+        if c == client.focus then
+            c.minimized = true
+        else
+            c.minimized = false
+            if not c:isvisible() and c.first_tag then
+                c.first_tag:view_only()
+            end
+            client.focus = c
+            c:raise()
+        end
+    end),
+    awful.button({ }, 3, function()
+        local instance = nil
+        return function ()
+            if instance and instance.wibox.visible then
+                instance:hide()
+                instance = nil
+            else
+                instance = awful.menu.clients({ theme = { width = dpi(250)}})
+            end
+        end
+    end),
+    awful.button({ }, 4, function () awful.client.focus.byidx(1) end),
+    awful.button({ }, 5, function () awful.client.focus.byidx(-1) end)
+)
+
+lain.layout.termfair.nmaster            = 3
+lain.layout.termfair.ncol               = 1
+lain.layout.termfair.center.nmaster     = 3
+lain.layout.termfair.center.ncol        = 1
+lain.layout.cascade.tile.offset_x       = dpi(2)
+lain.layout.cascade.tile.offset_y       = dpi(32)
+lain.layout.cascade.tile.extra_padding  = dpi(5)
+lain.layout.cascade.tile.nmaster        = 5
+lain.layout.cascade.tile.ncol           = 2
 
 beautiful.init(theme_path)
 
@@ -136,9 +145,22 @@ screen.connect_signal("property::geometry", function(s)
     end
 end)
 
-awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
+-- No borders when rearranging only 1 non-floating or maximized client
+screen.connect_signal("arrange", function (s)
+    local only_one = #s.tiled_clients == 1
+    for _, c in pairs(s.clients) do
+        if only_one and not c.floating or c.maximized then
+            c.border_width = 0
+        else
+            c.border_width = beautiful.border_width
+        end
+    end
+end)
 
--- KEYBINDINGS ================================================================
+awful.screen.connect_for_each_screen(function(s)
+                                        beautiful.at_screen_connect(s) end)
+
+-- KEYBINDINGS =================================================================
 globalkeys = my_table.join(
     awful.key({ modkey, "Shift" }, "r",         awesome.restart),
     awful.key({ modkey, "Shift" }, "q",         awesome.quit),
@@ -370,12 +392,16 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
+-- client.connect_signal("mouse::enter", function(c)
+--     if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
+--         and awful.client.focus.filter(c) then
+--         client.focus = c
+--     end
+-- end)
 client.connect_signal("mouse::enter", function(c)
-    if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
-        and awful.client.focus.filter(c) then
-        client.focus = c
-    end
+    c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
+
 
 -- No border for maximized clients
 function border_adjust(c)
