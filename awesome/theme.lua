@@ -24,7 +24,7 @@ local HOME      = os.getenv("HOME")
 local theme                     = {}
 theme.font                      = "Hack 9"
 theme.dir                       = HOME .. "/.config/awesome"
-theme.wallpaper                 = HOME .. "/pictures/wall/wallpaper.png"
+theme.wallpaper                 = theme.dir .. "/wallpaper.png"
 
 theme.bg_focus                  = "#313131"
 theme.bg_normal                 = "#1A1A1A"
