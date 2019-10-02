@@ -292,7 +292,8 @@ function theme.at_screen_connect(s)
     gears.wallpaper.maximized(wallpaper, s, true)
 
     -- Quake application
-    s.quake = lain.util.quake({ app = awful.util.terminal })
+    -- it spawns a real terminal, not drop-down, disabled for now
+    -- s.quake = lain.util.quake({ app = "st", argname = "-t %s" })
 
     -- Tags
     awful.tag(awful.util.tagnames, s, awful.layout.layouts[1])
