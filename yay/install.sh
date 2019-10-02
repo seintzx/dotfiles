@@ -12,7 +12,7 @@ makepkg -si
 cd ${P}
 
 echo -e "Copying config..\n"
-yay --cleanafter --save
+yay --nodiffmenu --nocleanmenu --cleanafter --save
 # mkdir -p ${FOL}
 # ln ${BASEDIR}/config.json ${FOL}
 
