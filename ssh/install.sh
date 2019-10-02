@@ -4,7 +4,7 @@ BASEDIR=$(dirname `readlink -f "$0"`)
 FOL="${HOME}/.ssh"
 YAY="yay -S --needed"
 
-echo -e "Installing rofi..\n"
+echo -e "Installing ssh..\n"
 ${YAY} openssh
 
 echo -e "Copying config..\n"
