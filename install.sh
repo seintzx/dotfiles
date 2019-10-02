@@ -20,8 +20,8 @@ install () {
             then
                 if [[ -e ${INSTALLDIR}/install.sh ]]
                 then
-                    # ${INSTALLDIR}/install.sh
-                    echo -e "Installing ${INSTALLDIR}"
+                    ${INSTALLDIR}/install.sh
+                    # echo -e "Installing ${INSTALLDIR}"
                 fi
             fi
         fi
@@ -38,6 +38,6 @@ check_folder () {
     echo -e "You may want to check them individually"
 }
 
-# ${BASEDIR}/yay/install.sh
+${BASEDIR}/yay/install.sh
 install
 check_folder
