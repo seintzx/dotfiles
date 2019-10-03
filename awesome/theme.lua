@@ -345,9 +345,8 @@ function theme.at_screen_connect(s)
             s.mytasklist,
         {   -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            -- wibox.widget.systray(),
-            spr,
-            arrl_ld,
+            wibox.widget.systray(),
+            spr, arrl_ld,
             wibox.container.background(spotify_widget, theme.bg_focus),
             arrl_dl, volicon, theme.volume.widget, arrl_ld,
             wibox.container.background(neticon, theme.bg_focus),
