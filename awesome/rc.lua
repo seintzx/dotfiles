@@ -65,7 +65,7 @@ local browser       = "firefox"
 local script_path   = string.format("%s/.config/wm_script/", HOME)
 local scrlocker     = "slock"
 -- local commoners     = script_path .. "common.sh"
-local scr_path      = "${HOME}"
+local scr_path      = "${HOME}/pictures/screenshot/"
 
 awful.util.terminal = terminal
 
