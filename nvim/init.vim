@@ -13,9 +13,9 @@ Plug 'tpope/vim-fugitive'                       " git wrapper
 Plug 'scrooloose/nerdtree'
 
 " php
-Plug 'alvan/vim-php-manual'
-Plug 'w0rp/ale'
-Plug 'embear/vim-localvimrc'
+" Plug 'alvan/vim-php-manual'
+" Plug 'w0rp/ale'
+" Plug 'embear/vim-localvimrc'
 call plug#end()
 
 " airline ---------------------------------------------------------------------
