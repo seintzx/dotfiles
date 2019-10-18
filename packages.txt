@@ -14,7 +14,9 @@ bluez-hid2hci
 bluez-utils
 calibre
 chromium
+coreutils
 dialog
+diffutils
 dnsmasq
 docker
 docker-compose
@@ -25,10 +27,12 @@ evince
 fasd
 feh
 file-roller
+filesystem
 firefox
 flake8
 flashplugin
 fwupd
+gconf
 gimp
 git
 gnome-keyring
@@ -51,13 +55,21 @@ intel-ucode
 iw
 jpegoptim
 lain-git
+less
 lib32-gnutls
 lib32-libldap
 libcurl-gnutls
+libfbclient
+liblouis
 libmtp
+libparserutils
 libreoffice-fresh
+licenses
+linux
+man-pages
 mesa
 metasploit
+mkinitcpio-nfs-utils
 neovim
 nerd-fonts-complete
 net-tools
@@ -71,6 +83,7 @@ ntfs-3g
 numix-themes-darkblue
 numlockx
 openssh
+openssl-1.0
 openvpn
 openvpn-update-systemd-resolved
 optipng
@@ -97,6 +110,7 @@ realvnc-vnc-viewer
 rng-tools
 rofi
 rofi-greenclip
+rtmpdump
 scrot
 shotwell
 skypeforlinux-stable-bin
@@ -104,6 +118,7 @@ sp
 spotify
 st-git
 sysstat
+tar
 telegram-desktop
 terminus-font
 texlive-bibtexextra
@@ -138,6 +153,7 @@ wireshark-qt
 wpa_supplicant
 xclip
 xdg-user-dirs
+xdg-user-dirs-gtk
 xdotool
 xf86-input-libinput
 xf86-video-intel
