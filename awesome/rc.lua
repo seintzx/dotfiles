@@ -250,7 +250,7 @@ globalkeys = my_table.join(
         end),
     awful.key({         "Shift" }, "Print",
         function()
-            os.execute( "sleep 02 ; scrot -s "
+            os.execute( "sleep 0.2 ; scrot -s "
                         .. scr_path ..
                         "/scr-$(date +%Y_%m_%d)-%s.png", false)
         end)
