@@ -1,7 +1,7 @@
 # ALIASES ======================================================================
 
 # terminal aliases
-alias -g g='| grep -v grep | grep -i --color=auto'
+alias -g g='| grep -i --color=auto'
 alias grep='grep --color=auto'
 alias l='ls -lh --color=auto'
 alias la='ls -lhA --color=auto'
@@ -14,6 +14,7 @@ alias vim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim -p'
 alias s='startx'
 alias ct='cd /tmp'
 alias za='zathura --fork'
+alias paux='ps aux | grep -v grep | grep -i --color=auto'
 
 # vpn aliases
 alias cvpn='cd ${HOME}/vpn/cesvpn ; sudo openvpn ep-udp-1195-santa.ovpn'
