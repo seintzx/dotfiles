@@ -1,7 +1,7 @@
 # ALIASES ======================================================================
 
 # terminal aliases
-alias -g g='| grep -i --color=auto'
+alias -g g='| grep -v grep | grep -i --color=auto'
 alias grep='grep --color=auto'
 alias l='ls -lh --color=auto'
 alias la='ls -lhA --color=auto'
