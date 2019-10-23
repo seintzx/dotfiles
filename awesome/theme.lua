@@ -44,6 +44,9 @@ theme.border_marked             = "#CC9393" -- don't know what this is
 theme.border_width              = dpi(1)
 theme.useless_gap               = dpi(0)
 
+theme.tasklist_plain_task_name  = true
+theme.tasklist_disable_icon     = true
+
 theme.menu_height               = dpi(16)
 theme.menu_width                = dpi(140)
 theme.menu_submenu_icon         = theme.dir .. "/icons/submenu.png"
@@ -330,8 +333,6 @@ function theme.at_screen_connect(s)
         filter   = awful.widget.tasklist.filter.currenttags,
         buttons  = awful.util.tasklist_buttons,
         style = {
-            disable_icon                 = true,
-            plain_task_name              = true,
             shape                        = gears.shape.rectangle,
             shape_border_width           = theme.border_width,
             shape_border_color           = theme.bg_normal,
