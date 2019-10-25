@@ -44,6 +44,7 @@ alias -g xc='| xsel --clipboard'
 alias -g xv='| xsel --clipboard'
 alias -g bd='| base64 -d'
 alias -g be='| base64'
+alias remove_dups='md5sum * | sort | awk '"'"'BEGIN{lsthash = ""} $1 == lsthash {print $2} {lsthash=$1}'"'"' | xargs echo'
 
 # config alias
 alias zconf='vim ~/.zshrc'
