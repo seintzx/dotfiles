@@ -37,7 +37,7 @@ alias msfconsole="msfconsole -x \"db_connect ${USER}@msf\""
 alias vbox='sudo VirtualBox'
 alias myip='curl -s http://ipinfo.io/ip'
 alias ze='7z a -p -r -mx=9 -mhe -t7z'
-alias zd='7za e'
+alias zd='7za x'
 alias musb='sudo cryptsetup luksOpen /dev/sdb USBDrive ;  sudo mount /dev/mapper/USBDrive /USBDrive'
 alias uusb='sudo umount /USBDrive ;  sudo cryptsetup luksClose USBDrive'
 alias -g xc='| xsel --clipboard'
