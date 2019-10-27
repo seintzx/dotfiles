@@ -211,7 +211,7 @@ theme.volume = lain.widget.alsa({
     end
 })
 
--- net =========================================================================
+-- network =====================================================================
 local neticon = wibox.widget.imagebox()
 local net = lain.widget.net({
     iface = {"wlp59s0"},
@@ -219,6 +219,21 @@ local net = lain.widget.net({
     wifi_state = "on",
     eth_state = "on",
     settings = function()
+
+        -- status = io.popen("ls /var/run | grep 'openvpn'", "r")
+        -- if status:read() == nil then
+        --     VPN = " <span color='#FF0000'>VPN: OFF</span> "
+        -- else
+        --     VPN = " <span color='#FF0000'>VPN: ON</span> "
+        -- end
+        -- status:close()
+        -- local test = os.execute("ip addr show tun0")
+        -- if test then
+        --     VPN = " culo"
+        -- else
+        --     VPN = "no culo"
+        -- end
+
 
         local eth0 = net_now.devices.eth0
         if eth0 then
@@ -235,6 +250,15 @@ local net = lain.widget.net({
         end
     end
 })
+-- watch(
+--     "ip addr show tun0", 2,
+--     function(widget, stdout, stderr, exitreason, exitcode)
+--     if(stdout == '' or stdout==nil or stdout=='Device "tun0" does not exist.') then
+--         VPN = " <span color='#FF0000'>VPN: OFF</span> "
+--     else
+--         VPN = " <span color='#FF0000'>VPN: ON</span> "
+--     end
+-- end, net)
 
 -- spotify =====================================================================
 local SPOTIFY_SONG = 'sp current-oneline'
