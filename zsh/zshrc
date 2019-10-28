@@ -72,6 +72,8 @@ HIST_STAMPS="yyyy-mm-dd"
 # PLUGIN =======================================================================
 plugins=(sudo git zsh-256color zsh-syntax-highlighting zsh-autosuggestions fasd)
 
+zstyle ':bracketed-paste-magic' active-widgets '.self-*'
+
 source $ZSH/oh-my-zsh.sh
 
 # source ${HOME}/.pyenv/bin/activate
