@@ -29,17 +29,14 @@ theme.wallpaper                 = theme.dir .. "/wallpaper.png"
 theme.fg_normal                 = "#DDDDFF"
 theme.fg_focus                  = "#BB2770"
 theme.fg_urgent                 = "#CC9393"
-theme.fg_minimize               = theme.fg_normal
 
 theme.bg_normal                 = "#1A1A1A"
 theme.bg_focus                  = "#313131"
 theme.bg_urgent                 = theme.bg_normal
-theme.bg_minimize               = "#212121"
 
-theme.border_normal             = theme.bg_normal
-theme.border_focus              = theme.bg_focus
+theme.border_normal             = "#3F3F3F"
+theme.border_focus              = "#7F7F7F"
 theme.border_urgent             = theme.bg_urgent
-theme.border_minimize           = theme.bg_minimize
 theme.border_marked             = "#CC9393" -- don't know what this is
 theme.border_width              = dpi(1)
 theme.useless_gap               = dpi(0)
@@ -345,6 +342,8 @@ function theme.at_screen_connect(s)
                                        awful.util.taglist_buttons)
 
     -- Create a tasklist widget
+    -- s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
+
     s.mytasklist = awful.widget.tasklist {
         screen   = s,
         filter   = awful.widget.tasklist.filter.currenttags,
@@ -355,7 +354,6 @@ function theme.at_screen_connect(s)
             shape_border_color           = theme.bg_normal,
             shape_border_color_focus     = theme.bg_focus,
             shape_border_color_urgent    = theme.bg_urgent,
-            shape_border_color_minimized = theme.bg_minimize,
         },
         layout   = {
             spacing = 0,
