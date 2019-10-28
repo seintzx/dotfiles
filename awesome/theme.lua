@@ -216,22 +216,6 @@ local net = lain.widget.net({
     wifi_state = "on",
     eth_state = "on",
     settings = function()
-
-        -- status = io.popen("ls /var/run | grep 'openvpn'", "r")
-        -- if status:read() == nil then
-        --     VPN = " <span color='#FF0000'>VPN: OFF</span> "
-        -- else
-        --     VPN = " <span color='#FF0000'>VPN: ON</span> "
-        -- end
-        -- status:close()
-        -- local test = os.execute("ip addr show tun0")
-        -- if test then
-        --     VPN = " culo"
-        -- else
-        --     VPN = "no culo"
-        -- end
-
-
         local eth0 = net_now.devices.eth0
         if eth0 then
             widget:set_markup(
@@ -247,20 +231,38 @@ local net = lain.widget.net({
         end
     end
 })
--- watch(
---     "ip addr show tun0", 2,
---     function(widget, stdout, stderr, exitreason, exitcode)
---     if(stdout == '' or stdout==nil or stdout=='Device "tun0" does not exist.') then
---         VPN = " <span color='#FF0000'>VPN: OFF</span> "
---     else
---         VPN = " <span color='#FF0000'>VPN: ON</span> "
---     end
--- end, net)
+
+ssid_widget = wibox.widget.textbox()
+watch(
+    "nmcli -t -f active,ssid dev wifi", timer,
+    function(widget, stdout, stderr, exitreason, exitcode)
+    local wifi = string.match(stdout, "yes:.*\n")
+    if (wifi == '' or wifi==nil ) then
+        widget:set_markup(
+            markup.font(theme.font, ""))
+    else
+        wifi = string.gsub(wifi, "yes:", "")
+        widget:set_markup(
+            markup.font(theme.font, "" .. wifi .. ""))
+    end
+end, ssid_widget)
+
+vpn_widget = wibox.widget.textbox()
+watch(
+    "ip addr show tun0", timer,
+    function(widget, stdout, stderr, exitreason, exitcode)
+    if (stdout == '' or stdout==nil or stdout=='Device "tun0" does not exist.') 
+    then
+        widget:set_markup(
+            markup.font(theme.font, " "))
+    else
+        widget:set_markup(
+            markup.font(theme.font, " VPN "))
+    end
+end, vpn_widget)
 
 -- spotify =====================================================================
 local SPOTIFY_SONG = 'sp current-oneline'
--- local SPOTIFY_SONG = 'sp current-song'
--- local SPOTIFY_ARTI = 'sp current-artist'
 local spotify_widget = wibox.widget {
     {
         id = "icon",
@@ -292,7 +294,6 @@ local update_spotify = function(widget, stdout, _, _, _)
         widget:set_status(true)
     end
 end
--- watch(SPOTIFY_ARTI, time, update_spotify, spotify_widget)
 watch(SPOTIFY_SONG, timer, update_spotify, spotify_widget)
 
 -- separator ===================================================================
@@ -394,6 +395,8 @@ function theme.at_screen_connect(s)
             arrl_dl, volicon, theme.volume.widget, arrl_ld,
             wibox.container.background(neticon, theme.bg_focus),
             wibox.container.background(net.widget, theme.bg_focus),
+            wibox.container.background(ssid_widget, theme.bg_focus),
+            wibox.container.background(vpn_widget, theme.bg_focus),
             arrl_dl, tempicon, temp.widget, arrl_ld,
             wibox.container.background(cpuicon, theme.bg_focus),
             wibox.container.background(cpu.widget, theme.bg_focus),
