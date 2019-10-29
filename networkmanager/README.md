@@ -17,3 +17,19 @@ rofi for network connection and VPN.
 path to file:
 - `~/.config/networkmanager-dmenu/config.ini`
 - `/etc/NetworkManager/conf.d/dns.conf`
+
+
+
+conf.d/dns.conf
+config.ini
+dnsmasq.d/dnssec.conf
+dnsmasq.d/ipv6_listen.conf
+install.sh
+README.md
+
+conf.d:
+dns.conf
+
+dnsmasq.d:
+dnssec.conf
+ipv6_listen.conf
