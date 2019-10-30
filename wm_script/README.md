@@ -2,13 +2,11 @@
 
 ## installation
 
-Deprecated for `awesome`, use only with `i3`
-
-> NOTE: No need to be installed, maybe one day i'll do a package
+Compilation of script used with `i3wm`, no need to install, just copy them
 
 ## configuration
 
-This folder contains all the script that i use in some of wm.
+Just look at the scripts and modify them if you need to.
 
 ## file path
 
