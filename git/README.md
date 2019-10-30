@@ -10,5 +10,6 @@ yay -S git
 
 This folder contains the config gile for `git`.
 
-path to file:
+## file path
+
 - `~/.gitconfig`

@@ -19,7 +19,6 @@ uncomment those lines in `/etc/pacman.conf`
 - `CheckSpace`
 - `VerbosePkgLists`
 
+## file path
 
-
-path to file:
 - `~/.config/yay/config.json`

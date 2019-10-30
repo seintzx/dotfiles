@@ -1,16 +1,20 @@
 # xmonad
 
+Those instruction may be deprecated, I haven't used it in a long time, but
+config file should still work
+
 ## installation
 
-> NOTE: I tried the installation method described below about at 2018-06-28) and
-> seems to be deprecated. So for now i don't know a working installation method.
+> NOTE: I tried the installation method described below around the 2018-06-28
+> and seems to be deprecated. So for now i don't know a working installation
+> method.
 
 - Remove all haskell package you have
 - Add into `/etc/pacman.conf` before the voice `[comunity]`
-```
-[haskell-core]
-Server = http://xsounds.org/~haskell/core/$arch
-```
+    ```
+    [haskell-core]
+    Server = http://xsounds.org/~haskell/core/$arch
+    ```
 - `pacman-key -r 4209170B`
 - `pacman-key --lsign-key 4209170B`
 - `pacman -Syu`
@@ -28,9 +32,9 @@ Reference to
 
 This folder contains the config file for `xmonad` and `xmobar`.
 
-> NOTE: remember to compile xmobar with all the flag or something could not
-> work.
+> NOTE: remember to compile xmobar with all the flag
 
-path to file:
+## file path
+
 - `~/.xmonad/xmonad.hs`
 - `~/.xmonad/xmobar`

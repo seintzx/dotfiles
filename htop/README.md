@@ -10,5 +10,6 @@ yay -S htop
 
 This folder contains my config file for `htop`
 
-path to file:
+## file path
+
 - `~/.config/htop/htoprc`

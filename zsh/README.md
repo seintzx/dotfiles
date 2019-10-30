@@ -44,7 +44,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions \
 
 ## configuration
 
-path to file
+## file path
+
 - `~/.zshrc`
 - `~/.zshrc.pre-oh-my-zsh`
 - `~/.oh-my-zsh/custom/alias.zsh`
@@ -54,6 +55,9 @@ path to file
 ---
 
 ## OLD
+
+Those were my configuration and installation steps before switching to
+`oh-my-zsh`
 
 ## installation
 

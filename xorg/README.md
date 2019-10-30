@@ -21,12 +21,14 @@ yay -S terminus-font
 
 This folder contains all the config file for:
 - my keyboard (include the caps as ctrl)
+- slock (screen locker)
 - touchpad (only with `libinput`, I don't think it works with `synaptics`)
 - backlight
-- `.Xresources` for HiDPI scaling
 - `vconsole.conf` for tty scaling
+- `.Xresources` for HiDPI scaling
 
-path to file:
+## file path
+
 - `/etc/X11/xorg.conf.d/00-keyboard.conf`
 - `/etc/X11/xorg.conf.d/10-slock.conf`
 - `/etc/X11/xorg.conf.d/30-touchpad.conf`

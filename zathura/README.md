@@ -11,5 +11,6 @@ yay -S zathura-pdf-mupdf
 
 This folder contains the config file for `zathura`, an awesome PDF reader.
 
-path to file:
+## file path
+
 - `~/.config/zathura/zathurarc`

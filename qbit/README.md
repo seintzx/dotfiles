@@ -15,5 +15,6 @@ also create those folders:
 - `~/torrent/file`
 - `~/torrent/temp`
 
-path to file:
+## file path
+
 - `~/.config/qBittorrent/qBittorrent.conf`

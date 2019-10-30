@@ -10,5 +10,6 @@ yay -S tmux
 
 This folder contains the config file for `tmux`.
 
-path to file:
+## file path
+
 - `~/.tmux.conf`

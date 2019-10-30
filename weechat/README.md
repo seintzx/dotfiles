@@ -13,5 +13,6 @@ client.
 
 > NOTE: At the moment i haven't configured it, please be patient.
 
-path to file:
+## file path
+
 - `~/.config/weechat/`

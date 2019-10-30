@@ -22,6 +22,7 @@ pip3 install pygi
 
 This folder contains the config file for `i3wm` and `py3status` statusbar.
 
-path to file:
+## file path
+
 - `~/.config/i3/config`
 - `~/.config/i3/i3status.conf`

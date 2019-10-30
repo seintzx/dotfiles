@@ -10,6 +10,7 @@ yay -S dunst
 
 This folder contains my `dunst` config file and a script to reload and test it.
 
-path to file:
+## file path
+
 - `~/.config/dunst/dunstrc`
 - `~/.config/dunst/reload.sh`

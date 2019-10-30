@@ -18,6 +18,7 @@ yay -S qalculate-gtk
 This folder contains the config file for `rofi`, given that he uses the
 `Xresources` file, so you can configure it in both file, just choose one.
 
-path to file:
+## file path
+
 - `~/.config/rofi/config`
 - `~/.Xresources`

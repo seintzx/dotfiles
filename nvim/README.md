@@ -25,7 +25,8 @@ Once you are set, open nvim and type `:PlugInstall` and `:PlugUpgrade`.
 This folder contains the config file for `nvim`, my two favourite color scheme
 and the file for `vim-plug` plugin manager.
 
-path to file:
+## file path
+
 - `~/.config/nvim/init.vim`
 - `~/.config/nvim/colors/inkpot.vim`
 - `~/.local/share/nvim/site/autoload/plug.vim`
