@@ -88,6 +88,7 @@ openvpn
 openvpn-update-systemd-resolved
 optipng
 otf-font-awesome-4
+p7zip
 pandoc
 pavucontrol
 perl-anyevent-i3
@@ -217,4 +218,3 @@ zathura-pdf-mupdf
 zip
 zoom
 zsh
-p1zip
