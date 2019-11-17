@@ -20,13 +20,13 @@ Host bitbucket.org
     IdentityFile ~/.ssh/uni_rsa
 
 # odroid
-# Host 192.168.1.201
-#     HostName raza
-#     User raza
-#     Port 22
+Host roci
+    HostName 192.168.1.55
+    User roci
+    Port 22
 
-# # raspy
-# Host 192.168.1.202
-#     HostName raspy
-#     User pi
-#     Port 22
+# raspy
+Host raspy
+    HostName 192.168.1.202
+    User pi
+    Port 22
