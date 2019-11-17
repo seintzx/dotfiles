@@ -2,7 +2,7 @@
 
 ## installation
 
-```bash
+```
 yay -S xorg
 yay -S xorg-setxkbmap
 yay -S xorg-xclock

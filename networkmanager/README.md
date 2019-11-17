@@ -2,7 +2,7 @@
 
 ## installation
 
-```bash
+```
 yay -S networkmanager
 yay -S networkmanager-dmenu-git
 yay -S networkmanager-openvpn

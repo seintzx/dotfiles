@@ -2,8 +2,8 @@
 
 ## installation
 
-```bash
-yaya -S gtk3
+```
+yay -S gtk3
 ```
 
 ## configuration

@@ -2,7 +2,7 @@
 
 ## installation
 
-```bash
+```
 yay -S zathura
 yay -S zathura-pdf-mupdf
 ```

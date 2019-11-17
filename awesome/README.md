@@ -2,7 +2,7 @@
 
 ## installation
 
-```bash
+```:wq
 yay -S awesome
 yay -S lain-git
 yay -S sp
@@ -17,5 +17,6 @@ This folder contains my config file, theme file and icon folder for `awesomewm`
 > [lcpz](www.github.com/lcpz).
 
 ## file path
+
 - `~/.config/awesome/rc.lua`
 - `~/.config/awesome/theme.lua`

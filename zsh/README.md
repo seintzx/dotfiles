@@ -2,8 +2,9 @@
 
 ## installation
 
-```bash
+```
 yay -S zsh
+yay -S fasd
 ```
 
 ## oh my zsh
@@ -14,7 +15,7 @@ yay -S zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-### theme
+### powerlevel9k theme
 
 ```
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
@@ -44,6 +45,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions \
 
 ## configuration
 
+This folder contains my configurations files for `zsh` shell, along with some
+useful file for `oh-my-zsh`
+
 ## file path
 
 - `~/.zshrc`
@@ -54,7 +58,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions \
 
 ---
 
-## OLD
+# OLD
 
 Those were my configuration and installation steps before switching to
 `oh-my-zsh`
