@@ -7,7 +7,7 @@ I use rofi with three different tab, instead of `dmenu`
 2. Clipboard: clipboard manager thanks to `greenclip`
 3. Calculator: thanks to `qalc`
 
-```
+```bash
 yay -S rofi
 yay -S rofi-greenclip
 yay -S qalculate-gtk

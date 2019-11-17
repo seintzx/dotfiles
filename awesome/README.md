@@ -2,7 +2,7 @@
 
 ## installation
 
-```:wq
+```bash
 yay -S awesome
 yay -S lain-git
 yay -S sp

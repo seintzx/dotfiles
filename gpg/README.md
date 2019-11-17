@@ -37,12 +37,12 @@ Key is valid for? (0) 1y
 ### revocation certificate
 
 In case you want to dismiss your keys for any reason use create a certificate
-```
+```bash
 gpg --gen-revoke --armor --output=revoke.asc <user-id>
 ```
 
 To use a certificate
-```
+```bash
 gpg --import revoke.rev
 ```
 And sen the key to the keyserver
@@ -52,11 +52,11 @@ And sen the key to the keyserver
 ### public keys
 
 If you want to export your public key and give it to someone you can use this:
-```
+```bash
 gpg --output public.key --armor --export <user-id>
 ```
 to import a key from someone use this:
-```
+```bash
 gpg --import public.key
 ```
 
@@ -65,12 +65,12 @@ gpg --import public.key
 ### export private
 
 To create a backup of your private key:
-```
+```bash
 gpg --export-secret-keys --armor <user-id> > privkey.asc
 ```
 
 To restore a backup:
-```
+```bash
 gpg --import privkey.asc
 ```
 
@@ -82,12 +82,12 @@ gpg --import privkey.asc
 ### asymmetric encrypt and decrypt
 
 To encrypt a file with the name `doc`, use:
-```
+```bash
 gpg --recipient user-id --encrypt doc
 ```
 
 To decrypt a file with the name `doc.gpg` encrypted with your public key, use:
-```
+```bash
 gpg --output doc --decrypt doc.gpg
 ```
 
@@ -104,12 +104,12 @@ gpg --output doc --decrypt doc.gpg
 ### symmetric encrypt and decrypt
 
 To encrypt a file with a passphrase (no need of key pair) use:
-```
+```bash
 gpg --symmetric doc
 ```
 
 To decrypt with the same passphrase use:
-```
+```bash
 gpg --output doc --decrypt doc.gpg
 ```
 
@@ -121,7 +121,7 @@ You need to leave one empty line after the password, otherwise gpg will return
 an error message when evaluating the file
 
 Then run:
-```
+```bash
 gpg -e -a -r <user-id> your_password_file
 ```
 - `-e` is for encrypt
@@ -133,14 +133,15 @@ You will be left with a new `your_password_file.asc` file
 ### Signatures
 
 To sign a file use:
-```
+```bash
 gpg --output doc.sig --sign doc
 ```
 
 To verify a signature use:
-```
+```bash
 gpg --verify doc.sig
 ```
 
 ## file path
+
 - `~/.gnupg/gpg.conf`

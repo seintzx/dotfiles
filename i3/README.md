@@ -2,14 +2,14 @@
 
 ## installation
 
-```
+```bash
 yay -S i3-gaps
 yay -S i3lock
 yay -S i3status
 ```
 
 py3status module dependecies:
-```
+```bash
 yay -S py3status
 yay -S python-tzlocal
 yay -S python-pytz

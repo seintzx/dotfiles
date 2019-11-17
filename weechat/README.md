@@ -2,7 +2,7 @@
 
 ## installation
 
-```
+```bash
 yay -S weechat
 ```
 

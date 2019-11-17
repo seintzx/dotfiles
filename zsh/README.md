@@ -2,7 +2,7 @@
 
 ## installation
 
-```
+```bash
 yay -S zsh
 yay -S fasd
 ```
@@ -11,13 +11,13 @@ yay -S fasd
 
 ### installation
 
-```
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
 ### powerlevel9k theme
 
-```
+```bash
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 ```
 
@@ -25,20 +25,20 @@ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/theme
 
 #### zsh-256color
 
-```
+```bash
 ( cd $ZSH_CUSTOM/plugins && git clone https://github.com/chrissicool/zsh-256color )
 ```
 
 #### zsh-syntax-hughlight
 
-```
+```bash
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
     ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 #### zsh-autosuggestions
 
-```
+```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions \
     ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```

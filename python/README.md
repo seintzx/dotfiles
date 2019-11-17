@@ -17,7 +17,8 @@ program
 
 Those are some useful plugin for `nvim` and `python` code, along with python
 package manager `pip`
-
-- `yay -S python-neovim`
-- `yay -S yapf flake8`
-- `yay -S python-pip`
+```bash
+yay -S python-neovim
+yay -S python-pip
+yay -S yapf flake8
+```
