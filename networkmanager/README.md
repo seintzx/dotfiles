@@ -17,7 +17,6 @@ systemctl enable NetworkManager --now
 This folder contains instructions and config file for `NetworkManager` combined
 with `dnsmasq`, along with some other tools
 
-
 ### NetworkManager
 
 I choose `dnsmasq` as DNS caching tool, to do so create this file:
