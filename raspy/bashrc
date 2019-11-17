@@ -90,8 +90,7 @@ fi
 # some more ls aliases
 alias l='ls -lh --color=auto'
 alias la='ls -lhA --color=auto'
-alias mfbot='/home/pi/mfbot/cronbot.sh'
-alias yay='/home/pi/update.sh'
+alias yay='${HOME}/update.sh'
 alias psbot='ps aux | grep MFB | grep -v grep'
 
 # Alias definitions.
