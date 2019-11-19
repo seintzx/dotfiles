@@ -14,7 +14,4 @@ be found in my config repo
 
 `pacman -S openvpn openssl easy-rsa`
 
-- [guide](https://wiki.archlinux.org/index.php/OpenVPN_Checklist_Guide)
-- run `openvpn --genkey --secret /etc/openvpn/server/ta.key` on the server
-- use `ovpngen.sh` to generate config
-
+- [working script](https://github.com/angristan/openvpn-install)
