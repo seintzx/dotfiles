@@ -2,6 +2,10 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+export TERM=xterm
+export EDITOR=vim
+export VISUAL=vim
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -90,8 +94,8 @@ fi
 # some more ls aliases
 alias l='ls -lh --color=auto'
 alias la='ls -lhA --color=auto'
-alias yay='${HOME}/update.sh'
 alias psbot='ps aux | grep MFB | grep -v grep'
+alias yay='sudo pacman -Syu'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
