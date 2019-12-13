@@ -69,8 +69,8 @@ local scr_path      = "${HOME}/pictures/screenshot/"
 
 awful.util.terminal = terminal
 
--- local tag_name = { "", "", "", "", "", "", "", "", "" }
-local tag_name = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
+local tag_name = { "", "", "", "", "", "", "", "", "" }
+-- local tag_name = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
 awful.util.tagnames = tag_name
 
 awful.layout.layouts = {
