@@ -21,12 +21,12 @@ Host bitbucket.org
 
 # odroid
 Host roci
-    HostName 192.168.1.55
+    HostName 192.168.1.12
     User roci
     Port 22
 
 # raspy
 Host raspy
-    HostName 192.168.1.202
+    HostName 192.168.1.11
     User pi
     Port 22
