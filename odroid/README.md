@@ -11,6 +11,13 @@ and use the `systemd` method
 
 ## odroid media server
 
+### auto mount external device
+
+Add to `/etc/fstab`
+```
+/dev/sda1   /mnt/hdd    ntfs-3g uid=transmission,gid=users,umask=0022   0   0
+```
+
 ### minidlna
 
 follow [this](https://wiki.archlinux.org/index.php/ReadyMedia), config file can
