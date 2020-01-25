@@ -41,6 +41,7 @@ theme.border_marked             = "#CC9393" -- don't know what this is
 theme.border_width              = dpi(1)
 theme.useless_gap               = dpi(0)
 
+theme.notification_icon_size    = dpi(1)
 theme.tasklist_plain_task_name  = true
 theme.tasklist_disable_icon     = true
 
