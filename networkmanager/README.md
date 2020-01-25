@@ -46,6 +46,7 @@ To enable DNSSEC create this file:
 conf-file=/usr/share/dnsmasq/trust-anchors.conf
 dnssec
 ```
+> NOTE: under unibo network remove this file or the network won't work
 
 ### openvpn
 
