@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Hack:size=9:antialias=true:autohint=true";
+char *font = "Fira Code:size=9:antialias=true:autohint=true";
 int borderpx = 2;
 
 /*
@@ -223,7 +223,7 @@ static uint ignoremod = Mod2Mask|XK_SWITCH_MOD;
  * Note that if you want to use ShiftMask with selmasks, set this to an other
  * modifier, set to 0 to not use it.
  */
-uint forceselmod = ShiftMask;
+uint forcemousemod = ShiftMask;
 
 /*
  * This is the huge key array which defines all compatibility to the Linux
