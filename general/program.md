@@ -104,7 +104,6 @@ packages.txt` at the end of it.
 - flashplugin
 - tor
 - tor-browser
-- torify
 - torsocks
 
 ### ctf
