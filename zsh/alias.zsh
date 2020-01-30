@@ -40,11 +40,12 @@ alias ze='7z a -p -r -mx=9 -mhe -t7z'
 alias zd='7za x'
 alias musb='sudo cryptsetup luksOpen /dev/sdb USBDrive ;  sudo mount /dev/mapper/USBDrive /USBDrive'
 alias uusb='sudo umount /USBDrive ;  sudo cryptsetup luksClose USBDrive'
+alias remove_dups='md5sum * | sort | awk '"'"'BEGIN{lsthash = ""} $1 == lsthash {print $2} {lsthash=$1}'"'"' | xargs echo'
 alias -g xc='| xsel --clipboard'
 alias -g xv='| xsel --clipboard'
 alias -g bd='| base64 -d'
 alias -g be='| base64'
-alias remove_dups='md5sum * | sort | awk '"'"'BEGIN{lsthash = ""} $1 == lsthash {print $2} {lsthash=$1}'"'"' | xargs echo'
+alias -g jj="| jq .''"
 
 # config alias
 alias zconf='vim ~/.zshrc'

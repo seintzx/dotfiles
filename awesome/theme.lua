@@ -217,19 +217,34 @@ local net = lain.widget.net({
     wifi_state = "on",
     eth_state = "on",
     settings = function()
-        local eth0 = net_now.devices.eth0
+        local eth0 = net_now.devices["eno1"]
+        local wlan0 = net_now.devices["wlp59s0"]
+
         if eth0 then
             widget:set_markup(
                 markup.font(theme.font, " " .. net_now.state .. " "))
             neticon:set_image(theme.widget_net_wired)
-        end
-
-        local wlan0 = net_now.devices["wlp59s0"]
-        if wlan0 then
+        elseif wlan0 then
             widget:set_markup(
                 markup.font(theme.font, " " .. net_now.state .. " "))
             neticon:set_image(theme.widget_net)
+        else
+            widget:set_markup(
+                markup.font(theme.font, " ERROR "))
+            neticon:set_image()
         end
+
+        -- if eth0 then
+        --     widget:set_markup(
+        --         markup.font(theme.font, " " .. net_now.state .. " "))
+        --     neticon:set_image(theme.widget_net_wired)
+        -- end
+
+        -- if wlan0 then
+        --     widget:set_markup(
+        --         markup.font(theme.font, " " .. net_now.state .. " "))
+        --     neticon:set_image(theme.widget_net)
+        -- end
     end
 })
 
