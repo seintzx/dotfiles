@@ -51,7 +51,7 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "dunst", "greenclip daemon", "xset -b", "xset s off -dpms" })
+run_once({ "dunst", "greenclip daemon", "xset -b", "xset s off" })
 
 
 -- VARIABLE DEFINITIONS ========================================================
@@ -376,6 +376,8 @@ awful.rules.rules = {
         properties = { screen = 1, tag = tag_name[4] } },
     -- 5
     { rule = { class = "libreoffice" },
+        properties = { screen = 1, tag = tag_name[5] } },
+    { rule = { class = "jetbrains-phpstorm" },
         properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "Zathura" },
         properties = { screen = 1, tag = tag_name[5] } },
