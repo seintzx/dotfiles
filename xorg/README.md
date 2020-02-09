@@ -33,6 +33,7 @@ This folder contains all the config file for:
 - `/etc/X11/xorg.conf.d/10-slock.conf`
 - `/etc/X11/xorg.conf.d/30-touchpad.conf`
 - `/etc/X11/xorg.conf.d/20-intel.conf`
+- `/etc/systemd/logind.conf`
 - `/etc/vconsole.conf`
 - `~/.xinitrc`
 - `~/.Xresources`
