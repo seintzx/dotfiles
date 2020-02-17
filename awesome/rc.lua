@@ -79,6 +79,17 @@ awful.layout.layouts = {
     awful.layout.suit.max,
 }
 
+-- notification layout
+naughty.config.defaults = {
+    timeout = 5,
+    text = "",
+    screen = nil,
+    ontop = true,
+    margin = dpi(5),
+    border_width = dpi(1),
+    position = "bottom_right"
+}
+
 awful.util.taglist_buttons = my_table.join(
     awful.button({ }, 1, function(t) t:view_only() end),
     awful.button({ modkey }, 1, function(t)
