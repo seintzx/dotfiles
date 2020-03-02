@@ -51,7 +51,7 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "dunst", "greenclip daemon", "xset -b", "xset s off" })
+run_once({ "dunst", "greenclip daemon", "xset -b", "xset s off"}) --, "xset led 3", "numlockx" })
 
 
 -- VARIABLE DEFINITIONS ========================================================
