@@ -131,8 +131,8 @@ awful.util.tasklist_buttons = my_table.join(
             end
         end
     end),
-    awful.button({ }, 4, function () awful.client.focus.byidx(1) end),
-    awful.button({ }, 5, function () awful.client.focus.byidx(-1) end)
+    awful.button({ }, 4, function () awful.client.focus.byidx(-1) end),
+    awful.button({ }, 5, function () awful.client.focus.byidx(1) end)
 )
 
 lain.layout.termfair.nmaster            = 3
