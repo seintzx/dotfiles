@@ -374,12 +374,12 @@ awful.rules.rules = {
     -- 1
     { rule = { class = "Tor Browser" },
         properties = { screen = 1, tag = tag_name[1] } },
-    { rule = { class = "Brave-browser" },
+    { rule = { class = "Chromium" },
         properties = { screen = 1, tag = tag_name[1] } },
     { rule = { class = "firefox" },
         properties = { screen = 1, tag = tag_name[1] } },
     -- 2
-    { rule = { class = "Chromium" },
+    { rule = { class = "Brave-browser" },
         properties = { screen = 1, tag = tag_name[2] } },
     -- 4
     { rule = { class = "calibre" },
