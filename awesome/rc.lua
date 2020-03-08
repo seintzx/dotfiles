@@ -69,7 +69,7 @@ local scr_path      = "${HOME}/pictures/screenshot/"
 
 awful.util.terminal = terminal
 
-local tag_name = { "", "", "", "", "", "", "", "", "" }
+local tag_name = { "", "", "", "", "", "", "", "", "" }
 -- local tag_name = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
 awful.util.tagnames = tag_name
 
@@ -367,6 +367,9 @@ awful.rules.rules = {
         properties = { screen = 1, tag = tag_name[1] } },
     { rule = { class = "firefox" },
         properties = { screen = 1, tag = tag_name[1] } },
+    -- 2
+    { rule = { class = "Brave-browser" },
+        properties = { screen = 1, tag = tag_name[2] } },
     -- 4
     { rule = { class = "calibre" },
         properties = { screen = 1, tag = tag_name[4] } },
