@@ -51,7 +51,7 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "dunst", "greenclip daemon", "xset -b", "xset s off" })
+run_once({ "dunst", "greenclip daemon", "xset -b", "xset s off"}) --, "xset led 3", "numlockx" })
 
 
 -- VARIABLE DEFINITIONS ========================================================
@@ -77,6 +77,17 @@ awful.layout.layouts = {
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
     awful.layout.suit.max,
+}
+
+-- notification layout
+naughty.config.defaults = {
+    timeout = 5,
+    text = "",
+    screen = nil,
+    ontop = true,
+    margin = dpi(5),
+    border_width = dpi(1),
+    position = "bottom_right"
 }
 
 awful.util.taglist_buttons = my_table.join(
@@ -120,8 +131,8 @@ awful.util.tasklist_buttons = my_table.join(
             end
         end
     end),
-    awful.button({ }, 4, function () awful.client.focus.byidx(1) end),
-    awful.button({ }, 5, function () awful.client.focus.byidx(-1) end)
+    awful.button({ }, 4, function () awful.client.focus.byidx(-1) end),
+    awful.button({ }, 5, function () awful.client.focus.byidx(1) end)
 )
 
 lain.layout.termfair.nmaster            = 3
