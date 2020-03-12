@@ -167,7 +167,7 @@ local bat = lain.widget.bat({
     -- /sys/class/power_supply
     battery = "BAT0",
     ac = "AC",
-    n_perc = {20, 50},
+    n_perc = {15, 35},
     settings = function()
         if bat_now.status ~= "N/A" then
             if bat_now.ac_status == 1 then
