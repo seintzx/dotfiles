@@ -94,7 +94,7 @@ fi
 # some more ls aliases
 alias l='ls -lh --color=auto'
 alias la='ls -lhA --color=auto'
-alias psbot='ps aux | grep MFB | grep -v grep'
+# alias psbot='ps aux | grep MFB | grep -v grep'
 alias yay='sudo pacman -Syu'
 
 # Alias definitions.

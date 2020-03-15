@@ -20,9 +20,9 @@ Host bitbucket.org
     IdentityFile ~/.ssh/uni_rsa
 
 # odroid
-Host roci
+Host alarm
     HostName 192.168.1.12
-    User roci
+    User alarm
     Port 22
 
 # raspy
