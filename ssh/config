@@ -21,7 +21,7 @@ Host bitbucket.org
 
 # odroid
 Host alarm
-    HostName 192.168.1.12
+    HostName 192.168.1.53
     User alarm
     Port 22
 
