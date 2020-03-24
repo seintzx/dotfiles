@@ -32,3 +32,7 @@ Persistent=true
 [Install]
 WantedBy=timers.target
 ```
+
+```
+systemctl enable reflector.service
+```
