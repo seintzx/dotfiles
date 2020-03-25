@@ -96,6 +96,7 @@ alias l='ls -lh --color=auto'
 alias la='ls -lhA --color=auto'
 # alias psbot='ps aux | grep MFB | grep -v grep'
 alias yay='sudo pacman -Syu'
+alias portainer='docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
