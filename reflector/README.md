@@ -25,8 +25,7 @@ create a timer:
 Description=Run reflector weekly
 
 [Timer]
-OnCalendar=Mon *-*-* 7:00:00
-RandomizedDelaySec=15h
+OnCalendar=*-*-* 10:00:00
 Persistent=true
 
 [Install]
