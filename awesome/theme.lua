@@ -171,7 +171,8 @@ local bat = lain.widget.bat({
     settings = function()
         if bat_now.status ~= "N/A" then
             if bat_now.ac_status == 1 then
-                widget:set_markup(markup.font(theme.font, " AC "))
+                widget:set_markup(markup.font(theme.font, " AC ".. bat_now.perc
+                .. "% "))
                 baticon:set_image(theme.widget_ac)
                 return
             elseif not bat_now.perc and tonumber(bat_now.perc) <= 20 then
@@ -184,7 +185,8 @@ local bat = lain.widget.bat({
             widget:set_markup(markup.font(theme.font,
                                           " " .. bat_now.perc .. "% "))
         else
-            widget:set_markup(markup.font(theme.font, " AC "))
+            widget:set_markup(markup.font(theme.font, " AC ".. bat_now.perc ..
+            "% "))
             baticon:set_image(theme.widget_ac)
         end
     end
