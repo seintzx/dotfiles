@@ -15,6 +15,8 @@ alias s='startx'
 alias ct='cd /tmp'
 alias za='zathura --fork'
 alias paux='ps aux | grep -v grep | grep -i --color=auto'
+alias 1m='xrandr --output eDP1 --mode 3840x2160 --output DP3 --off'
+alias 2m='xrandr --output eDP1 --mode 3840x2160 --output DP3 --pos 3840x0 --panning 3840x2160+3840+0'
 
 # vpn aliases
 alias cvpn='cd ${HOME}/vpn/cesvpn ; sudo openvpn ep-udp-1195-santa.ovpn'

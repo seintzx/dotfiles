@@ -395,7 +395,7 @@ awful.rules.rules = {
         properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "Zathura" },
         properties = { screen = 1, tag = tag_name[5] } },
-    { rule = { class = "evince" },
+    { rule = { class = "Evince" },
         properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "Subl3" },
         properties = { screen = 1, tag = tag_name[5] } },
