@@ -8,13 +8,15 @@ plugin backup
 ## extension
 
 - bitwarden
-- dark reader
+- cookie autodelete
+- decentraleyes
 - https everywhere
 - privacy badger
 - uBlock origin
 - wappalyzer
-- tampermonkey
-- doctorn
+- tampermonkey (see torn repo for script)
+- torntools
+- torn exchange
 
 ## file path
 

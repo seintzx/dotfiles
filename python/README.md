@@ -1,8 +1,8 @@
 # python
 
 I suggest to create a virtual env where you will install all the module you need
-for your script, leave the system package only for the dependecies need by other
-program
+for your script, leave the system package only for the dependecies needed by
+other program
 
 ## venv
 
