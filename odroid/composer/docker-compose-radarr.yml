@@ -1,0 +1,22 @@
+services:
+  radarr:
+    command:
+    - linuxserver/radarr
+    container_name: radarr
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: unless-stopped
+    environment:
+      UMASK_SET: '022'
+      PUID: '1000'
+      TZ: Europe/Rome
+      PGID: '1000'
+    image: unless-stopped
+    ports:
+    - 7878:7878
+    volumes:
+    - /mnt/storage/docker-config/radarr:/config
+    - /mnt/storage/movie:/movies
+    - /mnt/storage/download:/downloads
+version: '3'

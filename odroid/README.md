@@ -28,3 +28,7 @@ be found in my config repo
 `pacman -S openvpn openssl easy-rsa`
 
 - [working script](https://github.com/angristan/openvpn-install)
+
+### docker-compose
+
+[this](https://8gwifi.org/dc1.jsp) will help you covnert docker commands into `docker-compose.yml` file

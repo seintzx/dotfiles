@@ -1,0 +1,12 @@
+services:
+  watchtower:
+    command:
+    - --cleanup
+    - --debug
+    - --interval
+    - '1'
+    container_name: watchtower
+    image: containrrr/watchtower:latest
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+version: '3'

@@ -1,0 +1,20 @@
+services:
+  jackett:
+    command:
+    - linuxserver/jackett
+    container_name: jackett
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: unless-stopped
+    environment:
+      PUID: '1000'
+      TZ: Europe/Rome
+      PGID: '1000'
+    image: unless-stopped
+    ports:
+    - 9117:9117
+    volumes:
+    - /mnt/storage/docker-config/jackett:/config
+    - /mnt/storage/download:/downloads
+version: '3'
