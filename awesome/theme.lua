@@ -22,7 +22,7 @@ local timer     = 5
 local HOME      = os.getenv("HOME")
 
 local theme                     = {}
-theme.font                      = "Hack 9"
+theme.font                      = "Fira Code 9"
 theme.dir                       = HOME .. "/.config/awesome"
 theme.wallpaper                 = theme.dir .. "/wallpaper.png"
 
