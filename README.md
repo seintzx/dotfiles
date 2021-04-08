@@ -14,7 +14,9 @@ installation (but they are covered in my guide) I suggest you follow this order
 to manually install packages:
 
 - `yay`
+- `yay -S systemd-boot-pacman-hook`
 - `xdg`
 - `slock`
+- install fonts
 - `st`
 - everything else
