@@ -2,6 +2,7 @@
 let g:ale_completion_enabled = 1
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'mindriot101/vim-yapf'
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'morhetz/gruvbox'                          " Colorscheme
 Plug 'tpope/vim-markdown'                       " Markdown support
 Plug 'vim-airline/vim-airline'                  " Airline
