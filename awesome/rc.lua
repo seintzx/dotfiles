@@ -253,13 +253,13 @@ globalkeys = my_table.join(
                         beautiful.volume.channel))
             beautiful.volume.update()
         end),
-    awful.key({                 }, "Print",
+    awful.key({ modkey          }, "y",
         function()
             os.execute( "scrot "
                         .. scr_path ..
                         "/scr-$(date +%Y_%m_%d)-%s.png", false)
         end),
-    awful.key({         "Shift" }, "Print",
+    awful.key({ modkey, "Shift" }, "y",
         function()
             os.execute( "sleep 0.2 ; scrot -s "
                         .. scr_path ..
