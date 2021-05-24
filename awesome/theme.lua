@@ -214,12 +214,12 @@ theme.volume = lain.widget.alsa({
 -- network =====================================================================
 local neticon = wibox.widget.imagebox()
 local net = lain.widget.net({
-    iface = {"wlp59s0"},
+    iface = {"wlp59s0", "enp58s0u1u3u1"},
     notify = "off",
     wifi_state = "on",
     eth_state = "on",
     settings = function()
-        local eth0 = net_now.devices["eno1"]
+        local eth0 = net_now.devices["enp58s0u1u3u1"]
         local wlan0 = net_now.devices["wlp59s0"]
 
         if eth0 then
