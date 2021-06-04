@@ -81,7 +81,7 @@ awful.layout.layouts = {
 
 -- notification layout
 naughty.config.defaults = {
-    timeout = 5,
+    timeout = 10,
     text = "",
     screen = nil,
     ontop = true,
