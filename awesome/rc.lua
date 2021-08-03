@@ -69,7 +69,7 @@ local scr_path      = "${HOME}/pictures/screenshot/"
 
 awful.util.terminal = terminal
 
-local tag_name = { "", "", "", "", "", "", "", "", "" }
+local tag_name = { "", "", "", "", "", "", "", "", "" }
 -- local tag_name = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
 awful.util.tagnames = tag_name
 
@@ -235,9 +235,9 @@ globalkeys = my_table.join(
         function()   os.execute(scrlocker)                  end),
     -- awful.key({ modkey, "Shift" }, "s",
     --     function()   os.execute(commoners)                  end),
-    awful.key({ modkey,         }, "F11",
+    awful.key({ modkey,         }, "F5",
         function()  os.execute("xbacklight -dec 5")         end),
-    awful.key({ modkey,         }, "F12",
+    awful.key({ modkey,         }, "F6",
         function()  os.execute("xbacklight -inc 5")         end),
     awful.key({ modkey }, "F2",
         function ()
@@ -389,7 +389,7 @@ awful.rules.rules = {
     { rule = { class = "Thunar" },
         properties = { screen = 1, tag = tag_name[4] } },
     -- 5
-    { rule = { class = "libreoffice" },
+    { rule = { class = "libreoffice-calc" },
         properties = { screen = 1, tag = tag_name[5] } },
     { rule = { class = "jetbrains-phpstorm" },
         properties = { screen = 1, tag = tag_name[5] } },
@@ -430,6 +430,8 @@ awful.rules.rules = {
     { rule = { class = "Signal" },
         properties = { screen = 1, tag = tag_name[7] } },
     -- 8
+    { rule = { class = "KeePassXC" },
+        properties = { screen = 1, tag = tag_name[8] } },
     { rule = { instance = "cloud.disroot.org__apps_tasks"},
         properties = {  screen = 1, tag = tag_name[8],
                         maximized_vertical = true,
