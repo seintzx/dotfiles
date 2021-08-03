@@ -52,7 +52,9 @@ alias -g jj="| jq .''"
 # config alias
 alias zconf='vim ~/.zshrc'
 
-
+# brave chips
+alias outlook='brave --app=https://outlook.office.com/mail/inbox &'
+alias prtg='brave --app=https://prtg.aciglobal.it/welcome.htm &'
 
 
 
