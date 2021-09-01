@@ -22,7 +22,7 @@ local timer     = 5
 local HOME      = os.getenv("HOME")
 
 local theme                     = {}
-theme.font                      = "Fira Code 9"
+theme.font                      = "Fira Code 11"
 theme.dir                       = HOME .. "/.config/awesome"
 theme.wallpaper                 = theme.dir .. "/wallpaper.png"
 
@@ -214,13 +214,13 @@ theme.volume = lain.widget.alsa({
 -- network =====================================================================
 local neticon = wibox.widget.imagebox()
 local net = lain.widget.net({
-    iface = {"wlp59s0", "enp58s0u1u3u1"},
+    iface = {"wlp3s0", "enp0s31f6"},
     notify = "off",
     wifi_state = "on",
     eth_state = "on",
     settings = function()
-        local eth0 = net_now.devices["enp58s0u1u3u1"]
-        local wlan0 = net_now.devices["wlp59s0"]
+        local eth0 = net_now.devices["enp0s31f6"]
+        local wlan0 = net_now.devices["wlp3s0"]
 
         if eth0 then
             widget:set_markup(
