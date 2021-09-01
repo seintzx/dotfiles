@@ -1,0 +1,23 @@
+configuration {
+    modi: "clipboard:greenclip print, calc:qalc +u8 -nocurrencies";
+    font: "Fira Code 11";
+    location: 2;
+    fixed-num-lines: true;
+    terminal: "st";
+	sidebar-mode: false;
+    dpi: 180;
+    threads: 2;
+    theme: "solarized";
+    disable-history: false;
+    kb-mode-next: "Shift+Right";
+    kb-mode-previous: "Shift+Left";
+}
+    /* width: 100; */
+    /* lines: 8; */
+    /* columns: 4; */
+    /* color-normal: "#444444, #00ff00, #444444, #777777, #ffff00"; */
+    /* color-urgent: "#fdf6e3, #dc322f, #eee8d5, #dc322f, #fdf6e3"; */
+    /* color-active: "#444444, #00ff00, #444444, #880088, #ffff00"; */
+    /* color-window: "#000000, #000000, #000000"; */
+    /* line-margin: 1; */
+    /* hide-scrollbar: true; */
