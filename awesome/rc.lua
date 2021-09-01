@@ -235,9 +235,9 @@ globalkeys = my_table.join(
         function()   os.execute(scrlocker)                  end),
     -- awful.key({ modkey, "Shift" }, "s",
     --     function()   os.execute(commoners)                  end),
-    awful.key({ modkey,         }, "F5",
+    awful.key({ modkey,         }, "F11",
         function()  os.execute("xbacklight -dec 5")         end),
-    awful.key({ modkey,         }, "F6",
+    awful.key({ modkey,         }, "F12",
         function()  os.execute("xbacklight -inc 5")         end),
     awful.key({ modkey }, "F2",
         function ()

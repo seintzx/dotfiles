@@ -56,6 +56,10 @@ alias zconf='vim ~/.zshrc'
 alias outlook='brave --app=https://outlook.office.com/mail/inbox &'
 alias prtg='brave --app=https://prtg.aciglobal.it/welcome.htm &'
 
+# yoroi alias
+alias orokup='nmcli connection up oroku --ask'
+alias orokud='nmcli connection down oroku'
+alias abuse='python ${HOME}/hub/work/script/mailabuse/mailabuse.py'
 
 
 # OLD ==========================================================================
