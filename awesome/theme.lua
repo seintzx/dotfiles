@@ -215,13 +215,13 @@ theme.volume = lain.widget.alsa({
 local neticon = wibox.widget.imagebox()
 local net = lain.widget.net({
     -- ip link show
-    iface = {"wlp59s0"},
+    iface = {"wlp58s0"},
     notify = "off",
     wifi_state = "on",
     eth_state = "on",
     settings = function()
         local eth0 = null --net_now.devices["enp0s31f6"]
-        local wlan0 = net_now.devices["wlp59s0"]
+        local wlan0 = net_now.devices["wlp58s0"]
 
         if eth0 then
             widget:set_markup(
