@@ -38,6 +38,6 @@ check_folder () {
     echo -e "You may want to check them individually"
 }
 
-${BASEDIR}/yay/install.sh
-install
+#${BASEDIR}/yay/install.sh
+#install
 check_folder
