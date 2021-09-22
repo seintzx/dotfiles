@@ -60,6 +60,7 @@ alias prtg='brave --app=https://prtg.aciglobal.it/welcome.htm &'
 alias orokup='nmcli connection up oroku --ask'
 alias orokud='nmcli connection down oroku'
 alias abuse='python ${HOME}/hub/work/script/mailabuse/mailabuse.py'
+alias burp='java --illegal-access=permit -Dfile.encoding=utf-8 -javaagent:${HOME}/documents/burpsuitepro/BurpSuiteLoader_v2020.12.1.jar -noverify -jar ${HOME}/documents/burpsuitepro/burpsuite_pro_v2020.12.1.jar &'
 
 
 # OLD ==========================================================================
