@@ -2,6 +2,7 @@ if [ -f "${HOME}/.Xresources" ] ; then
     xrdb -merge "${HOME}/.Xresources"
 fi
 export _JAVA_OPTIONS="-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dawt.useSystemAAFontSettings=on -Dsun.java2d.dpiaware=true -Dprism.allowhidpi=true"
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export GTK_SCALE=2
