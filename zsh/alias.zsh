@@ -54,6 +54,7 @@ alias zconf='vim ~/.zshrc'
 
 # brave chips
 alias outlook='brave --app=https://outlook.office.com/mail/inbox &'
+alias 3cx='brave --app=https://10.3.2.100:5001/webclient/#/people &'
 alias prtg='brave --app=https://prtg.aciglobal.it/welcome.htm &'
 
 # yoroi alias
