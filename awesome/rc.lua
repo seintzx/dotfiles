@@ -380,6 +380,8 @@ awful.rules.rules = {
         properties = { screen = 1, tag = tag_name[1] } },
     { rule = { class = "Brave-browser" },
         properties = { screen = 1, tag = tag_name[1] } },
+    { rule = { instance = "crx_baipgmmeifmofkcilhccccoipmjccehn" },
+        properties = { screen = 1, tag = tag_name[1] } },
     -- 2
     -- 4
     { rule = { class = "calibre" },
@@ -451,6 +453,10 @@ awful.rules.rules = {
                         maximized_vertical = true,
                         maximized_horizontal = true} },
     { rule = { instance = "outlook.office.com__mail_inbox"},
+        properties = {  screen = 1, tag = tag_name[8],
+                        maximized_vertical = true,
+                        maximized_horizontal = true} },
+    { rule = { instance = "10.3.2.100__webclient"},
         properties = {  screen = 1, tag = tag_name[8],
                         maximized_vertical = true,
                         maximized_horizontal = true} },
