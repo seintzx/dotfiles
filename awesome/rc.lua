@@ -378,11 +378,11 @@ awful.rules.rules = {
         properties = { screen = 1, tag = tag_name[1] } },
     { rule = { class = "firefox" },
         properties = { screen = 1, tag = tag_name[1] } },
-    { rule = { class = "Brave-browser" },
-        properties = { screen = 1, tag = tag_name[1] } },
     { rule = { instance = "crx_baipgmmeifmofkcilhccccoipmjccehn" },
         properties = { screen = 1, tag = tag_name[1] } },
     -- 2
+    { rule = { class = "Brave-browser" },
+        properties = { screen = 1, tag = tag_name[2] } },
     -- 4
     { rule = { class = "calibre" },
         properties = { screen = 1, tag = tag_name[4] } },
