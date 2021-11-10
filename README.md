@@ -17,6 +17,6 @@ to manually install packages:
 - `yay -S systemd-boot-pacman-hook`
 - `xdg`
 - `slock`
-- install fonts
+- `fonts`
 - `st`
 - everything else
