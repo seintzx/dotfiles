@@ -6,6 +6,7 @@
 yay -S neovim
 yay -S gvim
 yay -S vim-runtime
+yay -S sublime-text-dev
 ```
 
 Now we download VimPlug as plugin manager (it will create folder automatically)

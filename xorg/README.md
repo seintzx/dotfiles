@@ -13,6 +13,7 @@ yay -S xorg-twm
 yay -S numlockx
 yay -S arandr
 yay -S xsel
+yay -S xclip
 yay -S xf86-input-libinput
 yay -S terminus-font
 ```

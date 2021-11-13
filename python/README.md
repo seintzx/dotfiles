@@ -20,5 +20,6 @@ package manager `pip`
 ```bash
 yay -S python-neovim
 yay -S python-pip
+yay -S python-pipreqs
 yay -S yapf flake8
 ```

@@ -5,6 +5,7 @@
 ```bash
 yay -S zathura
 yay -S zathura-pdf-mupdf
+yay -S evince
 ```
 
 ## configuration
