@@ -1,3 +1,24 @@
+# fonts
+
+```
+yay -S arc-icon-theme
+yay -S libxft
+yay -S nerd-fonts-complete
+yay -S numix-themes-darkblue
+yay -S otf-font-awesome-4
+yay -S terminus-font
+yay -S ttf-fira-code
+yay -S ttf-font-awesome
+yay -S ttf-font-awesome-4
+yay -S ttf-symbola
+yay -S xorg-fonts-misc
+```
+
+
+
+# OLD TO FIX ------------------------------------------------------------------
+---
+
 # List of all my programs
 
 > NOTE: This wiki is almost deprecated, most of the things can be found in the

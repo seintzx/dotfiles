@@ -4,9 +4,11 @@
 
 ```bash
 yay -S networkmanager
-yay -S networkmanager-dmenu-git
 yay -S networkmanager-openvpn
 yay -S nm-connection-editor
+yay -S openvpn
+
+yay -S networkmanager-dmenu-git
 yay -S dnsmasq
 
 systemctl enable NetworkManager --now

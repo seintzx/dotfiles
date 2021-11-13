@@ -3,6 +3,7 @@
 ## installation
 
 - create a folder outside this repo
+- `yay -S libxext libxrandr`
 - `yay -G slock`
 - `cd slock`
 - `makepkg -o`
