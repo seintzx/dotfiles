@@ -1,8 +1,7 @@
 # my programs
 
-This list contains all packages that aren't covered in root folder, they are
-probably utility only so doesn't require custom config, or default config is
-enough
+This list contains all packages that aren't covered in install's scripts, mostly
+utility so doesn't require custom config, or default config is enough
 
 - `yay -Qqem` list packages from AUR
 - `yay -Qqen` list packages not from AUR
