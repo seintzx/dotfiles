@@ -147,7 +147,8 @@ local cpu = lain.widget.cpu({
     settings = function()
         widget:set_markup(
             markup.font(
-                theme.font, " " .. cpu_now.usage .. "% "))
+                theme.font, " " .. (cpu_now.usage>=10 and cpu_now.usage or
+                "0"..cpu_now.usage).. "% "))
     end
 })
 
