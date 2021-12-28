@@ -4,14 +4,14 @@ configuration {
     location: 2;
     fixed-num-lines: true;
     terminal: "st";
-	sidebar-mode: false;
+    sidebar-mode: false;
     dpi: 180;
     threads: 2;
-    theme: "solarized";
     disable-history: false;
     kb-mode-next: "Shift+Right";
     kb-mode-previous: "Shift+Left";
 }
+@theme "solarized"
     /* width: 100; */
     /* lines: 8; */
     /* columns: 4; */
