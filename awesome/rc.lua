@@ -61,7 +61,7 @@ local altkey        = "Mod1"
 local terminal      = "st -e /bin/tmux"
 local editor        = os.getenv("EDITOR") or "nvim"
 local gui_editor    = "gvim"
-local browser       = "firefox"
+local browser       = "Brave-browser"
 local script_path   = string.format("%s/.config/wm_script/", HOME)
 local scrlocker     = "slock"
 -- local commoners     = script_path .. "common.sh"
@@ -69,7 +69,7 @@ local scr_path      = "${HOME}/pictures/screenshot/"
 
 awful.util.terminal = terminal
 
-local tag_name = { "", "", "", "", "", "", "", "", "" }
+local tag_name = { "", "", "", "", "", "", "", "", "" }
 -- local tag_name = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
 awful.util.tagnames = tag_name
 
@@ -372,6 +372,8 @@ awful.rules.rules = {
 
     -- Personal Rules
     -- 1
+    { rule = { class = "Brave-browser" },
+        properties = { screen = 1, tag = tag_name[1] } },
     { rule = { class = "Tor Browser" },
         properties = { screen = 1, tag = tag_name[1] } },
     { rule = { class = "Chromium" },
@@ -381,8 +383,6 @@ awful.rules.rules = {
     { rule = { instance = "crx_baipgmmeifmofkcilhccccoipmjccehn" },
         properties = { screen = 1, tag = tag_name[1] } },
     -- 2
-    { rule = { class = "Brave-browser" },
-        properties = { screen = 1, tag = tag_name[2] } },
     -- 4
     { rule = { class = "calibre" },
         properties = { screen = 1, tag = tag_name[4] } },
