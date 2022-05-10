@@ -1,4 +1,4 @@
-# awesome wm
+# awesomewm
 
 ## installation
 
