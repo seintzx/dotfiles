@@ -15,9 +15,25 @@ yay -S firefox
 3. In `about:support` open the profile folder
 4. Delete everything inside and copy the `user.js` (this will delete any modification)
 
+> NOTE
+> 
+> This `user.js` its my merge between `ffprofile` and `arkenfox`, made to suits my preferences
+>
+> I suggest you read the resources to tune it according to your preferences
+
+#### resources
+
+- https://www.privacytools.io/#browser
+- https://ffprofile.com/
+- https://github.com/arkenfox/user.js
+- https://www.youtube.com/watch?v=F7-bW2y6lcI
+
+
 ### uBlock Origin
 
 TODO
+
+
 
 ## file path
 
