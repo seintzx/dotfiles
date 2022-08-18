@@ -149,3 +149,4 @@ user_pref("toolkit.telemetry.updatePing.enabled", false);
 user_pref("webgl.disabled", true);
 user_pref("webgl.renderer-string-override", " ");
 user_pref("webgl.vendor-string-override", " ");
+user_pref("svg.context-properties.content.enabled", true);
