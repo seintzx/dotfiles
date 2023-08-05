@@ -1,0 +1,8 @@
+// SublimeLinter Settings - User
+{
+  // "debug": true,
+  "lint_mode": "background",
+  "linters": {
+    
+  }
+}
