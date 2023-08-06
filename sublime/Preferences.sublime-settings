@@ -3,8 +3,19 @@
 	[
 		"Vintage",
 	],
-	"theme": "Default Dark.sublime-theme",
-	"color_scheme": "Monokai.sublime-color-scheme",
+	
+	"theme": "gruvbox.sublime-theme",
+	"color_scheme": "gruvbox (Dark) (Hard).sublime-color-scheme",
+	"gruvbox_accent_purple": true,
+	"gruvbox_tabs_xxs": true,
+	"gruvbox_panel_xxs": true,
+	"gruvbox_sidebar_compact": true,
+	"gruvbox_statusbar_s": true,
+	"gruvbox_underline_modified_tabs": true,
+	"gruvbox_underline_active_tab": true,
+	"gruvbox_underline_active_tab_thick": true,
+	"gruvbox_scrollbar_width_s": true,
+
 	"font_size": 10,
 	"font_face": "DejaVu Sans Mono",
 
@@ -13,7 +24,7 @@
 	"draw_white_space": ["trailing", "selection", "isolated"],
 	"rulers": [[80, "dotted"]],
 
-	"open_files_in_new_window": false,
+	"open_files_in_new_window": "never",
 	"preview_on_click": false,
 	"highlight_modified_tabs": true,
 }

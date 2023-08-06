@@ -1,7 +1,7 @@
 // SublimeLinter Settings - User
 {
   // "debug": true,
-  "lint_mode": "background",
+  "lint_mode": "load_save",
   "linters": {
     
   }
