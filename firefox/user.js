@@ -13,6 +13,7 @@ user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
 user_pref("browser.disableResetPrompt", true);
 user_pref("browser.discovery.enabled", false);
+user_pref("browser.download.autohideButton", false);
 user_pref("browser.formfill.enable", false); // DisableFormHistory
 user_pref("browser.newtab.preload", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
@@ -135,7 +136,6 @@ user_pref("privacy.partition.network_state.ocsp_cache", true);
 user_pref("privacy.query_stripping.enabled", true);
 user_pref("privacy.query_stripping", true);
 user_pref("privacy.resistFingerprinting", true); // resistFingerprinting
-user_pref("privacy.sanitize.pending", "[{\"id\":\"newtab-container\",\"itemsToClear\":[],\"options\":{}},{\"id\":\"shutdown\",\"itemsToClear\":[\"cache\",\"cookies\",\"offlineApps\",\"formdata\",\"sessions\"],\"options\":{}}]");
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.emailtracking.enabled", true);
