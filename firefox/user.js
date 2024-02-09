@@ -17,12 +17,14 @@ user_pref("browser.formfill.enable", false); // DisableFormHistory
 user_pref("browser.newtab.preload", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 user_pref("browser.newtabpage.activity-stream.showSearch", false);
+user_pref("browser.newtabpage.activity-stream.showSponsored", false);
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
 user_pref("browser.newtabpage.enabled", false); // disable NewTabPage
 user_pref("browser.newtabpage.enhanced", false);
@@ -82,6 +84,7 @@ user_pref("experiments.enabled", false);
 user_pref("experiments.manifest.uri", "");
 user_pref("experiments.supported", false);
 user_pref("extensions.autoDisableScopes", 14);
+user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
 user_pref("extensions.getAddons.cache.enabled", false);
 user_pref("extensions.getAddons.showPane", false);
@@ -91,8 +94,8 @@ user_pref("extensions.pocket.enabled", false); // DisablePocket
 user_pref("extensions.shield-recipe-client.api_url", "");
 user_pref("extensions.shield-recipe-client.enabled", false);
 user_pref("extensions.webservice.discoverURL", "");
-user_pref("identity.fxaccounts.enabled", false); // DisableFirefoxAccounts
 user_pref("geo.enabled", false);
+user_pref("identity.fxaccounts.enabled", false); // DisableFirefoxAccounts
 user_pref("layout.css.devPixelsPerPx", "0.96");
 user_pref("layout.css.prefers-color-scheme.content-override", 0);
 user_pref("layout.spellcheckDefault", 0);
@@ -148,7 +151,6 @@ user_pref("signon.management.page.breach-alerts.enabled", true);
 user_pref("signon.rememberSignons", false);
 user_pref("toolkit.telemetry.archive.enabled", false);
 user_pref("toolkit.telemetry.bhrPing.enabled", false);
-
 user_pref("toolkit.telemetry.enabled", false); // DisableTelemetry
 user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
 user_pref("toolkit.telemetry.hybridContent.enabled", false);
