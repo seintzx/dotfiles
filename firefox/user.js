@@ -48,6 +48,7 @@ user_pref("browser.shell.checkDefaultBrowser", false);
 user_pref("browser.startup.homepage_override.mstone", "ignore");
 user_pref("browser.startup.page", 3);
 user_pref("browser.tabs.crashReporting.sendReport", false);
+user_pref("browser.tabs.firefox-view", false);
 user_pref("browser.tabs.tabmanager.enabled", false);
 user_pref("browser.urlbar.groupLabels.enabled", false);
 user_pref("browser.urlbar.placeholderName", "Google");
