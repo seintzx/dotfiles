@@ -106,7 +106,7 @@ user_pref("media.autoplay.enabled", false);
 user_pref("media.eme.enabled", false);
 user_pref("media.gmp-widevinecdm.enabled", false);
 user_pref("media.navigator.enabled", false);
-user_pref("media.peerconnection.enabled", false);
+user_pref("media.peerconnection.enabled", false); //WebRTC, breaks meet
 user_pref("media.video_stats.enabled", false);
 user_pref("network.allow-experiments", false);
 user_pref("network.captive-portal-service.enabled", false); // CaptivePortal
