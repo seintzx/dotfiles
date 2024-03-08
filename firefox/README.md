@@ -13,13 +13,21 @@ yay -S firefox
 1. Launch firefox with the profile manager `firefox --no-remote -ProfileManager`
 2. Create a new profile
 3. In `about:support` open the profile folder
-4. Delete everything inside and copy the `user.js` (this will delete any modification)
+4. Delete everything inside the folder
+5. Rename the chosen profile to `user.js` and copy it into the profile folder
 
 > NOTE
-> 
 > This `user.js` its my merge between `ffprofile` and `arkenfox`, made to suits my preferences
->
 > I suggest you read the resources to tune it according to your preferences
+
+### profiles
+
+There are 3 profiles:
+
+- `full-privacy.js`: blocks most things, it breaks multimedia website (meet, teams, spotify, etc..)
+- `half-privacy.js`: blocks most things without breaking multimedia websites
+- `no-privacy.js`: default profile with some annoyances disabled (doesn't do much to protect your privacy)
+
 
 #### resources
 
@@ -31,8 +39,7 @@ yay -S firefox
 
 ### uBlock Origin
 
-TODO
-
+`ublock.txt` can be imported to use my custom settings
 
 
 ## file path
