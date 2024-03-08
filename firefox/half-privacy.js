@@ -75,6 +75,7 @@ user_pref("device.sensors.motion.enabled", false);
 user_pref("device.sensors.orientation.enabled", false);
 user_pref("device.sensors.proximity.enabled", false);
 user_pref("doh-rollout.disable-heuristics", true);
+user_pref("doh-rollout.home-region", "US");
 user_pref("dom.battery.enabled", false);
 user_pref("dom.event.clipboardevents.enabled", false);
 user_pref("dom.forms.autocomplete.formautofill", false);
@@ -106,7 +107,7 @@ user_pref("media.autoplay.enabled", false);
 user_pref("media.eme.enabled", false);
 user_pref("media.gmp-widevinecdm.enabled", false);
 user_pref("media.navigator.enabled", false);
-user_pref("media.peerconnection.enabled", true); // WebRTC, breaks meet
+user_pref("media.peerconnection.enabled", true); // WebRTC, breaks streaming if disabled
 user_pref("media.video_stats.enabled", false);
 user_pref("network.allow-experiments", false);
 user_pref("network.captive-portal-service.enabled", false); // CaptivePortal
@@ -135,7 +136,7 @@ user_pref("privacy.history.custom", true);
 user_pref("privacy.partition.network_state.ocsp_cache", true);
 user_pref("privacy.query_stripping.enabled", true);
 user_pref("privacy.query_stripping", true);
-user_pref("privacy.resistFingerprinting", false); // resistFingerprinting
+user_pref("privacy.resistFingerprinting", false); // resistFingerprinting, breaks stuff if enabled
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.emailtracking.enabled", true);
