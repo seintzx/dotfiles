@@ -18,3 +18,7 @@ You also can keep following the guide as it explain everything perfectly, I'll r
 - Open the `keymap.c` file and make your edits OR copy the files in this repo into your newly created folder
 - Compile it with `qmk compile -kb lily58/rev1 -km <keymap>`
 - Once it completes you will have a `.hex` file which can be flashed from command line or by using the QMK Tool
+
+## current layout
+
+![layout](./lily58-layout.png)
