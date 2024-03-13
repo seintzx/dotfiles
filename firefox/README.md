@@ -27,6 +27,7 @@ There are 3 profiles:
 - `full-privacy.js`: blocks most things, it breaks multimedia website (meet, teams, spotify, etc..)
 - `half-privacy.js`: blocks most things without breaking multimedia websites
 - `no-privacy.js`: default profile with some annoyances disabled (doesn't do much to protect your privacy)
+- `complete.js`: merge of half and no privacy, it retains most privacy feature while enabling options for stream, music and other useful things
 
 
 #### resources
