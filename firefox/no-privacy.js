@@ -23,15 +23,15 @@ user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
 user_pref("browser.newtabpage.enabled", false); // disable NewTabPage
 user_pref("browser.newtabpage.enhanced", false);
 user_pref("browser.newtabpage.introShown", true);
-user_pref("browser.safebrowsing.blockedURIs.enabled", false);
-user_pref("browser.safebrowsing.downloads.enabled", false);
-user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
-user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
+user_pref("browser.safebrowsing.blockedURIs.enabled", true);
+user_pref("browser.safebrowsing.downloads.enabled", true);
+user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", true);
+user_pref("browser.safebrowsing.downloads.remote.block_uncommon", true);
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 user_pref("browser.safebrowsing.downloads.remote.url", "");
 user_pref("browser.safebrowsing.enabled", true);
-user_pref("browser.safebrowsing.malware.enabled", false);
-user_pref("browser.safebrowsing.phishing.enabled", false);
+user_pref("browser.safebrowsing.malware.enabled", true);
+user_pref("browser.safebrowsing.phishing.enabled", true);
 user_pref("browser.search.region", "US");
 user_pref("browser.sessionstore.privacy_level", 2);
 user_pref("browser.tabs.crashReporting.sendReport", false);
@@ -62,7 +62,7 @@ user_pref("device.sensors.proximity.enabled", false);
 user_pref("doh-rollout.home-region", "US");
 user_pref("doh-rollout.disable-heuristics", true);
 user_pref("dom.battery.enabled", false);
-user_pref("dom.event.clipboardevents.enabled", false);
+user_pref("dom.event.clipboardevents.enabled", false); // breaks copy paste on google sheet if false
 user_pref("dom.forms.autocomplete.formautofill", false);
 user_pref("dom.security.https_only_mode_ever_enabled", true);
 user_pref("dom.security.https_only_mode", true);
@@ -88,8 +88,8 @@ user_pref("layout.css.prefers-color-scheme.content-override", 0);
 user_pref("layout.spellcheckDefault", 0);
 user_pref("media.autoplay.default", 1);
 user_pref("media.autoplay.enabled", false);
-user_pref("media.eme.enabled", false);
-user_pref("media.gmp-widevinecdm.enabled", false);
+user_pref("media.eme.enabled", true); // spotify
+user_pref("media.gmp-widevinecdm.enabled", true); // spotify
 user_pref("media.navigator.enabled", false);
 user_pref("media.video_stats.enabled", false);
 user_pref("network.allow-experiments", false);
