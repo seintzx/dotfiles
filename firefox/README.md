@@ -22,13 +22,16 @@ yay -S firefox
 
 ### profiles
 
-There are 3 profiles:
+There are 4 profiles:
 
 - `full-privacy.js`: blocks most things, it breaks multimedia website (meet, teams, spotify, etc..)
 - `half-privacy.js`: blocks most things without breaking multimedia websites
 - `no-privacy.js`: default profile with some annoyances disabled (doesn't do much to protect your privacy)
 - `complete.js`: merge of half and no privacy, it retains most privacy feature while enabling options for stream, music and other useful things
 
+There's no out-of-the-box profile yet, the best one is the complete one since it protects privacy as much as possible without breaking stuff
+
+If you have problems with teams or google meet set `media.peerconnection.enabled` to `true`
 
 #### resources
 
