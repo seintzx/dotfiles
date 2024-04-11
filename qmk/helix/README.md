@@ -20,4 +20,4 @@ You also can keep following the guide as it explain everything perfectly, I'll r
 
 ## current layout
 
-![layout]()
+![layout](./helix-layout.png)
