@@ -17,6 +17,8 @@ You also can keep following the guide as it explain everything perfectly, I'll r
 - Open the `keymap.c` file and make your edits OR copy the files in this repo into your newly created folder
 - Compile it with `qmk compile -kb helix/rev3_5rows -km <keymap>`
 - Once it completes you will have a `.hex` file which can be flashed from command line or by using the QMK Tool
+- To create a `.json` file to import on the online configurator you can run
+    `qmk c2json -kb helix/rev3_5rows -km <keymap> -o output.json /path/to/keymap.c`
 
 ## current layout
 
