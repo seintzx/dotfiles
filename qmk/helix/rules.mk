@@ -1,21 +1,20 @@
-NKRO_ENABLE = no            # No idea
-BOOTMAGIC_ENABLE = no       # Enable Bootmagic Lite
-MOUSEKEY_ENABLE = no        # Mouse keys
-EXTRAKEY_ENABLE = no        # Audio control and System control
-CONSOLE_ENABLE = no         # Console for debug
-COMMAND_ENABLE = no         # Commands for debug and configuration
 AUDIO_ENABLE = no           # Audio output
-SWAP_HANDS_ENABLE = no      # Enable one-hand typing
 BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
-
-RGBLIGHT_ENABLE = yes       # Enable WS2812 RGB underlight.
+BOOTMAGIC_ENABLE = no       # Enable Bootmagic Lite
+COMMAND_ENABLE = no         # Commands for debug and configuration
+CONSOLE_ENABLE = no         # Console for debug
+DIP_SWITCH_ENABLE = no
+ENCODER_ENABLE = no
+EXTRAKEY_ENABLE = no        # Audio control and System control
+LTO_ENABLE = yes
+MOUSEKEY_ENABLE = no        # Mouse keys
+NKRO_ENABLE = no            # No idea
+OLED_DRIVER = SSD1306
 OLED_ENABLE= yes            # OLED display
+RGB_MATRIX_DRIVER = WS2812
+RGB_MATRIX_ENABLE = no
+RGBLIGHT_ENABLE = yes       # Enable WS2812 RGB underlight.
+SPLIT_KEYBOARD = yes
+SWAP_HANDS_ENABLE = no      # Enable one-hand typing
 
-# If you want to change the display of OLED, you need to change here
-SRC +=  ./lib/rgb_state_reader.c \
-        ./lib/layer_state_reader.c \
-        ./lib/logo_reader.c \
-        ./lib/keylogger.c \
-        # ./lib/mode_icon_reader.c \
-        # ./lib/host_led_state_reader.c \
-        # ./lib/timelogger.c \
+SRC += oled_display.c
