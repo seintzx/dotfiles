@@ -51,6 +51,8 @@
 
   "npm.packageManager": "npm",
 
+  "telemetry.telemetryLevel": "off",
+
   "window.zoomLevel": 0,
   // "window.density.editorTabHeight": "compact",
 
