@@ -21,16 +21,16 @@
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderControlCharacters": false,
   "editor.renderWhitespace": "trailing",
-  "editor.rulers": [120],
+  "editor.rulers": [82],
   "editor.showUnused": true,
   "editor.smoothScrolling": true,
   "editor.snippetSuggestions": "bottom",
-  "editor.stickyScroll.enabled": true,
+  "editor.stickyScroll.enabled": false,
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": true,
   "editor.wordWrap": "wordWrapColumn",
-  "editor.wordWrapColumn": 120,
+  "editor.wordWrapColumn": 82,
 
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
@@ -64,7 +64,7 @@
   "workbench.editor.showTabs": "multiple",
   "workbench.editor.tabSizing": "shrink",
   "workbench.enableExperiments": false,
-  "workbench.panel.defaultLocation": "right",
+  "workbench.panel.defaultLocation": "bottom",
   "workbench.settings.editor": "json",
   "workbench.sideBar.location": "left",
   "workbench.startupEditor": "newUntitledFile",
@@ -89,5 +89,27 @@
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file"
-  }
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "javascript": "typescript",
+    "css": "css"
+  },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    ".*Styles",
+    "nstCN.*"
+  ]
 }
