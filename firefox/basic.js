@@ -42,10 +42,10 @@ user_pref("browser.tabs.firefox-view", false); // disable tab manager
 user_pref("browser.tabs.tabmanager.enabled", false); // disable tab manager
 user_pref("browser.urlbar.quicksuggest.dataCollection.enabled", false);
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // search suggestion
-user_pref("browser.urlbar.suggest.bookmark", false); // search suggestion
-user_pref("browser.urlbar.suggest.clipboard", false); // search suggestion
+user_pref("browser.urlbar.suggest.bookmark", true); // search suggestion
+user_pref("browser.urlbar.suggest.clipboard", true); // search suggestion
 user_pref("browser.urlbar.suggest.engines", false); // search suggestion
-user_pref("browser.urlbar.suggest.history", false); // search suggestion
+user_pref("browser.urlbar.suggest.history", true); // search suggestion
 user_pref("browser.urlbar.suggest.openpage", false); // search suggestion
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
