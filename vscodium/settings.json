@@ -10,7 +10,7 @@
   "editor.cursorStyle": "line",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.detectIndentation": false,
-  "editor.fontFamily": "Fira Code", // DejaVu Sans Mono,  Open Sans, Menlo, Monaco, 'Courier New', monospace
+  "editor.fontFamily": "Fira Code",
   "editor.fontSize": 14,
   "editor.fontWeight": 400,
   "editor.formatOnSave": true,
@@ -21,28 +21,47 @@
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderControlCharacters": false,
   "editor.renderWhitespace": "trailing",
-  "editor.rulers": [82],
+  "editor.rulers": [120],
   "editor.showUnused": true,
   "editor.smoothScrolling": true,
   "editor.snippetSuggestions": "bottom",
   "editor.stickyScroll.enabled": true,
   "editor.tabCompletion": "on",
-  "editor.tabSize": 2,
+  "editor.tabSize": 4,
   "editor.trimAutoWhitespace": true,
   "editor.wordWrap": "wordWrapColumn",
-  "editor.wordWrapColumn": 82,
+  "editor.wordWrapColumn": 120,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
 
+  "explorer.compactFolders": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 2,
-  "explorer.compactFolders": false,
 
   "files.autoSave": "onFocusChange",
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+
+  "github.copilot.enable": {
+    "json": false,
+    "yaml": false,
+    "ini": false,
+    "xml": false,
+    "dotenv": false
+  },
 
   "html.format.enable": true,
+
+  "isort.importStrategy": "fromEnvironment",
 
   "markdown.editor.pasteUrlAsFormattedLink.enabled": "smart",
   "markdown.preview.scrollEditorWithPreview": true,
@@ -51,10 +70,16 @@
 
   "npm.packageManager": "npm",
 
+  "security.allowedUNCHosts": ["wsl.localhost"],
+  "security.workspace.trust.untrustedFiles": "open",
+
   "telemetry.telemetryLevel": "off",
 
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  "update.showReleaseNotes": false,
+
   "window.zoomLevel": 0,
-  // "window.density.editorTabHeight": "compact",
 
   "workbench.colorTheme": "Gruvbox Dark Hard",
   "workbench.editor.decorations.colors": true,
@@ -70,10 +95,8 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": true,
   "workbench.tree.enableStickyScroll": false,
-  "workbench.tree.indent": 11,
+  "workbench.tree.indent": 12,
   "workbench.tree.renderIndentGuides": "always",
-
-  "isort.importStrategy": "fromEnvironment",
 
   "[markdown]": {
     "editor.unicodeHighlight.invisibleCharacters": true
@@ -89,16 +112,6 @@
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file"
-  },
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "git.enableSmartCommit": true,
-  "git.confirmSync": false,
-
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
-  "editor.quickSuggestions": {
-    "strings": true
   },
   "tailwindCSS.includeLanguages": {
     "html": "html",
