@@ -1,5 +1,6 @@
 # To export the Visual Studio Code extension list, run
 # code --list-extensions | xargs -L 1 echo code --install-extension        
+# code --list-extensions | % { "code --install-extension $_" }
 
 code --install-extension dbaeumer.vscode-eslint &&
 code --install-extension esbenp.prettier-vscode &&
