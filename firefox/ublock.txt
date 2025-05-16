@@ -1,32 +1,24 @@
 {
-  "timeStamp": 1707515519808,
-  "version": "1.55.0",
+  "timeStamp": 1747416028421,
+  "version": "1.63.2",
   "userSettings": {
     "advancedUserEnabled": true,
-    "externalLists": "https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters/-/raw/main/bpc-paywall-filter.txt\nhttps://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt\nhttps://raw.githubusercontent.com/liamengland1/miscfilters/master/antipaywall.txt",
-    "importedLists": [
-      "https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters/-/raw/main/bpc-paywall-filter.txt",
-      "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt",
-      "https://raw.githubusercontent.com/liamengland1/miscfilters/master/antipaywall.txt"
-    ],
-    "popupPanelSections": 31
+    "importedLists": [],
+    "popupPanelSections": 31,
+    "suspendUntilListsAreLoaded": false
   },
   "selectedFilterLists": [
     "user-filters",
-    "ublock-filters",
     "ublock-badware",
     "ublock-privacy",
     "ublock-quick-fixes",
     "ublock-unbreak",
     "easylist",
-    "adguard-spyware-url",
     "easyprivacy",
     "urlhaus-1",
-    "curben-phishing",
     "plowe-0",
-    "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt",
-    "https://raw.githubusercontent.com/liamengland1/miscfilters/master/antipaywall.txt",
-    "https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters/-/raw/main/bpc-paywall-filter.txt"
+    "ublock-cookies-easylist",
+    "ublock-annoyances"
   ],
   "hiddenSettings": {},
   "whitelist": [
@@ -37,10 +29,11 @@
     "moz-extension-scheme",
     "opera-scheme",
     "vivaldi-scheme",
+    "www.amazon.it",
     "wyciwyg-scheme"
   ],
   "dynamicFilteringString": "behind-the-scene * * noop\nbehind-the-scene * inline-script noop\nbehind-the-scene * 1p-script noop\nbehind-the-scene * 3p-script noop\nbehind-the-scene * 3p-frame noop\nbehind-the-scene * image noop\nbehind-the-scene * 3p noop",
   "urlFilteringString": "",
   "hostnameSwitchesString": "no-large-media: behind-the-scene false\nno-csp-reports: * true",
-  "userFilters": "3p-script block\n3p-frame block\n"
+  "userFilters": ""
 }
