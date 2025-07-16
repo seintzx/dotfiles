@@ -1,3 +1,4 @@
+
 user_pref("app.shield.optoutstudies.enabled", false); // DisableFirefoxStudies
 user_pref("app.update.auto", false);
 user_pref("app.update.background.allowUpdatesForUnelevatedInstallations",false);
@@ -84,8 +85,14 @@ user_pref("extensions.pocket.enabled", false); // DisablePocket
 user_pref("extensions.shield-recipe-client.api_url", "");
 user_pref("extensions.shield-recipe-client.enabled", false);
 user_pref("extensions.webservice.discoverURL", "");
+user_pref("fission.autostart", true);
 user_pref("geo.enabled", false);
+user_pref("gfx.webrender.all", true);
 user_pref("identity.fxaccounts.enabled", false); // DisableFirefoxAccounts
+user_pref("javascript.options.mem.gc_allocation_threshold_mb", 1024);
+user_pref("javascript.options.mem.gc_high_frequency_heap_growth_max", 400);
+user_pref("javascript.options.mem.gc_high_frequency_low_limit_mb", 512);
+user_pref("layers.gpu-process.enabled", true);
 user_pref("layout.spellcheckDefault", 1);
 user_pref("media.eme.enabled", true);
 user_pref("memory.phc.enabled", false);
