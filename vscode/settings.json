@@ -11,9 +11,8 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.detectIndentation": false,
   "editor.fontFamily": "Fira Code",
-  "editor.fontSize": 14,
+  "editor.fontSize": 13,
   "editor.fontWeight": 400,
-  "editor.formatOnSave": true,
   "editor.insertSpaces": true,
   "editor.letterSpacing": 0,
   "editor.lineNumbers": "on",
@@ -38,7 +37,7 @@
   "explorer.compactFolders": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "explorer.openEditors.visible": 2,
+  "explorer.openEditors.visible": 5,
 
   "files.autoSave": "onFocusChange",
   "files.eol": "\n",
@@ -72,8 +71,6 @@
 
   "security.allowedUNCHosts": ["wsl.localhost"],
   "security.workspace.trust.untrustedFiles": "open",
-
-  "telemetry.telemetryLevel": "off",
 
   "typescript.updateImportsOnFileMove.enabled": "always",
 
@@ -124,5 +121,27 @@
     "ngClass",
     ".*Styles",
     "nstCN.*"
+  ],
+  "remote.SSH.remotePlatform": {
+    "192.168.1.12": "linux"
+  },
+  "editor.formatOnSave": true,
+  "json.schemaDownload.enable": false,
+
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": ["-pdf", "-interaction=nonstopmode", "-synctex=1", "%DOC%"]
+    }
+  ],
+
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (PDF)",
+      "tools": ["latexmk"]
+    }
   ]
 }
