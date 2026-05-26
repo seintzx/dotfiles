@@ -46,6 +46,21 @@ If you have problems with teams or google meet set `media.peerconnection.enabled
 `ublock.txt` can be imported to use my custom settings
 
 
+### AMD driver timeout possible fix
+
+To control WebRender, use these settings in `about:config`:
+
+- Disable WebRender: Set `gfx.webrender.all` to `false`.
+- Force Software Rendering: Set `gfx.webrender.software` to `true` (this uses the CPU instead of the GPU).
+
+
+To check the current compositing status:
+- open `about:support` and look for the "Compositing" entry under the Graphics section.
+  - If it shows "WebRender", it's active
+  - if it shows "WebRender (software)", it's running on the CPU
+  - if it shows something else (like "Direct3D 11"), WebRender is not in use.
+
+
 ## file path
 
 - `/path/to/profile/user.js`
