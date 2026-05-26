@@ -126,3 +126,7 @@ user_pref("signon.generation.enabled", false);
 user_pref("signon.management.page.breach-alerts.enabled", false);
 user_pref("signon.rememberSignons", false);
 user_pref("xpinstall.whitelist.required", true);
+
+// disable webrender (seems to solve AMD driver timeout)
+user_pref("gfx.webrender.all", false);
+user_pref("gfx.webrender.software", true);
